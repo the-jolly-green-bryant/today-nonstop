@@ -1,0 +1,80 @@
+{
+    "characters": {
+        "player": {
+            "avatar": "https://via.placeholder.com/150"
+        }
+    },
+    "dialog": {
+        "wakeup": {
+            "speaker": "player",
+            "dialog": [
+                "[[SHOW_IMAGE]]https://colincedarbell.files.wordpress.com/2016/12/rainy-window-2-15-2014-4-47-19-pm.jpg?w=587&h=391",
+                "**grumble**",
+                "What day is it?"
+            ],
+            "skip_to_if": {
+                "finished_once": "wakeup_repeat"
+            },
+            "next": {
+                "eat_breakfast": {
+                    "title": "Let's get some breakfast before",
+                    "dialog": [
+                        "I'm starving!",
+                        "Let's get some breakfast before we start chores."
+                    ]
+                },
+                "start_chores": {
+                    "title": "Let's get a jump on the morning chores",
+                    "dialog": [
+                        "No time like the present to start work!"
+                    ]
+                }
+            }
+        },
+
+        "wakeup_repeat": {
+            "speaker": "player",
+            "dialog": [
+                "[[SHOW_IMAGE]]https://colincedarbell.files.wordpress.com/2016/12/rainy-window-2-15-2014-4-47-19-pm.jpg?w=587&h=391",
+                "Heavy storm two mornings in a row. Strange."
+            ],
+            "next": {
+                "eat_breakfast": {
+                    "title": "Let's get some breakfast before",
+                    "dialog": [
+                        "I'm starving!",
+                        "Let's get some breakfast before we start chores."
+                    ]
+                },
+                "start_chores": {
+                    "title": "Let's get a jump on the morning chores",
+                    "dialog": [
+                        "No time like the present to start work!"
+                    ]
+                }
+            }
+        },
+
+        "eat_breakfast": {
+            "speaker": "player",
+            "dialog": [
+                "[[SHOW_IMAGE]]https://t4.ftcdn.net/jpg/02/47/19/91/360_F_247199107_3W9Clvj0lRf2z1g5wx206ybAccczNd9H.jpg",
+                "This is a legit breakfast!"
+            ],
+            "next": {
+                "start_chores": {
+                    "dialog": [
+                        "Whelp, guess it's time to start work"
+                    ]
+                }
+            }
+        },
+
+        "start_chores": {
+            "speaker": "player",
+            "dialog": [
+                "This sucks..."
+            ]
+        }
+    }
+}
