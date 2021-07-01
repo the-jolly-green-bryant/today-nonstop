@@ -3,6 +3,7 @@
   "ignorePatterns": ["projects/**/*"],
   "rules": {
       "camelcase": ["off"],
+      "jsdoc/no-types": ["off"],
       "@typescript-eslint/naming-convention": [
         "error",
         {
@@ -64,7 +65,8 @@
             "selector": "variable",
             "format": ["camelCase", "UPPER_CASE", "snake_case"]
           }
-        ]
+        ],
+        "jsdoc/no-types": ["off"]
       }
     },
     {
