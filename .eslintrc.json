@@ -1,6 +1,16 @@
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
+  "rules": {
+      "camelcase": ["off"],
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          "selector": "variable",
+          "format": ["camelCase", "UPPER_CASE", "snake_case"]
+        }
+      ]
+  },
   "overrides": [
     {
       "files": ["*.ts"],
@@ -34,6 +44,25 @@
             "type": "attribute",
             "prefix": "app",
             "style": "camelCase"
+          }
+        ],
+        "@typescript-eslint/quotes": [
+          "error",
+          "double",
+          {
+            "allowTemplateLiterals": true
+          }
+        ],
+        "@typescript-eslint/semi": [
+          "error",
+          "never"
+        ],
+        "camelcase": ["off"],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "variable",
+            "format": ["camelCase", "UPPER_CASE", "snake_case"]
           }
         ]
       }
