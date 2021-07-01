@@ -1,0 +1,8 @@
+{
+  "name": "Today Nonstop",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "3bf8da22"
+}
