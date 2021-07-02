@@ -1,7 +1,12 @@
 {
     "characters": {
         "player": {
-            "avatar": "https://via.placeholder.com/150"
+            "avatar": "https://via.placeholder.com/150",
+            "name": "I'm the player!"
+        },
+        "evil_voice": {
+            "avatar": "https://via.placeholder.com/150",
+            "name": "Player's evil voice"
         }
     },
     "dialog": {
@@ -72,7 +77,7 @@
             "next": {
                 "start_chores": {
                     "dialog": [
-                        "[[DELAY]]3.5",
+                        "[[DELAY]]9.5",
                         "Whelp, guess it's time to start work"
                     ]
                 }
@@ -82,8 +87,8 @@
         "start_chores": {
             "speaker": "player",
             "dialog": [
-                "[[SET_SPEAKER]]player",
-                "This sucks..."
+                "[[SET_SPEAKER]]evil_voice",
+                "This sucks, you should stop working"
             ]
         }
     }

@@ -14,7 +14,21 @@ export class DialogStream {
      *
      * @type {string[]}
      */
-    public feed: string[] = []
+    public feed: DialogCommand[] = []
+
+    /**
+     * Any options that should be displayed to the player.
+     *
+     * @type {DialogOption[]}
+     */
+    public options: DialogOption[] = []
+
+    /**
+     * The last active speaker
+     *
+     * @type {DialogSpeaker}
+     */
+    last_speaker: DialogSpeaker = null
 
     /**
      * The number of seconds to wait between rendering dialog lines.
@@ -60,7 +74,13 @@ export class DialogStream {
     async render_lines(lines: string[]) {
         for (const line of lines) {
             console.log(`Pushing Line: ${line}`)
-            this.feed.push(line)
+            const item = this.parse_feed_item(line)
+            this.feed.push(item)
+
+            if (item.command === "DELAY") {
+                await this.delay(parseFloat(item.argument) * 1000)
+            }
+
             await this.delay(this.SECONDS_BETWEEN_DIALOG_LINES * 1000)
         }
     }
@@ -75,6 +95,7 @@ export class DialogStream {
         if (!scene_object.next || Object.keys(scene_object.next).length === 0) {
             // TODO - We have nowhere to go! We've reached the end of the game.
             console.log("\n\n!!! WE HAVE REACHED A DEAD END !!!\n\n")
+            return
         }
 
         else if (Object.keys(scene_object.next).length === 1) {
@@ -85,9 +106,51 @@ export class DialogStream {
         }
 
         else {
-            // TODO - Present options for selection
-            console.log("TODO - Present Options")
+            // Add any relevant options to our stream.
+            for (const key of Object.keys(scene_object.next)) {
+                const optional_scene = scene_object.next[key]
+                this.options.push(new DialogOption(key, optional_scene.title, optional_scene.dialog))
+            }
+
+            return
         }
+    }
+
+    /**
+     * Selects the given option, clearing all available options.
+     *
+     * @param {DialogOption} option The option we want to select
+     */
+    async select_option(option: DialogOption) {
+        this.options = []
+        await this.render_lines(option.dialog)
+        return this.run_scene(option.scene)
+    }
+
+    /**
+     * Parses a command and returns a usable command object. If the command
+     * can't be parsed, render it as text.
+     *
+     * @param  {string}        item The string command we're interpreting
+     * @return {DialogCommand}      The usable command object
+     */
+    parse_feed_item(item: string): DialogCommand {
+        let command = "SHOW_TEXT"
+        let argument = item
+
+        const command_regex = /\[\[(.*)\]\](.*)/
+        if (command_regex.test(item)) {
+            const match = item.match(command_regex)
+            command = match[1]
+            argument = match[2]
+
+            if (command === "SET_SPEAKER") {
+                const character = dialog_data.characters[argument]
+                this.last_speaker = new DialogSpeaker(character.avatar, character.name, argument)
+            }
+        }
+
+        return new DialogCommand(command, argument, item, this.last_speaker)
     }
 
     /**
@@ -101,11 +164,49 @@ export class DialogStream {
 }
 
 export class DialogStreamEvent {
-    kind: string = null
-    identifier: string = null
+    public kind: string = null
+    public identifier: string = null
 
     constructor(kind, identifier) {
         this.kind = kind
+        this.identifier = identifier
+    }
+}
+
+export class DialogOption {
+    public scene: string = null
+    public title: string = null
+    public dialog: string[] = null
+
+    constructor(scene, title, dialog) {
+        this.scene = scene
+        this.title = title
+        this.dialog = dialog
+    }
+}
+
+export class DialogCommand {
+    public command: string = null
+    public argument: any = null
+    public raw: string = null
+    public speaker: DialogSpeaker = null
+
+    constructor(command: string, argument: any, raw: string, speaker: DialogSpeaker) {
+        this.command = command
+        this.argument = argument
+        this.raw = raw
+        this.speaker = JSON.parse(JSON.stringify(speaker))
+    }
+}
+
+export class DialogSpeaker {
+    public avatar: string = null
+    public name: string = null
+    public identifier: string = null
+
+    constructor(avatar, name, identifier) {
+        this.avatar = avatar
+        this.name = name
         this.identifier = identifier
     }
 }

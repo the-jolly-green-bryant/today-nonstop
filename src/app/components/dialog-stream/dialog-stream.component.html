@@ -1,7 +1,52 @@
 <div class="dialog-stream">
     <ng-container *ngFor="let item of stream.feed">
-        <div class="dialog-stream-item">
-            {{ item }}
+        <div
+            class="dialog-stream-item"
+            [ngClass]="{'is-player': (item.speaker && item.speaker.identifier == 'player')}"
+        >
+            <div class="dialog-stream-item-diagnostics">
+                RAW: {{ item.raw }}
+                <br/>
+                CMD: {{ item.command }}
+                <br/>
+                ARG: {{ item.argument }}
+                <br/>
+                SPEAKER: {{ item.speaker ? item.speaker.identifier : null }}
+            </div>
+            <div class="dialog-stream-item-inner">
+                <ng-container *ngIf="item.command == 'SHOW_TEXT'">
+                    <div class="dialog-stream-item-text">
+                        {{ item.argument }}
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="item.command == 'SHOW_IMAGE'">
+                    <div class="dialog-stream-item-image">
+                        <img src="{{ item.argument }}" />
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="item.command == 'EMOTE'">
+                    <div class="dialog-stream-item-emote">
+                        {{ item.argument }}
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="item.command == 'SET_SPEAKER'">
+                    <div class="dialog-stream-item-speaker">
+                        <img src="{{ item.speaker.avatar }}" />
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngFor="let option of stream.options">
+        <div
+            class="dialog-stream-option"
+            (click)="stream.select_option(option)"
+        >
+            {{ option.title }}
         </div>
     </ng-container>
 </div>

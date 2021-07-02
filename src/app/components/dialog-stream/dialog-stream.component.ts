@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core"
-import { DialogStream } from "../../classes/dialog-stream"
+import { DialogStream, DialogOption } from "../../classes/dialog-stream"
 
 @Component({
     selector: "app-dialog-stream",
@@ -13,5 +13,4 @@ export class DialogStreamComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {}
-
 }
