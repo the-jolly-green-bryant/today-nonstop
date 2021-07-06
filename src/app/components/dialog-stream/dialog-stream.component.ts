@@ -13,4 +13,13 @@ export class DialogStreamComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {}
+
+    ngAfterViewChecked() {
+        const feed_size = this.stream ? this.stream.feed.length : 0
+        const option_size = this.stream ? this.stream.options.length : 0
+        if (feed_size || option_size) {
+            const target = document.getElementById("dialog-stream-scroller")
+            target.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
+        }
+    }
 }

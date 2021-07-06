@@ -75,14 +75,38 @@ export class DialogStream {
         for (const line of lines) {
             console.log(`Pushing Line: ${line}`)
             const item = this.parse_feed_item(line)
+
+            // If our item is an asset that must be loaded remotely, do so.
+            if (item.command === "SHOW_IMAGE") {
+                const base64 = await this.load_image_to_base64(item.argument)
+                item.argument = base64
+            }
+
             this.feed.push(item)
 
             if (item.command === "DELAY") {
                 await this.delay(parseFloat(item.argument) * 1000)
+            } else if (item.command !== "SET_SPEAKER") {
+                await this.delay(this.SECONDS_BETWEEN_DIALOG_LINES * 1000)
             }
-
-            await this.delay(this.SECONDS_BETWEEN_DIALOG_LINES * 1000)
         }
+    }
+
+    async load_image_to_base64(src) {
+        return new Promise((resolve, reject) => {
+            let img = new Image()
+            img.crossOrigin = "Anonymous"
+            img.onload = () => {
+                let canvas = document.createElement("canvas")
+                let ctx = canvas.getContext("2d")
+                canvas.height = img.naturalHeight
+                canvas.width = img.naturalWidth
+                ctx.drawImage(img, 0, 0)
+                resolve(canvas.toDataURL())
+            }
+            img.onerror = reject
+            img.src = src
+        })
     }
 
     /**
