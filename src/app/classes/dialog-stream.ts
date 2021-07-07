@@ -100,6 +100,18 @@ export class DialogStream {
             console.log(`Pushing Line: ${line}`)
             const item = this.parse_feed_item(line)
 
+            // If we're flashing an item, convert it to an appropriate image flash.
+            if (item.command === "FLASH_ITEM") {
+                item.command = "FLASH_IMAGE"
+                item.argument = dialog_data.items[item.argument].avatar
+            }
+
+            // If we're using a keyed image, convert it to an appropriate image show.
+            if (item.command === "SHOW_KEYED_IMAGE") {
+                item.command = "SHOW_IMAGE"
+                item.argument = dialog_data.keyed_images[item.argument]
+            }
+
             // If our item is an asset that must be loaded remotely, do so.
             if (item.command === "SHOW_IMAGE" || item.command === "FLASH_IMAGE") {
                 const base64 = await this.load_image_to_base64(item.argument)

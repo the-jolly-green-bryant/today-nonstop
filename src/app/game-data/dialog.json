@@ -22,12 +22,16 @@
             "hidden": true
         }
     },
+    "keyed_images": {
+        "debug_thunderstorm": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/rainy-window-2-15-2014-4-47-19-pm.jpeg",
+        "debug_breakfast": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/360_F_247199107_3W9Clvj0lRf2z1g5wx206ybAccczNd9H.jpeg"
+    },
     "dialog": {
         "wakeup": {
             "speaker": "player",
             "dialog": [
                 "[[ADD_ITEM]]started_day",
-                "[[SHOW_IMAGE]]https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/rainy-window-2-15-2014-4-47-19-pm.jpeg",
+                "[[SHOW_KEYED_IMAGE]]debug_thunderstorm",
                 "[[SET_SPEAKER]]player",
                 "**grumble**",
                 "What day is it?",
@@ -54,7 +58,7 @@
                         "[[SET_SPEAKER]]player",
                         "No time for breakfast, gotta start work.",
                         "I'll just some bread with me to snack on.",
-                        "[[FLASH_IMAGE]]https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
+                        "[[FLASH_ITEM]]debug_bread",
                         "[[ADD_ITEM]]debug_bread",
                         "[[ADD_ITEM]]debug_bread",
                         "This might come in handy"
@@ -66,7 +70,7 @@
         "wakeup_repeat": {
             "speaker": "player",
             "dialog": [
-                "[[SHOW_IMAGE]]https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/rainy-window-2-15-2014-4-47-19-pm.jpeg",
+                "[[SHOW_KEYED_IMAGE]]debug_thunderstorm",
                 "[[SET_SPEAKER]]player",
                 "Heavy storm two mornings in a row. Strange."
             ],
@@ -85,7 +89,7 @@
                         "[[SET_SPEAKER]]player",
                         "No time for breakfast, gotta start work.",
                         "I'll just some bread with me to snack on.",
-                        "[[FLASH_IMAGE]]https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
+                        "[[FLASH_ITEM]]debug_bread",
                         "[[ADD_ITEM]]debug_bread"
                     ]
                 }
@@ -95,7 +99,7 @@
         "eat_breakfast": {
             "speaker": "player",
             "dialog": [
-                "[[SHOW_IMAGE]]https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/360_F_247199107_3W9Clvj0lRf2z1g5wx206ybAccczNd9H.jpeg",
+                "[[SHOW_KEYED_IMAGE]]debug_breakfast",
                 "[[SET_SPEAKER]]player",
                 "This is a legit breakfast!"
             ],
