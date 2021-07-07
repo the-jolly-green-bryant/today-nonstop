@@ -14,6 +14,10 @@ export class DialogStreamComponent implements OnInit {
 
     ngOnInit() {}
 
+    /**
+     * After the dialog stream is updated, scroll to the bottom (so we can see the most
+     * recent message).
+     */
     ngAfterViewChecked() {
         const feed_size = this.stream ? this.stream.feed.length : 0
         const option_size = this.stream ? this.stream.options.length : 0

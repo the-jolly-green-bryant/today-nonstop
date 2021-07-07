@@ -24,6 +24,13 @@ export class DialogStream {
     public options: DialogOption[] = []
 
     /**
+     * All items in the player's inventory.
+     *
+     * @type {InventoryItem[]}
+     */
+    public inventory: InventoryItem[] = []
+
+    /**
      * The last active speaker
      *
      * @type {DialogSpeaker}
@@ -77,7 +84,7 @@ export class DialogStream {
             const item = this.parse_feed_item(line)
 
             // If our item is an asset that must be loaded remotely, do so.
-            if (item.command === "SHOW_IMAGE") {
+            if (item.command === "SHOW_IMAGE" || item.command === "FLASH_IMAGE") {
                 const base64 = await this.load_image_to_base64(item.argument)
                 item.argument = base64
             }
@@ -85,11 +92,28 @@ export class DialogStream {
             this.feed.push(item)
 
             if (item.command === "DELAY") {
+                // Wait our given number of seconds.
                 await this.delay(parseFloat(item.argument) * 1000)
-            } else if (item.command !== "SET_SPEAKER") {
+            } else if (item.command === "ADD_ITEM") {
+                // Add our item to inventory.
+                this.add_inventory_item(item.argument, 1)
+                console.log(this.inventory)
+            } else if (item.command !== "SET_SPEAKER" && item.command !== "ADD_ITEM") {
+                // If nothing else, wait our normal time between lines.
                 await this.delay(this.SECONDS_BETWEEN_DIALOG_LINES * 1000)
             }
         }
+    }
+
+    add_inventory_item(identifier: string, quantity: number) {
+        for (const item of this.inventory) {
+            if (item.identifier === identifier) {
+                item.quantity += quantity
+                return
+            }
+        }
+
+        this.inventory.push(new InventoryItem(identifier, quantity))
     }
 
     async load_image_to_base64(src) {
@@ -232,5 +256,15 @@ export class DialogSpeaker {
         this.avatar = avatar
         this.name = name
         this.identifier = identifier
+    }
+}
+
+export class InventoryItem {
+    public identifier: string = null
+    public quantity: number = null
+
+    constructor(identifier, quantity=1) {
+        this.identifier = identifier
+        this.quantity = quantity
     }
 }

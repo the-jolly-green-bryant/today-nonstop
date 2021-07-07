@@ -9,6 +9,12 @@
             "name": "Player's evil voice"
         }
     },
+    "items": {
+        "debug_bread": {
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
+            "name": "Debug Bread"
+        }
+    },
     "dialog": {
         "wakeup": {
             "speaker": "player",
@@ -32,10 +38,15 @@
                     ]
                 },
                 "start_chores": {
-                    "title": "Start morning chores",
+                    "title": "No time for breakfast, gotta start work.",
                     "dialog": [
                         "[[SET_SPEAKER]]player",
-                        "No time like the present to start work!"
+                        "No time for breakfast, gotta start work.",
+                        "I'll just some bread with me to snack on.",
+                        "[[FLASH_IMAGE]]https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
+                        "[[ADD_ITEM]]debug_bread",
+                        "[[ADD_ITEM]]debug_bread",
+                        "This might come in handy"
                     ]
                 }
             }
@@ -58,10 +69,13 @@
                     ]
                 },
                 "start_chores": {
-                    "title": "Let's get a jump on the morning chores",
+                    "title": "No time for breakfast, gotta start work.",
                     "dialog": [
                         "[[SET_SPEAKER]]player",
-                        "No time like the present to start work!"
+                        "No time for breakfast, gotta start work.",
+                        "I'll just some bread with me to snack on.",
+                        "[[FLASH_IMAGE]]https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
+                        "[[ADD_ITEM]]debug_bread"
                     ]
                 }
             }

@@ -1,23 +1,7 @@
-$ds-border-radius: 4px;
-$ds-font-size: 16px;
-$ds-general-padding: 16px;
-$ds-avatar-size: 32px;
-$ds-vertical-padding-minimum: 24px;
-$ds-vertical-padding-ideal: calc(#{$ds-general-padding});
-
-$ds-background: #F7F7F7;
-$ds-color-light: #FDFDFD;
-$ds-color-dark: linear-gradient(to right bottom, #a57df8, #9c7df9, #937dfa, #897dfa, #7e7dfb);
-$ds-font-primary: #666666;
-$ds-font-inverted: #FEF7FF;
-$ds-font-secondary: #B4B4B6;
-$ds-card-box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.034),
-    0 0.7px 5.3px rgba(0, 0, 0, 0.048),
-    0 5.5px 10px rgba(0, 0, 0, 0.06),
-    0 12.3px 17.9px rgba(0, 0, 0, 0.072);
+@import '../../../theme/variables';
 
 .dialog-stream {
-    background: $ds-background;
+    // background: $ds-background;
 
     &-scroller {
         display: grid;
@@ -82,8 +66,10 @@ $ds-card-box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.034),
             width: $ds-avatar-size;
 
             img {
+                height: 100%;
                 object-fit: cover;
                 object-position: center;
+                width: 100%;
             }
         }
 
@@ -92,7 +78,6 @@ $ds-card-box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.034),
             color: $ds-font-secondary;
             display: flex;
             font-size: 12px;
-            // font-weight: bold;
             padding: 0 #{$ds-general-padding / 2};
 
             &-container {
@@ -153,6 +138,15 @@ $ds-card-box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.034),
             object-fit: cover;
             object-position: center;
             width: 100%;
+        }
+
+        &.is-small {
+            height: 100px;
+            width: 125px;
+
+            .is-player & {
+                margin-left: auto;
+            }
         }
     }
 }

@@ -11,7 +11,7 @@
                     'is-player': (item.speaker && item.speaker.identifier == 'player'),
                     'is-media': (item.command == 'SHOW_IMAGE' || item.command == 'SET_SPEAKER'),
                     'is-full': (item.command == 'EMOTE'),
-                    'is-empty': (item.command == 'DELAY')
+                    'is-empty': (item.command == 'DELAY' || item.command == 'ADD_ITEM')
                 }"
             >
                 <div class="dialog-stream-item-diagnostics">
@@ -34,6 +34,12 @@
 
                     <ng-container *ngIf="item.command == 'SHOW_IMAGE'">
                         <div class="dialog-stream-item-image">
+                            <img src="{{ item.argument }}" />
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="item.command == 'FLASH_IMAGE'">
+                        <div class="dialog-stream-item-image is-small">
                             <img src="{{ item.argument }}" />
                         </div>
                     </ng-container>
