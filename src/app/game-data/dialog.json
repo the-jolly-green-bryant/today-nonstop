@@ -13,12 +13,20 @@
         "debug_bread": {
             "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
             "name": "Debug Bread"
+        },
+        "moldy_bread": {
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
+            "name": "Moldy Bread"
+        },
+        "started_day": {
+            "hidden": true
         }
     },
     "dialog": {
         "wakeup": {
             "speaker": "player",
             "dialog": [
+                "[[ADD_ITEM]]started_day",
                 "[[SHOW_IMAGE]]https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/rainy-window-2-15-2014-4-47-19-pm.jpeg",
                 "[[SET_SPEAKER]]player",
                 "**grumble**",
@@ -26,7 +34,10 @@
                 "[[EMOTE]][Your stomach demands attentions.]"
             ],
             "skip_to_if": {
-                "finished_once": "wakeup_repeat"
+                "finished_once": {
+                    "target": "wakeup_repeat",
+                    "consumes_item": false
+                }
             },
             "next": {
                 "eat_breakfast": {
@@ -61,7 +72,7 @@
             ],
             "next": {
                 "eat_breakfast": {
-                    "title": "Let's get some breakfast before",
+                    "title": "Let's get some breakfast before starting chores",
                     "dialog": [
                         "[[SET_SPEAKER]]player",
                         "I'm starving!",
@@ -103,7 +114,45 @@
             "dialog": [
                 "[[SET_SPEAKER]]evil_voice",
                 "This sucks, you should stop working"
-            ]
+            ],
+            "next": {
+                "process_restart": {
+                    "dialog": []
+                }
+            }
+        },
+
+        "process_restart": {
+            "comment": "This blank room redirects us to some other blank rooms to convert regular items into aged items",
+            "speaker": "player",
+            "dialog": [],
+            "skip_to_if": {
+                "debug_bread": {
+                    "target": "process_aged_bread",
+                    "consumes_item": true
+                }
+            },
+            "next": {
+                "wakeup": {
+                    "dialog": [
+                        "[[EMOTE]]You suddenly pass out",
+                        "[[ADD_ITEM]]finished_once"
+                    ]
+                }
+            }
+        },
+
+        "process_aged_bread": {
+            "comment": "This blank room turns regular bread into moldy bread",
+            "speaker": "player",
+            "dialog": [
+                "[[ADD_ITEM]]moldy_bread"
+            ],
+            "next": {
+                "process_restart": {
+                    "dialog": []
+                }
+            }
         }
     }
 }

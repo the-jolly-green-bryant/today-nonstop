@@ -68,8 +68,25 @@ export class DialogStream {
      * @param {string} scene The string identifier for the scene
      */
     async run_scene(scene: string) {
+        const scene_object = dialog_data.dialog[scene]
+
+        // Check if we need to skip this scene.
+        if (dialog_data.dialog[scene].skip_to_if) {
+            for (const key in scene_object.skip_to_if) {
+                if (this.has_inventory_item(key)) {
+                    // We have the item. Consume it (if necessary) and go to the next scene.
+                    const skip_directions = scene_object.skip_to_if[key]
+                    if (skip_directions.consumes_item) {
+                        this.remove_inventory_item(key, 1)
+                    }
+
+                    return this.run_scene(skip_directions.target)
+                }
+            }
+        }
+
         console.log(`Running Scene: ${scene}`)
-        await this.render_lines(dialog_data.dialog[scene].dialog)
+        await this.render_lines(scene_object.dialog)
         this.end_scene(scene)
     }
 
@@ -105,6 +122,12 @@ export class DialogStream {
         }
     }
 
+    /**
+     * Adds the given item to our inventory, incrementing quantities if needed.
+     *
+     * @param {string} identifier The item we want to add
+     * @param {number} quantity   The quantity we want to add
+     */
     add_inventory_item(identifier: string, quantity: number) {
         for (const item of this.inventory) {
             if (item.identifier === identifier) {
@@ -116,7 +139,36 @@ export class DialogStream {
         this.inventory.push(new InventoryItem(identifier, quantity))
     }
 
-    async load_image_to_base64(src) {
+    remove_inventory_item(identifier: string, quantity: number) {
+        for (const item of this.inventory) {
+            if (item.identifier === identifier && item.quantity >= quantity) {
+                item.quantity -= quantity
+                return
+            }
+        }
+    }
+
+    /**
+     * Determines whether we have the required item.
+     *
+     * @param {string} identifier The item we're seeking.
+     */
+    has_inventory_item(identifier: string) {
+        for (const item of this.inventory) {
+            if (item.identifier === identifier && item.quantity >= 1) {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    /**
+     * Loads our image from a remote source and converts it to base64.
+     *
+     * @param {string} src The URL for the image we want to load
+     */
+    async load_image_to_base64(src: string) {
         return new Promise((resolve, reject) => {
             let img = new Image()
             img.crossOrigin = "Anonymous"
