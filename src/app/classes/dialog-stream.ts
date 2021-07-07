@@ -151,6 +151,12 @@ export class DialogStream {
         this.inventory.push(new InventoryItem(identifier, quantity))
     }
 
+    /**
+     * Removes the given item from our inventory, decrementing quantities.
+     *
+     * @param {string} identifier The item we want to remove
+     * @param {number} quantity   The quantity we want to remove
+     */
     remove_inventory_item(identifier: string, quantity: number) {
         for (const item of this.inventory) {
             if (item.identifier === identifier && item.quantity >= quantity) {
