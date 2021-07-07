@@ -3,7 +3,7 @@
         class="dialog-stream-scroller"
         id="dialog-stream-scroller"
     >
-        <ng-container *ngFor="let item of stream.feed; let i = index">
+        <ng-container *ngFor="let item of dialog_stream_service.dialog_stream.feed; let i = index">
             <div
                 class="dialog-stream-item"
                 id="dialog-stream-item-{{i}}"
@@ -71,10 +71,10 @@
             class="dialog-stream-option-container"
             id="dialog-stream-option-container"
         >
-            <ng-container *ngFor="let option of stream.options">
+            <ng-container *ngFor="let option of dialog_stream_service.dialog_stream.options">
                 <div
                     class="dialog-stream-option"
-                    (click)="stream.select_option(option)"
+                    (click)="dialog_stream_service.select_option(option)"
                 >
                     {{ option.title }}
                 </div>

@@ -7,7 +7,7 @@ export class DialogStream {
      *
      * @type {DialogStreamEvent[]}
      */
-    stream: DialogStreamEvent[] = []
+    public stream: DialogStreamEvent[] = []
 
     /**
      * The rendered collection of strings (or stringified commands).
@@ -56,10 +56,15 @@ export class DialogStream {
      *
      * @param {string} scene The string identifier for the scene
      */
-    push_scene(scene: string) {
+    push_scene(scene: string, skip_delays?: boolean) {
         console.log(`Pushing Scene: ${scene}`)
-        this.stream.push(new DialogStreamEvent("scene", scene))
-        setTimeout(() => { this.run_scene(scene) }, this.SECONDS_BETWEEN_SCENES * 1000)
+        this.push_event("scene", scene)
+
+        if (skip_delays) {
+            this.run_scene(scene, true)
+        } else {
+            setTimeout(() => { this.run_scene(scene) }, this.SECONDS_BETWEEN_SCENES * 1000)
+        }
     }
 
     /**
@@ -67,7 +72,7 @@ export class DialogStream {
      *
      * @param {string} scene The string identifier for the scene
      */
-    async run_scene(scene: string) {
+    async run_scene(scene: string, skip_delays?: boolean) {
         const scene_object = dialog_data.dialog[scene]
 
         // Check if we need to skip this scene.
@@ -80,14 +85,14 @@ export class DialogStream {
                         this.remove_inventory_item(key, 1)
                     }
 
-                    return this.run_scene(skip_directions.target)
+                    return this.run_scene(skip_directions.target, skip_delays)
                 }
             }
         }
 
         console.log(`Running Scene: ${scene}`)
-        await this.render_lines(scene_object.dialog)
-        this.end_scene(scene)
+        await this.render_lines(scene_object.dialog, skip_delays)
+        this.end_scene(scene, skip_delays)
     }
 
     /**
@@ -95,7 +100,7 @@ export class DialogStream {
      *
      * @param {string[]} lines An array of lines to render
      */
-    async render_lines(lines: string[]) {
+    async render_lines(lines: string[], skip_delays?: boolean) {
         for (const line of lines) {
             console.log(`Pushing Line: ${line}`)
             const item = this.parse_feed_item(line)
@@ -119,15 +124,14 @@ export class DialogStream {
             }
 
             this.feed.push(item)
-
-            if (item.command === "DELAY") {
+            if (item.command === "DELAY" && !skip_delays) {
                 // Wait our given number of seconds.
                 await this.delay(parseFloat(item.argument) * 1000)
             } else if (item.command === "ADD_ITEM") {
                 // Add our item to inventory.
                 this.add_inventory_item(item.argument, 1)
                 console.log(this.inventory)
-            } else if (item.command !== "SET_SPEAKER" && item.command !== "ADD_ITEM") {
+            } else if (item.command !== "SET_SPEAKER" && item.command !== "ADD_ITEM" && !skip_delays) {
                 // If nothing else, wait our normal time between lines.
                 await this.delay(this.SECONDS_BETWEEN_DIALOG_LINES * 1000)
             }
@@ -208,7 +212,7 @@ export class DialogStream {
      *
      * @param {string} scene The string identifier for the scene
      */
-    async end_scene(scene: string) {
+    async end_scene(scene: string, skip_delays?: boolean) {
         const scene_object = dialog_data.dialog[scene]
         if (!scene_object.next || Object.keys(scene_object.next).length === 0) {
             // TODO - We have nowhere to go! We've reached the end of the game.
@@ -219,8 +223,8 @@ export class DialogStream {
         else if (Object.keys(scene_object.next).length === 1) {
             // There is only one option, automatically progress towards it.
             const new_scene = Object.keys(scene_object.next)[0]
-            await this.render_lines(scene_object.next[new_scene].dialog)
-            return this.run_scene(new_scene)
+            await this.render_lines(scene_object.next[new_scene].dialog, skip_delays)
+            return this.run_scene(new_scene, skip_delays)
         }
 
         else {
@@ -241,8 +245,20 @@ export class DialogStream {
      */
     async select_option(option: DialogOption) {
         this.options = []
+        this.push_event("option", option.scene)
         await this.render_lines(option.dialog)
         return this.run_scene(option.scene)
+    }
+
+    /**
+     * Pushes a player action to the event stream and saves the stream.
+     *
+     * @param {string} kind       The kind of event performed
+     * @param {string} identifier A unique identifier to recreate this event
+     */
+    async push_event(kind: string, identifier: string) {
+        this.stream.push(new DialogStreamEvent(kind, identifier))
+        // TODO - Save our stream to somewhere loadable
     }
 
     /**
@@ -332,9 +348,17 @@ export class DialogSpeaker {
 export class InventoryItem {
     public identifier: string = null
     public quantity: number = null
+    public name: string = null
+    public hidden: boolean = null
+    public avatar: string = null
 
     constructor(identifier, quantity=1) {
         this.identifier = identifier
         this.quantity = quantity
+
+        const item_object = dialog_data.items[this.identifier]
+        this.name = item_object ? item_object.name || "NO_NAME" : "UNDEFINED"
+        this.hidden = item_object ? item_object.hidden : false
+        this.avatar = item_object ? item_object.avatar || "NO_IMAGE" : "UNDEFINED"
     }
 }

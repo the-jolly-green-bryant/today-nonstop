@@ -1,5 +1,5 @@
 import { Component } from "@angular/core"
-import { DialogStream } from "../classes/dialog-stream"
+import { DialogStreamService } from "../services/dialog-stream.service"
 
 @Component({
     selector: "app-main",
@@ -8,12 +8,14 @@ import { DialogStream } from "../classes/dialog-stream"
 })
 export class MainPage {
 
-    dialog_stream: DialogStream = null
+    constructor(public dialog_stream_service: DialogStreamService) {}
 
-    constructor() {
-        this.dialog_stream = new DialogStream()
-        // this.dialog_stream.push_scene("eat_breakfast")
-        this.dialog_stream.push_scene("wakeup")
+    ngOnInit() {
+        this.load_dialog_stream()
+    }
+
+    load_dialog_stream() {
+        this.dialog_stream_service.load_events("wakeup")
     }
 
 }

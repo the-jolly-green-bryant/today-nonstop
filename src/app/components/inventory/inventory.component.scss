@@ -1,0 +1,62 @@
+@import "../../../theme/variables";
+
+.inventory-item {
+    padding-top: 120%;
+    position: relative;
+
+    &-background {
+        border-radius: $ds-border-radius;
+        bottom: 0;
+        box-shadow: $ds-card-box-shadow;
+        display: flex;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        > img {
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &-title {
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+        bottom: $ds-general-padding;
+        color: $ds-font-inverted;
+        display: flex;
+        font-size: 12px;
+        font-weight: bold;
+        justify-content: center;
+        left: 0;
+        padding: 4px 0;
+        position: absolute;
+        right: 0;
+    }
+
+    &-quantity {
+        align-items: center;
+        background: $ds-color-dark;
+        border-radius: 50%;
+        box-shadow: $ds-card-box-shadow;
+        color: $ds-font-inverted;
+        display: flex;
+        font-size: 12px;
+        font-weight: bold;
+        height: 24px;
+        justify-content: center;
+        position: absolute;
+        right: -8px;
+        top: -8px;
+        width: 24px;
+    }
+
+    &-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: $ds-general-padding;
+        padding: $ds-vertical-padding-minimum;
+    }
+}

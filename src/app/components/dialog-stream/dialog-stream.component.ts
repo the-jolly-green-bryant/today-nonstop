@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core"
 import { DialogStream, DialogOption } from "../../classes/dialog-stream"
+import { DialogStreamService } from "../../services/dialog-stream.service"
 
 @Component({
     selector: "app-dialog-stream",
@@ -8,9 +9,7 @@ import { DialogStream, DialogOption } from "../../classes/dialog-stream"
 })
 export class DialogStreamComponent implements OnInit {
 
-    @Input() stream: DialogStream = null
-
-    constructor() { }
+    constructor(public dialog_stream_service: DialogStreamService) {}
 
     ngOnInit() {}
 
@@ -19,8 +18,8 @@ export class DialogStreamComponent implements OnInit {
      * recent message).
      */
     ngAfterViewChecked() {
-        const feed_size = this.stream ? this.stream.feed.length : 0
-        const option_size = this.stream ? this.stream.options.length : 0
+        const feed_size = this.dialog_stream_service.dialog_stream ? this.dialog_stream_service.dialog_stream.feed.length : 0
+        const option_size = this.dialog_stream_service.dialog_stream ? this.dialog_stream_service.dialog_stream.options.length : 0
         if (feed_size || option_size) {
             const target = document.getElementById("dialog-stream-scroller")
             target.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})

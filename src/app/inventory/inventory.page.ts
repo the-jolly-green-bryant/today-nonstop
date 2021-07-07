@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core"
+import { DialogStreamService } from "../services/dialog-stream.service"
 
 @Component({
-  selector: 'app-inventory',
-  templateUrl: 'inventory.page.html',
-  styleUrls: ['inventory.page.scss']
+    selector: "app-inventory-page",
+    templateUrl: "inventory.page.html",
+    styleUrls: ["inventory.page.scss"],
 })
 export class InventoryPage {
 
-  constructor() {}
+    constructor(public dialog_stream_service: DialogStreamService) {}
 
 }

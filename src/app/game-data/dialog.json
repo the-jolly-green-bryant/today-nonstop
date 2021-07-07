@@ -20,6 +20,9 @@
         },
         "started_day": {
             "hidden": true
+        },
+        "finished_once": {
+            "hidden": true
         }
     },
     "keyed_images": {

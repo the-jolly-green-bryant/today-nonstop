@@ -1,0 +1,26 @@
+<div class="inventory">
+    <div class="inventory-item-container">
+        <ng-container *ngFor="let item of stream.inventory; let i = index">
+            <ng-container *ngIf="!item.hidden && item.quantity > 0">
+                <div
+                    class="inventory-item"
+                    id="inventory-item-{{i}}"
+                >
+                    <div class="inventory-item-background">
+                        <img [src]="item.avatar" />
+                    </div>
+
+                    <div class="inventory-item-title">
+                        {{ item.name }}
+                    </div>
+
+                    <ng-container *ngIf="item.quantity > 1">
+                        <div class="inventory-item-quantity">
+                            {{ item.quantity }}
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>
