@@ -56,14 +56,14 @@ export class DialogStream {
      *
      * @param {string} scene The string identifier for the scene
      */
-    push_scene(scene: string, skip_delays?: boolean) {
+    async push_scene(scene: string, skip_delays?: boolean) {
         console.log(`Pushing Scene: ${scene}`)
         this.push_event("scene", scene)
 
         if (skip_delays) {
-            this.run_scene(scene, true)
+            await this.run_scene(scene, true)
         } else {
-            setTimeout(() => { this.run_scene(scene) }, this.SECONDS_BETWEEN_SCENES * 1000)
+            setTimeout(async () => { await this.run_scene(scene) }, this.SECONDS_BETWEEN_SCENES * 1000)
         }
     }
 
@@ -85,14 +85,14 @@ export class DialogStream {
                         this.remove_inventory_item(key, 1)
                     }
 
-                    return this.run_scene(skip_directions.target, skip_delays)
+                    return await this.run_scene(skip_directions.target, skip_delays)
                 }
             }
         }
 
         console.log(`Running Scene: ${scene}`)
         await this.render_lines(scene_object.dialog, skip_delays)
-        this.end_scene(scene, skip_delays)
+        await this.end_scene(scene, skip_delays)
     }
 
     /**
@@ -192,11 +192,11 @@ export class DialogStream {
      */
     async load_image_to_base64(src: string) {
         return new Promise((resolve, reject) => {
-            let img = new Image()
+            const img = new Image()
             img.crossOrigin = "Anonymous"
             img.onload = () => {
-                let canvas = document.createElement("canvas")
-                let ctx = canvas.getContext("2d")
+                const canvas = document.createElement("canvas")
+                const ctx = canvas.getContext("2d")
                 canvas.height = img.naturalHeight
                 canvas.width = img.naturalWidth
                 ctx.drawImage(img, 0, 0)
@@ -224,7 +224,7 @@ export class DialogStream {
             // There is only one option, automatically progress towards it.
             const new_scene = Object.keys(scene_object.next)[0]
             await this.render_lines(scene_object.next[new_scene].dialog, skip_delays)
-            return this.run_scene(new_scene, skip_delays)
+            return await this.run_scene(new_scene, skip_delays)
         }
 
         else {
@@ -243,11 +243,12 @@ export class DialogStream {
      *
      * @param {DialogOption} option The option we want to select
      */
-    async select_option(option: DialogOption) {
+    async select_option(option: DialogOption, skip_delays?: boolean) {
         this.options = []
         this.push_event("option", option.scene)
-        await this.render_lines(option.dialog)
-        return this.run_scene(option.scene)
+        await this.render_lines(option.dialog, skip_delays)
+        await this.run_scene(option.scene, skip_delays)
+        return
     }
 
     /**
@@ -258,7 +259,6 @@ export class DialogStream {
      */
     async push_event(kind: string, identifier: string) {
         this.stream.push(new DialogStreamEvent(kind, identifier))
-        // TODO - Save our stream to somewhere loadable
     }
 
     /**

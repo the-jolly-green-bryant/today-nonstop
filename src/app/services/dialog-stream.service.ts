@@ -13,6 +13,11 @@ export class DialogStreamService {
         this.dialog_stream = new DialogStream()
     }
 
+    /**
+     * Either loads events from storage or runs our default scene if no events found.
+     *
+     * @param {string} default_scene The identifier for our default scene
+     */
     public async load_events(default_scene: string) {
         const dialog_events = await this.storage.get(this.storage.event_stream_db_key)
         if (!dialog_events) {
@@ -20,22 +25,27 @@ export class DialogStreamService {
             return this.dialog_stream.push_scene(default_scene)
         }
 
-        console.log("dialog_events", dialog_events)
-        for (const index in dialog_events) {
-            const event_object = dialog_events[index]
-            console.log("event_object", event_object)
+        // Load our dialog event stream and simulate each event.
+        for (const i in dialog_events) {
+            if (dialog_events.hasOwnProperty(i)) {
+                const event_object = dialog_events[i]
 
-            if (event_object.kind === "scene") {
-                this.dialog_stream.push_scene(event_object.identifier, true)
-            }
+                if (event_object.kind === "scene") {
+                    await this.dialog_stream.push_scene(event_object.identifier, true)
+                }
 
-            if (event_object.kind === "option") {
-                console.log("looking at options", this.dialog_stream)
-                // TODO - This loop never enters for some reason. I suspect it's not populated at the time of execution.
-                for (const index in this.dialog_stream.options) {
-                    const option = this.dialog_stream.options[index]
-                    console.log('option', option)
-                    this.dialog_stream.select_option(option)
+                if (event_object.kind === "option") {
+                    for (const k in this.dialog_stream.options) {
+                        if (this.dialog_stream.options.hasOwnProperty(k)) {
+                            const option = this.dialog_stream.options[k]
+                            if (option.scene !== event_object.identifier) {
+                                continue
+                            }
+
+                            await this.dialog_stream.select_option(option, true)
+                            break
+                        }
+                    }
                 }
             }
         }
