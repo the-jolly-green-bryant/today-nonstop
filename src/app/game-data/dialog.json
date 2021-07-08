@@ -1,4 +1,5 @@
 {
+    "default_scene": "wakeup",
     "characters": {
         "player": {
             "avatar": "https://via.placeholder.com/150",
