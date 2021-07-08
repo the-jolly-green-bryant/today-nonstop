@@ -1,0 +1,168 @@
+<ion-content>
+    <div class="editor">
+        <div class="editor-section" *ngIf="tab == 'settings'">
+            <div class="editor-section-title">
+                Default Scene
+            </div>
+
+            <div class="editor-section">
+                <div class="editor-input">
+                    <!-- TODO - Make this a dropdown -->
+                    <input [(ngModel)]="game_data.default_scene" placeholder="Default Scene" />
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-section" *ngIf="tab == 'characters'">
+            <div class="editor-section-title">
+                Characters
+            </div>
+
+            <ng-container *ngFor="let character of game_data.characters | keyvalue">
+                <div class="editor-section">
+                    <div class="editor-input">
+                        <input [(ngModel)]="character.key" placeholder="Character Key" />
+                    </div>
+
+                    <div class="editor-input">
+                        <input [(ngModel)]="character.value.avatar" placeholder="Avatar" />
+                    </div>
+
+                    <div class="editor-input">
+                        <input [(ngModel)]="character.value.name" placeholder="Name" />
+                    </div>
+
+                    <div class="editor-button-container">
+                        <div class="editor-button" (click)="remove_character(character.key)">
+                            Remove Character
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <div class="editor-button-container">
+                <div class="editor-button" (click)="add_character()">
+                    Add Character
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-section" *ngIf="tab == 'items'">
+            <div class="editor-section-title">
+                Items
+            </div>
+
+            <ng-container *ngFor="let item of game_data.items | keyvalue">
+                <div class="editor-section">
+                    <div class="editor-input">
+                        <input [(ngModel)]="item.key" placeholder="Item Key" />
+                    </div>
+
+                    <div class="editor-input">
+                        <input [(ngModel)]="item.value.avatar" placeholder="Avatar" />
+                    </div>
+
+                    <div class="editor-input">
+                        <input [(ngModel)]="item.value.name" placeholder="Name" />
+                    </div>
+
+                    <div class="editor-input">
+                        <label>
+                            <input [(ngModel)]="item.value.hidden" type="checkbox" />
+                            Hidden
+                        </label>
+                    </div>
+
+                    <div class="editor-input">
+                        <label>
+                            <input [(ngModel)]="item.value.always_show_chip" type="checkbox" />
+                            Always Show Chip
+                        </label>
+                    </div>
+
+                    <div class="editor-input">
+                        <label>
+                            <input [(ngModel)]="item.value.is_status" type="checkbox" />
+                            Is Status
+                        </label>
+                    </div>
+
+                    <div class="editor-button-container">
+                        <div class="editor-button" (click)="remove_item(item.key)">
+                            Remove Item
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <div class="editor-button-container">
+                <div class="editor-button" (click)="add_item()">
+                    Add Item
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-section" *ngIf="tab == 'images'">
+            <div class="editor-section-title">
+                Keyed Images
+            </div>
+
+            <ng-container *ngFor="let image of game_data.keyed_images | keyvalue">
+                <div class="editor-section">
+                    <div class="editor-input">
+                        <input [(ngModel)]="image.key" placeholder="Image Key" />
+                    </div>
+
+                    <div class="editor-input">
+                        <input [(ngModel)]="image.value" placeholder="URL" />
+                    </div>
+
+                    <div class="editor-button-container">
+                        <div class="editor-button" (click)="remove_image(image.key)">
+                            Remove Image
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+            <div class="editor-button-container">
+                <div class="editor-button" (click)="add_image()">
+                    Add Image
+                </div>
+            </div>
+        </div>
+
+        <div class="editor-section" *ngIf="tab == 'dialog'">
+            TODO - Dialog
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <ion-tab-bar>
+        <ion-tab-button (click)="tab = 'settings';">
+            <ion-icon name="triangle"></ion-icon>
+            <ion-label>Settings</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="tab = 'characters';">
+            <ion-icon name="triangle"></ion-icon>
+            <ion-label>Characters</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="tab = 'items';">
+            <ion-icon name="ellipse"></ion-icon>
+            <ion-label>Items</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="tab = 'images';">
+            <ion-icon name="square"></ion-icon>
+            <ion-label>Images</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="tab = 'dialog';">
+            <ion-icon name="square"></ion-icon>
+            <ion-label>Dialog</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-footer>

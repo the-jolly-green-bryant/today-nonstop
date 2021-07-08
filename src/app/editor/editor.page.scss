@@ -1,0 +1,43 @@
+@import "../../theme/variables";
+
+.editor {
+	&-section {
+		background: #ececec;
+		border: solid 2px $ds-font-secondary;
+		margin: $ds-general-padding;
+		padding: $ds-general-padding;
+
+		&-title {
+			font-weight: bold;
+			margin-bottom: $ds-general-padding;
+		}
+
+		.editor-section {
+			background: $ds-font-inverted;
+		}
+	}
+
+	&-button {
+		background: $ds-color-dark;
+		box-shadow: $ds-card-box-shadow;
+		color: $ds-font-inverted;
+		cursor: pointer;
+		display: inline-block;
+		padding: #{$ds-general-padding / 2} $ds-general-padding;
+	}
+
+	&-input {
+		margin-bottom: #{$ds-general-padding / 2};
+
+		input {
+			padding: #{$ds-general-padding / 2} $ds-general-padding;
+			width: 100%;
+		}
+
+		input[type=checkbox] {
+			display: inline-block;
+			margin-right: #{$ds-general-padding / 2};
+			width: auto;
+		}
+	}
+}
