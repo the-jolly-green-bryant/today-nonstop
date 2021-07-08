@@ -351,6 +351,8 @@ export class InventoryItem {
     public name: string = null
     public hidden: boolean = null
     public avatar: string = null
+    public is_status: boolean = null
+    public always_show_chip: boolean = null
 
     constructor(identifier, quantity=1) {
         this.identifier = identifier
@@ -360,5 +362,7 @@ export class InventoryItem {
         this.name = item_object ? item_object.name || "NO_NAME" : "UNDEFINED"
         this.hidden = item_object ? item_object.hidden : false
         this.avatar = item_object ? item_object.avatar || "NO_IMAGE" : "UNDEFINED"
+        this.is_status = item_object ? item_object.is_status : false
+        this.always_show_chip = item_object ? item_object.always_show_chip : false
     }
 }

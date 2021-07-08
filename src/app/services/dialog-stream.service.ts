@@ -19,6 +19,7 @@ export class DialogStreamService {
      * @param {string} default_scene The identifier for our default scene
      */
     public async load_events(default_scene: string) {
+        // await this.storage.clear()  // Uncomment to clear storage.
         const dialog_events = await this.storage.get(this.storage.event_stream_db_key)
         if (!dialog_events) {
             // If we don't have dialog events, push our default scene

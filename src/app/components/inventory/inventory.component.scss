@@ -1,5 +1,19 @@
 @import "../../../theme/variables";
 
+.inventory {
+    &-title {
+        color: $ds-font-secondary;
+        font-size: 12px;
+        padding: $ds-vertical-padding-minimum $ds-vertical-padding-minimum #{$ds-vertical-padding-minimum / 2};
+    }
+
+    &-paragraph {
+        color: $ds-font-primary;
+        font-size: $ds-font-size;
+        padding: 0 $ds-vertical-padding-minimum;
+    }
+}
+
 .inventory-item {
     padding-top: 120%;
     position: relative;
@@ -16,8 +30,10 @@
         top: 0;
 
         > img {
+            height: 100%;
             object-fit: cover;
             object-position: center;
+            width: 100%;
         }
     }
 
@@ -57,6 +73,14 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: $ds-general-padding;
-        padding: $ds-vertical-padding-minimum;
+        padding: 0 $ds-vertical-padding-minimum;
+
+        &.is-status-container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    &-container.is-status-container & {
+        padding-top: 70%;
     }
 }

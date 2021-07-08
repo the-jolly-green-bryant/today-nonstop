@@ -22,7 +22,10 @@
             "hidden": true
         },
         "finished_once": {
-            "hidden": true
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
+            "name": "Days Completed",
+            "always_show_chip": true,
+            "is_status": true
         }
     },
     "keyed_images": {
@@ -60,7 +63,7 @@
                     "dialog": [
                         "[[SET_SPEAKER]]player",
                         "No time for breakfast, gotta start work.",
-                        "I'll just some bread with me to snack on.",
+                        "I'll just take some bread with me to snack on.",
                         "[[FLASH_ITEM]]debug_bread",
                         "[[ADD_ITEM]]debug_bread",
                         "[[ADD_ITEM]]debug_bread",
@@ -91,7 +94,7 @@
                     "dialog": [
                         "[[SET_SPEAKER]]player",
                         "No time for breakfast, gotta start work.",
-                        "I'll just some bread with me to snack on.",
+                        "I'll just take some bread with me to snack on.",
                         "[[FLASH_ITEM]]debug_bread",
                         "[[ADD_ITEM]]debug_bread"
                     ]
