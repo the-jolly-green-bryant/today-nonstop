@@ -5,9 +5,10 @@ $ds-avatar-size: 32px;
 $ds-vertical-padding-minimum: 24px;
 $ds-vertical-padding-ideal: calc(#{$ds-general-padding});
 
-$ds-background: #F7F7F7;  // Make the app background this too.
+$ds-background: #F7F7F7;
 $ds-color-light: #FDFDFD;
 $ds-color-dark: linear-gradient(to right bottom, #a57df8, #9c7df9, #937dfa, #897dfa, #7e7dfb);
+$ds-color-danger: linear-gradient(to right bottom, #f16b2c, #f16b2c, #f16b2c, #fe5858, #fe5858);
 $ds-font-primary: #666666;
 $ds-font-inverted: #FEF7FF;
 $ds-font-secondary: #B4B4B6;

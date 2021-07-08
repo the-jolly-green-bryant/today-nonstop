@@ -1,8 +1,6 @@
 @import "../../../theme/variables";
 
 .dialog-stream {
-    // background: $ds-background;
-
     &-scroller {
         display: grid;
         grid-template-columns: $ds-vertical-padding-minimum $ds-vertical-padding-ideal 1fr $ds-vertical-padding-ideal $ds-vertical-padding-minimum;
@@ -31,11 +29,17 @@
     }
 
     &-option {
-        background: $ds-color-light;
-        // border-radius: $ds-border-radius;
+        align-items: center;
+        background: $ds-color-danger;
         box-shadow: $ds-card-box-shadow;
+        color: $ds-font-inverted;
+        display: flex;
         padding: #{$ds-general-padding} #{$ds-general-padding};
         margin-bottom: $ds-general-padding;
+
+        &-icon ion-icon {
+            color: $ds-font-inverted;
+        }
     }
 
     &-option-container {

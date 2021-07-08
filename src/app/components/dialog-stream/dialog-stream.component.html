@@ -77,7 +77,13 @@
                         class="dialog-stream-option"
                         (click)="dialog_stream_service.select_option(option)"
                     >
-                        {{ option.title }}
+                        <div class="dialog-stream-option-title">
+                            {{ option.title }}
+                        </div>
+                    
+                        <div class="dialog-stream-option-icon">
+                            <ion-icon name="arrow-redo-outline"></ion-icon>
+                        </div>
                     </div>
                 </ng-container>
             </div>
