@@ -18,6 +18,12 @@ export class EditorPage {
         this.game_data = JSON.parse(JSON.stringify(dialog_data))
     }
 
+    change_key(obj, previous_key, new_key) {
+        const value = JSON.parse(JSON.stringify(obj[previous_key]))
+        delete obj[previous_key]
+        obj[new_key] = value
+    }
+
     add_character() {
         // TODO - We want this at the end, ideally. Currently gets added randomly.
         const random_key = Math.random().toString(36).substring(7)
@@ -99,6 +105,10 @@ export class EditorPage {
             title: null,
             dialog: [],
         }
+    }
+
+    print_game_data() {
+        console.log(this.game_data)
     }
 
 }

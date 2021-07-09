@@ -30,7 +30,7 @@
             <ng-container *ngFor="let character of game_data.characters | keyvalue">
                 <div class="editor-section">
                     <div class="editor-input">
-                        <input [(ngModel)]="character.key" placeholder="Character Key" />
+                        <input value="{{ character.key }}" placeholder="Character Key" (change)="change_key(game_data.characters, character.key, $event.target.value);" />
                     </div>
 
                     <div class="editor-input">
@@ -64,7 +64,7 @@
             <ng-container *ngFor="let item of game_data.items | keyvalue">
                 <div class="editor-section">
                     <div class="editor-input">
-                        <input [(ngModel)]="item.key" placeholder="Item Key" />
+                        <input value="{{ item.key }}" placeholder="Item Key" (change)="change_key(game_data.items, item.key, $event.target.value);" />
                     </div>
 
                     <div class="editor-input">
@@ -119,7 +119,7 @@
             <ng-container *ngFor="let image of game_data.keyed_images | keyvalue">
                 <div class="editor-section">
                     <div class="editor-input">
-                        <input [(ngModel)]="image.key" placeholder="Image Key" />
+                        <input value="{{ image.key }}" placeholder="Image Key" (change)="change_key(game_data.keyed_images, image.key, $event.target.value);" />
                     </div>
 
                     <div class="editor-input">
@@ -149,7 +149,7 @@
             <ng-container *ngFor="let dialog of game_data.dialog | keyvalue">
                 <div class="editor-section">
                     <div class="editor-input">
-                        <input [(ngModel)]="dialog.key" placeholder="Dialog Key" />
+                        <input value="{{ dialog.key }}" placeholder="Dialog Key" (change)="change_key(game_data.dialog, dialog.key, $event.target.value);" />
                     </div>
 
                     <div class="editor-input">
@@ -343,6 +343,11 @@
         <ion-tab-button (click)="tab = 'dialog';">
             <ion-icon name="square"></ion-icon>
             <ion-label>Dialog</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="print_game_data();">
+            <ion-icon name="square"></ion-icon>
+            <ion-label>Print</ion-label>
         </ion-tab-button>
     </ion-tab-bar>
 </ion-footer>
