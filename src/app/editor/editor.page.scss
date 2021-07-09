@@ -28,8 +28,10 @@
 
 	&-input {
 		margin-bottom: #{$ds-general-padding / 2};
+		position: relative;
 
-		input {
+		input,
+		select {
 			padding: #{$ds-general-padding / 2} $ds-general-padding;
 			width: 100%;
 		}
@@ -38,6 +40,13 @@
 			display: inline-block;
 			margin-right: #{$ds-general-padding / 2};
 			width: auto;
+		}
+
+		.editor-button {
+			bottom: 0;
+			position: absolute;
+    		right: 0;
+    		top: 0;
 		}
 	}
 }
