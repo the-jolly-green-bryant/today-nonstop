@@ -175,7 +175,7 @@
                             Dialog
                         </div>
 
-                        <ng-container *ngFor="let line of dialog.value.dialog; index as i">
+                        <ng-container *ngFor="let line of dialog.value.dialog; index as i; trackBy:track_by_fn">
                             <div class="editor-input">
                                 <input [(ngModel)]="dialog.value.dialog[i]" placeholder="Dialog Line" />
 

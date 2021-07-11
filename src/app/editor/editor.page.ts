@@ -24,6 +24,10 @@ export class EditorPage {
         obj[new_key] = value
     }
 
+    track_by_fn(index: any, item: any) {
+        return index;
+    }
+
     add_character() {
         // TODO - We want this at the end, ideally. Currently gets added randomly.
         const random_key = Math.random().toString(36).substring(7)
