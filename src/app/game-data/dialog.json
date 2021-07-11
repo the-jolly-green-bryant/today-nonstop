@@ -73,13 +73,12 @@
                 }
             }
         },
-
         "wakeup_repeat": {
             "speaker": "player",
             "dialog": [
                 "[[SHOW_KEYED_IMAGE]]debug_thunderstorm",
                 "[[SET_SPEAKER]]player",
-                "Heavy storm two mornings in a row. Strange."
+                "Heavy storm two mornings in a row. Strange. Or a"
             ],
             "next": {
                 "eat_breakfast": {
@@ -100,15 +99,17 @@
                         "[[ADD_ITEM]]debug_bread"
                     ]
                 }
-            }
+            },
+            "comment": "Is this strange?"
         },
-
         "eat_breakfast": {
             "speaker": "player",
             "dialog": [
                 "[[SHOW_KEYED_IMAGE]]debug_breakfast",
                 "[[SET_SPEAKER]]player",
-                "This is a legit breakfast!"
+                "This breakfast is delicious.",
+                "It's pretty legit.",
+                "I dig it."
             ],
             "next": {
                 "start_chores": {
@@ -119,7 +120,6 @@
                 }
             }
         },
-
         "start_chores": {
             "speaker": "player",
             "dialog": [
@@ -132,7 +132,6 @@
                 }
             }
         },
-
         "process_restart": {
             "comment": "This blank room redirects us to some other blank rooms to convert regular items into aged items",
             "speaker": "player",
@@ -152,7 +151,6 @@
                 }
             }
         },
-
         "process_aged_bread": {
             "comment": "This blank room turns regular bread into moldy bread",
             "speaker": "player",

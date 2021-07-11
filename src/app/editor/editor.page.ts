@@ -109,6 +109,22 @@ export class EditorPage {
 
     print_game_data() {
         console.log(this.game_data)
+        const printed_data = JSON.stringify(this.game_data, null, 4)
+        this.copy_message(printed_data)
+    }
+
+    copy_message(val: string){
+        const text_box = document.createElement("textarea")
+        text_box.style.position = "fixed"
+        text_box.style.left = "0"
+        text_box.style.top = "0"
+        text_box.style.opacity = "0"
+        text_box.value = val
+        document.body.appendChild(text_box)
+        text_box.focus()
+        text_box.select()
+        document.execCommand("copy")
+        document.body.removeChild(text_box)
     }
 
 }
