@@ -203,7 +203,7 @@
                             <div class="editor-section">
                                 <div class="editor-input">
                                     <!-- START - Scene Selection Dropdown -->
-                                    <select [(ngModel)]="skip_to_if.key">
+                                    <select [value]="skip_to_if.key" (change)="change_key(dialog.value.skip_to_if, skip_to_if.key, $event.target.value);">
                                         <option
                                             *ngFor="let item of game_data.items | keyvalue"
                                             [value]="item.key"
@@ -254,7 +254,7 @@
                             <div class="editor-section">
                                 <div class="editor-input">
                                     <!-- START - Scene Selection Dropdown -->
-                                    <select [(ngModel)]="next.key">
+                                    <select [value]="next.key" (change)="change_key(dialog.value.next, next.key, $event.target.value);">
                                         <option
                                             *ngFor="let dialog of game_data.dialog | keyvalue"
                                             [value]="dialog.key"
@@ -275,7 +275,7 @@
                                         Dialog
                                     </div>
 
-                                    <ng-container *ngFor="let line of next.value.dialog; index as i">
+                                    <ng-container *ngFor="let line of next.value.dialog; index as i; trackBy:track_by_fn">
                                         <div class="editor-input">
                                             <input [(ngModel)]="next.value.dialog[i]" placeholder="Dialog Line" />
 

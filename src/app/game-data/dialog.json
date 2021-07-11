@@ -128,7 +128,20 @@
             ],
             "next": {
                 "process_restart": {
-                    "dialog": []
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "You're right, voice-in-my-head! Let's stop.",
+                        "[[MODIFY_REP:2]]evil_voice"
+                    ],
+                    "title": "Stop Working"
+                },
+                "start_chores": {
+                    "title": "Keep Working",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "I need to silence the voice and keep working.",
+                        "[[MODIFY_REP:-2]]evil_voice"
+                    ]
                 }
             }
         },

@@ -25,7 +25,7 @@ export class EditorPage {
     }
 
     track_by_fn(index: any, item: any) {
-        return index;
+        return index
     }
 
     add_character() {
