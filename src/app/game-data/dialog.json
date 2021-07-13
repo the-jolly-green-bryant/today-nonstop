@@ -1,5 +1,5 @@
 {
-    "default_scene": "wakeup",
+    "default_scene": "010a__wakeup",
     "characters": {
         "player": {
             "avatar": "https://via.placeholder.com/150",
@@ -34,7 +34,7 @@
         "debug_breakfast": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/360_F_247199107_3W9Clvj0lRf2z1g5wx206ybAccczNd9H.jpeg"
     },
     "dialog": {
-        "wakeup": {
+        "010a__wakeup": {
             "speaker": "player",
             "dialog": [
                 "[[ADD_ITEM]]started_day",
@@ -46,13 +46,13 @@
             ],
             "skip_to_if": {
                 "finished_once": {
-                    "target": "wakeup_repeat",
+                    "target": "010b__wakeup_repeat",
                     "minimum_quantity": 1,
                     "consumes_item": false
                 }
             },
             "next": {
-                "eat_breakfast": {
+                "020a__eat_breakfast": {
                     "title": "Get some breakfast",
                     "dialog": [
                         "[[SET_SPEAKER]]player",
@@ -60,7 +60,7 @@
                         "Let's get some breakfast before we start chores."
                     ]
                 },
-                "start_chores": {
+                "030a__start_chores": {
                     "title": "No time for breakfast, gotta start work.",
                     "dialog": [
                         "[[SET_SPEAKER]]player",
@@ -74,7 +74,7 @@
                 }
             }
         },
-        "wakeup_repeat": {
+        "010b__wakeup_repeat": {
             "speaker": "player",
             "dialog": [
                 "[[SHOW_KEYED_IMAGE]]debug_thunderstorm",
@@ -82,7 +82,7 @@
                 "Heavy storm two mornings in a row. Strange. Or a"
             ],
             "next": {
-                "eat_breakfast": {
+                "020a__eat_breakfast": {
                     "title": "Let's get some breakfast before starting chores",
                     "dialog": [
                         "[[SET_SPEAKER]]player",
@@ -90,7 +90,7 @@
                         "Let's get some breakfast before we start chores."
                     ]
                 },
-                "start_chores": {
+                "030a__start_chores": {
                     "title": "No time for breakfast, gotta start work.",
                     "dialog": [
                         "[[SET_SPEAKER]]player",
@@ -100,7 +100,7 @@
                         "[[ADD_ITEM]]debug_bread"
                     ]
                 },
-                "skip_day": {
+                "050a__skip_day": {
                     "title": "Skip today until we've skipped 5 times.",
                     "dialog": [
                         "How many times are we going to do this?"
@@ -109,7 +109,7 @@
             },
             "comment": "Is this strange?"
         },
-        "eat_breakfast": {
+        "020a__eat_breakfast": {
             "speaker": "player",
             "dialog": [
                 "[[SHOW_KEYED_IMAGE]]debug_breakfast",
@@ -119,7 +119,7 @@
                 "I dig it."
             ],
             "next": {
-                "start_chores": {
+                "030a__start_chores": {
                     "dialog": [
                         "[[DELAY]]2.5",
                         "Whelp, guess it's time to start work"
@@ -127,14 +127,14 @@
                 }
             }
         },
-        "start_chores": {
+        "030a__start_chores": {
             "speaker": "player",
             "dialog": [
                 "[[SET_SPEAKER]]evil_voice",
                 "This sucks, you should stop working"
             ],
             "next": {
-                "process_restart": {
+                "040a__process_restart": {
                     "dialog": [
                         "[[SET_SPEAKER]]player",
                         "You're right, voice-in-my-head! Let's stop.",
@@ -142,7 +142,7 @@
                     ],
                     "title": "Stop Working"
                 },
-                "start_chores": {
+                "030a__start_chores": {
                     "title": "Keep Working",
                     "dialog": [
                         "[[SET_SPEAKER]]player",
@@ -152,19 +152,19 @@
                 }
             }
         },
-        "process_restart": {
+        "040a__process_restart": {
             "comment": "This blank room redirects us to some other blank rooms to convert regular items into aged items",
             "speaker": "player",
             "dialog": [],
             "skip_to_if": {
                 "debug_bread": {
-                    "target": "process_aged_bread",
+                    "target": "041a__process_aged_bread",
                     "minimum_quantity": 1,
                     "consumes_item": true
                 }
             },
             "next": {
-                "wakeup": {
+                "010a__wakeup": {
                     "dialog": [
                         "[[EMOTE]]You suddenly pass out",
                         "[[ADD_ITEM]]finished_once"
@@ -172,26 +172,26 @@
                 }
             }
         },
-        "process_aged_bread": {
+        "041a__process_aged_bread": {
             "comment": "This blank room turns regular bread into moldy bread",
             "speaker": "player",
             "dialog": [
                 "[[ADD_ITEM]]moldy_bread"
             ],
             "next": {
-                "process_restart": {
+                "040a__process_restart": {
                     "dialog": []
                 }
             }
         },
-        "skip_day": {
+        "050a__skip_day": {
             "comment": "Skip today until we've skipped 5 times.",
             "speaker": null,
             "dialog": [
                 "[[EMOTE]]You suddenly pass out"
             ],
             "next": {
-                "process_restart": {
+                "040a__process_restart": {
                     "title": "",
                     "dialog": []
                 }
@@ -200,18 +200,18 @@
                 "finished_once": {
                     "consumes_item": false,
                     "minimum_quantity": 5,
-                    "target": "skip_day__stop"
+                    "target": "050b__skip_day__stop"
                 }
             }
         },
-        "skip_day__stop": {
+        "050b__skip_day__stop": {
             "comment": "Stop Skipping",
             "speaker": "player",
             "dialog": [
                 "You can't skip anymore. We're restarting the day now."
             ],
             "next": {
-                "wakeup": {
+                "010a__wakeup": {
                     "title": null,
                     "dialog": []
                 }
