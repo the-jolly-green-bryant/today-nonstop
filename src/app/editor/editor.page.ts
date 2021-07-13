@@ -29,8 +29,7 @@ export class EditorPage {
     }
 
     add_character() {
-        // TODO - We want this at the end, ideally. Currently gets added randomly.
-        const random_key = Math.random().toString(36).substring(7)
+        const random_key = "zzzzz__" + Math.random().toString(36).substring(7)
         this.game_data.characters[random_key] = {
             name: "",
             avatar: "",
@@ -43,8 +42,7 @@ export class EditorPage {
     }
 
     add_item() {
-        // TODO - We want this at the end, ideally. Currently gets added randomly.
-        const random_key = Math.random().toString(36).substring(7)
+        const random_key = "zzzzz__" + Math.random().toString(36).substring(7)
         this.game_data.items[random_key] = {
             name: "",
             avatar: "",
@@ -60,8 +58,7 @@ export class EditorPage {
     }
 
     add_image() {
-        // TODO - We want this at the end, ideally. Currently gets added randomly.
-        const random_key = Math.random().toString(36).substring(7)
+        const random_key = "zzzzz__" + Math.random().toString(36).substring(7)
         this.game_data.keyed_images[random_key] = ""
     }
 
@@ -71,8 +68,7 @@ export class EditorPage {
     }
 
     add_dialog() {
-        // TODO - We want this at the end, ideally. Currently gets added randomly.
-        const random_key = Math.random().toString(36).substring(7)
+        const random_key = "zzzzz__" + Math.random().toString(36).substring(7)
         this.game_data.dialog[random_key] = {
             comment: "",
             speaker: null,
@@ -91,10 +87,10 @@ export class EditorPage {
             dialog.skip_to_if = {}
         }
 
-        // TODO - We want this at the end, ideally. Currently gets added randomly.
-        const random_key = Math.random().toString(36).substring(7)
+        const random_key = "zzzzz__" + Math.random().toString(36).substring(7)
         dialog.skip_to_if[random_key] = {
             consumes_item: false,
+            quantity: 1,
         }
     }
 
@@ -103,8 +99,7 @@ export class EditorPage {
             dialog.next = {}
         }
 
-        // TODO - We want this at the end, ideally. Currently gets added randomly.
-        const random_key = Math.random().toString(36).substring(7)
+        const random_key = "zzzzz__" + Math.random().toString(36).substring(7)
         dialog.next[random_key] = {
             title: null,
             dialog: [],
