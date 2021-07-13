@@ -28,7 +28,6 @@ export class StorageService {
      */
     public async set(key: string, value: any) {
         await this.database.set(key, value)
-        console.log("storage.set", await this.get(key))
     }
 
     /**

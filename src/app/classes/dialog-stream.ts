@@ -147,7 +147,7 @@ export class DialogStream {
             } else if (item.command === "ADD_ITEM") {
                 // Add our item to inventory.
                 this.add_inventory_item(item.argument, 1)
-                console.log(this.inventory)
+                console.log("Current Inventory", this.inventory)
             } else if (item.command !== "SET_SPEAKER" && item.command !== "ADD_ITEM" && !skip_delays) {
                 // If nothing else, wait our normal time between lines.
                 await this.delay(this.SECONDS_BETWEEN_DIALOG_LINES * 1000)
