@@ -47,6 +47,7 @@
             "skip_to_if": {
                 "finished_once": {
                     "target": "wakeup_repeat",
+                    "minimum_quantity": 1,
                     "consumes_item": false
                 }
             },
@@ -97,6 +98,12 @@
                         "I'll just take some bread with me to snack on.",
                         "[[FLASH_ITEM]]debug_bread",
                         "[[ADD_ITEM]]debug_bread"
+                    ]
+                },
+                "skip_day": {
+                    "title": "Skip today until we've skipped 5 times.",
+                    "dialog": [
+                        "How many times are we going to do this?"
                     ]
                 }
             },
@@ -152,6 +159,7 @@
             "skip_to_if": {
                 "debug_bread": {
                     "target": "process_aged_bread",
+                    "minimum_quantity": 1,
                     "consumes_item": true
                 }
             },
@@ -172,6 +180,39 @@
             ],
             "next": {
                 "process_restart": {
+                    "dialog": []
+                }
+            }
+        },
+        "skip_day": {
+            "comment": "Skip today until we've skipped 5 times.",
+            "speaker": null,
+            "dialog": [
+                "[[EMOTE]]You suddenly pass out"
+            ],
+            "next": {
+                "process_restart": {
+                    "title": "",
+                    "dialog": []
+                }
+            },
+            "skip_to_if": {
+                "finished_once": {
+                    "consumes_item": false,
+                    "minimum_quantity": 5,
+                    "target": "skip_day__stop"
+                }
+            }
+        },
+        "skip_day__stop": {
+            "comment": "Stop Skipping",
+            "speaker": "player",
+            "dialog": [
+                "You can't skip anymore. We're restarting the day now."
+            ],
+            "next": {
+                "wakeup": {
+                    "title": null,
                     "dialog": []
                 }
             }
