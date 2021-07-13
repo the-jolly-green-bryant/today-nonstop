@@ -72,7 +72,8 @@
                         "This might come in handy"
                     ]
                 }
-            }
+            },
+            "show_in_editor": false
         },
         "010b__wakeup_repeat": {
             "speaker": "player",
@@ -107,7 +108,8 @@
                     ]
                 }
             },
-            "comment": "Is this strange?"
+            "comment": "Is this strange?",
+            "show_in_editor": false
         },
         "020a__eat_breakfast": {
             "speaker": "player",

@@ -49,4 +49,11 @@
     		top: 0;
 		}
 	}
+
+	&-text-button {
+		cursor: pointer;
+		font-size: 12px;
+		font-variant: small-caps;
+		text-transform: lowercase;
+	}
 }
