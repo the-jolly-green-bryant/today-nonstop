@@ -52,6 +52,23 @@ export class DialogStream {
     SECONDS_BETWEEN_SCENES = 3.5
 
     /**
+     * A list of valid commands
+     *
+     * @type {string[]}
+     */
+    WHITELISTED_COMMANDS: string[] = [
+        "ADD_ITEM",
+        "DELAY",
+        "EMOTE",
+        "FLASH_IMAGE",
+        "FLASH_ITEM",
+        "SET_SPEAKER",
+        "SHOW_IMAGE",
+        "SHOW_KEYED_IMAGE",
+        "SHOW_TEXT",
+    ]
+
+    /**
      * Pushes a scene onto the event stream and begins rendering it.
      *
      * @param {string} scene The string identifier for the scene
@@ -78,7 +95,7 @@ export class DialogStream {
         // Check if we need to skip this scene.
         if (dialog_data.dialog[scene].skip_to_if) {
             for (const key in scene_object.skip_to_if) {
-                if (this.has_inventory_item(key)) {
+                if (this.has_inventory_item(key, scene_object.skip_to_if[key].minimum_quantity)) {
                     // We have the item. Consume it (if necessary) and go to the next scene.
                     const skip_directions = scene_object.skip_to_if[key]
                     if (skip_directions.consumes_item) {
@@ -173,11 +190,12 @@ export class DialogStream {
     /**
      * Determines whether we have the required item.
      *
-     * @param {string} identifier The item we're seeking.
+     * @param {string} identifier       The item we're seeking.
+     * @param {number} minimum_quantity The minimum quantity we need
      */
-    has_inventory_item(identifier: string) {
+    has_inventory_item(identifier: string, minimum_quantity = 1) {
         for (const item of this.inventory) {
-            if (item.identifier === identifier && item.quantity >= 1) {
+            if (item.identifier === identifier && item.quantity >= minimum_quantity) {
                 return true
             }
         }
@@ -277,6 +295,11 @@ export class DialogStream {
             const match = item.match(command_regex)
             command = match[1]
             argument = match[2]
+
+            if (!this.WHITELISTED_COMMANDS.includes(command)) {
+                argument = `[[${command}]]${argument}`
+                command = "SHOW_TEXT"
+            }
 
             if (command === "SET_SPEAKER") {
                 const character = dialog_data.characters[argument]
