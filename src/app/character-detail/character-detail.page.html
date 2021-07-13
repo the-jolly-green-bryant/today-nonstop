@@ -1,0 +1,14 @@
+<ion-header>
+  	<ion-toolbar>
+    	<ion-buttons slot="start">
+      		<ion-back-button defaultHref="tabs/characters"></ion-back-button>
+    	</ion-buttons>
+  	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <app-character-detail
+    	[identifier]="identifier"
+    	[stream]="dialog_stream_service.dialog_stream"
+    ></app-character-detail>
+</ion-content>

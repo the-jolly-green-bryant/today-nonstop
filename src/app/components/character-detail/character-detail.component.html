@@ -1,0 +1,32 @@
+<div class="character-detail">
+    <ng-container *ngIf="game_data.characters[identifier]">
+        <div class="character-detail-upper">
+            <img [src]="game_data.characters[identifier].cover" />
+        </div>
+        <div class="character-detail-lower">
+            <div class="character-detail-avatar">
+                <img [src]="game_data.characters[identifier].avatar" />
+            </div>
+
+            <div class="character-detail-title">
+                {{ game_data.characters[identifier].name }}
+            </div>
+
+            <div class="character-detail-discoverable-container">
+                <ng-container *ngFor="let item of game_data.characters[identifier].discoverables | keyvalue">
+                    <ng-container *ngIf="stream.inventory.length && has_item_in_quantity(item.key, item.value.minimum_quantity)">
+                        <div class="character-detail-discoverable">
+                            <div class="character-detail-discoverable-avatar">
+                                <img [src]="game_data.items[item.key].avatar" />
+                            </div>
+
+                            <div class="character-detail-discoverable-title">
+                                {{ game_data.characters[identifier].discoverables[item.key].description }}
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </ng-container>
+</div>

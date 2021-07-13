@@ -3,11 +3,24 @@
     "characters": {
         "player": {
             "avatar": "https://via.placeholder.com/150",
-            "name": "I'm the player!"
+            "cover": "https://via.placeholder.com/150",
+            "name": "I'm the player!",
+            "description": "This is the player. They have stuff you can discover.",
+            "discoverables": {
+                "finished_once": {
+                    "description": "Stuck in a time loop",
+                    "minimum_quantity": 2
+                },
+                "moldy_bread": {
+                    "description": "Can carry some items between time loops",
+                    "minimum_quantity": 1
+                }
+            }
         },
         "evil_voice": {
             "avatar": "https://via.placeholder.com/150",
-            "name": "Player's evil voice"
+            "name": "Player's evil voice",
+            "hidden": true
         }
     },
     "items": {

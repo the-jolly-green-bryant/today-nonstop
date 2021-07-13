@@ -31,6 +31,13 @@ export class DialogStream {
     public inventory: InventoryItem[] = []
 
     /**
+     * All characters the player has met.
+     *
+     * @type {DialogSpeaker[]}
+     */
+    public characters: DialogSpeaker[] = []
+
+    /**
      * The last active speaker
      *
      * @type {DialogSpeaker}
@@ -303,7 +310,18 @@ export class DialogStream {
 
             if (command === "SET_SPEAKER") {
                 const character = dialog_data.characters[argument]
-                this.last_speaker = new DialogSpeaker(character.avatar, character.name, argument)
+                this.last_speaker = new DialogSpeaker(argument)
+
+                let speaker_encountered = false
+                for (const index in this.characters) {
+                    if (this.characters[index].identifier === argument) {
+                        speaker_encountered = true
+                    }
+                }
+
+                if (!speaker_encountered) {
+                    this.characters.push(JSON.parse(JSON.stringify(this.last_speaker)))
+                }
             }
         }
 
@@ -360,11 +378,15 @@ export class DialogSpeaker {
     public avatar: string = null
     public name: string = null
     public identifier: string = null
+    public hidden: boolean = null
 
-    constructor(avatar, name, identifier) {
-        this.avatar = avatar
-        this.name = name
+    constructor(identifier) {
         this.identifier = identifier
+
+        const character_object = dialog_data.characters[this.identifier]
+        this.name = character_object ? character_object.name || "NO_NAME" : "UNDEFINED"
+        this.hidden = character_object ? character_object.hidden : false
+        this.avatar = character_object ? character_object.avatar || "NO_IMAGE" : "UNDEFINED"
     }
 }
 

@@ -1,0 +1,31 @@
+<div class="characters">
+    <div class="characters-title">
+        Characters
+    </div>
+
+    <ng-container *ngIf="!stream.characters">
+        <div class="characters-paragraph">
+            You haven't met anyone!
+        </div>
+    </ng-container>
+
+    <div class="characters-item-container">
+        <ng-container *ngFor="let item of stream.characters | keyvalue">
+            <ng-container *ngIf="!item.value.hidden">
+                <div
+                    class="characters-item"
+                    id="characters-item-{{i}}"
+                    [routerLink]="['/character-detail', item.value.identifier]"
+                >
+                    <div class="characters-item-background">
+                        <img [src]="item.value.avatar" />
+                    </div>
+
+                    <div class="characters-item-title">
+                        {{ item.value.name }}
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

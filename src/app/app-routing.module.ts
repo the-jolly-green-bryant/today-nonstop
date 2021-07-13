@@ -9,6 +9,10 @@ const routes: Routes = [
     {
         path: "editor",
         loadChildren: () => import("./editor/editor.module").then(m => m.EditorPageModule),
+    },
+    {
+        path: "character-detail",
+        loadChildren: () => import("./character-detail/character-detail.module").then(m => m.CharacterDetailPageModule),
     }
 ]
 @NgModule({

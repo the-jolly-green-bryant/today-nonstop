@@ -1,0 +1,81 @@
+@import "../../../theme/variables";
+
+.character-detail {
+    &-upper {
+        padding-top: 60%;
+        position: relative;
+        width: 100%;
+    
+        img {
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+        }
+    }
+
+    &-lower {
+        padding: 0 $ds-vertical-padding-minimum #{$ds-vertical-padding-minimum / 2};
+    }
+
+    &-avatar {
+        $avatar-size: 100px;
+        height: $avatar-size;
+        margin: #{-1 * ($avatar-size / 2)} auto 0;
+        position: relative;
+        width: $avatar-size;
+
+        img {
+            border: solid 4px $ds-background;
+            border-radius: $ds-border-radius;
+            bottom: 0;
+            box-shadow: $ds-card-box-shadow;
+            height: 100%;
+            left: 0;
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+        }
+    }
+
+    &-title {
+        color: $ds-font-primary;
+        font-size: $ds-font-size;
+        margin-top: $ds-general-padding;
+        text-align: center;
+    }
+
+    &-discoverable {
+        align-items: center;
+        color: $ds-font-primary;
+        display: flex;
+        font-size: $ds-font-size;
+        gap: $ds-general-padding;
+        margin: #{$ds-general-padding * 2} 0;
+
+        &-avatar {
+            border-radius: 50%;
+            display: flex;
+            flex-direction: row;
+            height: $ds-avatar-size;
+            min-width: $ds-avatar-size;
+            overflow: hidden;
+            width: $ds-avatar-size;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+            }
+        }
+    }
+}
