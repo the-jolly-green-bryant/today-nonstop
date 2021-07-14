@@ -41,6 +41,61 @@
                         <input [(ngModel)]="character.value.name" placeholder="Name" />
                     </div>
 
+                    <div class="editor-input">
+                        <input [(ngModel)]="character.value.description" placeholder="Description" />
+                    </div>
+
+                    <div class="editor-input">
+                        <label>
+                            <input [(ngModel)]="character.value.hidden" type="checkbox" />
+                            Hidden
+                        </label>
+                    </div>
+
+                    <div class="editor-section">
+                        <div class="editor-section-title">
+                            Discoverables
+                        </div>
+
+                        <ng-container *ngFor="let discoverable of character.value.discoverables | keyvalue">
+                            <div class="editor-section">
+                                <div class="editor-input">
+                                    <!-- START - Scene Selection Dropdown -->
+                                    <select [value]="discoverable.key" (change)="change_key(character.value.discoverables, discoverable.key, $event.target.value);">
+                                        <option
+                                            *ngFor="let item of game_data.items | keyvalue"
+                                            [value]="item.key"
+                                            [selected]="item.key == discoverable.key"
+                                        >
+                                            {{ item.key }} - {{ item.value.name }}
+                                        </option>
+                                    </select>
+                                    <!-- END - Scene Selection Dropdown -->
+                                </div>
+
+                                <div class="editor-input">
+                                    <input [(ngModel)]="discoverable.value.description" />
+                                </div>
+
+                                <div class="editor-input">
+                                    <input [(ngModel)]="discoverable.value.minimum_quantity" type="number" />
+                                </div>
+
+                                <div class="editor-button-container">
+                                    <div class="editor-button" (click)="remove_discoverable_from_character(character.value, discoverable.key)">
+                                        Remove Discoverable
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <div class="editor-button-container">
+                            <div class="editor-button" (click)="add_discoverable_to_character(character.value)">
+                                Add Discoverable
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="editor-button-container">
                         <div class="editor-button" (click)="remove_character(character.key)">
                             Remove Character
@@ -243,6 +298,12 @@
 
                                     <div class="editor-input">
                                         <input [(ngModel)]="skip_to_if.value.minimum_quantity" type="number" />
+                                    </div>
+
+                                    <div class="editor-button-container">
+                                        <div class="editor-button" (click)="remove_skiptoif_from_dialog(dialog.value, skip_to_if.key)">
+                                            Remove Skip-To-If
+                                        </div>
                                     </div>
                                 </div>
                             </ng-container>

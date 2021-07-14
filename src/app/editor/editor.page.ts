@@ -49,7 +49,35 @@ export class EditorPage {
         this.game_data.characters[random_key] = {
             name: "",
             avatar: "",
+            description: "",
         }
+    }
+
+    /**
+     * Adds a blank discoverable to the character.
+     *
+     * @param {any} character The character object we want to add a discoverable to
+     */
+    add_discoverable_to_character(character: any) {
+        if (!character.discoverables) {
+            character.discoverables = {}
+        }
+
+        const random_key = "zzzzz__" + Math.random().toString(36).substring(7)
+        character.discoverables[random_key] = {
+            description: "",
+            minimum_quantity: 1,
+        }
+    }
+
+    /**
+     * Removes a discoverable from the given character.
+     *
+     * @param {any}    character        The character we're referencing
+     * @param {string} discoverable_key The key for the discoverable
+     */
+    remove_discoverable_from_character(character: any, discoverable_key: string) {
+        delete character.discoverables[discoverable_key]
     }
 
     /**
@@ -142,6 +170,16 @@ export class EditorPage {
             consumes_item: false,
             quantity: 1,
         }
+    }
+
+    /**
+     * Removes the given skiptoif from the dialog.
+     *
+     * @param {any}    dialog       The dialog object we're referencing
+     * @param {[type]} skiptoif_key The key for the skiptoif we want removed
+     */
+    remove_skiptoif_from_dialog(dialog: any, skiptoif_key) {
+        delete dialog.skip_to_if[skiptoif_key]
     }
 
     /**
