@@ -81,7 +81,7 @@
             align-items: center;
             color: $ds-font-secondary;
             display: flex;
-            font-size: 12px;
+            font-size: $ds-font-size-secondary;
             padding: 0 #{$ds-general-padding / 2};
 
             &-container {

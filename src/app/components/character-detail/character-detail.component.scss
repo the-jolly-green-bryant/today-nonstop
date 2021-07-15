@@ -53,6 +53,13 @@
         text-align: center;
     }
 
+    &-description {
+        color: $ds-font-secondary;
+        font-size: $ds-font-size-secondary;
+        margin-top: $ds-general-padding;
+        text-align: center;
+    }
+
     &-discoverable {
         align-items: center;
         color: $ds-font-primary;

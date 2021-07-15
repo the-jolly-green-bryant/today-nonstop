@@ -12,6 +12,10 @@
                 {{ game_data.characters[identifier].name }}
             </div>
 
+            <div class="character-detail-description">
+                {{ game_data.characters[identifier].description }}
+            </div>
+
             <div class="character-detail-discoverable-container">
                 <ng-container *ngFor="let item of game_data.characters[identifier].discoverables | keyvalue">
                     <ng-container *ngIf="stream.inventory.length && has_item_in_quantity(item.key, item.value.minimum_quantity)">
