@@ -22,6 +22,11 @@
     - You can progress by bringing a creature to death.
     - You can also lose progress by letting a creature you've previously inhabited die.
 
+- Not So Slim Shady
+    - Doppelganger leader
+    - Big reveal
+    - Ultimate ending, we can change everything if we're him.
+
 ### Overview
 
 Doppelgangers are impersonating people. Why? Where? How many? What does a successful end look like?
@@ -33,8 +38,9 @@ Doppelgangers are impersonating people. Why? Where? How many? What does a succes
 This story reflects a human going through all sorts of zany encounters. It is based on sci-fi adventure that focuses on alien abductions and virtual reality, but is themed to a DnD appropriate universe. The original story is [here](https://www.reddit.com/r/WritingPrompts/comments/2yof9i/wp_create_a_choose_your_own_adventure_with_an/cpcgzew/?context=3)
 
 - 1010 - Waking Up
+    - Describe the festival going on
     - 1020 - Take a moment to explore and take in the world
-    - 1030 - Prepare for event
+    - 1030 - Undress for the fair
     - 1040 - Start morning slowly
     - 1050 - Start morning aggressively
 
@@ -42,11 +48,34 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1110 - Something mundane that completes world mission
     - 1140 - Something mundane that snaps you out of reality
 
-- 1030 - Late for event
-    - It's an archery competition, and the player is a contestant.
-    - If they attend, describe people jeering at their nudity in a way that could be misconstrued as kindness.
-    - 1170 - Attend event
+- 1030 - TOURNEY - Today's the fair. You remember the archery tourney. You remember you're a participant.
+    - 1031 - Get ready for event
     - 1190 - Skip event
+
+- 1031 - TOURNEY - Get ready
+    - 1032 - Grab sword (if not has sword)
+    - 1033 - Grab bow (if not has bow)
+    - 1034 - Grab clothes (if we know we need clothes)
+    - 1170 - Head to tourney
+        - "Well, that's everything I need"
+
+- 1032 - TOURNEY - Grab sword
+    - Skip To If
+        - `has_bow` - 1035 - Too much equipment
+    - 1031 - We can grab more stuff
+
+- 1033 - TOURNEY - Grab bow
+        - `has_sword` - 1035 - Too much equipment
+    - 1031 - We can grab more stuff
+
+- 1034 - TOURNEY - Grab clothes
+    - 1031 - We can grab more stuff
+
+- 1035 - TOURNEY - Too much equipment (grab sword)
+    - 1010 - You die to an unfortunate slip and fall and wake up.
+
+- 1036 - TOURNEY - Too much equipment (grab bow)
+    - 1010 - You die to an unfortunate slip and fall and wake up.
 
 - 1040 - It's a normal morning. You hear a child crying. You don't have children.
     - 1060 - INVESTIGATE - What's a child doing out this way?
@@ -59,8 +88,20 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1100 - ABDUCTION - You catch sight of something strange/alien. You're knocked out. You wake up to the abduction scene.
     - 1160 - You're incredulous this is real. Break the fourth wall.
 
-- 1070 - You attend event but blackout
+- 1070 - TOURNEY - You attend the archery tourney but forgot your clothes
+    - Describe people jeering at their nudity in a way that could be misconstrued as kindness.
+    - Skip To If
+        - `has_clothes` - 1071 - You brought clothes
     - 1010 - ENDING - You run down an alley to escape your shame. A figure follows you, laughing. He looks unreal. You're knocked out. Restart when you wake up.
+
+- 1071 - TOURNEY - You attend the archery tourney but brought a sword
+    - Leads up to a "you brought a knife to a gunfight" ending
+    - Skip To If
+        - `has_bow` - 1072 - You brought a bow
+    - 1010 - ENDING - You run down an alley to escape your shame. A figure follows you, laughing. He looks unreal. You're knocked out. Restart when you wake up.
+
+- 1072 - TOURNEY - You attend the archery tourney with all required equipment
+    - 1150 - An archery accident gone bad kills you. You wake up (to bad dream).
 
 - 1080 - DON'T INVESTIGATE - The crying turns to wailing. It's getting louder. Turns to roaring.
     - 1100 - ABDUCTION - Something barrels throught he door. You're knocked out.
