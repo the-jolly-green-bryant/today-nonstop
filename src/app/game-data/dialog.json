@@ -149,6 +149,19 @@
                 "This sucks, you should stop working"
             ],
             "next": {
+                "010a__wakeup": {
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "I don't think that bread is so good...",
+                        "[[EMOTE]]You suddenly pass out",
+                        "[[ADD_ITEM]]finished_once"
+                    ],
+                    "title": "Eat Moldy Bread",
+                    "show_if": [
+                        "moldy_bread",
+                        "finished_once"
+                    ]
+                },
                 "040a__process_restart": {
                     "dialog": [
                         "[[SET_SPEAKER]]player",
@@ -165,7 +178,8 @@
                         "[[MODIFY_REP:-2]]evil_voice"
                     ]
                 }
-            }
+            },
+            "show_in_editor": true
         },
         "040a__process_restart": {
             "comment": "This blank room redirects us to some other blank rooms to convert regular items into aged items",

@@ -239,23 +239,42 @@ export class DialogStream {
      */
     async end_scene(scene: string, skip_delays?: boolean) {
         const scene_object = dialog_data.dialog[scene]
-        if (!scene_object.next || Object.keys(scene_object.next).length === 0) {
+
+        // Filter our options based on conditionals.
+        const possible_options = {}
+        for (const key of Object.keys(scene_object.next)) {
+            const optional_scene = scene_object.next[key]
+            let meets_reqs = true
+            if (optional_scene.show_if) {
+                for (const item_index in optional_scene.show_if) {
+                    const item_key = optional_scene.show_if[item_index]
+                    if (!this.has_inventory_item(item_key)) {
+                        meets_reqs = false
+                    }
+                }
+            }
+            if (meets_reqs) {
+                possible_options[key] = optional_scene
+            }
+        }
+
+        if (!scene_object.next || Object.keys(possible_options).length === 0) {
             // TODO - We have nowhere to go! We've reached the end of the game.
             console.log("\n\n!!! WE HAVE REACHED A DEAD END !!!\n\n")
             return
         }
 
-        else if (Object.keys(scene_object.next).length === 1) {
+        else if (Object.keys(possible_options).length === 1) {
             // There is only one option, automatically progress towards it.
-            const new_scene = Object.keys(scene_object.next)[0]
-            await this.render_lines(scene_object.next[new_scene].dialog, skip_delays)
+            const new_scene = Object.keys(possible_options)[0]
+            await this.render_lines(possible_options[new_scene].dialog, skip_delays)
             return await this.run_scene(new_scene, skip_delays)
         }
 
         else {
             // Add any relevant options to our stream.
-            for (const key of Object.keys(scene_object.next)) {
-                const optional_scene = scene_object.next[key]
+            for (const key of Object.keys(possible_options)) {
+                const optional_scene = possible_options[key]
                 this.options.push(new DialogOption(key, optional_scene.title, optional_scene.dialog))
             }
 
