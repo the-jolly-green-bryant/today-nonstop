@@ -30,7 +30,8 @@
         },
         "moldy_bread": {
             "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
-            "name": "Moldy Bread"
+            "name": "Moldy Bread",
+            "persists": true
         },
         "started_day": {
             "hidden": true
@@ -39,7 +40,8 @@
             "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
             "name": "Days Completed",
             "always_show_chip": true,
-            "is_status": true
+            "is_status": true,
+            "persists": true
         }
     },
     "keyed_images": {
@@ -91,6 +93,7 @@
         "010b__wakeup_repeat": {
             "speaker": "player",
             "dialog": [
+                "[[CLEAR_INVENTORY]]",
                 "[[SHOW_KEYED_IMAGE]]debug_thunderstorm",
                 "[[SET_SPEAKER]]player",
                 "Heavy storm two mornings in a row. Strange. Or a"

@@ -65,6 +65,7 @@ export class DialogStream {
      */
     WHITELISTED_COMMANDS: string[] = [
         "ADD_ITEM",
+        "CLEAR_INVENTORY",
         "DELAY",
         "EMOTE",
         "FLASH_IMAGE",
@@ -155,6 +156,8 @@ export class DialogStream {
                 // Add our item to inventory.
                 this.add_inventory_item(item.argument, 1)
                 console.log("Current Inventory", this.inventory)
+            } else if (item.command === "CLEAR_INVENTORY") {
+                this.clear_inventory()
             } else if (item.command !== "SET_SPEAKER" && item.command !== "ADD_ITEM" && !skip_delays) {
                 // If nothing else, wait our normal time between lines.
                 await this.delay(this.SECONDS_BETWEEN_DIALOG_LINES * 1000)
@@ -190,6 +193,17 @@ export class DialogStream {
             if (item.identifier === identifier && item.quantity >= quantity) {
                 item.quantity -= quantity
                 return
+            }
+        }
+    }
+
+    /**
+     * Removes all items from our inventory, unless they persist.
+     */
+    clear_inventory() {
+        for (const item of this.inventory) {
+            if (!item.persists) {
+                item.quantity = 0
             }
         }
     }
@@ -417,6 +431,7 @@ export class InventoryItem {
     public avatar: string = null
     public is_status: boolean = null
     public always_show_chip: boolean = null
+    public persists: boolean = null
 
     constructor(identifier, quantity=1) {
         this.identifier = identifier
@@ -428,5 +443,6 @@ export class InventoryItem {
         this.avatar = item_object ? item_object.avatar || "NO_IMAGE" : "UNDEFINED"
         this.is_status = item_object ? item_object.is_status : false
         this.always_show_chip = item_object ? item_object.always_show_chip : false
+        this.persists = item_object ? item_object.persists : false
     }
 }

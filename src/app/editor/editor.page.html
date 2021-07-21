@@ -139,6 +139,13 @@
 
                     <div class="editor-input">
                         <label>
+                            <input [(ngModel)]="item.value.persists" type="checkbox" />
+                            Persists
+                        </label>
+                    </div>
+
+                    <div class="editor-input">
+                        <label>
                             <input [(ngModel)]="item.value.always_show_chip" type="checkbox" />
                             Always Show Chip
                         </label>

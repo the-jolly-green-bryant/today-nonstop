@@ -12,7 +12,7 @@
                         'is-player': (item.speaker && item.speaker.identifier == 'player'),
                         'is-media': (item.command == 'SHOW_IMAGE' || item.command == 'SET_SPEAKER'),
                         'is-full': (item.command == 'EMOTE'),
-                        'is-empty': (item.command == 'DELAY' || item.command == 'ADD_ITEM')
+                        'is-empty': (item.command == 'DELAY' || item.command == 'ADD_ITEM' || item.command == 'CLEAR_INVENTORY')
                     }"
                 >
                     <div class="dialog-stream-item-diagnostics">
