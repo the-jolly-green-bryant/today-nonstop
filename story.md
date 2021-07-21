@@ -27,6 +27,14 @@
     - Big reveal
     - Ultimate ending, we can change everything if we're him.
 
+- Simulation
+    - You're in a simulation, in a simulation
+    - Maybe take over the big you in the snowglobe?
+    - Roy from Rick & Morty?
+
+- Time Loop
+    - Knowledge and items are collected from various playthroughs. This allows us to unlock successful endings.
+
 ### Overview
 
 Doppelgangers are impersonating people. Why? Where? How many? What does a successful end look like?
@@ -37,61 +45,94 @@ Doppelgangers are impersonating people. Why? Where? How many? What does a succes
 
 This story reflects a human going through all sorts of zany encounters. It is based on sci-fi adventure that focuses on alien abductions and virtual reality, but is themed to a DnD appropriate universe. The original story is [here](https://www.reddit.com/r/WritingPrompts/comments/2yof9i/wp_create_a_choose_your_own_adventure_with_an/cpcgzew/?context=3)
 
-- 1010 - Waking Up
+- 1010 - You jolt awake. There's a lot going on. A fair is in town.
     - Describe the festival going on
-    - 1020 - Take a moment to explore and take in the world
-    - 1030 - Undress for the fair
-    - 1040 - Start morning slowly
-    - 1050 - Start morning aggressively
+    - Dialog
+        - `[[CLEAR_INVENTORY]]`
+    - 1020 - FAKE WORLD - Go for a walk
+    - 1030 - TOURNEY - Undress for the fair
+    - 1040 - INVESTIGATE - Stoke the fire
+    - 1050 - CHICKEN - Start morning aggressively
 
-- 1020 - World is unreal (eg matrix)
-    - 1110 - Something mundane that completes world mission
-    - 1140 - Something mundane that snaps you out of reality
+- 1020 - FAKE WORLD - During your walk, you see a hazy form floating in the sky.
+    - Hazy form becomes a massive figure whose eyes are staring through a large domed glass.
+    - The face is yours. (Doppelgangers!)
+    - 1110 - EASTER EGG ENDING - What am I looking at?
+    - 1140 - FAKE WORLD - You must be dreaming. Blink away the figment/vision.
 
 - 1030 - TOURNEY - Today's the fair. You remember the archery tourney. You remember you're a participant.
-    - 1031 - Get ready for event
-    - 1190 - Skip event
+    - 1031 - TOURNEY - Get ready for event
+    - 1090 - TOURNEY - Skip event
 
 - 1031 - TOURNEY - Get ready
-    - 1032 - Grab sword (if not has sword)
-    - 1033 - Grab bow (if not has bow)
-    - 1034 - Grab clothes (if we know we need clothes)
-    - 1170 - Head to tourney
+    - 1032 - TOURNEY - Grab sword (if not has sword)
+    - 1033 - TOURNEY - Grab bow (if not has bow)
+    - 1034 - TOURNEY - Grab clothes
+        - Show If: `was_nude`
+    - 1170 - TOURNEY - Head to tourney
         - "Well, that's everything I need"
 
 - 1032 - TOURNEY - Grab sword
     - Skip To If
         - `has_bow` - 1035 - Too much equipment
-    - 1031 - We can grab more stuff
+    - Dialog
+        - `[[ADD_ITEM]]has_sword`
+    - 1031 - TOURNEY - We can grab more stuff
 
 - 1033 - TOURNEY - Grab bow
+    - Skip To If
         - `has_sword` - 1035 - Too much equipment
-    - 1031 - We can grab more stuff
+    - Dialog
+        - `[[ADD_ITEM]]has_bow`
+    - 1031 - TOURNEY - We can grab more stuff
 
 - 1034 - TOURNEY - Grab clothes
-    - 1031 - We can grab more stuff
+    - Dialog
+        - `[[ADD_ITEM]]has_clothes`
+    - 1031 - TOURNEY - We can grab more stuff
 
 - 1035 - TOURNEY - Too much equipment (grab sword)
-    - 1010 - You die to an unfortunate slip and fall and wake up.
+    - 1010 - ENDING - You die to an unfortunate slip and fall and wake up.
 
 - 1036 - TOURNEY - Too much equipment (grab bow)
-    - 1010 - You die to an unfortunate slip and fall and wake up.
+    - 1010 - ENDING - You die to an unfortunate slip and fall and wake up.
 
-- 1040 - It's a normal morning. You hear a child crying. You don't have children.
+- 1040 - INVESTIGATE - It's a normal morning. You hear a child crying. You don't have children.
     - 1060 - INVESTIGATE - What's a child doing out this way?
-    - 1080 - DON'T INVESTIGATE - Not my child, not my problem. Someone should quiet that child.
+    - 1080 - INVESTIGATE - Not my child, not my problem. Someone should quiet that child.
 
-- 1050 - Normal morning but you die to unfortunate accident along the way
-    - 1010 - ENDING - You died, restart.
+- 1050 - CHICKEN - Start feeding the chickens.
+    - What an easy life they have.
+    - No worries, no concerns.
+    - No missing villagers. What happened to those guys anyways?
+    - 1051 - CHICKEN - Admire the chickens.
+
+- 1051 - CHICKEN - Admire the chickens.
+    - Become a chicken.
+    - 1052 - CHICKEN - Lay an egg
+    - 1053 - CHICKEN - Bacaaak
+
+- 1052 - CHICKEN - Lay an egg
+    - Oh, that's not an egg. It will come with practice.
+    - Dialog:
+        - `[[ADD_ITEM]]eggs_laid`
+    - 1053 - ENDING - Become Chicken
+
+- 1053 - CHICKEN - I'm a chicken now.
+    - Dialog
+        - `[[ADD_ITEM]]was_chicken`
+    - 1010 - ENDING - Go to bed and wake back up as a human. Damn.
 
 - 1060 - INVESTIGATE - The thing you're investigating turns out to be a doppelganger (you may not recognize it as a doppelganger).
     - 1100 - ABDUCTION - You catch sight of something strange/alien. You're knocked out. You wake up to the abduction scene.
-    - 1160 - You're incredulous this is real. Break the fourth wall.
+    - 1160 - FOURTH WALL - You're incredulous this is real. Break the fourth wall.
 
 - 1070 - TOURNEY - You attend the archery tourney but forgot your clothes
     - Describe people jeering at their nudity in a way that could be misconstrued as kindness.
     - Skip To If
         - `has_clothes` - 1071 - You brought clothes
+    - Dialog
+        - `[[ADD_ITEM]]was_nude`
     - 1010 - ENDING - You run down an alley to escape your shame. A figure follows you, laughing. He looks unreal. You're knocked out. Restart when you wake up.
 
 - 1071 - TOURNEY - You attend the archery tourney but brought a sword
@@ -101,21 +142,23 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1010 - ENDING - You run down an alley to escape your shame. A figure follows you, laughing. He looks unreal. You're knocked out. Restart when you wake up.
 
 - 1072 - TOURNEY - You attend the archery tourney with all required equipment
-    - 1150 - An archery accident gone bad kills you. You wake up (to bad dream).
+    - 1150 - ENDING - An archery accident gone bad kills you. You wake up (to bad dream).
 
-- 1080 - DON'T INVESTIGATE - The crying turns to wailing. It's getting louder. Turns to roaring.
+- 1080 - INVESTIGATE - The crying turns to wailing. It's getting louder. Turns to roaring.
     - 1100 - ABDUCTION - Something barrels throught he door. You're knocked out.
 
-- 1090 - You don't attend event (and event likely only existed in your head)
-    - 1150 - It was all a dream, wake up.
+- 1090 - TOURNEY - You don't attend event (and event likely only existed in your head)
+    - You recognize this as a recurring dream. That dream always ends up with you having an accident at the tourney. Gotta snap out of it.
+    - 1150 - BAD DREAM - It was all a dream, wake up.
 
 - 1100 - ABDUCTION - Wake up scene to doppelgangers, shadowy figures.
     - Describe it like a sleep paralysis / alien abduction scene.
     - We don't recognize them as doppelgangers unless we know of them yet.
     - 1010 - ENDING - You fall back asleep / blackout. Restart when you wake up.
 
-- 1110 - World was a game and you've completed your mission
-    - 1010 - ENDING - You blackout and restart, by option or by force.
+- 1110 - EASTER EGG ENDING - Must be a render error.
+    - Like a console died and restarted. Video game begins rendering poorly. Fans running high. Everything goes black.
+    - 1010 - ENDING - You blackout and restart.
 
 - 1120 - Wake up in a hospital as a clone but you're killed to "restart"
     - 1010 - ENDING - Hint at what's going on, but you're forced to restart.
@@ -125,12 +168,17 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1130 - Attack it again.
     - 1120 - White out and wake up (to "real" ending)
 
-- 1140 - You realize the world isn't real and you blackout
+- 1140 - FAKE WORLD - You blink your eyes, but which eyes? Suddenly you're in the big you, staring down at little you in a snowglobe. What's going on? You blackout.
+    - There's some potential to thread in a next level. Perhaps there are doppelgangers with you? Can you kill one? End game?
+    - "You" is an avatar in the snowglobe, you've taken control of your player.
     - 1010 - ENDING - It's too much mental strain, blackout
 
-- 1150 - You wake up and there's a monster
+- 1150 - BAD DREAM - You wake up from the dream (but are really still in a different dream) and there's a monster.
+    - Waking up is nice. Your lover is laying next to you.
+    - Wait, you don't have a lover, and this being is grotesque / monsterous.
     - 1130 - Attack the monster
     - 1040 - It was all a dream, wake up (to slow morning)
 
-- 1160 - EASTER EGG ROOM?
-    - 1010 - Something broke the fourth wall, restart.
+- 1160 - FOURTH WALL - 
+    - Give some hints on the storyline depending on what we've experienced.
+    - 1010 - ENDING - Time to restart, we broke the fourth wall.
