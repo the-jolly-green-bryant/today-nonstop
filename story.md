@@ -51,6 +51,62 @@ Doppelgangers are impersonating people. Why? Where? How many? What does a succes
 
 This story reflects a human going through all sorts of zany encounters. It is based on sci-fi adventure that focuses on alien abductions and virtual reality, but is themed to a DnD appropriate universe. The original story is [here](https://www.reddit.com/r/WritingPrompts/comments/2yof9i/wp_create_a_choose_your_own_adventure_with_an/cpcgzew/?context=3)
 
+**Items**
+
+- `was_nude`
+    - Indicates we attended the tourney naked.
+    - `Tourneyed Shamefully`
+    - Persists
+- `has_bow`
+    - We brought a bow to the tourney.
+    - `Elm Bow`
+- `has_sword`
+    - We brought a sword to the tourney.
+    - `Rusted Sword`
+- `has_clothes`
+    - We grabbed our clothes
+    - `Tourney Garb`
+- `eggs_laid`
+    - The number of eggs we laid.
+    - `Eggs Laid`
+    - Status
+    - Persists
+- `lives_lived`
+    - The number of lives we've lived.
+    - `Lives Lived`
+    - Status
+    - Persists
+- `was_chicken`
+    - Indicates we became a chicken.
+    - `Clucked Around`
+    - Persists
+- `entered_doppelganger`
+    - Indicates we entered the doppelganger
+    - `Doppelgangers Doppelganged`
+    - Persists
+- `did_setup`
+    - Indicates we setup for the endgame
+    - Hidden
+- `fought_dream_monster`
+    - Indicates we hit the monster
+    - `Losing Fights Fought`
+    - Status
+    - Persists
+- `had_bad_dream`
+    - Indicates we had the bad monster dream
+    - Hidden
+    - Persists
+- `attended_tourney_nude`
+    - Indicates we went to the tourney without clothes (unlocks discoverable for registrator)
+    - Hidden
+    - Perists
+- `wont_forget_eggs`
+    - Indicates we had the dream sequence unlocking chickens.
+    - `Forgot The Eggs`
+    - Persists
+
+**Scenes**
+
 - 1000 - RESTART - Your mind is a fog.
     - 1010 - Wake up
     - 1160 - FOURTH WALL - You're incredulous this is real. Break the fourth wall.
@@ -58,6 +114,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - 1010 - START - You jolt awake. There's a lot going on. A fair is in town.
     - Describe the festival going on
     - Dialog
+        - `[[ADD_ITEM]]lives_lived`
         - `[[CLEAR_INVENTORY]]`
     - 1020 - FAKE WORLD - Go for a walk
     - 1030 - TOURNEY - Undress for the fair
@@ -111,27 +168,42 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1060 - INVESTIGATE - What's a child doing out this way?
     - 1080 - INVESTIGATE - Not my child, not my problem. Someone should quiet that child.
 
-- 1050 - CHICKEN - Start feeding the chickens.
+- 1050 - CHICKEN - Pa/Ma will be wanting some breakfast. Collect Breakfast. (Start farm chores?)
+    - 1055 - CHICKEN - Milk the cows
+    - 1056 - CHICKEN - Feed the pigs
+    - 1051 - CHICKEN - DON'T FORGET THE EGGS
+        - Show If: `wont_forget_eggs`
+
+- 1051 - CHICKEN - Start feeding the chickens.
     - What an easy life they have.
     - No worries, no concerns.
     - No missing villagers. What happened to those guys anyways?
-    - 1051 - CHICKEN - Admire the chickens.
+    - 1052 - CHICKEN - Admire the chickens.
+    - 1040 - INVESTIGATE - Where'd those villagers go anyways?
 
-- 1051 - CHICKEN - Admire the chickens.
+- 1052 - CHICKEN - Admire the chickens.
     - Become a chicken.
-    - 1052 - CHICKEN - Lay an egg
-    - 1053 - CHICKEN - Bacaaak
+    - 1053 - CHICKEN - Lay an egg
+    - 1054 - CHICKEN - Bacaaak
 
-- 1052 - CHICKEN - Lay an egg
+- 1053 - CHICKEN - Lay an egg
     - Oh, that's not an egg. It will come with practice.
     - Dialog:
         - `[[ADD_ITEM]]eggs_laid`
-    - 1053 - ENDING - Become Chicken
+    - 1054 - ENDING - Become Chicken
 
-- 1053 - CHICKEN - I'm a chicken now.
+- 1054 - CHICKEN - I'm a chicken now.
     - Dialog
         - `[[ADD_ITEM]]was_chicken`
     - 1000 - ENDING - Go to bed and wake back up as a human. Damn.
+
+- 1055 - CHICKEN - Dumb cows
+    - 1056 - Feed the pigs
+
+- 1056 - CHICKEN - Feed the pigs
+    - Take them to the forest to feed on acorns
+    - Something bad in the forest
+    - 1000 - ENDING - You died.
 
 - 1060 - INVESTIGATE - The thing you're investigating turns out to be a doppelganger (you may not recognize it as a doppelganger).
     - 1100 - ABDUCTION - You catch sight of something strange/alien. You're knocked out. You wake up to the abduction scene.
@@ -144,6 +216,8 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Dialog
         - `[[ADD_ITEM]]was_nude`
     - 1000 - ENDING - You run down an alley to escape your shame. A figure follows you, laughing. He looks unreal. You're knocked out. Restart when you wake up.
+    - 1075 - TOURNEY - Assert yourself by acting like a chicken. The confused gate keeper lets you through.
+        - Show If: `was_chicken`
 
 - 1071 - TOURNEY - You attend the archery tourney but brought a sword
     - Leads up to a "you brought a knife to a gunfight" ending
@@ -154,14 +228,22 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - 1072 - TOURNEY - You attend the archery tourney with all required equipment. Pick your competition.
     - 1073 - TOURNEY - I want to shoot some butts. Sounds funnier than it really is.
     - 1074 - TOURNEY - I want to shoot something moving.
-    - 1170 - ENDGAME - Go off script.
-        - Show If: `entered_doppelganger`
 
 - 1073 - TOURNEY - An archery accident gone bad kills you. (butts)
     - 1150 - ENDING - Wake up to a bad dream.
 
 - 1074 - TOURNEY - An archery accident gone bad kills you. (roving)
     - 1150 - ENDING - Wake up to a bad dream.
+
+- 1075 - TOURNEY - Leads to 1071 (registration) but with additional flavor.
+    - Guy stares you up and down. Oh my.
+    - Dialog:
+        - `[[ADD_ITEM]]is_nude`
+    - 1071 - TOURNEY - Pass through to the registration scene.
+        - Dialog:
+            - `[[ADD_ITEM]]attended_tourney_nude`
+    - 1170 - ENDGAME - Go off script.
+        - Show If: `entered_doppelganger`
 
 - 1080 - INVESTIGATE - The crying turns to wailing. It's getting louder. Turns to roaring.
     - 1100 - ABDUCTION - Something barrels throught he door. You're knocked out.
@@ -179,10 +261,16 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Like a console died and restarted. Video game begins rendering poorly. Fans running high. Everything goes black.
     - 1000 - ENDING - You blackout and restart.
 
-- 1120 - BAD DREAM - What's that one doing awake? Take care of it.
+- 1120 - BAD DREAM - Have a small dream sequence. What's that one doing awake? Take care of it.
+    - During dream sequence, someone shouts at you: "DON'T FORGET THE EGGS!" (or similar)
+    - Dream sequence unlocks chicken sequence.
+    - Dialog:
+        `[[ADD_ITEM]]wont_forget_eggs`
     - 1000 - ENDING - Knocked out and forced to restart.
 
 - 1130 - BAD DREAM - You attack the beast
+    - Dialog:
+        `[[ADD_ITEM]]fought_dream_monster`
     - 1150 - BAD DREAM - It was all a dream, wake up (to bad dream).
     - 1130 - BAD DREAM - Attack it again.
     - 1120 - BAD DREAM - Scream until you blackout and wake up (to "real" ending)
@@ -207,19 +295,25 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - 1150 - BAD DREAM - You wake up from the dream (but are really still in a different dream) and there's a monster.
     - Waking up is nice. Your lover is laying next to you.
     - Wait, you don't have a lover, and this being is grotesque / monsterous.
+    - Dialog:
+        - `[[ADD_ITEM]]had_bad_dream`
     - 1130 - BAD DREAM - Attack the monster
     - 1040 - INVESTIGATE - It was all a dream, wake up (to slow morning)
 
 - 1160 - FOURTH WALL - Explanation, don't give up.
     - You can complete this level without dying. In fact, you must.
     - Your character will remember previous lives, and new paths can open from that knowledge. Replay previous paths to see if new options pop up.
+    - Oh, and clothing is optional.
     - Do we explain any of the story?
     - 1010 - ENDING - Time to restart, we broke the fourth wall.
 
-- 1170 - ENDGAME - We're at the tourney but not here to compete.
+- 1170 - ENDGAME - We use our nudity to sneak to the top of the highest tower. No one wants to look our way. People are actively avoiding our gaze.
     - Aim towards the sky.
     - There's a familiar face there.
     - Blink like crazy.
+    - Dialog
+        - `[[ADD_ITEM]]did_setup`
+    - 1140 - FAKE WORLD - We've unlocked an extra ending.
 
 - 1171 - ENDGAME - You let out a chicken sound. Everyone's distracted. Little you looses their arrow. Arrow kills the doppelganger next to you.
     - 2000 - SUCCESS - The world fades. What comes next?
