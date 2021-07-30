@@ -137,7 +137,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - Speaker: Player
         - DELAY
         - ...
-    - 1010 - Wake up
+    - 1012 - Wake up
         - `This all feels like a bad dream.`
         - Dialog
             - Speaker: Player
@@ -157,8 +157,6 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - What's going on?!
 
 - 1010 - START - You jolt awake. There's a lot going on. A fair is in town.
-    - Skip To If
-        - `lives_lived >= 1` - 1012 - We've lived two lives
     - Dialog
         - `[[ADD_ITEM]]lives_lived`
         - `[[CLEAR_INVENTORY]]`
@@ -210,13 +208,14 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 
 - 1012 - START - Wake up on second day
     - Skip To If
-        - `lives_lived >= 2` - 1012 - We've lived three lives
+        - `restarted_once` - 1013 - We've lived three lives
     - Dialog:
         - `[[ADD_ITEM]]lives_lived`
         - `[[ADD_ITEM]]restarted_once`
         - `[[CLEAR_INVENTORY]]`
         - IMAGE: Sprinkling / Rain
         - EMOTE: [You stir at the sound of thunder.]
+            - TODO - We need to elaborate on this dialog.
         - Huh, WEATHER two days in a row
         - Delay.
         - Emote: Noise from outside
@@ -232,6 +231,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[CLEAR_INVENTORY]]`
         - IMAGE: Sprinkling / Rain
         - EMOTE: [You stir at the sound of thunder.]
+            - TODO - We need to elaborate on this dialog.
         - This again?
         - Very cute, like Groundhog Day.
         - Wait, how many times have I made that joke?
