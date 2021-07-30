@@ -510,10 +510,21 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 
 - 1130 - BAD DREAM - You attack the beast
     - Dialog:
-        `[[ADD_ITEM]]fought_dream_monster`
+        - `[[ADD_ITEM]]fought_dream_monster`
+        - EMOTE: [You give the monster a whale of a zap.]
+        - Speaker: Monster
+        - ...
+        - Speaker: Evil Player
+        - It's not very effective...
+        - Let's try doing it again!
     - 1150 - BAD DREAM - It was all a dream, wake up (to bad dream).
     - 1130 - BAD DREAM - Attack it again.
+        - `I'm gonna thwack it real good!`
+        - Dialog:
+            - Speaker: Player
+            - I'm gonna thwack it real good!
     - 1120 - BAD DREAM - Scream until you blackout and wake up (to "real" ending)
+        - `[Scream into oblivion.]`
 
 - 1140 - FAKE WORLD - You blink your eyes, but which eyes? Suddenly you're in the big you, staring down at little you in a snowglobe. What's going on?
     - There are other doppelgangers there with you. You meet their eyes.
@@ -622,8 +633,53 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Wait, you don't have a lover, and this being is grotesque / monsterous.
     - Dialog:
         - `[[ADD_ITEM]]had_bad_dream`
+        - EMOTE: [The world explodes in a burst of color.]
+        - IMAGE: Waking up in peaceful bed
+        - Speaker: Player
+        - What a bizarre dream.
+        - I should lay off the shellfish.
+        - EMOTE: [Your partner stirs in bed beside you.]
+        - Speaker: Evil Player
+        - You should keep quieter!
+        - You're going to awaken your lover.
+        - Speaker: Player
+        - You're right.
+        - DELAY
+        - Look how peacefully she rests.
+        - I wonder why my lover hasn't been in my dr--
+        - Wait!
+        - Speaker: Evil Player
+        - Trouble in paradise?
+        - Speaker: Player
+        - Since when have I had a lover?
+        - Speaker: Evil Player
+        - Good point.
+        - And now that you mention it, have you noticed your lover is missing its head?
+        - Speaker: Player
+        - Good point.
+        - So what do we do now?
+        - Speaker: Evil Player
+        - Thwack it?
     - 1130 - BAD DREAM - Attack the monster
+        - `I'm gonna thwack it real good!`
+        - Dialog:
+            - Speaker: Player
+            - Better teach this monster a lesson.
+            - Speaker: Evil Player
+            - Yeah!
+            - You can't just sneak into our bed and pretend to be our lover.
+            - A monster must have principles!
+            - Speaker: Player
+            - I'm gonna thwack it real good!
     - 1040 - INVESTIGATE - It was all a dream, wake up (to slow morning)
+        - `I've gotta be dreaming...`
+        - Dialog:
+            - Speaker: Player
+            - I've gotta be dreaming...
+            - Speaker: Evil Player
+            - Plot Twist!
+            - You are!
+            - EMOTE: [The world explodes in a burst of color.]
 
 - 1160 - FOURTH WALL - Explanation, don't give up.
     - Dialog
