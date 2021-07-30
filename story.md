@@ -7,6 +7,9 @@
 
 **Plot Elements**
 
+- Medieval Meme Paintings
+    - Totally flippant and light-hearted
+
 - Doppelgangers
     - True neutral, no real motive but to fit in.
     - Leave their young to be raised by whatever species they're immitating.
@@ -104,22 +107,91 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Indicates we had the dream sequence unlocking chickens.
     - `Forgot The Eggs`
     - Persists
+- `times_abducted`
+    - Indicates we were abducted.
+    - `Abducted`
+    - Persists
+- `restarted_once`
+    - Indicates we restarted at least once already.
+    - Hidden
+    - Persists
 
 **Scenes**
 
 - 1000 - RESTART - Your mind is a fog.
+    - Dialog
+        - IMAGE: Crazy dream world
+        - What just happened?
+        - And where am I?
+        - ...
+        - DELAY
+        - This all feels like a bad dream...
     - 1010 - Wake up
+        - `[Snap out of it.]`
+        - Dialog
+            - Here we go again!
     - 1160 - FOURTH WALL - You're incredulous this is real. Break the fourth wall.
+        - `[Break the fourth wall.]`
+        - Dialog
+            - Okay, enough's enough.
+            - This can't possibly be real.
+            - What's going on?!
 
 - 1010 - START - You jolt awake. There's a lot going on. A fair is in town.
-    - Describe the festival going on
+    - Skip To If
+        - `lives_lived >= 1` - 1012 - We've lived two lives
     - Dialog
         - `[[ADD_ITEM]]lives_lived`
         - `[[CLEAR_INVENTORY]]`
+        - IMAGE: Sprinkling / Rain
+        - EMOTE: [You stir at the sound of thunder.]
+        - Such a strange dream...
+        - It felt so real.
+        - DELAY
+        - Why am I so groggy?
+        - Was I hitting the cider again?
+        - DELAY
+        - Emote: Noise from outside
+        - Won't stop the revellers from making it to the fair
+        - Bloody fair, always gets everyone in a tizzie
+        - I'm sure X left me to tend to the animals.
+    - 1011 - START - Move to options
+
+- 1011 - START - Display Options
     - 1020 - FAKE WORLD - Go for a walk
     - 1030 - TOURNEY - Undress for the fair
     - 1040 - INVESTIGATE - Stoke the fire
-    - 1050 - CHICKEN - Start morning aggressively
+    - 1050 - CHICKEN - Check on the animals
+
+- 1012 - START - Wake up on second day
+    - Skip To If
+        - `lives_lived >= 2` - 1012 - We've lived three lives
+    - Dialog:
+        - `[[ADD_ITEM]]lives_lived`
+        - `[[ADD_ITEM]]restarted_once`
+        - `[[CLEAR_INVENTORY]]`
+        - IMAGE: Sprinkling / Rain
+        - EMOTE: [You stir at the sound of thunder.]
+        - Huh, WEATHER two days in a row
+        - Delay.
+        - Emote: Noise from outside
+        - Are the fair revellers still going?
+        - Wait, wasn't the fair yesterday.
+        - Or did I dream that?
+        - I've got to lay off the cider.
+    - 1011 - START - Move to options
+
+- 1013 - START - Wake up after two days
+    - Dialog:
+        - `[[ADD_ITEM]]lives_lived`
+        - `[[CLEAR_INVENTORY]]`
+        - IMAGE: Sprinkling / Rain
+        - EMOTE: [You stir at the sound of thunder.]
+        - This again?
+        - Very cute, like Groundhog Day.
+        - Wait, how many times have I made that joke?
+        - Whatever, let's get this over with.
+    - 1011 - START - move to options
 
 - 1020 - FAKE WORLD - During your walk, you see a hazy form floating in the sky.
     - Hazy form becomes a massive figure whose eyes are staring through a large domed glass.
@@ -255,6 +327,8 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - 1100 - ABDUCTION - Wake up scene to doppelgangers, shadowy figures.
     - Describe it like a sleep paralysis / alien abduction scene.
     - We don't recognize them as doppelgangers unless we know of them yet.
+    - Dialog:
+        - `[[ADD_ITEM]]times_abducted`
     - 1000 - ENDING - You fall back asleep / blackout. Restart when you wake up.
 
 - 1110 - EASTER EGG ENDING - Must be a render error.
@@ -277,6 +351,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 
 - 1140 - FAKE WORLD - You blink your eyes, but which eyes? Suddenly you're in the big you, staring down at little you in a snowglobe. What's going on?
     - There are other doppelgangers there with you. You meet their eyes.
+    - I want a "show me what you've got" joke in here.
     - Dialog:
         - `[[ADD_ITEM]]entered_doppelganger`
     - 1141 - FAKE WORLD - Try to be friendly with the other doppelgangers.
@@ -305,6 +380,50 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Your character will remember previous lives, and new paths can open from that knowledge. Replay previous paths to see if new options pop up.
     - Oh, and clothing is optional.
     - Do we explain any of the story?
+    - Dialog
+        - Speaker: Gamedev
+        - I imagine that right now, you’re feeling a bit like Alice.
+        - Hmm?
+        - Tumbling down the rabbit hole?
+        - Let me tell you why you're here.
+        - Speaker: Player
+        - Please.
+        - Speaker: Gamedev
+        - You're here to solve a mystery.
+        - To escape.
+        - To win.
+        - You win by losing and then not losing.
+        - Savvy?
+        - Speaker: Player
+        - Savvy?
+        - DELAY
+        - No
+        - Not savvy.
+        - Speaker: Gamedev
+        - ...
+        - DELAY
+        - Let me speak plainly.
+        - Speaker: Player
+        - Please!
+        - Speaker: Gamedev
+        - Your character will remember previous lives.
+        - So what may seem like a loss is actually a chance to unlock new paths.
+        - Replay paths you've previously taken to check for newly unlocked paths.
+        - Speaker: Player
+        - So lose in order to win.
+        - Got it.
+        - Speaker: Gamedev
+        - But in order to ultimately win, you must live without dying.
+        - DELAY
+        - Oh.
+        - And don't forget.
+        - Clothing's optional.
+        - Speaker: Player
+        - What's that even mean?
+        - Speaker: Gamedev
+        - Enough of your fourth wall nonsense.
+        - Be gone.
+        - EMOTE: [The world explodes in a burst of color.]
     - 1010 - ENDING - Time to restart, we broke the fourth wall.
 
 - 1170 - ENDGAME - We use our nudity to sneak to the top of the highest tower. No one wants to look our way. People are actively avoiding our gaze.
