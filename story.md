@@ -40,6 +40,7 @@
 
 ### Finishing Touches
 
+- Break long dialog up with options.
 - Add Stat Items
 - Add Characters
 - Add Character Discoverables
@@ -121,18 +122,35 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - 1000 - RESTART - Your mind is a fog.
     - Dialog
         - IMAGE: Crazy dream world
+        - Speaker: Player
         - What just happened?
         - And where am I?
-        - ...
+        - Speaker: Evil Player
+        - Isn't it obvious?
+        - You're dead.
+        - Speaker: Player
+        - No.
+        - This can't be real.
+        - Speaker: Evil Player:
+        - Oh it's definitely real.
+        - Speaker: Player
         - DELAY
-        - This all feels like a bad dream...
+        - ...
     - 1010 - Wake up
-        - `[Snap out of it.]`
+        - `This all feels like a bad dream.`
         - Dialog
-            - Here we go again!
+            - Speaker: Player
+            - This all feels like a bad dream.
+            - Probably had too much cider.
+            - Speaker: Evil Player
+            - Tell yourself what you must.
+            - But this ending is unacceptable.
+            - Let's try it again from the top.
+            - EMOTE: [The world explodes in a burst of color.]
     - 1160 - FOURTH WALL - You're incredulous this is real. Break the fourth wall.
         - `[Break the fourth wall.]`
         - Dialog
+            - Speaker: Player
             - Okay, enough's enough.
             - This can't possibly be real.
             - What's going on?!
@@ -145,23 +163,49 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[CLEAR_INVENTORY]]`
         - IMAGE: Sprinkling / Rain
         - EMOTE: [You stir at the sound of thunder.]
+        - Speaker: Player
         - Such a strange dream...
         - It felt so real.
         - DELAY
         - Why am I so groggy?
         - Was I hitting the cider again?
+        - Speaker: Evil Player
+        - Blaming the cider again?
+        - Did you ever consider that you might just be a layabout?
+        - Speaker: Player
+        - Shush up.
+        - EMOTE: [Thunder punctuates your thought.]
+        - This rain, man.
         - DELAY
-        - Emote: Noise from outside
-        - Won't stop the revellers from making it to the fair
-        - Bloody fair, always gets everyone in a tizzie
-        - I'm sure X left me to tend to the animals.
+        - Emote: [The sound of dampened revellers floats in from the street.]
+        - Speaker: Player
+        - Crazy folk, heading to the fair in this weather.
+        - Speaker: Evil Player
+        - Bloody fair...
+        - All these cheery fools.
+        - Some of us have work to do.
+        - Speaker: Player
+        - No use crying about it.
+        - I'm sure the critters could use some tending.
+        - Speaker: Evil Player
+        - Or...
+        - And here me out...
+        - Let's play hookie!
     - 1011 - START - Move to options
 
 - 1011 - START - Display Options
     - 1020 - FAKE WORLD - Go for a walk
+        - `Let's clear our head with a walk.`
+        - Dialog
+            - NONE
     - 1030 - TOURNEY - Undress for the fair
+        - `Let's undress for the fair.`
+        - Dialog
+            - NONE
     - 1040 - INVESTIGATE - Stoke the fire
+        - `Let's get the fire started again.`
     - 1050 - CHICKEN - Check on the animals
+        - `Let's check on the animals.`
 
 - 1012 - START - Wake up on second day
     - Skip To If
@@ -196,10 +240,56 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - 1020 - FAKE WORLD - During your walk, you see a hazy form floating in the sky.
     - Hazy form becomes a massive figure whose eyes are staring through a large domed glass.
     - The face is yours. (Doppelgangers!)
+    - Dialog:
+        - Speaker: Player
+        - I can't deal with this right now.
+        - I'm getting out of here.
+        - Gonna clear my head.
+        - Speaker: Evil Player
+        - In this weather?
+        - You're going to get a soggy head.
+        - Speaker Player
+        - Shush up.
+        - DELAY
+        - IMAGE: Outside
+        - Speaker: Player
+        - I'm glad the weather cleared up.
+        - And this fresh air.
+        - Just what I needed!
+        - EMOTE: [Your stomach grumbles.]
+        - It's a shame I didn't bring any snacks.
+        - Speaker: Evil Player
+        - Might need to draw straws to see who we eat.
+        - Just kidding.
+        - We'd eat you, obviously.
+        - Speaker: Player
+        - Shush up.
+        - EMOTE: [Birds sing overhead.]
+        - Speaker: Evil Player
+        - I don't mean to alarm anyone, but...
+        - Do those birds look a little off to you?
+        - Speaker: Player
+        - What do you mean?
+        - Speaker: Evil Player
+        - I don't know, man.
+        - Like, do those birds even look like birds?
+        - Or is it just me?
+        - Speaker: Player
+        - Now that you mention it...
     - 1110 - EASTER EGG ENDING - What am I looking at?
+        - `What's going on with that bird?`
     - 1140 - FAKE WORLD - You must be dreaming. Blink away the figment/vision.
+        - `[Blink like mad.]`
 
 - 1030 - TOURNEY - Today's the fair. You remember the archery tourney. You remember you're a participant.
+    - Speaker: Player
+        - Oh shoot.
+        - Speaker: Evil Player
+        - What?
+        - Speaker: Player
+        - Oh shoot, oh shoot.
+        - We've got to go!
+        - CONTINUE_HERE
     - 1031 - TOURNEY - Get ready for event
     - 1090 - TOURNEY - Skip event
 
@@ -333,6 +423,44 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 
 - 1110 - EASTER EGG ENDING - Must be a render error.
     - Like a console died and restarted. Video game begins rendering poorly. Fans running high. Everything goes black.
+    - Dialog:
+        - Speaker: Player
+        - What's going on with that bird?
+        - Is it flying backwards?
+        - EMOTE: [You hear a loud rushing of air.]
+        - Speaker: Evil Player
+        - I don't like this.
+        - Speaker: Player
+        - Me either.
+        - What do you think it is?
+        - Speaker: Evil Player
+        - It might be some kind of en--
+        - Speaker: Player
+        - Some kind of what?
+        - Speaker: Evil Player
+        - I think we're hav--
+        - Some kind of sys--
+        - Reboot.
+        - Speaker: Player
+        - Reboot?
+        - EMOTE: [The sound suddenly dies away.]
+        - Speaker: Player
+        - Hello?
+        - Speaker: Evil Player
+        - ...
+        - Speaker: Player
+        - I know we have our differences, but don't leave me like this.
+        - Speaker: Gamedev
+        - SYSTEM REBOOT IMMINENT
+        - Speaker: Player
+        - What?
+        - Speaker: Gamedev
+        - In 3...
+        - 2...
+        - Speaker: Player
+        - Wait!
+        - 1...
+        - EMOTE: [Everything goes dark.]
     - 1000 - ENDING - You blackout and restart.
 
 - 1120 - BAD DREAM - Have a small dream sequence. What's that one doing awake? Take care of it.
@@ -376,11 +504,8 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1040 - INVESTIGATE - It was all a dream, wake up (to slow morning)
 
 - 1160 - FOURTH WALL - Explanation, don't give up.
-    - You can complete this level without dying. In fact, you must.
-    - Your character will remember previous lives, and new paths can open from that knowledge. Replay previous paths to see if new options pop up.
-    - Oh, and clothing is optional.
-    - Do we explain any of the story?
     - Dialog
+        - EMOTE: [The world freezes.]
         - Speaker: Gamedev
         - I imagine that right now, you’re feeling a bit like Alice.
         - Hmm?
