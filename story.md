@@ -288,19 +288,35 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - Speaker: Evil Player
         - What?
         - Speaker: Player
-        - Oh shoot, oh shoot.
-        - We've got to go!
-        - CONTINUE_HERE
+        - Shoot, shoot, shoot.
+        - We've got to get going!
+        - Speaker: Evil Player
+        - Hold on to your knickers, bud.
+        - Tell me what's going on.
+        - Speaker: Player
+        - The tourney!
+        - The tourney is today!
+        - I've got to get ready.
+        - This is the year I finally beat X!
+        - But I'm running late...
     - 1031 - TOURNEY - Get ready for event
+        - `Better get ready quick`
+        - Dialog:
+            - I better get ready quick.
+            - I'll just grab the essentials.
     - 1090 - TOURNEY - Skip event
+        - `There's always next year`
 
 - 1031 - TOURNEY - Get ready
     - 1032 - TOURNEY - Grab sword (if not has sword)
+        - `Where's my sword?`
     - 1033 - TOURNEY - Grab bow (if not has bow)
+        - `Where's my bow?`
     - 1034 - TOURNEY - Grab clothes
+        - `Better not forget my clothes!`
         - Show If: `was_nude`
     - 1170 - TOURNEY - Head to tourney
-        - "Well, that's everything I need"
+        - `I think I've got everything.`
 
 - 1032 - TOURNEY - Grab sword
     - Skip To If
@@ -412,7 +428,28 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1100 - ABDUCTION - Something barrels throught he door. You're knocked out.
 
 - 1090 - TOURNEY - You don't attend event (and event likely only existed in your head)
-    - You recognize this as a recurring dream. That dream always ends up with you having an accident at the tourney. Gotta snap out of it.
+    - Dialog
+        - Speaker: Evil Player
+        - Woah, Speed Racer, cool your jets.
+        - I hate to break it to you, but there hasn't been a tourney in years.
+        - Speaker: Player
+        - What?
+        - Speaker: Evil Player
+        - I think that bonk you took to the head is playing tricks on your mind.
+        - Speaker: Player
+        - Bonk?
+        - Speaker: Evil Player
+        - You know, a bonk!
+        - A thwack.
+        - A whale of a zap?
+        - DELAY
+        - Look, Anastasia, you're unconscious right now, and this is all a dream.
+        - And a poorly written dream at that.
+        - Speaker: Player
+        - DELAY
+        - Unconscious?
+        - A dream?
+        - Poorly written?
     - 1150 - BAD DREAM - It was all a dream, wake up.
 
 - 1100 - ABDUCTION - Wake up scene to doppelgangers, shadowy figures.
