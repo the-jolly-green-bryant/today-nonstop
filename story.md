@@ -40,7 +40,8 @@
 
 ### Finishing Touches
 
-- Break long dialog up with options.
+- Add meme paintings
+- Break long dialog up with fake options.
 - Add Stat Items
 - Add Characters
 - Add Character Discoverables
@@ -189,7 +190,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - I'm sure the critters could use some tending.
         - Speaker: Evil Player
         - Or...
-        - And here me out...
+        - And hear me out...
         - Let's play hookie!
     - 1011 - START - Move to options
 
@@ -482,17 +483,101 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - I want a "show me what you've got" joke in here.
     - Dialog:
         - `[[ADD_ITEM]]entered_doppelganger`
+        - Speaker: Player
+        - That's not a bird.
+        - But what is it?
+        - DELAY
+        - Wait...
+        - It can't be.
+        - Is that a face?
+        - Speaker: Evil Player
+        - Now that you mention it, it does look like a face.
+        - And an ugly mug at that.
+        - Speaker: Player
+        - It looks vaguely familiar.
+        - It looks a little like...
+        - No!
+        - Speaker: Evil Player
+        - Yes!
+        - Speaker: Player
+        - It looks like my face!
+        - Speaker: Evil Player
+        - I already said that.
+        - An ugly mug.
+        - Speaker: Player
+        - No, this can't be real.
+        - Just gotta clear my eyes.
+        - EMOTE: [You start blinking like mad.]
+            - TODO - We might need to split this scene here.
+        - Speaker: Player
+        - Wait!
+        - Whose eyes am I blinking?
+        - Speaker: Evil Player
+        - It's happening!
+        - We did it!
+        - EMOTE: [You stare down upon the world from up high.]
+        - Speaker: Player
+        - What did we do?
+            - TODO - We want the above dialog to change based on what we already know.
+        - Speaker: Evil Player
+        - Can't you see?
+        - That big face in the sky didn't just look like you.
+        - It WAS you.
+        - And now you're it.
+        - And now the you you were is waaaaaaaay down there.
+        - EMOTE: [A smaller version of you stares up from below.]
+        - Speaker: Player
+        - Okay, so that version of me is down there.
+        - But where is this version of me?
+        - IMAGE: Doppelgangers
+        - EMOTE: [You become aware of another presence.]
+        - Speaker: Doppelganger
+        - ...
+        - Speaker: Evil Player
+        - I don't think we're alone here.
+        - Quick, do something!
     - 1141 - FAKE WORLD - Try to be friendly with the other doppelgangers.
+        - `Show me what you've got!`
     - 1142 - FAKE WORLD - Ask what's going on.
+        - `Can anyone tell me what's going on?`
     - 1171 - ENDGAME - Distract by acting like a chicken
         - Show If: `did_setup` and `was_chicken`
     - 1172 - ENDGAME - Cool phrase
         - Show If: `did_setup`
 
 - 1141 - FAKE WORLD - Friendliess doesn't work.
+    - Dialog
+        - Speaker: Player
+        - Show me what you've got!
+        - Speaker: Evil Player
+        - What's that even mean?
+        - Speaker: Doppelganger
+        - ...
+        - EMOTE: [The lumbering figure approaches.]
+        - Speaker: Evil Player
+        - Now you've gone and done it.
+        - EMOTE: [The figure entraps you in its steely grip.]
+        - Speaker: Doppelganger
+        - This one is not who they were.
+        - EMOTE: [You are struck from behind. Everything goes dark.]
     - 1000 - ENDING - The other doppelgangers recognize that you've taken over the body. They seize you.
 
 - 1142 - FAKE WORLD - Confusion doesn't work.
+    - Dialog
+        - Speaker: Player
+        - Okay, can anyone tell me what's going on?
+        - Speaker: Doppelganger
+        - ...
+        - Speaker: Evil Player
+        - Did you expect that to work?
+        - Ask to see their manager while you're at it.
+        - EMOTE: [The lumbering figure approaches.]
+        - Speaker: Evil Player
+        - Now you've gone and done it.
+        - EMOTE: [The figure entraps you in its steely grip.]
+        - Speaker: Doppelganger
+        - This one is not who they were.
+        - EMOTE: [You are struck from behind. Everything goes dark.]
     - 1000 - ENDING - The other doppelgangers recognize that you've taken over the body. They seize you.
 
 - 1150 - BAD DREAM - You wake up from the dream (but are really still in a different dream) and there's a monster.
