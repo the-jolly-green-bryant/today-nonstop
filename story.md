@@ -506,6 +506,25 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Dream sequence unlocks chicken sequence.
     - Dialog:
         `[[ADD_ITEM]]wont_forget_eggs`
+        - IMAGE: Dream world
+        - Speaker: Player
+        - ...
+        - EMOTE: [Faces of your past rush by.]
+        - Speaker: Pa
+        - You layabout!
+        - Where have you been?
+        - Speaker: Player
+        - ...
+        - Speaker: Cat
+        - What's the problem?
+        - Cat got your tongue?
+        - Speaker: Player
+        - !!!
+        - Speaker: Evil Player
+        - Tis dreams all the way down, me boy.
+        - Speaker: Ma
+        - DON'T FORGET THE EGGS!
+        - EMOTE: [The world fades away.]
     - 1000 - ENDING - Knocked out and forced to restart.
 
 - 1130 - BAD DREAM - You attack the beast
@@ -518,13 +537,27 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - It's not very effective...
         - Let's try doing it again!
     - 1150 - BAD DREAM - It was all a dream, wake up (to bad dream).
+        - `I feel like I've been here before...`
+        - Dialog:
+            - Speaker: Player
+            - I feel like we've been here before...
+            - Speaker: Evil Player
+            - Or perhaps...
+            - We will be again!
+            - EMOTE: [The world fades to black.]
     - 1130 - BAD DREAM - Attack it again.
         - `I'm gonna thwack it real good!`
         - Dialog:
             - Speaker: Player
             - I'm gonna thwack it real good!
     - 1120 - BAD DREAM - Scream until you blackout and wake up (to "real" ending)
-        - `[Scream into oblivion.]`
+        - `[Wail like a banshee.]`
+        - Dialog:
+            - Speaker: Player
+            - AIIEEEEEEEEE
+            - EEEEEEEEEEEE
+            - EEEEEEEEEE--
+            - EMOTE: You run out of breath and the world goes black.
 
 - 1140 - FAKE WORLD - You blink your eyes, but which eyes? Suddenly you're in the big you, staring down at little you in a snowglobe. What's going on?
     - There are other doppelgangers there with you. You meet their eyes.
