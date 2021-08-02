@@ -348,40 +348,197 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1080 - INVESTIGATE - Not my child, not my problem. Someone should quiet that child.
 
 - 1050 - CHICKEN - Pa/Ma will be wanting some breakfast. Collect Breakfast. (Start farm chores?)
+    - Dialog
+        - Speaker: Player
+        - Eh, might as well get started on the chores.
+        - Pa and Ma will be expecting breakfast.
+        - Speaker: Evil Player
+        - Life on the farm, am I right?
+        - Speaker: Player
+        - But where to begin?
     - 1055 - CHICKEN - Milk the cows
+        - `The cows could use a milking.`
+        - Dialog:
+            - Speaker: Player
+            - The cows could use a milking.
     - 1056 - CHICKEN - Feed the pigs
+        - `When did the pigs eat last?`
+        - Dialog:
+            - Speaker: Player
+            - When did the pigs eat last?
     - 1051 - CHICKEN - DON'T FORGET THE EGGS
+        - `DON'T FORGET THE EGGS!`
         - Show If: `wont_forget_eggs`
+        - Dialog:
+            - Speaker: Player
+            - DON'T FORGET THE EGGS!
+            - Speaker: Evil Player
+            - What's that even mean?
+            - Speaker: Player
+            - Not sure.
+            - Let's not find out.
 
 - 1051 - CHICKEN - Start feeding the chickens.
     - What an easy life they have.
     - No worries, no concerns.
     - No missing villagers. What happened to those guys anyways?
+    - Dialog:
+        - Speaker: Player
+        - Look at these chickens.
+        - Such a simple life.
+        - Speaker: Evil Player
+        - I'll bite.
+        - What do you mean?
+        - Speaker: Player
+        - I mean, look at them!
+        - There's a literal pecking order.
+        - There's no work to be done.
+        - They just lounge around.
+        - Eating their feed.
+        - They don't have to worry about villagers mysteriously disappearing.
+        - Speaker: Evil Player
+        - Villagers disappearing?
     - 1052 - CHICKEN - Admire the chickens.
+        - `Such a simple life...`
+        - Dialog:
+            - Speaker: Player
+            - Such a simple life...
     - 1040 - INVESTIGATE - Where'd those villagers go anyways?
+        - `Where'd those villagers go anyways?`
+        - dialog:
+            - Speaker: Player
+            - Where'd those villagers go anyways?
 
 - 1052 - CHICKEN - Admire the chickens.
     - Become a chicken.
+    - Dialog:
+        - Speaker: Player
+        - Oh, to be a chicken.
+        - To walk around without the shackles of humanity.
+        - Speaker: Evil Player
+        - Uh, what are you doing?
+        - Why are you taking your clothes off?
+        - You should definitely get those back on.
+        - Speaker: Player
+        - To strut through the pen, giving zero clucks.
+        - Speaker: Evil Player
+        - Alright, very punny.
+        - I see what you did there.
+        - Speaker: Player
+        - To forget all your worries.
+        - And just channel your inner chicken.
+        - EMOTE: [You begin flapping your "wings".]
     - 1053 - CHICKEN - Lay an egg
+        - `[Lay an egg.]`
     - 1054 - CHICKEN - Bacaaak
+        - `Bacaaaawk!`
 
 - 1053 - CHICKEN - Lay an egg
     - Oh, that's not an egg. It will come with practice.
     - Dialog:
         - `[[ADD_ITEM]]eggs_laid`
+        - Speaker: Player
+        - And at the peak of your journey...
+        - Now to lay an egg.
+        - Speaker: Evil Player
+        - Lay a what?
+        - DELAY
+        - Oh my.
+        - Speaker: Player
+        - ...
+        - Speaker: Evil Player
+        - That is not an egg...
     - 1054 - ENDING - Become Chicken
 
 - 1054 - CHICKEN - I'm a chicken now.
     - Dialog
         - `[[ADD_ITEM]]was_chicken`
+        - Speaker: Player
+        - Bacaaaawk!
+        - EMOTE: [Tears stream down your eyes as the world around you begins to make sense for the first time.]
+        - Speaker: Evil Player
+        - Whatever, Chicken Boy.
+        - See you in the next life, I guess.
+        - IMAGE: CHICKEN PEN AT NIGHT
+        - EMOTE: [That night, wolves get into the chicken coop. The world goes black.]
     - 1000 - ENDING - Go to bed and wake back up as a human. Damn.
 
 - 1055 - CHICKEN - Dumb cows
+    - Dialog
+        - IMAGE: Cows
+        - Speaker: Evil Player
+        - Uh...
+        - These cows aren't looking so good.
+        - Speaker: Player
+        - That's because these are a rare breed of...
+        - Derp Cow!
+        - Speaker: Evil Player
+        - That's not a thing.
+        - Speaker: Player
+        - Oh it is.
+        - How else do you explain their mind-boggling level of stupidity they display.
+        - See how Bessy here DESCRIBE BESSY
+        - IMAGE: Cow
+        - Speaker: Evil Player
+        - Oh my.
+        - Speaker: Player
+        - Or how Barry the Bull DESCRIBE BARRY
+        - Speaker: Evil Player
+        - Okay, okay.
+        - I get it.
+        - Please get me out of here.
+        - Take me anywhere, just away from these monsters.
+        - Speaker: Player
+        - To the pigs it is, then!
     - 1056 - Feed the pigs
 
 - 1056 - CHICKEN - Feed the pigs
     - Take them to the forest to feed on acorns
     - Something bad in the forest
+    - Dialog:
+        - IMAGE: Pigs
+        - Speaker: Evil Player
+        - So what do pigs even eat?
+        - Speaker: Player
+        - In our modern times?
+        - Acorns.
+        - Speaker: Evil Player
+        - Like from the forest?
+        - Speaker: Player
+        - Yep.
+        - It's a total pain.
+        - Speaker: Evil Player
+        - Not with the magic of...
+        - PowerPoint Transitions!
+        - Speaker: Player
+        - Wait, wh--
+        - EMOTE: [Cue the poorly timed slide transition.]
+        - Image: Forest
+        - Speaker: Evil Player
+        - See?
+        - Couldn't have been easier!
+        - Speaker: Player
+        - What in the wor--
+        - Speaker: Evil Player
+        - Wait.
+        - Do you see what I see?
+        - IMAGE: Wolves In Forest (https://images.immediate.co.uk/production/volatile/sites/7/2019/12/GettyImages-463916595-c0b4ab5.jpg?quality=90&resize=620,413?quality=90&resize=556,370)
+        - Speaker: Player
+        - Are those...
+        - DELAY
+        - Wolves?
+        - Speaker: Evil Player
+        - Holding market?
+        - Looks like!
+        - Speaker: Player
+        - Are they dangerous?
+        - EMOTE: [The wolves don't seem keen to have been interrupted.]
+        - Speaker: Evil Player
+        - Also looks like!
+        - Wow, you're good at this whole danger thing!
+        - Speaker: Player
+        - Well, as a matt--
+        - EMOTE: [The nearest wolf pounces before you can finish your quip. The world goes black.]
     - 1000 - ENDING - You died.
 
 - 1060 - INVESTIGATE - The thing you're investigating turns out to be a doppelganger (you may not recognize it as a doppelganger).
