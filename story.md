@@ -203,8 +203,12 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - NONE
     - 1040 - INVESTIGATE - Stoke the fire
         - `Let's get the fire started again.`
+        - Dialog
+            - NONE
     - 1050 - CHICKEN - Check on the animals
         - `Let's check on the animals.`
+        - Dialog
+            - NONE
 
 - 1012 - START - Wake up on second day
     - Skip To If
@@ -306,12 +310,18 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - I'll just grab the essentials.
     - 1090 - TOURNEY - Skip event
         - `There's always next year`
+        - Dialog:
+            - NONE
 
 - 1031 - TOURNEY - Get ready
     - 1032 - TOURNEY - Grab sword (if not has sword)
         - `Where's my sword?`
+        - Dialog:
+            - NONE
     - 1033 - TOURNEY - Grab bow (if not has bow)
         - `Where's my bow?`
+        - Dialog
+            - NONE
     - 1034 - TOURNEY - Grab clothes
         - `Better not forget my clothes!`
         - Show If: `was_nude`
@@ -323,6 +333,12 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `has_bow` - 1035 - Too much equipment
     - Dialog
         - `[[ADD_ITEM]]has_sword`
+        - Speaker: Player
+        - Best not forget the sword.
+        - Speaker: Evil Player
+        - Ah yes, good ol' Mister Stabs.
+        - Bane of fingers and toes everywhere.
+        - Need anything else?
     - 1031 - TOURNEY - We can grab more stuff
 
 - 1033 - TOURNEY - Grab bow
@@ -330,22 +346,87 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `has_sword` - 1035 - Too much equipment
     - Dialog
         - `[[ADD_ITEM]]has_bow`
+        - Speaker: Player
+        - Gonna grab my bow.
+        - Glad I restrung it last night.
+        - Speaker: Evil Player
+        - Need anything else?
     - 1031 - TOURNEY - We can grab more stuff
 
 - 1034 - TOURNEY - Grab clothes
     - Dialog
         - `[[ADD_ITEM]]has_clothes`
+        - Speaker: Player
+        - Oh yeah, I've had this nightmare before.
+        - Not forgetting my clothes this time.
+        - Speaker: Evil Player
+        - Do you make a habit of showing up places in the buff?
+        - Speaker: Player
+        - ...
+        - Speaker: Evil Player
+        - Better yet, don't answer that.
+        - DELAY
+        - Need anything else?
     - 1031 - TOURNEY - We can grab more stuff
 
 - 1035 - TOURNEY - Too much equipment (grab sword)
+    - Dialog
+        - Speaker: Player
+        - Best not forget the sword.
+        - Speaker: Evil Player
+        - Ah yes, good ol' Mister Stabs.
+        - Bane of fingers and to--
+        - EMOTE: [While fumbling for your sword, you fall over your bow and black out.]
     - 1000 - ENDING - You die to an unfortunate slip and fall and wake up.
 
 - 1036 - TOURNEY - Too much equipment (grab bow)
+    - Dialog
+        - `[[ADD_ITEM]]has_bow`
+        - Speaker: Player
+        - Gonna grab my bow.
+        - Glad I restr--
+        - EMOTE: [While stowing your bow, you trip and fall on your sword. The world fades to black.]
     - 1000 - ENDING - You die to an unfortunate slip and fall and wake up.
 
 - 1040 - INVESTIGATE - It's a normal morning. You hear a child crying. You don't have children.
+    - Dialog
+        - Speaker: Player
+        - Let's get this fire started again.
+        - Speaker: Evil Player
+        - Maybe get some bacon frying too?
+        - I'm starved.
+        - DELAY
+        - Speaker: Baby
+        - Oueeeeeeeeeh!
+        - DELAY
+        - Speaker: Player
+        - Uh...
+        - What's that?
+        - Speaker: Evil Player
+        - It's a baby wailing in French.
+        - Obviously.
+        - Gosh.
+        - Speaker: Baby
+        - Oueeeeeeeeeh!
+        - Speaker: Evil Player
+        - Can we do something about this?
     - 1060 - INVESTIGATE - What's a child doing out this way?
+        - `What's a child doing out this way?`
+        - Dialog:
+            - Speaker: Player
+            - What's a child doing out this way, anyways?
+            - We should probably check it out.
+            - Wouldn't want the wolves getting to it first.
     - 1080 - INVESTIGATE - Not my child, not my problem. Someone should quiet that child.
+        - `Not my child, not my problem.`
+        - Dialog:
+            - Speaker: Player
+            - Not my child, not my problem.
+            - Know what is my problem?
+            - Speaker: Evil Player
+            - Breakfast?
+            - Speaker: Player
+            - Breakfast!
 
 - 1050 - CHICKEN - Pa/Ma will be wanting some breakfast. Collect Breakfast. (Start farm chores?)
     - Dialog
@@ -542,6 +623,43 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1000 - ENDING - You died.
 
 - 1060 - INVESTIGATE - The thing you're investigating turns out to be a doppelganger (you may not recognize it as a doppelganger).
+    - Dialog
+        - DELAY
+        - IMAGE: Outside
+        - Speaker: Player
+        - The cries were coming from over here, right?
+        - Speaker: Evil Player
+        - Beats me.
+        - Kind of weird the thing quieted down the moment we stepped outside.
+        - EMOTE: [You hear a rustling nearby.]
+        - Speaker: Baby
+        - ...
+        - Speaker: Player
+        - There you are!
+        - Speaker: Evil Player
+        - Oh good, you found it!
+        - Speaker: Player
+        - Yeah...
+        - Seems a little off, though.
+        - Are you seeing what I'm seeing?
+        - Speaker: Evil Player
+        - Unbridled responsibility?
+        - Speaker: Player
+        - No.
+        - DELAY
+        - It's changing!
+        - EMOTE: [The child changes, its features becoming elongated and monsterous.]
+        - IMAGE: Doppelganger
+        - Speaker: Doppelganger
+        - ...
+        - Speaker: Evil Player
+        - Uh...
+        - Speaker: Player
+        - Hey, buddy...
+        - We come in peace?
+        - Speaker: Doppelganger
+        - Aaaaaiieeeeeee!
+        - EMOTE: [The creature lets loose a shriek and pounces. The world goes to black.]
     - 1100 - ABDUCTION - You catch sight of something strange/alien. You're knocked out. You wake up to the abduction scene.
     - 1160 - FOURTH WALL - You're incredulous this is real. Break the fourth wall.
 
@@ -551,37 +669,326 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `has_clothes` - 1071 - You brought clothes
     - Dialog
         - `[[ADD_ITEM]]was_nude`
+        - Speaker: Player
+        - IMAGE: Town
+        - EMOTE: [You march proudly to the tournament grounds.]
+        - Speaker: Big Suzie
+        - Hey look everyone!
+        - It's Little Jon!
+        - Speaker: Player
+        - Little Jon?
+        - Why are they calling me Little Jon?
+        - Speaker: Evil Player
+        - Who knows?
+        - The world's a crazy place, man.
+        - Speaker: Not So Slim Shady
+        - Nice digs, man.
+        - Looks like someones headed to the tourney well armed.
+        - EMOTE: [You reach the tournament registration tent.]
+        - IMAGE: Disgusted registrant
+        - Speaker: Harold the Haggard
+        - ...
+        - Sir.
+        - Where are your clothes?
+        - Speaker: Evil Player
+        - Oh boy.
+        - Speaker: Player
+        - ...
+        - EMOTE: [A sudden realization dawns on you.]
+        - Speaker: Player
+        - I forgot to dress!
+        - Speaker: Evil Player
+        - ...
+        - I've never met this fellow in my life.
+
     - 1000 - ENDING - You run down an alley to escape your shame. A figure follows you, laughing. He looks unreal. You're knocked out. Restart when you wake up.
+        `[Hide your shame.]`
+        - Dialog:
+            - EMOTE: [You scurry down an alley to escape your shame.]
+            - Speaker: Evil Player
+            - Where are you going?
+            - Speaker: Player
+            - Anywhere but here!
+            - EMOTE: [You trip over some loose pavers and fall to the ground.]
+            - Speaker: Evil Player
+            - Dust yourself off quick.
+            - I think we're being followed.
+            - IMAGE: Doppelganger
+            - EMOTE: [A horrendous figure materializes out of the shadows.]
+            - Speaker: Player
+            - ...
+            - Speaker: Evil Player
+            - Do something!
+            - EMOTE: [The figure edges closer.]
+            - Speaker: Player
+            - Like what?!
+            - Speaker: Evil Player
+            - Anything!
+            - Try making friends with it.
+            - Speaker: Player
+            - ...
+            - How do you do, fellow human?
+            - Speaker: Doppelganger
+            - ...
+            - DELAY
+            - Aaaaaiieeeeeee!
+            - EMOTE: [The creature lets loose a shriek and pounces. The world goes to black.]
     - 1075 - TOURNEY - Assert yourself by acting like a chicken. The confused gate keeper lets you through.
+        `Bacaaaawk!`
         - Show If: `was_chicken`
+        - Dialog:
+            - Speaker: Player
+            - Bacaaaawk!
+            - Speaker: Harold
+            - ...
+            - Speaker: Evil Player
+            - ...
+            - Speaker: Player
+            - ...
+            - Speaker: Harold
+            - DELAY
+            - ...
+            - Okay.
+            - So you're here to compete?
 
 - 1071 - TOURNEY - You attend the archery tourney but brought a sword
     - Leads up to a "you brought a knife to a gunfight" ending
     - Skip To If
         - `has_bow` - 1072 - You brought a bow
+    - Dialog:
+        - Speaker: Harold
+        - Well, I'd love to help you.
+        - But we have a problem.
+        - Speaker: Evil Player
+        - Damn bureaucrats...
+        - Always something.
+        - Speaker: Player
+        - What is it?
+        - Speaker: Harold
+        - As you're aware, I assume...
+        - You're here for an archery tourney.
+        - Speaker: Player
+        - Right...
+        - Speaker: Harold
+        - Are you familiar with the sport of archery?
+        - Speaker: Player
+        - Yes, yes.
+        - Bows and arrows.
+        - Just sign me up.
+        - Speaker: Harold
+        - Well, sir.
+        - I must ask.
+        - Where's your bow?
+        - Speaker: Player
+        - ...
+        - Speaker: Evil Player
+        - ...
+        - You're kidding me.
+        - Speaker: Harold
+        - EMOTE: [The bureaucrat before you lets out a hearty chuckle.]
+        - You've quite literally brought a knife to a bowfight.
+        - Get out of here, fool.
     - 1000 - ENDING - You run down an alley to escape your shame. A figure follows you, laughing. He looks unreal. You're knocked out. Restart when you wake up.
+        - Dialog:
+            - EMOTE: [You scurry down an alley to escape your shame.]
+            - Speaker: Evil Player
+            - Where are you going?
+            - Speaker: Player
+            - Anywhere but here!
+            - EMOTE: [You trip over some loose pavers and fall to the ground.]
+            - Speaker: Evil Player
+            - Dust yourself off quick.
+            - I think we're being followed.
+            - IMAGE: Doppelganger
+            - EMOTE: [A horrendous figure materializes out of the shadows.]
+            - Speaker: Player
+            - ...
+            - Speaker: Evil Player
+            - Do something!
+            - EMOTE: [The figure edges closer.]
+            - Speaker: Player
+            - Like what?!
+            - Speaker: Evil Player
+            - Anything!
+            - Try making friends with it.
+            - Speaker: Player
+            - ...
+            - How do you do, fellow human?
+            - Speaker: Doppelganger
+            - ...
+            - DELAY
+            - Aaaaaiieeeeeee!
+            - EMOTE: [The creature lets loose a shriek and pounces. The world goes to black.]
 
 - 1072 - TOURNEY - You attend the archery tourney with all required equipment. Pick your competition.
+    - Dialog:
+        - Speaker: Harold
+        - Let's get you signed up.
+        - We offer two types of entry.
+        - The frst tourney involves distance shooting.
+        - Speaker: Evil Player
+        - Oh, that sounds promising.
+        - Speaker: Harold
+        - That one's held at midday.
+        - Immediately following that, we have the roving tourney.
+        - Targets are closer but are rigged to move.
+        - Speaker: Evil Player
+        - A challenge!
+        - Maybe that one.
+        - Speaker: Harold
+        - Which tourney are you wanting to enter?
     - 1073 - TOURNEY - I want to shoot some butts. Sounds funnier than it really is.
+        `I want to shoot some butts.`
+        - Dialog
+            - Speaker: Player
+            - I want to shoot some butts.
+            - Speaker: Harold
+            - Ah, yes.
+            - Butts.
+            - The earthen mounds used in distance shooting.
+            - That joke never gets old...
+            - Speaker: Evil Player
+            - Heh, good one!
+            - EMOTE: [The bureaucrat hands you a contestants chip.]
+            - Speaker: Harold
+            - That chip will get you into the contestants wing.
+            - DELAY
+            - ...
+            - Don't eat it.
+            - Not that kind of chip.
     - 1074 - TOURNEY - I want to shoot something moving.
+        `I want to shoot something that moves.`
+        - Dialog
+            - Speaker: Player
+            - I want to shoot something that moves.
+            - Speaker: Harold
+            - Daring today, aren't we.
+            - Very well.
+            - EMOTE: [The bureaucrat hands you a contestants chip.]
+            - Speaker: Harold
+            - That chip will get you into the contestants wing.
+            - Speaker: Player
+            - What happens if I eat my chip?
+            - Speaker: Harold
+            - EMOTE: [The bureaucrat is clearly done with your nonsense.]
+            - DELAY
+            - ...
+            - Please do not eat your contestants chip.
+            - They are not that kind of chip.
 
 - 1073 - TOURNEY - An archery accident gone bad kills you. (butts)
+    - Dialog
+        - EMOTE: [You make your way down to the tournament field.]
+        - IMAGE: Tournament
+        - Speaker: Not So Slim Shady
+        - About time you made it.
+        - Ready to relive last year's embarassment?
+        - Speaker: Evil Player
+        - Just ignore him.
+        - He's not worth it.
+        - Speaker: Player
+        - Shush up.
+        - We'll let the butts do the talking.
+        - EMOTE: [With that quip, you end the conversation and turn away.]
+        - Speaker: Not So Slim Shady
+        - ...
+        - EMOTE: [The twang of an arrow loosing rings in your ear.]
+        - Speaker: Evil Player
+        - Um...
+        - I think there's an arrow headed our way.
+        - Speaker: Player
+        - ...
+        - Speaker: Evil Player
+        - Hello?
+        - Speaker: Player
+        - ...
+        - IMAGE: Arrow attack
+
     - 1150 - ENDING - Wake up to a bad dream.
 
 - 1074 - TOURNEY - An archery accident gone bad kills you. (roving)
+    - Dialog
+        - EMOTE: [You make your way down to the tournamnet field.]
+        - IMAGE: Tournament
+        - Speaker: Announcer
+        - Welcome to the 69th annual Hung--
+        - DELAY
+        - ...
+        - Oh, wrong fandom.
+        - DELAY
+        - Speaker: Evil Player
+        - This doesn't bode well.
+        - DELAY
+        - Speaker: Announcer
+        - Apologies, folks.
+        - Welcome today's festivities!
+        - Today's brave contestants are participating in the Most Dangerous Game!
+        - Trademark pending.
+        - Speaker: Player
+        - Uh...
+        - Speaker: Announcer
+        - That's right, folks!
+        - Today's contestants are actually today's targets.
+        - IMAGE: Oh No
+        - Speaker: Evil Player
+        - This is not what we signed up for...
+        - Speaker: Player
+        - Excuse me!
+        - I think I'm in the wrong pl--
+        - EMOTE: [The twang of an arrow loosing rings in your ear.]
+        - Speaker: Evil Player
+        - Um...
+        - Speaker: Player
+        - ...
+        - Speaker: Evil Player
+        - Hello?
+        - Speaker: Player
+        - ...
+        - IMAGE: Arrow attack
     - 1150 - ENDING - Wake up to a bad dream.
 
 - 1075 - TOURNEY - Leads to 1071 (registration) but with additional flavor.
     - Guy stares you up and down. Oh my.
     - Dialog:
         - `[[ADD_ITEM]]is_nude`
+        - NONE
     - 1071 - TOURNEY - Pass through to the registration scene.
+        `Indeed I am!`
         - Dialog:
             - `[[ADD_ITEM]]attended_tourney_nude`
     - 1170 - ENDGAME - Go off script.
-        - Show If: `entered_doppelganger`
+        - `[Go off script.]`
+        - Show If: `entered_doppelganger` and `has_bow`
 
 - 1080 - INVESTIGATE - The crying turns to wailing. It's getting louder. Turns to roaring.
+    - Dialog:
+        - DELAY
+        - Speaker: Baby
+        - ...
+        - Speaker: Evil Player
+        - Well, that problem seems to have resolved itself.
+        - Speaker: Player
+        - Shush up.
+        - I'm done worrying about that.
+        - Know what I'm worried about now?
+        - Speaker: Evil Player
+        - Bacon?
+        - Speaker: Player
+        - Bac--
+        - Speaker: Doppelganger
+        - Aaaaaiieeeeeee!
+        - EMOTE: [A grotesque form crashes through the door.]
+        - IMAGE: Doppelganger
+        - Speaker: Doppelganger
+        - ...
+        - Speaker: Evil Player
+        - Uh...
+        - Speaker: Player
+        - Hey, buddy...
+        - We come in peace?
+        - Speaker: Doppelganger
+        - Aaaaaiieeeeeee!
+        - EMOTE: [The creature lets loose a shriek and pounces. The world goes to black.]
     - 1100 - ABDUCTION - Something barrels throught he door. You're knocked out.
 
 - 1090 - TOURNEY - You don't attend event (and event likely only existed in your head)
@@ -614,6 +1021,33 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - We don't recognize them as doppelgangers unless we know of them yet.
     - Dialog:
         - `[[ADD_ITEM]]times_abducted`
+        - DELAY
+        - Speaker: Player
+        - ...
+        - DELAY
+        - Speaker: Evil Player
+        - Hey, buddy.
+        - Time to wake up.
+        - Speaker: Player
+        - ...
+        - What?
+        - Speaker: Evil Player
+        - We have company.
+        - EMOTE: [You find yourself bound by rope, surrounded by nightmarish figures.]
+        - IMAGE: Doppelganger Abduction
+        - Speaker: Player
+        - ...
+        - EMOTE: [You futily struggle against your bonds.]
+        - Speaker: Player
+        - !!!
+        - Speaker: Evil Player
+        - Cat's got your tongue?
+        - Speaker: Doppelganger
+        - ...
+        - EMOTE: [The creatures notice your rise to consciousness.]
+        - Speaker: Doppelganger
+        - This one slumbers no more.
+        - EMOTE: [You are struck from behind. Everything goes dark.]
     - 1000 - ENDING - You fall back asleep / blackout. Restart when you wake up.
 
 - 1110 - EASTER EGG ENDING - Must be a render error.
@@ -774,14 +1208,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - Speaker: Evil Player
         - I don't think we're alone here.
         - Quick, do something!
-    - 1141 - FAKE WORLD - Try to be friendly with the other doppelgangers.
-        - `Show me what you've got!`
-    - 1142 - FAKE WORLD - Ask what's going on.
-        - `Can anyone tell me what's going on?`
-    - 1171 - ENDGAME - Distract by acting like a chicken
-        - Show If: `did_setup` and `was_chicken`
-    - 1172 - ENDGAME - Cool phrase
-        - Show If: `did_setup`
+    - 1143 - Display Options
 
 - 1141 - FAKE WORLD - Friendliess doesn't work.
     - Dialog
@@ -817,6 +1244,27 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - This one is not who they were.
         - EMOTE: [You are struck from behind. Everything goes dark.]
     - 1000 - ENDING - The other doppelgangers recognize that you've taken over the body. They seize you.
+
+- 1143 - FAKE WORLD - Options
+    - 1141 - FAKE WORLD - Try to be friendly with the other doppelgangers.
+        - `Show me what you've got!`
+        - Dialog:
+            - NONE
+    - 1142 - FAKE WORLD - Ask what's going on.
+        - `Can anyone tell me what's going on?`
+        - Dialog:
+            - NONE
+    - 1171 - ENDGAME - Distract by acting like a chicken
+        - `Bacaaaawk!`
+        - Show If: `did_setup` and `was_chicken`
+        - Dialog:
+            - Speaker: Player
+            - Bacaaaawk!
+    - 1172 - ENDGAME - Cool phrase
+        - `Time for our movie moment!`
+        - Show If: `did_setup`
+        - Dialog:
+            - NONE
 
 - 1150 - BAD DREAM - You wake up from the dream (but are really still in a different dream) and there's a monster.
     - Waking up is nice. Your lover is laying next to you.
@@ -925,12 +1373,137 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Blink like crazy.
     - Dialog
         - `[[ADD_ITEM]]did_setup`
-    - 1140 - FAKE WORLD - We've unlocked an extra ending.
+        - Speaker: Player
+        - It's time to go off script!
+        - Speaker: Evil Player
+        - What?
+        - Wait!
+        - Where are you going?
+        - EMOTE: [You scurry to across the field, making your way towards a nearby watchtower.]
+        - IMAGE: Guards
+        - Speaker: Evil Player
+        - You're not going to be able to get by those guards.
+        - What are you even trying to accomplish?
+        - Speaker: Player
+        - Just watch.
+        - Speaker: Guard
+        - Halt!
+        - DELAY
+        - EMOTE: [The guard notices your nudity and averts his eyes.]
+        - ...
+        - Go no further.
+        - Or...
+        - Or...
+        - Or else!
+        - EMOTE: [You waddle past the guard as he makes half-hearted attempts to apprehend your bare form.]
+        - Speaker: Evil Player
+        - I can't believe that worked.
+        - Speaker: Player
+        - Not the first time I've used averted eyes to get somewhere I shouldn't!
+        - Speaker: Evil Player
+        - Let's just keep this on a need to know.
+        - And I don't need to know.
+        - EMOTE: [You climb your way to the top of the watchtower.]
+        - IMAGE: Tower
+        - Speaker: Evil Player
+        - Okay, we're about as high as we can go.
+        - Now what?
+        - Speaker: Player
+        - Look up.
+        - Speaker: Evil Player
+        - ...
+        - It's that face!
+        - Your face...
+        - IMAGE: Face
+        - What are you up to?
+        - Speaker: Player
+        - You'll see.
+        - EMOTE: [You draw your bow and take aim.]
+        - Speaker: Evil Player
+        - You're going to...
+        - Shoot yourself?
+        - Speaker: Player
+        - Not me.
+        - DELAY
+        - The other one.
+        - EMOTE: [You start blinking like mad. The world fades away.]
+        - Speaker: Evil Player
+        - ...
+        - We did it!
+        - EMOTE: [You stare down upon the world from up high.]
+        - Speaker: Player
+        - Ye of little faith.
+        - Speaker: Evil Player
+        - And now the you you were is waaaaaaaay down there.
+        - Looking real suspicious.
+        - EMOTE: [A smaller version of you stares up from below, bow at the ready.]
+        - Speaker: Evil Player
+        - Now what?
+        - IMAGE: Doppelgangers
+        - EMOTE: [You become aware of another presence.]
+        - Speaker: Doppelganger
+        - ...
+        - Speaker: Evil Player
+        - I don't think we're alone here.
+        - Quick, do something!
+    - 1143 - Display Options
 
 - 1171 - ENDGAME - You let out a chicken sound. Everyone's distracted. Little you looses their arrow. Arrow kills the doppelganger next to you.
+    - Dialog:
+        - Speaker: Evil Player
+        - ...
+        - DELAY
+        - Speaker: Doppelganger
+        - ...
+        - DELAY
+        - EMOTE: [Little You nods in approval.]
+        - Speaker: Little You
+        - Nice job, brother!
+        - My turn!
+        - Speaker: Evil Player
+        - Okay, I can't keep up.
+        - Just do your thing.
+        - EMOTE: [Far below, Little You looses an arrow.]
+        - Speaker: Doppelganger
+        - ...
+        - DELAY
+        - IMAGE: Arrow Strike
+        - Speaker: Doppelganger
+        - ...
+        - Blimey.
+        - Speaker: Evil Player
+        - Blimey?
+        - Speaker: Player
+        - Blimey!
+        - It worked!
+        - EMOTE: [As the creature falls, the world around you begins to crumble.]
     - 2000 - SUCCESS - The world fades. What comes next?
 
 - 1172 - ENDGAME - You say some cool catch phrase. You begin monologuing. You're distracted, though, and get captured.
+    - Dialog:
+        - Speaker: Evil Player
+        - This is your moment.
+        - Your crowning achievement.
+        - Make it count!
+        - Speaker: Player
+        - ...
+        - DELAY
+        - Time to...
+        - Meet your baker!
+        - DELAY
+        - Speaker: Evil Player
+        - ...
+        - DELAY
+        - Speaker: Doppelganger
+        - ...
+        - DELAY
+        - EMOTE: [The lumbering figure approaches.]
+        - Speaker: Evil Player
+        - Now you've gone and done it.
+        - EMOTE: [The figure entraps you in its steely grip.]
+        - Speaker: Doppelganger
+        - This one is not who they were.
+        - EMOTE: [You are struck from behind. Everything goes dark.]
     - 1000 - ENDING - The other doppelgangers captured you.
 
 
@@ -939,3 +1512,44 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - 2000 - START - Coming Soon
     - You've done it. You've broken the constraints of your mortal bounds. Unfortunately, what comes next has yet to be written. Stay tuned.
     - Show restart button.
+    - Dialog:
+        - Image: Vortex
+        - EMOTE: The world around you swirls.
+        - Speaker: Gamedev
+        - You have done it.
+        - You have broken the constraints of your mortal bounds.
+        - Speaker: Evil Player
+        - Is that what we did?
+        - Speaker: Gamedev
+        - Unfortunately, that which comes next has yet to be written.
+        - There is no further you can go.
+        - But do come again.
+        - DELAY
+        - Speaker: Evil Player
+        - Well, that was a thing we did...
+        - So how about it, buddy.
+        - Want to ride the Carousel of Nonsense one more time?
+    - 2001 - Why do I get the impression you're going to force me to?
+        `I suspect I don't have a choice.`
+    - 2002 - For sure
+        `Let's do this!`
+
+- 2001 - RESTART - Forced
+    - Dialog
+        - Speaker: Player
+        - I suspect I don't really have a choice in the matter.
+        - Speaker: Evil Player
+        - Right again!
+        - EMOTE: [The world fades to black.]
+        - CLEAR ALL INVENTORY
+
+- 2002 - RESTART - Optional
+    - Dialog
+        - Speaker: Player
+        - Let's do this!
+        - Not like I'd forget the eggs twice in a row.
+        - ...
+        - DELAY
+        - Right?
+        - EMOTE: [The world fades to black.]
+        - CLEAR ALL INVENTORY
