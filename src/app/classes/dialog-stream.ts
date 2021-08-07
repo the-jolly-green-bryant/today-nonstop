@@ -70,6 +70,7 @@ export class DialogStream {
         "EMOTE",
         "FLASH_IMAGE",
         "FLASH_ITEM",
+        "FLASH_KEYED_IMAGE",
         "SET_SPEAKER",
         "SHOW_IMAGE",
         "SHOW_KEYED_IMAGE",
@@ -139,6 +140,11 @@ export class DialogStream {
             // If we're using a keyed image, convert it to an appropriate image show.
             if (item.command === "SHOW_KEYED_IMAGE") {
                 item.command = "SHOW_IMAGE"
+                item.argument = dialog_data.keyed_images[item.argument]
+            }
+
+            if (item.command === "FLASH_KEYED_IMAGE") {
+                item.command = "FLASH_IMAGE"
                 item.argument = dialog_data.keyed_images[item.argument]
             }
 
