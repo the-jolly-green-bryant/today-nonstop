@@ -96,7 +96,15 @@
                 "[[CLEAR_INVENTORY]]",
                 "[[SHOW_KEYED_IMAGE]]debug_thunderstorm",
                 "[[SET_SPEAKER]]player",
-                "Heavy storm two mornings in a row. Strange. Or a"
+                "Heavy storm two mornings in a row. Strange. Or a",
+                "[[FLASH_KEYED_IMAGE]]debug_breakfast",
+                "[[SET_SPEAKER]]evil_voice",
+                "[[FLASH_KEYED_IMAGE]]debug_breakfast",
+                "[[SET_SPEAKER]]player",
+                "I'm the player",
+                "[[SHOW_KEYED_IMAGE]]debug_thunderstorm",
+                "[[SET_SPEAKER]]player",
+                "I'm still the player"
             ],
             "next": {
                 "020a__eat_breakfast": {
@@ -125,7 +133,7 @@
                 }
             },
             "comment": "Is this strange?",
-            "show_in_editor": false
+            "show_in_editor": true
         },
         "020a__eat_breakfast": {
             "speaker": "player",
