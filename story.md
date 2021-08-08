@@ -1,9 +1,14 @@
 
 ### TODO
 
-- Flash keyed images (we want reaction images to end up on the correct side)
+- Ensure flashed key images appear correctly.
+- Ensure speaker avatars reappear after an emote or full shown media image
+- Ability to trigger restart (at end)
+    - Command is `RESTART`
+
+*Nice To Have*
+
 - Options that can be in scene (eg options that don't change scene)
-- Ability to trigger restart
 
 ### References
 
@@ -187,6 +192,20 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - https://static.boredpanda.com/blog/wp-content/uploads/2018/03/ugly-medieval-cats-art-105-5aafb04871c4f__700.jpg
 - reaction_realization
     - https://cdn.ebaumsworld.com/thumbs/2015/07/14/065817/84655044/times-medieval-reactions-described-your-life.jpg
+- reaction_tossup
+    - https://runt-of-the-web.com/wordpress/wp-content/uploads/2015/04/chatting-girls-up.png
+- reaction_blank
+    - https://www.sadanduseless.com/wp-content/uploads/2017/09/medieval1.jpg
+- reaction_angry
+    - https://brill.com/view/journals/ehcs/4/1/2208522X_004_01_s002_i0003.jpg
+- reaction_shrug
+    - https://i.kym-cdn.com/photos/images/facebook/002/122/645/bcf.jpg
+- reaction_mass_confusion
+    - https://upload.wikimedia.org/wikipedia/commons/7/7f/Jan_van_Eyck_-_The_Ghent_Altarpiece_-_Singing_Angels_%28detail%29_-_WGA07641.jpg
+- reaction_monster
+    - https://ctl.s6img.com/society6/img/JqFAMmCvyvedDW0NctRks-C7sVA/w_700/prints/~artwork/s6-0002/asset_11/250733_U8cOJDMqub/~~/medieval-monster-vii-prints.jpg
+- reaction_flying
+    - https://outofthisworldx.files.wordpress.com/2019/07/visoki-decani-raspece-detail.jpg
 
 - chicken_goats
     - https://i.pinimg.com/originals/97/5b/8b/975b8b7b1c3244364c90ffe7c4422f7e.jpg
@@ -229,6 +248,8 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 
 - death_by_sword
     - https://i.kym-cdn.com/photos/images/facebook/000/959/851/891.jpg
+- change_to_big_face
+    - https://brooklynrail-web.imgix.net/article_image/image/29486/block-mackinven-2.jpg?w=440&q=80&fit=max
 
 - tourney_town
     - https://lh3.googleusercontent.com/proxy/x37Zkusly4uCPWCXt0ARW15ELnyzKuhPks9BsJzBBSZVZCC_LnzBKHHlcCpPn_d9auMyLsc3MmxOtHcdSChxPNpTVcTaosFkI6cg-qJWQ7zJfPiLtrYEN4k
@@ -241,12 +262,25 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - tourney_big_face
     - https://www.factinate.com/wp-content/uploads/2018/05/St-thomas-aquinas.jpg
 
+- sky_vortex
+    - https://d1o22ltncixott.cloudfront.net/eyJrZXkiOiJwcm9kdWN0cy8zMjY2MF8xMDE0MzAxYjMyOTM4MTc2MTY0ODgwNTk2MDQ4MjFiZGY4ZjA1ZDBhX0x5OXM2VnVRbFQzSDZ3WTdfMS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgwMCwiaGVpZ2h0Ijo4MDAsImZpdCI6Imluc2lkZSJ9fX0=
+
 **Characters**
 
 - `player`
 - `evil_player`
 - `baby`
 - `doppelganger`
+- `harold`
+- `shady`
+- `announcer`
+- `gamedev`
+- `pa`
+- `cat`
+- `ma`
+- `monster`
+- `guard`
+- `little_you`
 
 **Scenes**
 
@@ -858,7 +892,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[SET_SPEAKER]]player`
         - `[[SHOW_KEYED_IMAGE]]tourney_town`
         - `[[EMOTE]][You march proudly to the tournament grounds.]`
-        - Speaker: Big Suzie
+        - `[[SET_SPEAKER]]announcer`
         - `Hey look everyone!`
         - `It's Little Jon!`
         - `[[SET_SPEAKER]]player`
@@ -868,11 +902,11 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[SET_SPEAKER]]evil_player`
         - `Who knows?`
         - `The world's a crazy place, man.`
-        - Speaker: Not So Slim Shady
+        - `[[SET_SPEAKER]]shady`
         - `Nice digs, man.`
         - `Looks like someones headed to the tourney well armed.`
         - `[[EMOTE]][You reach the tournament registration tent.]`
-        - Speaker: Harold the Haggard
+        - `[[SET_SPEAKER]]harold`
         - `[[FLASH_KEYED_IMAGE]]reaction_contemplating_life`
         - `...`
         - `Sir.`
@@ -891,263 +925,269 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1000 - ENDING - You run down an alley to escape your shame. A figure follows you, laughing. He looks unreal. You're knocked out. Restart when you wake up.
         `[Hide your shame.]`
         - Dialog:
-            - [[SET_SPEAKER]]evil_player
-            - Aight, we outies!
-            - [[FLASH_KEYED_IMAGE]]reaction_outies
-            - [[EMOTE]][You scurry down an alley to escape your shame.]
-            - [[SET_SPEAKER]]evil_player
-            - Where are you going?
-            - [[SET_SPEAKER]]player
-            - Anywhere but here!
-            - [[EMOTE]][You trip over some loose pavers and fall to the ground.]
-            - [[SET_SPEAKER]]evil_player
-            - Dust yourself off quick.
-            - I think we're being followed.
-            - [[SHOW_KEYED_IMAGE]]doppelganger_mummy
-            - [[EMOTE]][A horrendous figure materializes out of the shadows.]
-            - [[SET_SPEAKER]]player
-            - ...
-            - [[SET_SPEAKER]]evil_player
-            - Do something!
-            - [[EMOTE]][The figure edges closer.]
-            - [[SET_SPEAKER]]player
-            - Like what?!
-            - [[SET_SPEAKER]]evil_player
-            - Anything!
-            - Try making friends with it.
-            - [[SET_SPEAKER]]player
-            - ...
-            - How do you do, fellow human?
-            - [[SET_SPEAKER]]doppelganger
-            - ...
-            - [[DELAY]]2.5
-            - Aaaaaiieeeeeee!
-            - [[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]
+            - `[[SET_SPEAKER]]evil_player`
+            - `Aight, we outies!`
+            - `[[FLASH_KEYED_IMAGE]]reaction_outies`
+            - `[[EMOTE]][You scurry down an alley to escape your shame.]`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Where are you going?`
+            - `[[SET_SPEAKER]]player`
+            - `Anywhere but here!`
+            - `[[EMOTE]][You trip over some loose pavers and fall to the ground.]`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Dust yourself off quick.`
+            - `I think we're being followed.`
+            - `[[EMOTE]][A horrendous figure materializes out of the shadows.]`
+            - `[[SHOW_KEYED_IMAGE]]doppelganger_mummy`
+            - `[[SET_SPEAKER]]player`
+            - `[[SHOW_KEYED_IMAGE]]reaction_bug_eyes`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Do something!`
+            - `[[EMOTE]][The figure edges closer.]`
+            - `[[SET_SPEAKER]]player`
+            - `Like what?!`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Anything!`
+            - `Try making friends with it.`
+            - `[[SET_SPEAKER]]player`
+            - `...`
+            - `How do you do, fellow human?`
+            - `[[SET_SPEAKER]]doppelganger`
+            - `[[FLASH_KEYED_IMAGE]]reaction_doppelganger`
+            - `[[DELAY]]2.5`
+            - `Aaaaaiieeeeeee!`
+            - `[[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]`
     - 1075 - TOURNEY - Assert yourself by acting like a chicken. The confused gate keeper lets you through.
         `Bacaaaawk!`
         - Show If: `was_chicken`
         - Dialog:
-            - [[SET_SPEAKER]]player
-            - Bacaaaawk!
-            - Speaker: Harold
-            - ...
-            - [[SET_SPEAKER]]evil_player
-            - ...
-            - [[SET_SPEAKER]]player
-            - ...
-            - Speaker: Harold
-            - [[DELAY]]2.5
-            - ...
-            - Okay.
-            - So you're here to compete?
+            - `[[SET_SPEAKER]]player`
+            - `Bacaaaawk!`
+            - `[[SET_SPEAKER]]harold`
+            - `[[SHOW_KEYED_IMAGE]]reaction_bug_eyes`
+            - `[[SET_SPEAKER]]evil_player`
+            - `...`
+            - `[[SET_SPEAKER]]player`
+            - `...`
+            - `[[SET_SPEAKER]]harold`
+            - `...`
+            - `[[DELAY]]2.5`
+            - `Okay.`
+            - `So you're here to compete?`
 
 - 1071 - TOURNEY - You attend the archery tourney but brought a sword
     - Leads up to a "you brought a knife to a gunfight" ending
     - Skip To If
         - `has_bow` - 1072 - You brought a bow
     - Dialog:
-        - Speaker: Harold
-        - Well, I'd love to help you.
-        - But we have a problem.
-        - [[SET_SPEAKER]]evil_player
-        - Damn bureaucrats...
-        - Always something.
-        - [[SET_SPEAKER]]player
-        - What is it?
-        - Speaker: Harold
-        - As you're aware, I assume...
-        - You're here for an archery tourney.
-        - [[SET_SPEAKER]]player
-        - Right...
-        - Speaker: Harold
-        - Are you familiar with the sport of archery?
-        - [[SET_SPEAKER]]player
-        - Yes, yes.
-        - Bows and arrows.
-        - Just sign me up.
-        - Speaker: Harold
-        - Well, sir.
-        - I must ask.
-        - Where's your bow?
-        - [[SET_SPEAKER]]player
-        - [[FLASH_KEYED_IMAGE]]reaction_groggy_cat
-        - ...
-        - [[SET_SPEAKER]]evil_player
-        - ...
-        - You're kidding me.
-        - Speaker: Harold
-        - [[EMOTE]][The bureaucrat before you lets out a hearty chuckle.]
-        - You've quite literally brought a knife to a bowfight.
-        - Get out of here, fool.
+        - `[[SET_SPEAKER]]harold`
+        - `Well, I'd love to help you.`
+        - `But we have a problem.`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Damn bureaucrats...`
+        - `Always something.`
+        - `[[SET_SPEAKER]]player`
+        - `What is it?`
+        - `[[SET_SPEAKER]]harold`
+        - `As you're aware, I assume...`
+        - `You're here for an archery tourney.`
+        - `[[SET_SPEAKER]]player`
+        - `Right...`
+        - `[[SET_SPEAKER]]harold`
+        - `Are you familiar with the sport of archery?`
+        - `[[SET_SPEAKER]]player`
+        - `Yes, yes.`
+        - `Bows and arrows.`
+        - `Just sign me up.`
+        - `[[SET_SPEAKER]]harold`
+        - `Well, sir.`
+        - `I must ask.`
+        - `Where's your bow?`
+        - `[[SET_SPEAKER]]player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_groggy_cat`
+        - `...`
+        - `[[SET_SPEAKER]]evil_player`
+        - `...`
+        - `You're kidding me.`
+        - `[[SET_SPEAKER]]harold`
+        - `[[EMOTE]][The bureaucrat before you lets out a hearty chuckle.]`
+        - `You've quite literally brought a knife to a bowfight.`
+        - `Get out of here, fool.`
     - 1000 - ENDING - You run down an alley to escape your shame. A figure follows you, laughing. He looks unreal. You're knocked out. Restart when you wake up.
         - Dialog:
-            - [[FLASH_KEYED_IMAGE]]reaction_outies_cat
-            - [[EMOTE]][You scurry down an alley to escape your shame.]
-            - [[SET_SPEAKER]]evil_player
-            - Where are you going?
-            - [[SET_SPEAKER]]player
-            - Anywhere but here!
-            - [[EMOTE]][You trip over some loose pavers and fall to the ground.]
-            - [[SET_SPEAKER]]evil_player
-            - Dust yourself off quick.
-            - I think we're being followed.
-            - [[SHOW_KEYED_IMAGE]]doppelganger_mummy
-            - [[EMOTE]][A horrendous figure materializes out of the shadows.]
-            - [[SET_SPEAKER]]player
-            - ...
-            - [[SET_SPEAKER]]evil_player
-            - Do something!
-            - [[EMOTE]][The figure edges closer.]
-            - [[SET_SPEAKER]]player
-            - Like what?!
-            - [[SET_SPEAKER]]evil_player
-            - Anything!
-            - Try making friends with it.
-            - [[SET_SPEAKER]]player
-            - ...
-            - How do you do, fellow human?
-            - [[SET_SPEAKER]]doppelganger
-            - ...
-            - [[DELAY]]2.5
-            - Aaaaaiieeeeeee!
-            - [[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]
+            - `[[SET_SPEAKER]]player`
+            - `[[EMOTE]][You scurry down an alley to escape your shame.]`
+            - `[[FLASH_KEYED_IMAGE]]reaction_outies_cat`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Where are you going?`
+            - `[[SET_SPEAKER]]player`
+            - `Anywhere but here!`
+            - `[[EMOTE]][You trip over some loose pavers and fall to the ground.]`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Dust yourself off quick.`
+            - `I think we're being followed.`
+            - `[[SHOW_KEYED_IMAGE]]doppelganger_mummy`
+            - `[[EMOTE]][A horrendous figure materializes out of the shadows.]`
+            - `[[SET_SPEAKER]]player`
+            - `...`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Do something!`
+            - `[[EMOTE]][The figure edges closer.]`
+            - `[[SET_SPEAKER]]player`
+            - `Like what?!`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Anything!`
+            - `Try making friends with it.`
+            - `[[SET_SPEAKER]]player`
+            - `...`
+            - `How do you do, fellow human?`
+            - `[[SET_SPEAKER]]doppelganger`
+            - `[[FLASH_KEYED_IMAGE]]reaction_doppelganger`
+            - `[[DELAY]]2.5`
+            - `Aaaaaiieeeeeee!`
+            - `[[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]`
 
 - 1072 - TOURNEY - You attend the archery tourney with all required equipment. Pick your competition.
     - Dialog:
-        - Speaker: Harold
-        - Let's get you signed up.
-        - We offer two types of entry.
-        - The frst tourney involves distance shooting.
-        - [[SET_SPEAKER]]evil_player
-        - Oh, that sounds promising.
-        - Speaker: Harold
-        - That one's held at midday.
-        - Immediately following that, we have the roving tourney.
-        - Targets are closer but are rigged to move.
-        - [[SET_SPEAKER]]evil_player
-        - A challenge!
-        - Maybe that one.
-        - Speaker: Harold
-        - Which tourney are you wanting to enter?
+        - `[[SET_SPEAKER]]harold`
+        - `Let's get you signed up.`
+        - `We offer two types of entry.`
+        - `The frst tourney involves distance shooting.`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Oh, that sounds promising.`
+        - `[[SET_SPEAKER]]harold`
+        - `That one's held at midday.`
+        - `Immediately following that, we have the roving tourney.`
+        - `Targets are closer but are rigged to move.`
+        - `[[SET_SPEAKER]]evil_player`
+        - `A challenge!`
+        - `Maybe that one.`
+        - `It's a tossup.`
+        - `[[FLASH_KEYED_IMAGE]]reaction_tossup`
+        - `[[SET_SPEAKER]]harold`
+        - `Which tourney are you wanting to enter?`
     - 1073 - TOURNEY - I want to shoot some butts. Sounds funnier than it really is.
         `I want to shoot some butts.`
         - Dialog
-            - [[SET_SPEAKER]]player
-            - I want to shoot some butts.
-            - Speaker: Harold
-            - Ah, yes.
-            - Butts.
-            - The earthen mounds used in distance shooting.
-            - That joke never gets old...
-            - [[SET_SPEAKER]]evil_player
-            - Heh, good one!
-            - [[EMOTE]][The bureaucrat hands you a contestants chip.]
-            - Speaker: Harold
-            - That chip will get you into the contestants wing.
-            - [[DELAY]]2.5
-            - ...
-            - Don't eat it.
-            - Not that kind of chip.
+            - `[[SET_SPEAKER]]player`
+            - `I want to shoot some butts.`
+            - `[[SET_SPEAKER]]harold`
+            - `[[FLASH_KEYED_IMAGE]]reaction_blank`
+            - `Ah, yes.`
+            - `Butts.`
+            - `The earthen mounds used in distance shooting.`
+            - `That joke never gets old...`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Heh, good one!`
+            - `[[EMOTE]][The bureaucrat hands you a contestants chip.]`
+            - `[[SET_SPEAKER]]harold`
+            - `That chip will get you into the contestants wing.`
+            - `...`
+            - `[[DELAY]]2.5`
+            - `Don't eat it.`
+            - `Not that kind of chip.`
     - 1074 - TOURNEY - I want to shoot something moving.
         `I want to shoot something that moves.`
         - Dialog
-            - [[SET_SPEAKER]]player
-            - I want to shoot something that moves.
-            - Speaker: Harold
-            - Daring today, aren't we.
-            - Very well.
-            - [[EMOTE]][The bureaucrat hands you a contestants chip.]
-            - Speaker: Harold
-            - That chip will get you into the contestants wing.
-            - [[SET_SPEAKER]]player
-            - What happens if I eat my chip?
-            - Speaker: Harold
-            - [[EMOTE]][The bureaucrat is clearly done with your nonsense.]
-            - [[DELAY]]2.5
-            - ...
-            - Please do not eat your contestants chip.
-            - They are not that kind of chip.
+            - `[[SET_SPEAKER]]player`
+            - `I want to shoot something that moves.`
+            - `[[SET_SPEAKER]]harold`
+            - `Daring today, aren't we.`
+            - `Very well.`
+            - `[[EMOTE]][The bureaucrat hands you a contestants chip.]`
+            - `[[SET_SPEAKER]]harold`
+            - `That chip will get you into the contestants wing.`
+            - `[[SET_SPEAKER]]player`
+            - `What happens if I eat my chip?`
+            - `[[SET_SPEAKER]]harold`
+            - `[[FLASH_KEYED_IMAGE]]reaction_blank`
+            - `[[DELAY]]2.5`
+            - `[[EMOTE]][The bureaucrat is clearly done with your nonsense.]`
+            - `Please do not eat your contestants chip.`
+            - `They are not that kind of chip.`
 
 - 1073 - TOURNEY - An archery accident gone bad kills you. (butts)
     - Dialog
-        - [[EMOTE]][You make your way down to the tournament field.]
-        - [[SHOW_KEYED_IMAGE]]tourney_grounds
-        - Speaker: Not So Slim Shady
-        - About time you made it.
-        - Ready to relive last year's embarassment?
-        - [[SET_SPEAKER]]evil_player
-        - Just ignore him.
-        - He's not worth it.
-        - [[SET_SPEAKER]]player
-        - Shush up.
-        - We'll let the butts do the talking.
-        - [[EMOTE]][With that quip, you end the conversation and turn away.]
-        - Speaker: Not So Slim Shady
-        - ...
-        - [[EMOTE]][The sounds of steel being loosed rings in your ear.]
-        - [[SET_SPEAKER]]evil_player
-        - Um...
-        - I think we might have made him mad.
-        - [[SET_SPEAKER]]player
-        - ...
-        - [[SET_SPEAKER]]evil_player
-        - Hello?
-        - [[SET_SPEAKER]]player
-        - ...
-        - [[DELAY]]2.5
-        - [[FLASH_KEYED_IMAGE]]reaction_stabbed
-
+        - `[[EMOTE]][You make your way down to the tournament field.]`
+        - `[[SHOW_KEYED_IMAGE]]tourney_grounds`
+        - `[[SET_SPEAKER]]shady`
+        - `About time you made it.`
+        - `Ready to relive last year's embarassment?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Just ignore him.`
+        - `He's not worth it.`
+        - `[[SET_SPEAKER]]player`
+        - `Shush up.`
+        - `We'll let the butts do the talking.`
+        - `[[EMOTE]][With that quip, you end the conversation and turn away.]`
+        - `[[SET_SPEAKER]]shady`
+        - `[[FLASH_KEYED_IMAGE]]reaction_angry`
+        - `[[EMOTE]][The sounds of steel being loosed rings in your ear.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Um...`
+        - `I think we might have made him mad.`
+        - `[[SET_SPEAKER]]player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_bug_eyes`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Hello?`
+        - `[[SET_SPEAKER]]player`
+        - `...`
+        - `[[DELAY]]2.5`
+        - `[[FLASH_KEYED_IMAGE]]reaction_stabbed`
+        - `[[EMOTE]][The world fades to black.]`
     - 1150 - ENDING - Wake up to a bad dream.
 
 - 1074 - TOURNEY - An archery accident gone bad kills you. (roving)
     - Dialog
-        - [[EMOTE]][You make your way down to the tournamnet field.]
-        - [[SHOW_KEYED_IMAGE]]tourney_grounds
-        - Speaker: Announcer
-        - Welcome to the 69th annual Hung--
-        - [[DELAY]]2.5
-        - ...
-        - Oh, wrong fandom.
-        - [[DELAY]]2.5
-        - [[SET_SPEAKER]]evil_player
-        - This doesn't bode well.
-        - [[DELAY]]2.5
-        - Speaker: Announcer
-        - Apologies, folks.
-        - Welcome today's festivities!
-        - Today's brave contestants are participating in the Most Dangerous Game!
-        - Trademark pending.
-        - [[SET_SPEAKER]]player
-        - Uh...
-        - Speaker: Announcer
-        - That's right, folks!
-        - Today's contestants are actually today's targets.
-        - [[SET_SPEAKER]]player
-        - [[FLASH_KEYED_IMAGE]]reaction_say_what
-        - Say what?
-        - [[SET_SPEAKER]]evil_player
-        - This is not what we signed up for...
-        - [[SET_SPEAKER]]player
-        - Excuse me!
-        - I think I'm in the wrong pl--
-        - Speaker: Announcer
-        - Let the game commence!
-        - [[SET_SPEAKER]]evil_player
-        - Run!
-        - [[EMOTE]][The twang of an arrow loosing rings in your ear.]
-        - [[SET_SPEAKER]]evil_player
-        - Um...
-        - [[SET_SPEAKER]]player
-        - ...
-        - [[SET_SPEAKER]]evil_player
-        - Hello?
-        - [[SET_SPEAKER]]player
-        - ...
-        - [[SHOW_KEYED_IMAGE]]tourney_shot
-        - [[SET_SPEAKER]]evil_player
-        - Tis but a scratch!
-        - [[SET_SPEAKER]]player
-        - [[FLASH_KEYED_IMAGE]]reaction_shot
+        - `[[EMOTE]][You make your way down to the tournamnet field.]`
+        - `[[SHOW_KEYED_IMAGE]]tourney_grounds`
+        - `[[SET_SPEAKER]]announcer`
+        - `Welcome to the 69th annual Hung--`
+        - `[[DELAY]]2.5`
+        - `...`
+        - `Oh, wrong fandom.`
+        - `[[FLASH_KEYED_IMAGE]]reaction_shrug`
+        - `[[DELAY]]2.5`
+        - `[[SET_SPEAKER]]evil_player`
+        - `This doesn't bode well.`
+        - `[[DELAY]]2.5`
+        - `[[SET_SPEAKER]]announcer`
+        - `Apologies, folks.`
+        - `Welcome to today's festivities!`
+        - `Today's brave contestants are participating in the Most Dangerous Game!`
+        - `Trademark pending.`
+        - `[[SET_SPEAKER]]player`
+        - `Uh...`
+        - `[[SET_SPEAKER]]announcer`
+        - `That's right, folks!`
+        - `Today's contestants are also today's targets.`
+        - `[[SET_SPEAKER]]player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_say_what`
+        - `Say what?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `This is not what we signed up for...`
+        - `[[SET_SPEAKER]]player`
+        - `Excuse me!`
+        - `I think I'm in the wrong pl--`
+        - `[[SET_SPEAKER]]announcer`
+        - `Let the game commence!`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Duck!`
+        - `[[EMOTE]][The twang of an arrow loosing rings in your ear.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Um...`
+        - `[[SET_SPEAKER]]player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_bug_eyes`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Hello?`
+        - `[[SET_SPEAKER]]player`
+        - `...`
+        - `[[SHOW_KEYED_IMAGE]]tourney_shot`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Tis but a scratch!`
+        - `[[SET_SPEAKER]]player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_shot`
+        - `[[EMOTE]][The world fades to black.]`
     - 1150 - ENDING - Wake up to a bad dream.
 
 - 1075 - TOURNEY - Leads to 1071 (registration) but with additional flavor.
@@ -1158,6 +1198,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - 1071 - TOURNEY - Pass through to the registration scene.
         `Indeed I am!`
         - Dialog:
+            - `Indeed I am!`
             - `[[ADD_ITEM]]attended_tourney_nude`
     - 1170 - ENDGAME - Go off script.
         - `[Go off script.]`
@@ -1165,58 +1206,61 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 
 - 1080 - INVESTIGATE - The crying turns to wailing. It's getting louder. Turns to roaring.
     - Dialog:
-        - [[DELAY]]2.5
-        - [[SET_SPEAKER]]baby
-        - ...
-        - [[SET_SPEAKER]]evil_player
-        - Well, that problem seems to have resolved itself.
-        - [[SET_SPEAKER]]player
-        - Shush up.
-        - I'm done worrying about that.
-        - Know what I'm worried about now?
-        - [[SET_SPEAKER]]evil_player
-        - Bacon?
-        - [[SET_SPEAKER]]player
-        - Bac--
-        - [[SET_SPEAKER]]doppelganger
-        - Aaaaaiieeeeeee!
-        - [[EMOTE]][A grotesque form crashes through the door.]
-        - [[SHOW_KEYED_IMAGE]]doppelganger_mummy
-        - [[SET_SPEAKER]]doppelganger
-        - ...
-        - [[SET_SPEAKER]]evil_player
-        - Uh...
-        - [[SET_SPEAKER]]player
-        - Hey, buddy...
-        - We come in peace?
-        - [[SET_SPEAKER]]doppelganger
-        - Aaaaaiieeeeeee!
-        - [[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]
+        - `[[DELAY]]2.5`
+        - `[[SET_SPEAKER]]baby`
+        - `...`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Well, that problem seems to have resolved itself.`
+        - `[[SET_SPEAKER]]player`
+        - `Shush up.`
+        - `I'm done worrying about that.`
+        - `Know what I'm worried about now?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Bacon?`
+        - `[[SET_SPEAKER]]player`
+        - `Bac--`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `Aaaaaiieeeeeee!`
+        - `[[EMOTE]][A grotesque form crashes through the door.]`
+        - `[[SHOW_KEYED_IMAGE]]doppelganger_mummy`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `[[FLASH_KEYED_IMAGE]]reaction_doppelganger`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Uh...`
+        - `[[SET_SPEAKER]]player`
+        - `Hey, buddy...`
+        - `We come in peace?`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `Aaaaaiieeeeeee!`
+        - `[[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]`
     - 1100 - ABDUCTION - Something barrels throught he door. You're knocked out.
 
 - 1090 - TOURNEY - You don't attend event (and event likely only existed in your head)
     - Dialog
-        - [[SET_SPEAKER]]evil_player
-        - Woah, Speed Racer, cool your jets.
-        - I hate to break it to you, but there hasn't been a tourney in years.
-        - [[SET_SPEAKER]]player
-        - What?
-        - [[SET_SPEAKER]]evil_player
-        - I think that bonk you took to the head is playing tricks on your mind.
-        - [[SET_SPEAKER]]player
-        - Bonk?
-        - [[SET_SPEAKER]]evil_player
-        - You know, a bonk!
-        - A thwack.
-        - A whale of a zap?
-        - [[DELAY]]2.5
-        - Look, Anastasia, you're unconscious right now, and this is all a dream.
-        - And a poorly written dream at that.
-        - [[SET_SPEAKER]]player
-        - [[DELAY]]2.5
-        - Unconscious?
-        - A dream?
-        - Poorly written?
+        - `[[SET_SPEAKER]]evil_player`
+        - `Woah, Speed Racer, cool your jets.`
+        - `I hate to break it to you, but there hasn't been a tourney in years.`
+        - `[[SET_SPEAKER]]player`
+        - `What?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `I think that bonk you took to the head is playing tricks on your mind.`
+        - `[[SET_SPEAKER]]player`
+        - `Bonk?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `You know, a bonk!`
+        - `A thwack.`
+        - `A whale of a zap?`
+        - `[[SET_SPEAKER]]player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_suspicious`
+        - `[[SET_SPEAKER]]evil_player`
+        - `[[DELAY]]2.5`
+        - `Look, Anastasia, you're unconscious right now, and this is all a dream.`
+        - `And a poorly written dream at that.`
+        - `[[SET_SPEAKER]]player`
+        - `[[DELAY]]2.5`
+        - `Unconscious?`
+        - `A dream?`
+        - `Poorly written?`
     - 1150 - BAD DREAM - It was all a dream, wake up.
 
 - 1100 - ABDUCTION - Wake up scene to doppelgangers, shadowy figures.
@@ -1224,228 +1268,231 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - We don't recognize them as doppelgangers unless we know of them yet.
     - Dialog:
         - `[[ADD_ITEM]]times_abducted`
-        - [[DELAY]]2.5
-        - [[SET_SPEAKER]]player
-        - ...
-        - [[DELAY]]2.5
-        - [[SET_SPEAKER]]evil_player
-        - Hey, buddy.
-        - Time to wake up.
-        - [[SET_SPEAKER]]player
-        - ...
-        - What?
-        - [[SET_SPEAKER]]evil_player
-        - We have company.
-        - [[EMOTE]][You find yourself bound, surrounded by nightmarish figures.]
-        - [[SHOW_KEYED_IMAGE]]abduction_bound
-        - [[SET_SPEAKER]]player
-        - ...
-        - [[EMOTE]][You futily struggle against your bonds.]
-        - [[SET_SPEAKER]]player
-        - !!!
-        - [[SET_SPEAKER]]evil_player
-        - Cat's got your tongue?
-        - [[SET_SPEAKER]]doppelganger
-        - ...
-        - [[EMOTE]][The creatures notice your rise to consciousness.]
-        - [[SET_SPEAKER]]doppelganger
-        - This one slumbers no more.
-        - [[EMOTE]][You are struck from behind. Everything goes dark.]
+        - `[[DELAY]]2.5`
+        - `[[SET_SPEAKER]]player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_mass_confusion`
+        - `[[DELAY]]2.5`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Hey, buddy.`
+        - `Time to wake up.`
+        - `[[SET_SPEAKER]]player`
+        - `...`
+        - `What?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `We have company.`
+        - `[[EMOTE]][You find yourself bound, surrounded by nightmarish figures.]`
+        - `[[SHOW_KEYED_IMAGE]]abduction_bound`
+        - `[[SET_SPEAKER]]player`
+        - `...`
+        - `[[EMOTE]][You futily struggle against your bonds.]`
+        - `[[SET_SPEAKER]]player`
+        - `!!!`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Cat's got your tongue?`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `[[FLASH_KEYED_IMAGE]]reaction_doppelganger`
+        - `[[EMOTE]][The creature notices your rise to consciousness.]`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `This one slumbers no more.`
+        - `[[EMOTE]][You are struck from behind. Everything goes dark.]`
     - 1000 - ENDING - You fall back asleep / blackout. Restart when you wake up.
 
 - 1110 - EASTER EGG ENDING - Must be a render error.
     - Like a console died and restarted. Video game begins rendering poorly. Fans running high. Everything goes black.
     - Dialog:
-        - [[SET_SPEAKER]]player
-        - What's going on with that bird?
-        - Is it flying backwards?
-        - [[EMOTE]][You hear a loud rushing of air.]
-        - [[SET_SPEAKER]]evil_player
-        - I don't like this.
-        - [[SET_SPEAKER]]player
-        - Me either.
-        - What do you think it is?
-        - [[SET_SPEAKER]]evil_player
-        - It might be some kind of en--
-        - [[SET_SPEAKER]]player
-        - Some kind of what?
-        - [[SET_SPEAKER]]evil_player
-        - I think we're hav--
-        - Some kind of sys--
-        - Reboot.
-        - [[SET_SPEAKER]]player
-        - Reboot?
-        - [[EMOTE]][The sound suddenly dies away.]
-        - [[SET_SPEAKER]]player
-        - Hello?
-        - [[SET_SPEAKER]]evil_player
-        - ...
-        - [[SET_SPEAKER]]player
-        - I know we have our differences, but don't leave me like this.
-        - Speaker: Gamedev
-        - SYSTEM REBOOT IMMINENT
-        - [[SET_SPEAKER]]player
-        - What?
-        - Speaker: Gamedev
-        - In 3...
-        - 2...
-        - [[SET_SPEAKER]]player
-        - Wait!
-        - 1...
-        - [[EMOTE]][Everything goes dark.]
+        - `[[SET_SPEAKER]]player`
+        - `What's going on with that bird?`
+        - `Is it flying backwards?`
+        - `[[EMOTE]][You hear a loud rushing of air.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `I don't like this.`
+        - `[[SET_SPEAKER]]player`
+        - `Me either.`
+        - `What do you think it is?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `It might be some kind of en--`
+        - `[[SET_SPEAKER]]player`
+        - `Some kind of what?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `I think we're hav--`
+        - `Some kind of sys--`
+        - `Reboot.`
+        - `[[SET_SPEAKER]]player`
+        - `Reboot?`
+        - `[[EMOTE]][The sound suddenly dies away.]`
+        - `[[SET_SPEAKER]]player`
+        - `Hello?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `...`
+        - `[[SET_SPEAKER]]player`
+        - `I know we have our differences, but don't leave me like this.`
+        - `[[SET_SPEAKER]]gamedev`
+        - `SYSTEM REBOOT IMMINENT`
+        - `[[SET_SPEAKER]]player`
+        - `What?`
+        - `[[SET_SPEAKER]]gamedev`
+        - `In 3...`
+        - `2...`
+        - `[[SET_SPEAKER]]player`
+        - `Wait!`
+        - `1...`
+        - `[[EMOTE]][Everything goes dark.]`
     - 1000 - ENDING - You blackout and restart.
 
 - 1120 - BAD DREAM - Have a small dream sequence. What's that one doing awake? Take care of it.
     - During dream sequence, someone shouts at you: "DON'T FORGET THE EGGS!" (or similar)
     - Dream sequence unlocks chicken sequence.
     - Dialog:
-        `[[ADD_ITEM]]wont_forget_eggs`
-        - [[SHOW_KEYED_IMAGE]]dream_faces
-        - [[SET_SPEAKER]]player
-        - ...
-        - [[EMOTE]][Faces of your past rush by.]
-        - Speaker: Pa
-        - You layabout!
-        - Where have you been?
-        - [[SET_SPEAKER]]player
-        - ...
-        - Speaker: Cat
-        - What's the problem?
-        - Cat got your tongue?
-        - [[SET_SPEAKER]]player
-        - !!!
-        - [[SET_SPEAKER]]evil_player
-        - Tis dreams all the way down, me boy.
-        - Speaker: Ma
-        - DON'T FORGET THE EGGS!
-        - [[EMOTE]][The world fades away.]
+        - `[[ADD_ITEM]]wont_forget_eggs`
+        - `[[SHOW_KEYED_IMAGE]]dream_faces`
+        - `[[SET_SPEAKER]]player`
+        - `...`
+        - `[[EMOTE]][Faces of your past rush by.]`
+        - `[[SET_SPEAKER]]pa`
+        - `You layabout!`
+        - `Where have you been?`
+        - `[[SET_SPEAKER]]player`
+        - `...`
+        - `[[SET_SPEAKER]]cat`
+        - `What's the problem?`
+        - `Cat got your tongue?`
+        - `[[SET_SPEAKER]]player`
+        - `!!!`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Tis dreams all the way down, mate.`
+        - `[[SET_SPEAKER]]ma`
+        - `DON'T FORGET THE EGGS!`
+        - `[[EMOTE]][The world fades away.]`
     - 1000 - ENDING - Knocked out and forced to restart.
 
 - 1130 - BAD DREAM - You attack the beast
     - Dialog:
         - `[[ADD_ITEM]]fought_dream_monster`
-        - [[EMOTE]][You give the monster a whale of a zap.]
-        - Speaker: Monster
-        - ...
-        - [[SET_SPEAKER]]evil_player
-        - It's not very effective...
-        - Let's try doing it again!
+        - `[[EMOTE]][You give the monster a whale of a zap.]`
+        - `[[SET_SPEAKER]]monster`
+        - `[[FLASH_KEYED_IMAGE]]reaction_monster`
+        - `[[SET_SPEAKER]]evil_player`
+        - `It's not very effective...`
+        - `Let's try doing it again!`
     - 1150 - BAD DREAM - It was all a dream, wake up (to bad dream).
         - `I feel like I've been here before...`
         - Dialog:
-            - [[SET_SPEAKER]]player
-            - I feel like we've been here before...
-            - [[SET_SPEAKER]]evil_player
-            - Or perhaps...
-            - We will be again!
-            - [[EMOTE]][The world fades to black.]
+            - `[[SET_SPEAKER]]player`
+            - `I feel like we've been here before...`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Or perhaps...`
+            - `We will be again!`
+            - `[[EMOTE]][The world fades to black.]`
     - 1130 - BAD DREAM - Attack it again.
         - `I'm gonna thwack it real good!`
         - Dialog:
-            - [[SET_SPEAKER]]player
-            - I'm gonna thwack it real good!
+            - `[[SET_SPEAKER]]player`
+            - `I'm gonna thwack it real good!`
     - 1120 - BAD DREAM - Scream until you blackout and wake up (to "real" ending)
         - `[Wail like a banshee.]`
         - Dialog:
-            - [[SET_SPEAKER]]player
-            - AIIEEEEEEEEE
-            - EEEEEEEEEEEE
-            - EEEEEEEEEE--
-            - [[EMOTE]]You run out of breath and the world goes black.
+            - `[[SET_SPEAKER]]player`
+            - `AIIEEEEEEEEE`
+            - `EEEEEEEEEEEE`
+            - `EEEEEEEEEE--`
+            - `[[EMOTE]]You run out of breath and the world goes black.`
 
 - 1140 - FAKE WORLD - You blink your eyes, but which eyes? Suddenly you're in the big you, staring down at little you in a snowglobe. What's going on?
     - There are other doppelgangers there with you. You meet their eyes.
     - I want a "show me what you've got" joke in here.
     - Dialog:
         - `[[ADD_ITEM]]entered_doppelganger`
-        - [[SET_SPEAKER]]player
-        - That's not a bird.
-        - But what is it?
-        - [[DELAY]]2.5
-        - Wait...
-        - It can't be.
-        - Is that a face?
-        - [[SET_SPEAKER]]evil_player
-        - Now that you mention it, it does look like a face.
-        - And an ugly mug at that.
-        - [[SET_SPEAKER]]player
-        - It looks vaguely familiar.
-        - It looks a little like...
-        - No!
-        - [[SET_SPEAKER]]evil_player
-        - Yes!
-        - [[SET_SPEAKER]]player
-        - It looks like my face!
-        - [[SET_SPEAKER]]evil_player
-        - I already said that.
-        - An ugly mug.
-        - [[SET_SPEAKER]]player
-        - No, this can't be real.
-        - Just gotta clear my eyes.
-        - [[EMOTE]][You start blinking like mad.]
-            - TODO - We might need to split this scene here.
-        - [[SET_SPEAKER]]player
-        - Wait!
-        - Whose eyes am I blinking?
-        - [[SET_SPEAKER]]evil_player
-        - It's happening!
-        - We did it!
-        - [[EMOTE]][You stare down upon the world from up high.]
-        - [[SET_SPEAKER]]player
-        - What did we do?
-            - TODO - We want the above dialog to change based on what we already know.
-        - [[SET_SPEAKER]]evil_player
-        - Can't you see?
-        - That big face in the sky didn't just look like you.
-        - It WAS you.
-        - And now you're it.
-        - And now the you you were is waaaaaaaay down there.
-        - [[EMOTE]][A smaller version of you stares up from below.]
-        - [[SET_SPEAKER]]player
-        - Okay, so that version of me is down there.
-        - But where is this version of me?
-        - [[SHOW_KEYED_IMAGE]]doppelganger_mummy
-        - [[EMOTE]][You become aware of another presence.]
-        - [[SET_SPEAKER]]doppelganger
-        - ...
-        - [[SET_SPEAKER]]evil_player
-        - I don't think we're alone here.
-        - Quick, do something!
+        - `[[SET_SPEAKER]]player`
+        - `That's not a bird.`
+        - `But what is it?`
+        - `[[DELAY]]2.5`
+        - `Wait...`
+        - `[[FLASH_KEYED_IMAGE]]reaction_suspicious`
+        - `It can't be.`
+        - `Is that a face?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Now that you mention it, it does look like a face.`
+        - `And an ugly mug at that.`
+        - `[[SET_SPEAKER]]player`
+        - `It looks vaguely familiar.`
+        - `It looks a little like...`
+        - `[[DELAY]]2.5`
+        - `No!`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Yes!`
+        - `[[SET_SPEAKER]]player`
+        - `It looks like my face!`
+        - `[[SET_SPEAKER]]evil_player`
+        - `I already said that.`
+        - `An ugly mug.`
+        - `[[FLASH_KEYED_IMAGE]]reaction_blank`
+        - `[[SET_SPEAKER]]player`
+        - `No, this can't be real.`
+        - `Just gotta clear my eyes.`
+        - `[[EMOTE]][You start blinking like mad.]`
+        - `[[SET_SPEAKER]]player`
+        - `Wait!`
+        - `Whose eyes am I blinking?`
+        - `[[FLASH_KEYED_IMAGE]]change_to_big_face`
+        - `[[SET_SPEAKER]]evil_player`
+        - `It's happening!`
+        - `We did it!`
+        - `[[EMOTE]][You stare down upon the world from up high.]`
+        - `[[SET_SPEAKER]]player`
+        - `What did we do?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Can't you see?`
+        - `That big face in the sky didn't just look like you.`
+        - `It WAS you.`
+        - `And now you're it.`
+        - `And now the you you were is waaaaaaaay down there.`
+        - `[[EMOTE]][A smaller version of you stares up from below.]`
+        - `[[SET_SPEAKER]]player`
+        - `Okay, so that version of me is down there.`
+        - `But where is this version of me?`
+        - `[[SHOW_KEYED_IMAGE]]doppelganger_mummy`
+        - `[[EMOTE]][You become aware of another presence.]`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `[[FLASH_KEYED_IMAGE]]reaction_doppelganger`
+        - `[[SET_SPEAKER]]evil_player`
+        - `I don't think we're alone here.`
+        - `Quick, do something!`
     - 1143 - Display Options
 
 - 1141 - FAKE WORLD - Friendliess doesn't work.
     - Dialog
-        - [[SET_SPEAKER]]player
-        - Show me what you've got!
-        - [[SET_SPEAKER]]evil_player
-        - What's that even mean?
-        - [[SET_SPEAKER]]doppelganger
-        - ...
-        - [[EMOTE]][The lumbering figure approaches.]
-        - [[SET_SPEAKER]]evil_player
-        - Now you've gone and done it.
-        - [[EMOTE]][The figure entraps you in its steely grip.]
-        - [[SET_SPEAKER]]doppelganger
-        - This one is not who they were.
-        - [[EMOTE]][You are struck from behind. Everything goes dark.]
+        - `[[SET_SPEAKER]]player`
+        - `Show me what you've got!`
+        - `[[SET_SPEAKER]]evil_player`
+        - `What's that even mean?`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `[[FLASH_KEYED_IMAGE]]reaction_doppelganger`
+        - `[[EMOTE]][The lumbering figure approaches.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Now you've gone and done it.`
+        - `[[EMOTE]][The figure entraps you in its steely grip.]`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `This one is not who they were.`
+        - `[[EMOTE]][You are struck from behind. Everything goes dark.]`
     - 1000 - ENDING - The other doppelgangers recognize that you've taken over the body. They seize you.
 
 - 1142 - FAKE WORLD - Confusion doesn't work.
     - Dialog
-        - [[SET_SPEAKER]]player
-        - Okay, can anyone tell me what's going on?
-        - [[SET_SPEAKER]]doppelganger
-        - ...
-        - [[SET_SPEAKER]]evil_player
-        - Did you expect that to work?
-        - Ask to see their manager while you're at it.
-        - [[EMOTE]][The lumbering figure approaches.]
-        - [[SET_SPEAKER]]evil_player
-        - Now you've gone and done it.
-        - [[EMOTE]][The figure entraps you in its steely grip.]
-        - [[SET_SPEAKER]]doppelganger
-        - This one is not who they were.
-        - [[EMOTE]][You are struck from behind. Everything goes dark.]
+        - `[[SET_SPEAKER]]player`
+        - `Okay, can anyone tell me what's going on?`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `[[FLASH_KEYED_IMAGE]]reaction_doppelganger`
+        - `[[SET_SPEAKER]]evil_player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_blank`
+        - `Did you expect that to work?`
+        - `Why don't you ask to see their manager while you're at it?`
+        - `[[EMOTE]][The lumbering figure approaches.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Now you've gone and done it.`
+        - `[[EMOTE]][The figure entraps you in its steely grip.]`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `This one is not who they were.`
+        - `[[EMOTE]][You are struck from behind. Everything goes dark.]`
     - 1000 - ENDING - The other doppelgangers recognize that you've taken over the body. They seize you.
 
 - 1143 - FAKE WORLD - Options
@@ -1461,8 +1508,8 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `Bacaaaawk!`
         - Show If: `did_setup` and `was_chicken`
         - Dialog:
-            - [[SET_SPEAKER]]player
-            - Bacaaaawk!
+            - `[[SET_SPEAKER]]player`
+            - `Bacaaaawk!`
     - 1172 - ENDGAME - Cool phrase
         - `Time for our movie moment!`
         - Show If: `did_setup`
@@ -1474,100 +1521,102 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Wait, you don't have a lover, and this being is grotesque / monsterous.
     - Dialog:
         - `[[ADD_ITEM]]had_bad_dream`
-        - [[EMOTE]][You're wrested from your sleep.]
-        - [[SHOW_KEYED_IMAGE]]awake_in_bed
-        - [[SET_SPEAKER]]player
-        - What a bizarre dream.
-        - I should lay off the shellfish.
-        - [[EMOTE]][Your partner stirs in bed beside you.]
-        - [[SET_SPEAKER]]evil_player
-        - You should keep quieter!
-        - You're going to awaken your lover.
-        - [[SET_SPEAKER]]player
-        - You're right.
-        - [[DELAY]]2.5
-        - Look how peacefully she rests.
-        - I wonder why my lover hasn't been in my dr--
-        - Wait!
-        - [[SET_SPEAKER]]evil_player
-        - Trouble in paradise?
-        - [[SET_SPEAKER]]player
-        - Since when have I had a lover?
-        - [[SET_SPEAKER]]evil_player
-        - Good point.
-        - And now that you mention it, have you noticed your lover is missing its head?
-        - [[SET_SPEAKER]]player
-        - Good point.
-        - So what do we do now?
-        - [[SET_SPEAKER]]evil_player
-        - Thwack it?
+        - `[[EMOTE]][You're wrested from your sleep.]`
+        - `[[SHOW_KEYED_IMAGE]]awake_in_bed`
+        - `[[SET_SPEAKER]]player`
+        - `What a bizarre dream.`
+        - `I should lay off the shellfish.`
+        - `[[FLASH_KEYED_IMAGE]]reaction_groggy_cat`
+        - `[[EMOTE]][Your partner stirs in bed beside you.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `You should keep quieter!`
+        - `You're going to awaken your lover.`
+        - `[[SET_SPEAKER]]player`
+        - `You're right.`
+        - `[[DELAY]]2.5`
+        - `Look how peacefully she rests.`
+        - `I wonder why my lover hasn't been in my dr--`
+        - `Wait!`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Trouble in paradise?`
+        - `[[SET_SPEAKER]]player`
+        - `Since when have I had a lover?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Good point.`
+        - `And now that you mention it, have you noticed your lover is missing its head?`
+        - `[[SET_SPEAKER]]player`
+        - `Good point.`
+        - `So what do we do now?`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Thwack it?`
     - 1130 - BAD DREAM - Attack the monster
         - `I'm gonna thwack it real good!`
         - Dialog:
-            - [[SET_SPEAKER]]player
-            - Better teach this monster a lesson.
-            - [[SET_SPEAKER]]evil_player
-            - Yeah!
-            - You can't just sneak into our bed and pretend to be our lover.
-            - A monster must have principles!
-            - [[SET_SPEAKER]]player
-            - I'm gonna thwack it real good!
+            - `[[SET_SPEAKER]]player`
+            - `Better teach this monster a lesson.`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Yeah!`
+            - `You can't just sneak into our bed and pretend to be our lover.`
+            - `A monster must have principles!`
+            - `[[SET_SPEAKER]]player`
+            - `I'm gonna thwack it real good!`
     - 1040 - INVESTIGATE - It was all a dream, wake up (to slow morning)
         - `I've gotta be dreaming...`
         - Dialog:
-            - [[SET_SPEAKER]]player
-            - I've gotta be dreaming...
-            - [[SET_SPEAKER]]evil_player
-            - Plot Twist!
-            - You are!
-            - [[EMOTE]][The world explodes in a burst of color.]
+            - `[[SET_SPEAKER]]player`
+            - `[[FLASH_KEYED_IMAGE]]reaction_mass_confusion`
+            - `I've gotta be dreaming...`
+            - `[[SET_SPEAKER]]evil_player`
+            - `Plot Twist!`
+            - `You are!`
+            - `[[EMOTE]][The world explodes in a burst of color.]`
 
 - 1160 - FOURTH WALL - Explanation, don't give up.
     - Dialog
-        - [[EMOTE]][The world freezes.]
-        - Speaker: Gamedev
-        - I imagine that right now, you’re feeling a bit like Alice.
-        - Hmm?
-        - Tumbling down the rabbit hole?
-        - Let me tell you why you're here.
-        - [[SET_SPEAKER]]player
-        - Please.
-        - Speaker: Gamedev
-        - You're here to solve a mystery.
-        - To escape.
-        - To win.
-        - You win by losing and then not losing.
-        - Savvy?
-        - [[SET_SPEAKER]]player
-        - Savvy?
-        - [[DELAY]]2.5
-        - No
-        - Not savvy.
-        - Speaker: Gamedev
-        - ...
-        - [[DELAY]]2.5
-        - Let me speak plainly.
-        - [[SET_SPEAKER]]player
-        - Please!
-        - Speaker: Gamedev
-        - Your character will remember previous lives.
-        - So what may seem like a loss is actually a chance to unlock new paths.
-        - Replay paths you've previously taken to check for newly unlocked paths.
-        - [[SET_SPEAKER]]player
-        - So lose in order to win.
-        - Got it.
-        - Speaker: Gamedev
-        - But in order to ultimately win, you must live without dying.
-        - [[DELAY]]2.5
-        - Oh.
-        - And don't forget.
-        - Clothing's optional.
-        - [[SET_SPEAKER]]player
-        - What's that even mean?
-        - Speaker: Gamedev
-        - Enough of your fourth wall nonsense.
-        - Be gone.
-        - [[EMOTE]][The world explodes in a burst of color.]
+        - `[[EMOTE]][The world freezes.]`
+        - `[[SET_SPEAKER]]gamedev`
+        - `I imagine that right now, you’re feeling a bit like Alice.`
+        - `Hmm?`
+        - `Tumbling down the rabbit hole?`
+        - `Let me tell you why you're here.`
+        - `[[SET_SPEAKER]]player`
+        - `Please.`
+        - `[[SET_SPEAKER]]gamedev`
+        - `You're here to solve a mystery.`
+        - `To escape.`
+        - `To win.`
+        - `You win by losing and then not losing.`
+        - `Savvy?`
+        - `[[SET_SPEAKER]]player`
+        - `Savvy?`
+        - `[[DELAY]]2.5`
+        - `No.`
+        - `Not savvy.`
+        - `[[SET_SPEAKER]]gamedev`
+        - `[[FLASH_KEYED_IMAGE]]reaction_blank`
+        - `[[DELAY]]2.5`
+        - `Let me speak plainly.`
+        - `[[SET_SPEAKER]]player`
+        - `Please!`
+        - `[[SET_SPEAKER]]gamedev`
+        - `Your character will remember previous lives.`
+        - `So what may seem like a loss is actually a chance to unlock new paths.`
+        - `Replay paths you've previously taken to check for newly unlocked paths.`
+        - `[[SET_SPEAKER]]player`
+        - `So lose in order to win.`
+        - `Got it.`
+        - `[[SET_SPEAKER]]gamedev`
+        - `But in order to ultimately win, you must live without dying.`
+        - `[[DELAY]]2.5`
+        - `Oh.`
+        - `And don't forget.`
+        - `Clothing's optional.`
+        - `[[SET_SPEAKER]]player`
+        - `What's that even mean?`
+        - `[[SET_SPEAKER]]gamedev`
+        - `Enough of your fourth wall nonsense.`
+        - `Be gone.`
+        - `[[EMOTE]][The world explodes in a burst of color.]`
     - 1010 - ENDING - Time to restart, we broke the fourth wall.
 
 - 1170 - ENDGAME - We use our nudity to sneak to the top of the highest tower. No one wants to look our way. People are actively avoiding our gaze.
@@ -1576,141 +1625,143 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Blink like crazy.
     - Dialog
         - `[[ADD_ITEM]]did_setup`
-        - [[SET_SPEAKER]]player
-        - It's time to go off script!
-        - [[SET_SPEAKER]]evil_player
-        - What?
-        - Wait!
-        - Where are you going?
-        - [[EMOTE]][You scurry to across the field, making your way towards a nearby watchtower.]
-        - [[SHOW_KEYED_IMAGE]]tourney_guardian
-        - [[SET_SPEAKER]]evil_player
-        - You're not going to be able to get by the tower guardian.
-        - What are you even trying to accomplish?
-        - [[SET_SPEAKER]]player
-        - Just watch.
-        - Speaker: Guard
-        - Halt!
-        - [[DELAY]]2.5
-        - [[EMOTE]][The guard notices your nudity and averts his eyes.]
-        - ...
-        - Go no further.
-        - Or...
-        - Or...
-        - Or else!
-        - [[EMOTE]][You waddle past the guard as he makes half-hearted attempts to apprehend your bare form.]
-        - [[SET_SPEAKER]]evil_player
-        - I can't believe that worked.
-        - [[SET_SPEAKER]]player
-        - Not the first time I've used averted eyes to get somewhere I shouldn't!
-        - [[SET_SPEAKER]]evil_player
-        - Let's just keep this on a need to know.
-        - And I don't need to know.
-        - [[EMOTE]][You climb your way to the top of the watchtower.]
-        - [[SHOW_KEYED_IMAGE]]tourney_big_face
-        - [[SET_SPEAKER]]evil_player
-        - Okay, we're about as high as we can go.
-        - Now what?
-        - [[SET_SPEAKER]]player
-        - Look up.
-        - [[SET_SPEAKER]]evil_player
-        - ...
-        - It's that face!
-        - Your face...
-        - [[SHOW_KEYED_IMAGE]]sky_face
-        - What are you up to?
-        - [[SET_SPEAKER]]player
-        - You'll see.
-        - [[EMOTE]][You draw your bow and take aim.]
-        - [[SET_SPEAKER]]evil_player
-        - You're going to...
-        - Shoot yourself?
-        - [[SET_SPEAKER]]player
-        - Not me.
-        - [[DELAY]]2.5
-        - The other one.
-        - [[EMOTE]][You start blinking like mad. The world fades away.]
-        - [[SET_SPEAKER]]evil_player
-        - ...
-        - We did it!
-        - [[EMOTE]][You stare down upon the world from up high.]
-        - [[SET_SPEAKER]]player
-        - Ye of little faith.
-        - [[SET_SPEAKER]]evil_player
-        - And now the you you were is waaaaaaaay down there.
-        - Looking real suspicious.
-        - [[EMOTE]][A smaller version of you stares up from below, bow at the ready.]
-        - [[SET_SPEAKER]]evil_player
-        - Now what?
-        - [[SHOW_KEYED_IMAGE]]doppelganger_mummy
-        - [[EMOTE]][You become aware of another presence.]
-        - [[SET_SPEAKER]]doppelganger
-        - ...
-        - [[SET_SPEAKER]]evil_player
-        - I don't think we're alone here.
-        - Quick, do something!
+        - `[[SET_SPEAKER]]player`
+        - `It's time to go off script!`
+        - `[[FLASH_KEYED_IMAGE]]reaction_flying`
+        - `[[SET_SPEAKER]]evil_player`
+        - `What?`
+        - `Wait!`
+        - `Where are you going?`
+        - `[[EMOTE]][You scurry to across the field, making your way towards a nearby watchtower.]`
+        - `[[SHOW_KEYED_IMAGE]]tourney_guardian`
+        - `[[SET_SPEAKER]]evil_player`
+        - `You're not going to be able to get by the tower guardian.`
+        - `What are you even trying to accomplish?`
+        - `[[SET_SPEAKER]]player`
+        - `Just watch.`
+        - `[[SET_SPEAKER]]guard`
+        - `Halt!`
+        - `[[DELAY]]2.5`
+        - `[[EMOTE]][The guard notices your nudity and averts his eyes.]`
+        - `[[FLASH_KEYED_IMAGE]]reaction_bug_eyes`
+        - `Go no further.`
+        - `Or...`
+        - `Or...`
+        - `Or else!`
+        - `[[EMOTE]][You waddle past the guard as he makes half-hearted attempts to apprehend your bare form.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `I can't believe that worked.`
+        - `[[SET_SPEAKER]]player`
+        - `Not the first time I've used averted eyes to get somewhere I shouldn't!`
+        - `[[SET_SPEAKER]]evil_player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_blank`
+        - `Let's just keep this on a need to know.`
+        - `And I don't need to know.`
+        - `[[EMOTE]][You climb your way to the top of the watchtower.]`
+        - `[[SHOW_KEYED_IMAGE]]tourney_big_face`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Okay, we're about as high as we can go.`
+        - `Now what?`
+        - `[[SET_SPEAKER]]player`
+        - `Look up.`
+        - `[[SET_SPEAKER]]evil_player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_suspicious`
+        - `It's that face!`
+        - `Your face...`
+        - `[[SHOW_KEYED_IMAGE]]sky_face`
+        - `What are you up to?`
+        - `[[SET_SPEAKER]]player`
+        - `You'll see.`
+        - `[[EMOTE]][You draw your bow and take aim.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `You're going to...`
+        - `Shoot yourself?`
+        - `[[SET_SPEAKER]]player`
+        - `Not me.`
+        - `[[DELAY]]2.5`
+        - `The other one.`
+        - `[[EMOTE]][You start blinking like mad. The world becomes a blur.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `...`
+        - `We did it!`
+        - `[[EMOTE]][You stare down upon the world from up high.]`
+        - `[[SET_SPEAKER]]player`
+        - `Ye of little faith.`
+        - `[[SET_SPEAKER]]evil_player`
+        - `And now the you you were is waaaaaaaay down there.`
+        - `Looking real suspicious.`
+        - `[[EMOTE]][A smaller version of you stares up from below, bow at the ready.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Now what?`
+        - `[[SHOW_KEYED_IMAGE]]doppelganger_mummy`
+        - `[[EMOTE]][You become aware of another presence.]`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `[[FLASH_KEYED_IMAGE]]reaction_doppelganger`
+        - `[[SET_SPEAKER]]evil_player`
+        - `I don't think we're alone here.`
+        - `Quick, do something!`
     - 1143 - Display Options
 
 - 1171 - ENDGAME - You let out a chicken sound. Everyone's distracted. Little you looses their arrow. Arrow kills the doppelganger next to you.
     - Dialog:
-        - [[SET_SPEAKER]]evil_player
-        - ...
-        - [[DELAY]]2.5
-        - [[SET_SPEAKER]]doppelganger
-        - ...
-        - [[DELAY]]2.5
-        - [[EMOTE]][Little You nods in approval.]
-        - Speaker: Little You
-        - Nice job, brother!
-        - My turn!
-        - [[SET_SPEAKER]]evil_player
-        - Okay, I can't keep up.
-        - Just do your thing.
-        - [[EMOTE]][Far below, Little You looses an arrow.]
-        - [[SET_SPEAKER]]doppelganger
-        - ...
-        - [[DELAY]]2.5
-        - [[SHOW_KEYED_IMAGE]]doppelganger_fire
-        - [[EMOTE]][The arrow strikes true. The beast bursts into flame.]
-        - [[SET_SPEAKER]]doppelganger
-        - ...
-        - Blimey.
-        - [[SET_SPEAKER]]evil_player
-        - Blimey?
-        - [[SET_SPEAKER]]player
-        - Blimey!
-        - It worked!
-        - [[SET_SPEAKER]]evil_player
-        - And we got a cool explosion!
-        - Just like in the movies!
-        - [[EMOTE]][As the creature falls, the world around you begins to crumble.]
+        - `[[SET_SPEAKER]]evil_player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_done`
+        - `[[DELAY]]2.5`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `[[FLASH_KEYED_IMAGE]]reaction_blank`
+        - `[[DELAY]]2.5`
+        - `[[EMOTE]][Little You nods in approval.]`
+        - `[[SET_SPEAKER]]little_you`
+        - `Nice job, brother!`
+        - `My turn!`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Okay, I can't keep up.`
+        - `Just do your thing.`
+        - `[[EMOTE]][Far below, Little You looses an arrow.]`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `[[FLASH_KEYED_IMAGE]]reaction_bug_eyes`
+        - `[[DELAY]]2.5`
+        - `[[EMOTE]][The arrow strikes true. The beast bursts into flame.]`
+        - `[[SHOW_KEYED_IMAGE]]doppelganger_fire`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `...`
+        - `Blimey.`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Blimey?`
+        - `[[SET_SPEAKER]]player`
+        - `Blimey!`
+        - `It worked!`
+        - `[[SET_SPEAKER]]evil_player`
+        - `And we got a cool explosion!`
+        - `Just like in the movies!`
+        - `[[EMOTE]][As the creature falls, the world around you begins to crumble.]`
     - 2000 - SUCCESS - The world fades. What comes next?
 
 - 1172 - ENDGAME - You say some cool catch phrase. You begin monologuing. You're distracted, though, and get captured.
     - Dialog:
-        - [[SET_SPEAKER]]evil_player
-        - This is your moment.
-        - Your crowning achievement.
-        - Make it count!
-        - [[SET_SPEAKER]]player
-        - ...
-        - [[DELAY]]2.5
-        - Time to...
-        - Meet your baker!
-        - [[DELAY]]2.5
-        - [[SET_SPEAKER]]evil_player
-        - ...
-        - [[DELAY]]2.5
-        - [[SET_SPEAKER]]doppelganger
-        - ...
-        - [[DELAY]]2.5
-        - [[EMOTE]][The lumbering figure approaches.]
-        - [[SET_SPEAKER]]evil_player
-        - Now you've gone and done it.
-        - [[EMOTE]][The figure entraps you in its steely grip.]
-        - [[SET_SPEAKER]]doppelganger
-        - This one is not who they were.
-        - [[EMOTE]][You are struck from behind. Everything goes dark.]
+        - `[[SET_SPEAKER]]evil_player`
+        - `This is your moment.`
+        - `Your crowning achievement.`
+        - `Make it count!`
+        - `[[SET_SPEAKER]]player`
+        - `...`
+        - `[[DELAY]]2.5`
+        - `Time to...`
+        - `Meet your baker!`
+        - `[[DELAY]]2.5`
+        - `[[SET_SPEAKER]]evil_player`
+        - `[[FLASH_KEYED_IMAGE]]reaction_blank`
+        - `[[DELAY]]2.5`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `[[FLASH_KEYED_IMAGE]]reaction_doppelganger`
+        - `[[DELAY]]2.5`
+        - `[[EMOTE]][The lumbering figure approaches.]`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Now you've gone and done it.`
+        - `[[EMOTE]][The figure entraps you in its steely grip.]`
+        - `[[SET_SPEAKER]]doppelganger`
+        - `This one is not who they were.`
+        - `[[EMOTE]][You are struck from behind. Everything goes dark.]`
     - 1000 - ENDING - The other doppelgangers captured you.
 
 
@@ -1720,22 +1771,22 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - You've done it. You've broken the constraints of your mortal bounds. Unfortunately, what comes next has yet to be written. Stay tuned.
     - Show restart button.
     - Dialog:
-        - Image: Vortex
-        - [[EMOTE]]The world around you swirls.
-        - Speaker: Gamedev
-        - You have done it.
-        - You have broken the constraints of your mortal bounds.
-        - [[SET_SPEAKER]]evil_player
-        - Is that what we did?
-        - Speaker: Gamedev
-        - Unfortunately, that which comes next has yet to be written.
-        - There is no further you can go.
-        - But do come again.
-        - [[DELAY]]2.5
-        - [[SET_SPEAKER]]evil_player
-        - Well, that was a thing we did...
-        - So how about it, buddy.
-        - Want to ride the Carousel of Nonsense one more time?
+        - `[[SHOW_KEYED_IMAGE]]sky_vortex`
+        - `[[EMOTE]]The world around you swirls.`
+        - `[[SET_SPEAKER]]gamedev`
+        - `You have done it.`
+        - `You have broken the constraints of your mortal bounds.`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Is that what we did?`
+        - `[[SET_SPEAKER]]gamedev`
+        - `Unfortunately, that which comes next has yet to be written.`
+        - `There is no further you can go.`
+        - `But do come again.`
+        - `[[DELAY]]2.5`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Well, that was a thing we did...`
+        - `So how about it, buddy.`
+        - `Want to ride the Carousel of Nonsense one more time?`
     - 2001 - Why do I get the impression you're going to force me to?
         `I suspect I don't have a choice.`
     - 2002 - For sure
@@ -1743,20 +1794,20 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 
 - 2001 - RESTART - Forced
     - Dialog
-        - [[SET_SPEAKER]]player
-        - I suspect I don't really have a choice in the matter.
-        - [[SET_SPEAKER]]evil_player
-        - Right again!
-        - [[EMOTE]][The world fades to black.]
-        - CLEAR ALL INVENTORY
+        - `[[SET_SPEAKER]]player`
+        - `I suspect I don't really have a choice in the matter.`
+        - `[[SET_SPEAKER]]evil_player`
+        - `Right again!`
+        - `[[EMOTE]][The world fades to black.]`
+        - `[[RESTART]]`
 
 - 2002 - RESTART - Optional
     - Dialog
-        - [[SET_SPEAKER]]player
-        - Let's do this!
-        - Not like I'd forget the eggs twice in a row.
-        - ...
-        - [[DELAY]]2.5
-        - Right?
-        - [[EMOTE]][The world fades to black.]
-        - CLEAR ALL INVENTORY
+        - `[[SET_SPEAKER]]player`
+        - `Let's do this!`
+        - `Not like I'd forget the eggs twice in a row.`
+        - `...`
+        - `[[DELAY]]2.5`
+        - `Right?`
+        - `[[EMOTE]][The world fades to black.]`
+        - `[[RESTART]]`
