@@ -1,8 +1,6 @@
 
 ### TODO
 
-- Ensure flashed key images appear correctly.
-- Ensure speaker avatars reappear after an emote or full shown media image
 - Ability to trigger restart (at end)
     - Command is `RESTART`
 
@@ -301,6 +299,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[SET_SPEAKER]]player`
         - `...`
         - `[[SHOW_KEYED_IMAGE]]wakeup_ignore_them`
+        - `[[SET_SPEAKER]]player`
         - `What about them?`
         - `[[SET_SPEAKER]]evil_player`
         - `Them?`
@@ -348,6 +347,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[SET_SPEAKER]]player`
         - `Shush up.`
         - `[[EMOTE]][Thunder punctuates your thought.]`
+        - `[[SET_SPEAKER]]player`
         - `This rain, man.`
         - `[[DELAY]]2.5`
         - `Emote: [The sound of dampened revellers floats in from the street.]`
@@ -388,12 +388,12 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Skip To If
         - `restarted_once` - 1013 - We've lived three lives
     - Dialog:
-        - `[[SET_SPEAKER]]player`
         - `[[ADD_ITEM]]lives_lived`
         - `[[ADD_ITEM]]restarted_once`
         - `[[CLEAR_INVENTORY]]`
         - `[[SHOW_KEYED_IMAGE]]intro_not_medieval_rain`
         - `[[EMOTE]][You stir at the sound of thunder.]`
+        - `[[SET_SPEAKER]]player`
         - `Huh, storms two days in a row.`
         - `[[SET_SPEAKER]]evil_player`
         - `Suspicious...`
@@ -419,11 +419,11 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 
 - 1013 - START - Wake up after two days
     - Dialog:
-        - `[[SET_SPEAKER]]player`
         - `[[ADD_ITEM]]lives_lived`
         - `[[CLEAR_INVENTORY]]`
         - `[[SHOW_KEYED_IMAGE]]intro_not_medieval_rain`
         - `[[EMOTE]][You stir at the sound of thunder.]`
+        - `[[SET_SPEAKER]]player`
         - `[[FLASH_KEYED_IMAGE]]reaction_done`
         - `This again?`
         - `Very cute, like Groundhog Day.`
@@ -456,6 +456,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `Just what I needed!`
         - `[[FLASH_KEYED_IMAGE]]reaction_singing`
         - `[[EMOTE]][Your stomach grumbles.]`
+        - `[[SET_SPEAKER]]player`
         - `It's a shame I didn't bring any snacks.`
         - `[[SET_SPEAKER]]evil_player`
         - `Might need to draw straws to see who we eat.`
@@ -608,6 +609,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[SET_SPEAKER]]evil_player`
         - `It's a baby wailing in French.`
         - `[[SHOW_KEYED_IMAGE]]baby_creepy`
+        - `[[SET_SPEAKER]]evil_player`
         - `Obviously.`
         - `Gosh.`
         - `FLASH_KEYED_IMAGE]]reaction_gosh`
@@ -672,6 +674,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[SET_SPEAKER]]player`
         - `Look at these chickens.`
         - `[[SHOW_KEYED_IMAGE]]chicken_easy_life`
+        - `[[SET_SPEAKER]]player`
         - `Such a simple life.`
         - `[[SET_SPEAKER]]evil_player`
         - `[[FLASH_KEYED_IMAGE]]reaction_suspicious`
@@ -740,7 +743,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `Lay a what?`
         - `[[DELAY]]2.5`
         - `[[SET_SPEAKER]]player`
-        - `[[SHOW_KEYED_IMAGE]]chicken_lay_egg`
+        - `[[FLASH_KEYED_IMAGE]]chicken_lay_egg`
         - `[[SET_SPEAKER]]evil_player`
         - `Oh my.`
         - `[[FLASH_KEYED_IMAGE]]reaction_bug_eyes`
@@ -776,7 +779,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[SET_SPEAKER]]evil_player`
         - `Do you mean "mountain" goat?`
         - `[[SET_SPEAKER]]player`
-        - `[[SHOW_KEYED_IMAGE]]chicken_riding_goat`
+        - `[[FLASH_KEYED_IMAGE]]chicken_riding_goat`
         - `[[SET_SPEAKER]]evil_player`
         - `[[DELAY]]2.5`
         - `I stand corrected.`
@@ -849,10 +852,10 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `Kind of weird the thing quieted down the moment we stepped outside.`
         - `[[EMOTE]][You hear a rustling nearby.]`
         - `[[SET_SPEAKER]]baby`
-        - `...`
+        - `[[FLASH_KEYED_IMAGE]]baby_creepy`
         - `[[SET_SPEAKER]]player`
         - `There you are!`
-        - [[SET_SPEAKER]]evil_player
+        - `[[SET_SPEAKER]]evil_player`
         - `Oh good, you found it!`
         - `[[SET_SPEAKER]]player`
         - `Yeah...`
@@ -889,7 +892,6 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `has_clothes` - 1071 - You brought clothes
     - Dialog
         - `[[ADD_ITEM]]was_nude`
-        - `[[SET_SPEAKER]]player`
         - `[[SHOW_KEYED_IMAGE]]tourney_town`
         - `[[EMOTE]][You march proudly to the tournament grounds.]`
         - `[[SET_SPEAKER]]announcer`
@@ -940,7 +942,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - `[[EMOTE]][A horrendous figure materializes out of the shadows.]`
             - `[[SHOW_KEYED_IMAGE]]doppelganger_mummy`
             - `[[SET_SPEAKER]]player`
-            - `[[SHOW_KEYED_IMAGE]]reaction_bug_eyes`
+            - `[[FLASH_KEYED_IMAGE]]reaction_bug_eyes`
             - `[[SET_SPEAKER]]evil_player`
             - `Do something!`
             - `[[EMOTE]][The figure edges closer.]`
@@ -964,7 +966,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - `[[SET_SPEAKER]]player`
             - `Bacaaaawk!`
             - `[[SET_SPEAKER]]harold`
-            - `[[SHOW_KEYED_IMAGE]]reaction_bug_eyes`
+            - `[[FLASH_KEYED_IMAGE]]reaction_bug_eyes`
             - `[[SET_SPEAKER]]evil_player`
             - `...`
             - `[[SET_SPEAKER]]player`
@@ -1009,14 +1011,14 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[SET_SPEAKER]]evil_player`
         - `...`
         - `You're kidding me.`
-        - `[[SET_SPEAKER]]harold`
         - `[[EMOTE]][The bureaucrat before you lets out a hearty chuckle.]`
+        - `[[SET_SPEAKER]]harold`
         - `You've quite literally brought a knife to a bowfight.`
         - `Get out of here, fool.`
     - 1000 - ENDING - You run down an alley to escape your shame. A figure follows you, laughing. He looks unreal. You're knocked out. Restart when you wake up.
         - Dialog:
-            - `[[SET_SPEAKER]]player`
             - `[[EMOTE]][You scurry down an alley to escape your shame.]`
+            - `[[SET_SPEAKER]]player`
             - `[[FLASH_KEYED_IMAGE]]reaction_outies_cat`
             - `[[SET_SPEAKER]]evil_player`
             - `Where are you going?`
@@ -1103,6 +1105,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - `[[FLASH_KEYED_IMAGE]]reaction_blank`
             - `[[DELAY]]2.5`
             - `[[EMOTE]][The bureaucrat is clearly done with your nonsense.]`
+            - `[[SET_SPEAKER]]harold`
             - `Please do not eat your contestants chip.`
             - `They are not that kind of chip.`
 
@@ -1643,6 +1646,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `Halt!`
         - `[[DELAY]]2.5`
         - `[[EMOTE]][The guard notices your nudity and averts his eyes.]`
+        - `[[SET_SPEAKER]]guard`
         - `[[FLASH_KEYED_IMAGE]]reaction_bug_eyes`
         - `Go no further.`
         - `Or...`
@@ -1669,6 +1673,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `It's that face!`
         - `Your face...`
         - `[[SHOW_KEYED_IMAGE]]sky_face`
+        - `[[SET_SPEAKER]]evil_player`
         - `What are you up to?`
         - `[[SET_SPEAKER]]player`
         - `You'll see.`
