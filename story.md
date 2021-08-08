@@ -1,9 +1,6 @@
 
 ### TODO
 
-- Ability to trigger restart (at end)
-    - Command is `RESTART`
-
 *Nice To Have*
 
 - Options that can be in scene (eg options that don't change scene)

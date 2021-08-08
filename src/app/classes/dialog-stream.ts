@@ -71,6 +71,7 @@ export class DialogStream {
         "FLASH_IMAGE",
         "FLASH_ITEM",
         "FLASH_KEYED_IMAGE",
+        "RESTART",
         "SET_SPEAKER",
         "SHOW_IMAGE",
         "SHOW_KEYED_IMAGE",
@@ -130,6 +131,17 @@ export class DialogStream {
         for (const line of lines) {
             console.log(`Pushing Line: ${line}`)
             const item = this.parse_feed_item(line)
+
+            // If we're restarting, restart.
+            if (item.command === "RESTART") {
+                this.stream = []
+                this.feed = []
+                this.options = []
+                this.inventory = []
+                this.characters = []
+                await this.push_scene(dialog_data.default_scene)
+                return
+            }
 
             // If we're flashing an item, convert it to an appropriate image flash.
             if (item.command === "FLASH_ITEM") {
@@ -206,9 +218,9 @@ export class DialogStream {
     /**
      * Removes all items from our inventory, unless they persist.
      */
-    clear_inventory() {
+    clear_inventory(clear_persists = false) {
         for (const item of this.inventory) {
-            if (!item.persists) {
+            if (!item.persists || clear_persists) {
                 item.quantity = 0
             }
         }

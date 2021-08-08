@@ -130,6 +130,10 @@
                     "dialog": [
                         "How many times are we going to do this?"
                     ]
+                },
+                "060__restart": {
+                    "title": "Go to restart",
+                    "dialog": []
                 }
             },
             "comment": "Is this strange?",
@@ -256,6 +260,16 @@
                     "dialog": []
                 }
             }
+        },
+        "060__restart": {
+            "comment": "Restart",
+            "speaker": "player",
+            "dialog": [
+                "Restarting",
+                "[[RESTART]]"
+            ],
+            "next": {},
+            "show_in_editor": true
         }
     }
 }
