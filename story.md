@@ -44,14 +44,6 @@
 - Time Loop
     - Knowledge and items are collected from various playthroughs. This allows us to unlock successful endings.
 
-### Finishing Touches
-
-- Add meme paintings
-- Break long dialog up with fake options.
-- Add Stat Items
-- Add Characters
-- Add Character Discoverables
-
 ### Overview
 
 Doppelgangers are impersonating people. Why? Where? How many? What does a successful end look like?
@@ -68,37 +60,51 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - Indicates we attended the tourney naked.
     - `Tourneyed Shamefully`
     - Persists
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/was_nude+(1).jpeg
 - `has_bow`
     - We brought a bow to the tourney.
     - `Elm Bow`
     - Avatar
-        - https://upload.wikimedia.org/wikipedia/commons/a/a7/Longbowmen.jpg
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/has_bow+(1).jpeg
 - `has_sword`
     - We brought a sword to the tourney.
     - `Rusted Sword`
     - Avatar
-        - https://preview.redd.it/naejb6er2un41.jpg?auto=webp&s=cea170198dbc363c46d33eda33778bdfdcc992b6
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/has_sword+(1).jpeg
 - `has_clothes`
     - We grabbed our clothes
     - `Tourney Garb`
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/has_clothes+(1).jpeg
 - `eggs_laid`
     - The number of eggs we laid.
     - `Eggs Laid`
     - Status
     - Persists
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/eggs_laid+(1).jpeg
 - `lives_lived`
     - The number of lives we've lived.
     - `Lives Lived`
     - Status
     - Persists
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/lives_lived+(1).jpeg
 - `was_chicken`
     - Indicates we became a chicken.
     - `Clucked Around`
+    - Status
     - Persists
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/was_chicken+(1).jpeg
 - `entered_doppelganger`
     - Indicates we entered the doppelganger
     - `Doppelgangers Doppelganged`
+    - Status
     - Persists
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/entered_doppelganger+(1).jpeg
 - `did_setup`
     - Indicates we setup for the endgame
     - Hidden
@@ -107,6 +113,8 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - `Losing Fights Fought`
     - Status
     - Persists
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/fought_dream_monster+(1).jpeg
 - `had_bad_dream`
     - Indicates we had the bad monster dream
     - Hidden
@@ -118,15 +126,53 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - `wont_forget_eggs`
     - Indicates we had the dream sequence unlocking chickens.
     - `Forgot The Eggs`
+    - Status
     - Persists
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/wont_forget_eggs+(1).jpg
 - `times_abducted`
     - Indicates we were abducted.
     - `Abducted`
+    - Status
     - Persists
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/times_abducted+(1).jpeg
 - `restarted_once`
     - Indicates we restarted at least once already.
     - Hidden
     - Persists
+- `system_reboots`
+    - Indicates we rebooted.
+    - `Rebooted`
+    - Status
+    - Persists
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/system_reboots+(1).jpeg
+- `broke_fourth_wall`
+    - Indicates we broke the fourth wall
+    - `Broke the Fourth Wall`
+    - Status
+    - Persists
+    - Avatar
+        - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/broke_fourth_wall+(1).jpeg
+- `shady_stabbed_once`
+    - Hidden
+- `shady_stabbed_twice`
+    - Hidden
+- `baby_once`
+    - Hidden
+- `baby_twice`
+    - Hidden
+- `baby_thrice`
+    - Hidden
+- `doppelganger_once`
+    - Hidden
+- `was_dreaming`
+    - Hidden
+- `good_joke`
+    - Hidden
+- `looped`
+    - Hidden
 
 **Images**
 
@@ -263,24 +309,132 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 **Characters**
 
 - `player`
+    - `You`
+    - `This is you.`
+    - https://lh3.googleusercontent.com/proxy/RwSRpqCRoKR4szzcPyJ5dm7UG_n5zfOwmKMfqa25AmI16MKDG9lXcdV3IftPYYxB6abJiOfOigYq9cNaI2CIooLrMwfDBGl4LK4aCP2hCNsFp04AXbInKRQ
+    - Discoverables
+        - `lives_lived`
+            - `Has been having a rough day. Then again, a rough day is par for the course for you.`
+        - `looped`
+            - `Trapped in some form of time loop. When will it end? Who knows? Nobody.`
+        - `wont_forget_eggs`
+            - `Won't forget the eggs. Whatever that means.`
+        - `entered_doppelganger`
+            - `Seems to have some capacity to inhabit Doppelgangers.`
+        - `was_nude`
+            - `Enjoys a little time in the buff.`
+        - `was_chicken`
+            - `Loves to drink and cluck.`
 - `evil_player`
+    - `Voice In Your Head`
+    - `This dude's a prick.`
+    - https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/a-peasant-man-head-and-shoulders-shouting-agostino-carracci.jpg
+    - Discoverables
+        - `lives_lived`
+            - `He's taken residence in your head with zero intention of leaving.`
+        - `good_joke`
+            - `Is fond of a good joke, even if at his own expense.`
+        - `was_dreaming`
+            - `Has the uncanny ability to identify when you're in a dream state.`
+        - `fought_dream_monster`
+            - `Purveyor of bad advice.`
 - `baby`
+    - `Baby`
+    - `The screaming offspring.`
+    - https://www.dailyartmagazine.com/wp-content/uploads/2017/12/img.jpg
+    - Discoverables
+        - `lives_lived`
+            - `It's apparently of French origin.`
+        - `baby_once`
+            - `Endless font of unbridled responsibility.`
+        - `baby_twice`
+            - `Seems to be a monster baby, maybe.`
 - `doppelganger`
+    - `Doppelganger`
+    - `A monsterous creature intent on ending you.`
+    - https://static.messynessychic.com/wp-content/uploads/2019/03/8c4f7f517a7b328c60afd7b94d4e114d-930x1293.jpg
+    - Discoverables
+        - `lives_lived`
+            - `Is tied somehow to your time loop nightmare.`
+        - `entered_doppelganger`
+            - `Vaguely resembles you.`
+        - `doppelganger_once`
+            - `Can be inhabited if the situation allows it.`
+        - `baby_once`
+            - `Has been known to masquerade as a French child of questionable origin.`
 - `harold`
+    - `Harold the Haggard`
+    - `The no-nonsense bureaucrat.`
+    - https://i.pinimg.com/originals/ce/c1/19/cec119a4a52aaaf0630ea651eb53b890.jpg
+    - Discoverables
+        - `lives_lived`
+            - `Appreciates contestants showing up with proper equipment.`
+        - `was_nude`
+            - `He's seen some things. Most of them being you in the buff.`
 - `shady`
+    - `Not So Slim Shady`
+    - `Your portly tourney nemesis.`
+    - https://www.worldhistory.org/img/r/p/500x600/8825.jpg?v=1599096603
+    - Discoverables
+        - `lives_lived`
+            - `Won't stand up and is just imitating.`
+        - `shady_stabbed_once`
+            - `Is quick to anger.`
+        - `shady_stabbed_twice`
+            - `Known to go full murderhobo.`
 - `announcer`
+    - `Amy the Announcer`
+    - https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/design-for-mans-medieval-costume-charles-bianchini-french-lyons-1860-1905-paris-charles-bianchini.jpg
+    - Hidden
 - `gamedev`
+    - `ROOT`
+    - `The all-knowing superuser.`
+    - https://i.pinimg.com/originals/3b/dc/d5/3bdcd5a3d1f2229729047d547730537f.jpg
+    - Discoverables
+        - `lives_lived`
+            - `Dispenses wisdom with a smug competence.`
+        - `broke_fourth_wall`
+            - `Prone to abrupt farewells.`
+        - `system_reboots`
+            - `Likes reboots, and he cannot lie.`
 - `pa`
+    - `Papa`
+    - https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555436026/shape/mentalfloss/546kjh46kjh.png?itok=Pk_rHMRJ
+    - Hidden
 - `cat`
+    - `Carter the Cat`
+    - https://images.fineartamerica.com/images-medium-large-5/renaissance-cat-terry-webb-harshman.jpg
+    - Hidden
 - `ma`
+    - `Mama`
+    - https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555436026/shape/mentalfloss/546kjh46kjh.png?itok=Pk_rHMRJ
+    - Hidden
 - `monster`
+    - `Marvin the Monster`
+    - `Former lover, current monster.`
+    - https://live.staticflickr.com/6054/6212200749_d115491e27_b.jpg
+    - Discoverables
+        - `lives_lived`
+            - `Lover? I hardly even know her. Boom.`
+        - `fought_dream_monster`
+            - `Sustains itself on ill-conceived combat encounters.`
 - `guard`
+    - `Gilbert the Guard`
+    - https://ctl.s6img.com/society6/img/dDkMVfsESOyIQnpf46xFksbRctw/w_700/canvas/~artwork/s6-0026/a/12439706_10304159/~~/nicolas-cage-replaceface-canvas.jpg
+    - Hidden
 - `little_you`
+    - `Little You`
+    - `Left behind when you inhabit the face in the sky.`
+    - https://lh3.googleusercontent.com/proxy/RwSRpqCRoKR4szzcPyJ5dm7UG_n5zfOwmKMfqa25AmI16MKDG9lXcdV3IftPYYxB6abJiOfOigYq9cNaI2CIooLrMwfDBGl4LK4aCP2hCNsFp04AXbInKRQ
+    - Discoverables
+        - `lives_lived`
+            - `Could help set you up for success.`
 
 **Scenes**
 
 - 1000 - RESTART - Your mind is a fog.
     - Dialog
+        - `[[ADD_ITEM]]looped`
         - `[[SHOW_KEYED_IMAGE]]wakeup_dream`
         - `[[SET_SPEAKER]]player`
         - `What just happened?`
@@ -879,6 +1033,9 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `We come in peace?`
         - `[[SET_SPEAKER]]doppelganger`
         - `Aaaaaiieeeeeee!`
+        - `[[ADD_ITEM]]baby_once`
+        - `[[ADD_ITEM]]baby_twice`
+        - `[[ADD_ITEM]]baby_thrice`
         - `[[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]`
     - 1100 - ABDUCTION - You catch sight of something strange/alien. You're knocked out. You wake up to the abduction scene.
     - 1160 - FOURTH WALL - You're incredulous this is real. Break the fourth wall.
@@ -1078,6 +1235,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - `That joke never gets old...`
             - `[[SET_SPEAKER]]evil_player`
             - `Heh, good one!`
+            - `[[ADD_ITEM]]good_joke`
             - `[[EMOTE]][The bureaucrat hands you a contestants chip.]`
             - `[[SET_SPEAKER]]harold`
             - `That chip will get you into the contestants wing.`
@@ -1134,6 +1292,8 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `...`
         - `[[DELAY]]2.5`
         - `[[FLASH_KEYED_IMAGE]]reaction_stabbed`
+        - `[[ADD_ITEM]]shady_stabbed_once`
+        - `[[ADD_ITEM]]shady_stabbed_twice`
         - `[[EMOTE]][The world fades to black.]`
     - 1150 - ENDING - Wake up to a bad dream.
 
@@ -1328,6 +1488,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `I know we have our differences, but don't leave me like this.`
         - `[[SET_SPEAKER]]gamedev`
         - `SYSTEM REBOOT IMMINENT`
+        - `[[ADD_ITEM]]system_reboots`
         - `[[SET_SPEAKER]]player`
         - `What?`
         - `[[SET_SPEAKER]]gamedev`
@@ -1402,6 +1563,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
     - I want a "show me what you've got" joke in here.
     - Dialog:
         - `[[ADD_ITEM]]entered_doppelganger`
+        - `[[ADD_ITEM]]doppelganger_once`
         - `[[SET_SPEAKER]]player`
         - `That's not a bird.`
         - `But what is it?`
@@ -1447,6 +1609,8 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `And now you're it.`
         - `And now the you you were is waaaaaaaay down there.`
         - `[[EMOTE]][A smaller version of you stares up from below.]`
+        - `[[SET_SPEAKER]]little_you`
+        - `...`
         - `[[SET_SPEAKER]]player`
         - `Okay, so that version of me is down there.`
         - `But where is this version of me?`
@@ -1569,6 +1733,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - `[[SET_SPEAKER]]evil_player`
             - `Plot Twist!`
             - `You are!`
+            - `[[ADD_ITEM]]was_dreaming`
             - `[[EMOTE]][The world explodes in a burst of color.]`
 
 - 1160 - FOURTH WALL - Explanation, don't give up.
@@ -1616,6 +1781,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[SET_SPEAKER]]gamedev`
         - `Enough of your fourth wall nonsense.`
         - `Be gone.`
+        - `[[ADD_ITEM]]broke_fourth_wall`
         - `[[EMOTE]][The world explodes in a burst of color.]`
     - 1010 - ENDING - Time to restart, we broke the fourth wall.
 
