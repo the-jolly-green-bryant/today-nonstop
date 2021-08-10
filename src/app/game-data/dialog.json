@@ -6,16 +6,7 @@
             "cover": "https://via.placeholder.com/150",
             "name": "I'm the player!",
             "description": "This is the player. They have stuff you can discover.",
-            "discoverables": {
-                "moldy_bread": {
-                    "description": "Can carry some items between time loops",
-                    "minimum_quantity": 1
-                },
-                "finished_once": {
-                    "description": "Stuck in a time loop",
-                    "minimum_quantity": 2
-                }
-            }
+            "discoverables": {}
         },
         "evil_voice": {
             "avatar": "https://via.placeholder.com/150",
@@ -41,6 +32,210 @@
             "name": "Days Completed",
             "always_show_chip": true,
             "is_status": true,
+            "persists": true
+        },
+        "was_nude": {
+            "name": "Tourneyed Shamefully",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/was_nude+(1).jpeg",
+            "always_show_chip": true,
+            "is_status": true,
+            "hidden": false,
+            "persists": true
+        },
+        "has_bow": {
+            "name": "Elm Bow",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/has_bow+(1).jpeg",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": false
+        },
+        "has_sword": {
+            "name": "Rusted Sword",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/has_sword+(1).jpeg",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": false
+        },
+        "has_clothes": {
+            "name": "Tourney Garb",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/has_clothes+(1).jpeg",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": false
+        },
+        "eggs_laid": {
+            "name": "Eggs Laid",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/eggs_laid+(1).jpeg",
+            "always_show_chip": true,
+            "is_status": true,
+            "hidden": false,
+            "persists": true
+        },
+        "lives_lived": {
+            "name": "Lives Lived",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/lives_lived+(1).jpeg",
+            "always_show_chip": true,
+            "is_status": true,
+            "hidden": false,
+            "persists": true
+        },
+        "was_chicken": {
+            "name": "Clucked Around",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/was_chicken+(1).jpeg",
+            "always_show_chip": true,
+            "is_status": true,
+            "hidden": false,
+            "persists": true
+        },
+        "entered_doppelganger": {
+            "name": "Doppelgangers Doppelganged",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/entered_doppelganger+(1).jpeg",
+            "always_show_chip": true,
+            "is_status": true,
+            "hidden": false,
+            "persists": true
+        },
+        "did_setup": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true
+        },
+        "fought_dream_monster": {
+            "name": "Losing Fights Fought",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/fought_dream_monster+(1).jpeg",
+            "always_show_chip": true,
+            "is_status": true,
+            "hidden": false,
+            "persists": true
+        },
+        "had_bad_dream": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "attended_tourney_nude": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "wont_forget_eggs": {
+            "name": "Forgot The Eggs",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/wont_forget_eggs+(1).jpg",
+            "always_show_chip": true,
+            "is_status": true,
+            "hidden": false,
+            "persists": true
+        },
+        "times_abducted": {
+            "name": "Abductions",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/times_abducted+(1).jpeg",
+            "always_show_chip": true,
+            "is_status": true,
+            "hidden": false,
+            "persists": true
+        },
+        "restarted_once": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "system_reboots": {
+            "name": "Systems Rebooted",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/system_reboots+(1).jpeg",
+            "always_show_chip": true,
+            "is_status": true,
+            "hidden": false,
+            "persists": true
+        },
+        "broke_fourth_wall": {
+            "name": "Fourth Walls Broken",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/broke_fourth_wall+(1).jpeg",
+            "always_show_chip": true,
+            "is_status": true,
+            "hidden": false,
+            "persists": true
+        },
+        "shady_stabbed_once": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "shady_stabbed_twice": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "baby_once": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "baby_twice": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "baby_thrice": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "doppelganger_once": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "was_dreaming": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "good_joke": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
+            "persists": true
+        },
+        "looped": {
+            "name": "",
+            "avatar": "",
+            "always_show_chip": false,
+            "is_status": false,
+            "hidden": true,
             "persists": true
         }
     },

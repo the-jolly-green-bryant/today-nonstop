@@ -150,7 +150,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/system_reboots+(1).jpeg
 - `broke_fourth_wall`
     - Indicates we broke the fourth wall
-    - `Broke the Fourth Wall`
+    - `Fourth Walls Broken`
     - Status
     - Persists
     - Avatar
