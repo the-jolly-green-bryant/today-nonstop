@@ -1076,7 +1076,7 @@
                 "But where to begin?"
             ],
             "next": {},
-            "show_in_editor": true
+            "show_in_editor": false
         },
         "1051_CHICKEN": {
             "comment": "Start feeding the chickens.",
@@ -1102,7 +1102,7 @@
                 "Villagers disappearing?"
             ],
             "next": {},
-            "show_in_editor": true
+            "show_in_editor": false
         },
         "1052_CHICKEN": {
             "comment": "Admire the chickens.",
@@ -1129,7 +1129,7 @@
                 "[[EMOTE]][You begin flapping your \"wings\".]"
             ],
             "next": {},
-            "show_in_editor": true
+            "show_in_editor": false
         },
         "1053_CHICKEN": {
             "comment": "Lay an egg",
@@ -1152,7 +1152,7 @@
                 "I'll skip breakfast."
             ],
             "next": {},
-            "show_in_editor": true
+            "show_in_editor": false
         },
         "1054_CHICKEN": {
             "comment": "I'm a chicken now.",
@@ -1171,7 +1171,7 @@
                 "[[EMOTE]][That night, wolves get into the chicken coop. The world goes black.]"
             ],
             "next": {},
-            "show_in_editor": true
+            "show_in_editor": false
         },
         "1055_CHICKEN": {
             "comment": "Dumb goats",
@@ -1200,7 +1200,7 @@
                 "To the pigs it is, then!"
             ],
             "next": {},
-            "show_in_editor": true
+            "show_in_editor": false
         },
         "1056_CHICKEN": {
             "comment": "Feed the pigs",
@@ -1251,7 +1251,267 @@
                 "[[EMOTE]][The nearest wolf pounces before you can finish your quip. The world goes black.]"
             ],
             "next": {},
-            "show_in_editor": true
+            "show_in_editor": false
+        },
+        "1060_INVESTIGATE": {
+            "comment": "The thing you're investigating turns out to be a doppelganger.",
+            "speaker": "player",
+            "dialog": [
+                "[[DELAY]]2.5",
+                "[[SHOW_KEYED_IMAGE]]abduction_searching",
+                "[[SET_SPEAKER]]player",
+                "The cries were coming from over here, right?",
+                "[[SET_SPEAKER]]evil_player",
+                "Beats me.",
+                "Kind of weird the thing quieted down the moment we stepped outside.",
+                "[[EMOTE]][You hear a rustling nearby.]",
+                "[[SET_SPEAKER]]baby",
+                "[[FLASH_KEYED_IMAGE]]baby_creepy",
+                "[[SET_SPEAKER]]player",
+                "There you are!",
+                "[[SET_SPEAKER]]evil_player",
+                "Oh good, you found it!",
+                "[[SET_SPEAKER]]player",
+                "Yeah...",
+                "Seems a little off, though.",
+                "[[SET_SPEAKER]]baby",
+                "[[FLASH_KEYED_IMAGE]]baby_twisted",
+                "[[SET_SPEAKER]]player",
+                "Are you seeing what I'm seeing?",
+                "[[SET_SPEAKER]]evil_player",
+                "Unbridled responsibility?",
+                "[[SET_SPEAKER]]player",
+                "[[FLASH_KEYED_IMAGE]]reaction_done",
+                "No.",
+                "[[DELAY]]2.5",
+                "It's changing!",
+                "[[EMOTE]][The child changes form, its features becoming elongated and monsterous.]",
+                "[[SHOW_KEYED_IMAGE]]doppelganger_mummy",
+                "[[SET_SPEAKER]]doppelganger",
+                "[[FLASH_KEYED_IMAGE]]reaction_doppelganger",
+                "[[SET_SPEAKER]]evil_player",
+                "Uh...",
+                "[[SET_SPEAKER]]player",
+                "Hey, buddy...",
+                "We come in peace?",
+                "[[SET_SPEAKER]]doppelganger",
+                "Aaaaaiieeeeeee!",
+                "[[ADD_ITEM]]baby_once",
+                "[[ADD_ITEM]]baby_twice",
+                "[[ADD_ITEM]]baby_thrice",
+                "[[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]"
+            ],
+            "next": {},
+            "show_in_editor": false
+        },
+        "1070_TOURNEY": {
+            "comment": "You attend the archery tourney but forgot your clothes",
+            "speaker": "player",
+            "dialog": [
+                "[[ADD_ITEM]]was_nude",
+                "[[SHOW_KEYED_IMAGE]]tourney_town",
+                "[[EMOTE]][You march proudly to the tournament grounds.]",
+                "[[SET_SPEAKER]]announcer",
+                "Hey look everyone!",
+                "It's Little Jon!",
+                "[[SET_SPEAKER]]player",
+                "[[FLASH_KEYED_IMAGE]]reaction_confused_cat",
+                "Little Jon?",
+                "Why are they calling me Little Jon?",
+                "[[SET_SPEAKER]]evil_player",
+                "Who knows?",
+                "The world's a crazy place, man.",
+                "[[SET_SPEAKER]]shady",
+                "Nice digs, man.",
+                "Looks like someones headed to the tourney well armed.",
+                "[[EMOTE]][You reach the tournament registration tent.]",
+                "[[SET_SPEAKER]]harold",
+                "[[FLASH_KEYED_IMAGE]]reaction_contemplating_life",
+                "...",
+                "Sir.",
+                "Where are your clothes?",
+                "[[SET_SPEAKER]]evil_player",
+                "Oh boy.",
+                "[[SET_SPEAKER]]player",
+                "[[FLASH_KEYED_IMAGE]]reaction_realization",
+                "[[EMOTE]][A sudden realization dawns on you.]",
+                "[[SET_SPEAKER]]player",
+                "I forgot to dress!",
+                "[[SET_SPEAKER]]evil_player",
+                "...",
+                "I've never met this fellow in my life."
+            ],
+            "next": {},
+            "show_in_editor": false
+        },
+        "1071_TOURNEY": {
+            "comment": "You attend the archery tourney but brought a sword",
+            "speaker": "player",
+            "dialog": [
+                "[[SET_SPEAKER]]harold",
+                "Well, I'd love to help you.",
+                "But we have a problem.",
+                "[[SET_SPEAKER]]evil_player",
+                "Damn bureaucrats...",
+                "Always something.",
+                "[[SET_SPEAKER]]player",
+                "What is it?",
+                "[[SET_SPEAKER]]harold",
+                "As you're aware, I assume...",
+                "You're here for an archery tourney.",
+                "[[SET_SPEAKER]]player",
+                "Right...",
+                "[[SET_SPEAKER]]harold",
+                "Are you familiar with the sport of archery?",
+                "[[SET_SPEAKER]]player",
+                "Yes, yes.",
+                "Bows and arrows.",
+                "Just sign me up.",
+                "[[SET_SPEAKER]]harold",
+                "Well, sir.",
+                "I must ask.",
+                "Where's your bow?",
+                "[[SET_SPEAKER]]player",
+                "[[FLASH_KEYED_IMAGE]]reaction_groggy_cat",
+                "...",
+                "[[SET_SPEAKER]]evil_player",
+                "...",
+                "You're kidding me.",
+                "[[EMOTE]][The bureaucrat before you lets out a hearty chuckle.]",
+                "[[SET_SPEAKER]]harold",
+                "You've quite literally brought a knife to a bowfight.",
+                "Get out of here, fool."
+            ],
+            "next": {},
+            "show_in_editor": false
+        },
+        "1072_TOURNEY": {
+            "comment": "You attend the archery tourney with all required equipment. Pick your competition.",
+            "speaker": "player",
+            "dialog": [
+                "[[SET_SPEAKER]]harold",
+                "Let's get you signed up.",
+                "We offer two types of entry.",
+                "The frst tourney involves distance shooting.",
+                "[[SET_SPEAKER]]evil_player",
+                "Oh, that sounds promising.",
+                "[[SET_SPEAKER]]harold",
+                "That one's held at midday.",
+                "Immediately following that, we have the roving tourney.",
+                "Targets are closer but are rigged to move.",
+                "[[SET_SPEAKER]]evil_player",
+                "A challenge!",
+                "Maybe that one.",
+                "It's a tossup.",
+                "[[FLASH_KEYED_IMAGE]]reaction_tossup",
+                "[[SET_SPEAKER]]harold",
+                "Which tourney are you wanting to enter?"
+            ],
+            "next": {},
+            "show_in_editor": false
+        },
+        "1073_TOURNEY": {
+            "comment": "An archery accident gone bad kills you. (butts)",
+            "speaker": "player",
+            "dialog": [
+                "[[EMOTE]][You make your way down to the tournament field.]",
+                "[[SHOW_KEYED_IMAGE]]tourney_grounds",
+                "[[SET_SPEAKER]]shady",
+                "About time you made it.",
+                "Ready to relive last year's embarassment?",
+                "[[SET_SPEAKER]]evil_player",
+                "Just ignore him.",
+                "He's not worth it.",
+                "[[SET_SPEAKER]]player",
+                "Shush up.",
+                "We'll let the butts do the talking.",
+                "[[EMOTE]][With that quip, you end the conversation and turn away.]",
+                "[[SET_SPEAKER]]shady",
+                "[[FLASH_KEYED_IMAGE]]reaction_angry",
+                "[[EMOTE]][The sounds of steel being loosed rings in your ear.]",
+                "[[SET_SPEAKER]]evil_player",
+                "Um...",
+                "I think we might have made him mad.",
+                "[[SET_SPEAKER]]player",
+                "[[FLASH_KEYED_IMAGE]]reaction_bug_eyes",
+                "[[SET_SPEAKER]]evil_player",
+                "Hello?",
+                "[[SET_SPEAKER]]player",
+                "...",
+                "[[DELAY]]2.5",
+                "[[FLASH_KEYED_IMAGE]]reaction_stabbed",
+                "[[ADD_ITEM]]shady_stabbed_once",
+                "[[ADD_ITEM]]shady_stabbed_twice",
+                "[[EMOTE]][The world fades to black.]"
+            ],
+            "next": {},
+            "show_in_editor": false
+        },
+        "1074_TOURNEY": {
+            "comment": "An archery accident gone bad kills you. (roving)",
+            "speaker": "player",
+            "dialog": [
+                "[[EMOTE]][You make your way down to the tournamnet field.]",
+                "[[SHOW_KEYED_IMAGE]]tourney_grounds",
+                "[[SET_SPEAKER]]announcer",
+                "Welcome to the 69th annual Hung--",
+                "[[DELAY]]2.5",
+                "...",
+                "Oh, wrong fandom.",
+                "[[FLASH_KEYED_IMAGE]]reaction_shrug",
+                "[[DELAY]]2.5",
+                "[[SET_SPEAKER]]evil_player",
+                "This doesn't bode well.",
+                "[[DELAY]]2.5",
+                "[[SET_SPEAKER]]announcer",
+                "Apologies, folks.",
+                "Welcome to today's festivities!",
+                "Today's brave contestants are participating in the Most Dangerous Game!",
+                "Trademark pending.",
+                "[[SET_SPEAKER]]player",
+                "Uh...",
+                "[[SET_SPEAKER]]announcer",
+                "That's right, folks!",
+                "Today's contestants are also today's targets.",
+                "[[SET_SPEAKER]]player",
+                "[[FLASH_KEYED_IMAGE]]reaction_say_what",
+                "Say what?",
+                "[[SET_SPEAKER]]evil_player",
+                "This is not what we signed up for...",
+                "[[SET_SPEAKER]]player",
+                "Excuse me!",
+                "I think I'm in the wrong pl--",
+                "[[SET_SPEAKER]]announcer",
+                "Let the game commence!",
+                "[[SET_SPEAKER]]evil_player",
+                "Duck!",
+                "[[EMOTE]][The twang of an arrow loosing rings in your ear.]",
+                "[[SET_SPEAKER]]evil_player",
+                "Um...",
+                "[[SET_SPEAKER]]player",
+                "[[FLASH_KEYED_IMAGE]]reaction_bug_eyes",
+                "[[SET_SPEAKER]]evil_player",
+                "Hello?",
+                "[[SET_SPEAKER]]player",
+                "...",
+                "[[SHOW_KEYED_IMAGE]]tourney_shot",
+                "[[SET_SPEAKER]]evil_player",
+                "Tis but a scratch!",
+                "[[SET_SPEAKER]]player",
+                "[[FLASH_KEYED_IMAGE]]reaction_shot",
+                "[[EMOTE]][The world fades to black.]"
+            ],
+            "next": {},
+            "show_in_editor": false
+        },
+        "1075_TOURNEY": {
+            "comment": "Leads to 1071 (registration) but with additional flavor.",
+            "speaker": "player",
+            "dialog": [
+                "[[ADD_ITEM]]is_nude"
+            ],
+            "next": {},
+            "show_in_editor": false
         }
     }
 }

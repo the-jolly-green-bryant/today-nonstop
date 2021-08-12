@@ -996,7 +996,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[EMOTE]][The nearest wolf pounces before you can finish your quip. The world goes black.]`
     - 1000 - ENDING - You died.
 
-- 1060 - INVESTIGATE - The thing you're investigating turns out to be a doppelganger (you may not recognize it as a doppelganger).
+- 1060 - INVESTIGATE - The thing you're investigating turns out to be a doppelganger.
     - Dialog
         - `[[DELAY]]2.5`
         - `[[SHOW_KEYED_IMAGE]]abduction_searching`
