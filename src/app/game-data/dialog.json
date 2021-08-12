@@ -589,7 +589,7 @@
                 }
             },
             "comment": "Is this strange?",
-            "show_in_editor": true
+            "show_in_editor": false
         },
         "020a__eat_breakfast": {
             "speaker": "player",
@@ -646,7 +646,7 @@
                     ]
                 }
             },
-            "show_in_editor": true
+            "show_in_editor": false
         },
         "040a__process_restart": {
             "comment": "This blank room redirects us to some other blank rooms to convert regular items into aged items",
@@ -719,6 +719,200 @@
             "dialog": [
                 "Restarting",
                 "[[RESTART]]"
+            ],
+            "next": {},
+            "show_in_editor": false
+        },
+        "1000__RESTART": {
+            "comment": "Your mind is a fog.",
+            "speaker": "player",
+            "dialog": [
+                "[[ADD_ITEM]]looped",
+                "[[SHOW_KEYED_IMAGE]]wakeup_dream",
+                "[[SET_SPEAKER]]player",
+                "What just happened?",
+                "And where am I?",
+                "[[SET_SPEAKER]]evil_player",
+                "Isn't it obvious?",
+                "You're dead.",
+                "[[SET_SPEAKER]]player",
+                "No.",
+                "This can't be real.",
+                "[[SET_SPEAKER]]evil_player",
+                "Oh it's definitely real.",
+                "Really real.",
+                "[[SET_SPEAKER]]player",
+                "...",
+                "[[SHOW_KEYED_IMAGE]]wakeup_ignore_them",
+                "[[SET_SPEAKER]]player",
+                "What about them?",
+                "[[SET_SPEAKER]]evil_player",
+                "Them?",
+                "[[DELAY]]2.5",
+                "Don't worry about them.",
+                "[[SET_SPEAKER]]player",
+                "..."
+            ],
+            "next": {
+                "zzzzz__czgqti": {
+                    "title": null,
+                    "dialog": []
+                },
+                "zzzzz__varmj9": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
+            "show_in_editor": false
+        },
+        "1010_START": {
+            "comment": "You jolt awake. There's a lot going on. A fair is in town.",
+            "speaker": "player",
+            "dialog": [
+                "[[ADD_ITEM]]lives_lived",
+                "[[CLEAR_INVENTORY]]",
+                "[[SHOW_KEYED_IMAGE]]intro_not_medieval_rain",
+                "[[EMOTE]][You stir at the sound of thunder.]",
+                "[[SET_SPEAKER]]player",
+                "Such a strange dream...",
+                "It felt so real.",
+                "[[DELAY]]2.5",
+                "Why am I so groggy?",
+                "Was I hitting the cider again?",
+                "[[SET_SPEAKER]]evil_player",
+                "Probably.",
+                "[[FLASH_KEYED_IMAGE]]reaction_drinking",
+                "Dis you.",
+                "But also...",
+                "Did you ever consider that you might just be a layabout?",
+                "[[SET_SPEAKER]]player",
+                "Shush up.",
+                "[[EMOTE]][Thunder punctuates your thought.]",
+                "[[SET_SPEAKER]]player",
+                "This rain, man.",
+                "[[DELAY]]2.5",
+                "Emote: [The sound of dampened revellers floats in from the street.]",
+                "[[SET_SPEAKER]]player",
+                "Crazy folk, heading to the fair in this weather.",
+                "[[SET_SPEAKER]]evil_player",
+                "Bloody fair...",
+                "All these cheery fools.",
+                "Some of us have work to do.",
+                "[[SET_SPEAKER]]player",
+                "No use crying about it.",
+                "I'm sure the critters could use some tending.",
+                "[[SET_SPEAKER]]evil_player",
+                "Or...",
+                "And hear me out...",
+                "Let's play hookie!"
+            ],
+            "next": {},
+            "show_in_editor": false
+        },
+        "1011_START": {
+            "comment": "Display Options",
+            "speaker": "player",
+            "dialog": [],
+            "next": {}
+        },
+        "1012_START": {
+            "comment": "Wake up on second day",
+            "speaker": "player",
+            "dialog": [
+                "[[ADD_ITEM]]lives_lived",
+                "[[ADD_ITEM]]restarted_once",
+                "[[CLEAR_INVENTORY]]",
+                "[[SHOW_KEYED_IMAGE]]intro_not_medieval_rain",
+                "[[EMOTE]][You stir at the sound of thunder.]",
+                "[[SET_SPEAKER]]player",
+                "Huh, storms two days in a row.",
+                "[[SET_SPEAKER]]evil_player",
+                "Suspicious...",
+                "[[FLASH_KEYED_IMAGE]]reaction_suspicious",
+                "[[DELAY]]2.5",
+                "Emote: [The sound of dampened revellers floats in from the street.]",
+                "[[SET_SPEAKER]]player",
+                "Are those fair folk still going at it?",
+                "Wait, wasn't the fair yesterday.",
+                "[[SET_SPEAKER]]evil_player",
+                "It was.",
+                "[[SET_SPEAKER]]player",
+                "Or did I dream that?",
+                "[[SET_SPEAKER]]evil_player",
+                "You didn't.",
+                "[[SET_SPEAKER]]player",
+                "I've got to lay off the cider.",
+                "[[SET_SPEAKER]]evil_player",
+                "True that.",
+                "[[FLASH_KEYED_IMAGE]]reaction_drunk",
+                "Dis you."
+            ],
+            "next": {},
+            "show_in_editor": false
+        },
+        "1013_START": {
+            "comment": "Wake up after two days",
+            "speaker": "player",
+            "dialog": [
+                "[[ADD_ITEM]]lives_lived",
+                "[[CLEAR_INVENTORY]]",
+                "[[SHOW_KEYED_IMAGE]]intro_not_medieval_rain",
+                "[[EMOTE]][You stir at the sound of thunder.]",
+                "[[SET_SPEAKER]]player",
+                "[[FLASH_KEYED_IMAGE]]reaction_done",
+                "This again?",
+                "Very cute, like Groundhog Day.",
+                "[[DELAY]]2.5",
+                "Wait, how many times have I made that joke?",
+                "[[SET_SPEAKER]]evil_player",
+                "Too many.",
+                "[[SET_SPEAKER]]player",
+                "Whatever, let's get this over with."
+            ],
+            "next": {},
+            "show_in_editor": true
+        },
+        "1020__FAKE_WORLD": {
+            "comment": "During your walk, you see a hazy form floating in the sky.",
+            "speaker": "player",
+            "dialog": [
+                "[[SET_SPEAKER]]player",
+                "I can't deal with this right now.",
+                "I'm getting out of here.",
+                "Gonna clear my head.",
+                "[[SET_SPEAKER]]evil_player",
+                "In this weather?",
+                "You're going to get a soggy head.",
+                "[[SET_SPEAKER]]player",
+                "Shush up.",
+                "[[DELAY]]2.5",
+                "[[SHOW_KEYED_IMAGE]]fake_outside",
+                "[[SET_SPEAKER]]player",
+                "I'm glad the weather cleared up.",
+                "And this fresh air.",
+                "Just what I needed!",
+                "[[FLASH_KEYED_IMAGE]]reaction_nature",
+                "[[EMOTE]][Your stomach grumbles.]",
+                "[[SET_SPEAKER]]player",
+                "It's a shame I didn't bring any snacks.",
+                "[[SET_SPEAKER]]evil_player",
+                "Might need to draw straws to see who we eat.",
+                "Just kidding.",
+                "We'd eat you, obviously.",
+                "[[SET_SPEAKER]]player",
+                "[[FLASH_KEYED_IMAGE]]reaction_facepalm",
+                "[[EMOTE]][Birds can be heard singing overhead.]",
+                "[[SET_SPEAKER]]evil_player",
+                "I don't mean to alarm anyone, but...",
+                "Do those birds look a little off to you?",
+                "[[SET_SPEAKER]]player",
+                "What do you mean?",
+                "[[SET_SPEAKER]]evil_player",
+                "I don't know, man.",
+                "Like, do those birds even look like birds?",
+                "Or is it just me?",
+                "[[SET_SPEAKER]]player",
+                "Now that you mention it..."
             ],
             "next": {},
             "show_in_editor": true

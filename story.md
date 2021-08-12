@@ -445,6 +445,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `This can't be real.`
         - `[[SET_SPEAKER]]evil_player`
         - `Oh it's definitely real.`
+        - `Really real.`
         - `[[SET_SPEAKER]]player`
         - `...`
         - `[[SHOW_KEYED_IMAGE]]wakeup_ignore_them`
