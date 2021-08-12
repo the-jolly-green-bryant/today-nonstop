@@ -4,14 +4,213 @@
         "player": {
             "avatar": "https://via.placeholder.com/150",
             "cover": "https://via.placeholder.com/150",
-            "name": "I'm the player!",
-            "description": "This is the player. They have stuff you can discover.",
-            "discoverables": {}
+            "name": "You",
+            "description": "This is you.",
+            "discoverables": {
+                "lives_lived": {
+                    "description": "Has been having a rough day. Then again, a rough day is par for the course for you.",
+                    "minimum_quantity": 1
+                },
+                "looped": {
+                    "description": "Trapped in some form of time loop. When will it end? Who knows? Nobody.",
+                    "minimum_quantity": 1
+                },
+                "wont_forget_eggs": {
+                    "description": "Won't forget the eggs. Whatever that means.",
+                    "minimum_quantity": 1
+                },
+                "entered_doppelganger": {
+                    "description": "Seems to have some capacity to inhabit Doppelgangers.",
+                    "minimum_quantity": 1
+                },
+                "was_nude": {
+                    "description": "Enjoys a little time in the buff.",
+                    "minimum_quantity": 1
+                },
+                "was_chicken": {
+                    "description": "Loves to drink and cluck.",
+                    "minimum_quantity": 1
+                }
+            }
         },
         "evil_voice": {
             "avatar": "https://via.placeholder.com/150",
             "name": "Player's evil voice",
             "hidden": true
+        },
+        "evil_player": {
+            "name": "Voice In Your Head",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "This dude's a prick.",
+            "discoverables": {
+                "lives_lived": {
+                    "description": "He's taken residence in your head with zero intention of leaving.",
+                    "minimum_quantity": 1
+                },
+                "good_joke": {
+                    "description": "Is fond of a good joke, even if at his own expense.",
+                    "minimum_quantity": 1
+                },
+                "was_dreaming": {
+                    "description": "Has the uncanny ability to identify when you're in a dream state.",
+                    "minimum_quantity": 1
+                },
+                "fought_dream_monster": {
+                    "description": "Purveyor of bad advice.",
+                    "minimum_quantity": 1
+                }
+            }
+        },
+        "baby": {
+            "name": "Baby",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "The screaming offspring.",
+            "discoverables": {
+                "lives_lived": {
+                    "description": "It's apparently of French origin.",
+                    "minimum_quantity": 1
+                },
+                "baby_once": {
+                    "description": "Endless font of unbridled responsibility.",
+                    "minimum_quantity": 1
+                },
+                "baby_twice": {
+                    "description": "Seems to be a monster baby, maybe.",
+                    "minimum_quantity": 1
+                }
+            }
+        },
+        "doppelganger": {
+            "name": "Doppelganger",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "A monsterous creature intent on ending you.",
+            "discoverables": {
+                "lives_lived": {
+                    "description": "Is tied somehow to your time loop nightmare.",
+                    "minimum_quantity": 1
+                },
+                "entered_doppelganger": {
+                    "description": "Vaguely resembles you.",
+                    "minimum_quantity": 1
+                },
+                "doppelganger_once": {
+                    "description": "Can be inhabited if the situation allows it.",
+                    "minimum_quantity": 1
+                },
+                "baby_once": {
+                    "description": "Has been known to masquerade as a French child of questionable origin.",
+                    "minimum_quantity": 1
+                }
+            }
+        },
+        "harold": {
+            "name": "Harold the Haggard",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "The no-nonsense bureaucrat.",
+            "discoverables": {
+                "lives_lived": {
+                    "description": "Appreciates contestants showing up with proper equipment.",
+                    "minimum_quantity": 1
+                },
+                "was_nude": {
+                    "description": "He's seen some things. Most of them being you in the buff.",
+                    "minimum_quantity": 1
+                }
+            }
+        },
+        "shady": {
+            "name": "Not So Slim Shady",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "Your portly tourney nemesis.",
+            "discoverables": {
+                "lives_lived": {
+                    "description": "Won't stand up and is just imitating.",
+                    "minimum_quantity": 1
+                },
+                "shady_stabbed_once": {
+                    "description": "Is quick to anger.",
+                    "minimum_quantity": 1
+                },
+                "shady_stabbed_twice": {
+                    "description": "Known to go full murderhobo.",
+                    "minimum_quantity": 1
+                }
+            }
+        },
+        "announcer": {
+            "name": "Amy the Announcer",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "",
+            "hidden": true
+        },
+        "gamedev": {
+            "name": "ROOT_USER",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "The all-knowing superuser.",
+            "discoverables": {
+                "lives_lived": {
+                    "description": "Dispenses wisdom with a smug competence.",
+                    "minimum_quantity": 1
+                },
+                "broke_fourth_wall": {
+                    "description": "Prone to abrupt farewells.",
+                    "minimum_quantity": 1
+                },
+                "system_reboots": {
+                    "description": "Likes reboots, and he cannot lie.",
+                    "minimum_quantity": 1
+                }
+            }
+        },
+        "pa": {
+            "name": "Papa",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "",
+            "hidden": true
+        },
+        "cat": {
+            "name": "Carter the Cat",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "",
+            "hidden": true
+        },
+        "ma": {
+            "name": "Mama",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "",
+            "hidden": true
+        },
+        "monster": {
+            "name": "Marvin the Monster",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "Former lover, current monster.",
+            "discoverables": {
+                "lives_lived": {
+                    "description": "Lover? I hardly even know her. Boom.",
+                    "minimum_quantity": 1
+                },
+                "fought_dream_monster": {
+                    "description": "Sustains itself on ill-conceived combat encounters.",
+                    "minimum_quantity": 1
+                }
+            }
+        },
+        "guard": {
+            "name": "Gilbert the Guard",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "",
+            "hidden": true
+        },
+        "little_you": {
+            "name": "Little You",
+            "avatar": "https://via.placeholder.com/150",
+            "description": "Left behind when you inhabit the face in the sky.",
+            "discoverables": {
+                "lives_lived": {
+                    "description": "Could help set you up for success.",
+                    "minimum_quantity": 1
+                }
+            }
         }
     },
     "items": {
@@ -241,7 +440,65 @@
     },
     "keyed_images": {
         "debug_thunderstorm": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/rainy-window-2-15-2014-4-47-19-pm.jpeg",
-        "debug_breakfast": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/360_F_247199107_3W9Clvj0lRf2z1g5wx206ybAccczNd9H.jpeg"
+        "debug_breakfast": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/360_F_247199107_3W9Clvj0lRf2z1g5wx206ybAccczNd9H.jpeg",
+        "wakeup_dream": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/wakeup_dream+(1).jpeg",
+        "wakeup_ignore_them": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/wakeup_ignore_them+(1).jpeg",
+        "abduction_searching": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/abduction_searching+(1).jpeg",
+        "abduction_bound": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/abduction_bound+(1).jpeg",
+        "intro_not_medieval_rain": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/intro_not_medieval_rain+(1).png",
+        "reaction_outies": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_outies+(1).jpeg",
+        "reaction_outies_cat": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_outies_cat+(1).jpeg",
+        "reaction_groggy_cat": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_groggy_cat+(1).jpeg",
+        "reaction_contemplating_life": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_contemplating_life+(1).png",
+        "reaction_stabbed": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_stabbed+(1).jpeg",
+        "reaction_say_what": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_say_what+(1).png",
+        "reaction_shot": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_shot+(1).jpeg",
+        "reaction_drinking": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_drinking+(1).png",
+        "reaction_suspicious": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_suspicious+(1).jpeg",
+        "reaction_drunk": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_drunk+(1).jpeg",
+        "reaction_done": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_done+(1).jpeg",
+        "reaction_nature": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_nature+(1).png",
+        "reaction_facepalm": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_facepalm+(1).png",
+        "reaction_bug_eyes": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_bug_eyes+(1).jpeg",
+        "reaction_concern": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_concern+(1).jpeg",
+        "reaction_sly": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_sly+(1).png",
+        "reaction_whats_that": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_whats_that+(1).jpeg",
+        "reaction_gosh": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_gosh+(1).jpeg",
+        "reaction_doppelganger": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_doppelganger+(1).jpeg",
+        "reaction_doppelganger_attack": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_doppelganger_attack+(1).jpeg",
+        "reaction_confused_cat": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_confused_cat+(1).jpeg",
+        "reaction_realization": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_realization+(1).jpeg",
+        "reaction_tossup": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_tossup+(1).png",
+        "reaction_blank": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_blank+(1).jpeg",
+        "reaction_angry": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_angry+(1).jpeg",
+        "reaction_shrug": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_shrug+(1).jpeg",
+        "reaction_mass_confusion": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_mass_confusion+(1).jpeg",
+        "reaction_monster": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_monster+(1).jpeg",
+        "reaction_flying": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_flying+(1).jpeg",
+        "chicken_goats": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_goats+(1).jpeg",
+        "chicken_riding_goat": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_riding_goat+(1).jpeg",
+        "chicken_lay_egg": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_lay_egg+(1).jpeg",
+        "chicken_king": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_king+(1).jpeg",
+        "chicken_pigs_in_farm": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_pigs_in_farm+(1).jpeg",
+        "chicken_wolves_in_forest": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_wolves_in_forest+(1).jpeg",
+        "chicken_pigs_in_forest": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_pigs_in_forest+(1).jpeg",
+        "chicken_easy_life": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_easy_life+(1).png",
+        "fake_outside": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/fake_outside+(1).jpeg",
+        "sky_face": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/sky_face+(1).jpeg",
+        "doppelganger_mummy": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/doppelganger_mummy+(1).jpeg",
+        "doppelganger_fire": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/doppelganger_fire+(1).jpeg",
+        "baby_creepy": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/baby_creepy+(1).jpeg",
+        "baby_twisted": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/baby_twisted+(1).jpeg",
+        "awake_in_bed": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/awake_in_bed+(1).jpeg",
+        "dream_faces": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/dream_faces+(1).jpg",
+        "death_by_sword": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/death_by_sword+(1).jpeg",
+        "change_to_big_face": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/change_to_big_face+(1).jpeg",
+        "tourney_town": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_town+(1).jpeg",
+        "tourney_grounds": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_grounds+(1).jpeg",
+        "tourney_shot": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_shot+(1).jpeg",
+        "tourney_guardian": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_guardian+(1).jpg",
+        "tourney_big_face": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_big_face+(1).jpeg",
+        "sky_vortex": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/sky_vortex+(1).jpg"
     },
     "dialog": {
         "010a__wakeup": {
