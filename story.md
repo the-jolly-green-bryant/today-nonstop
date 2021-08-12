@@ -1562,7 +1562,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - `EEEEEEEEEE--`
             - `[[EMOTE]]You run out of breath and the world goes black.`
 
-- 1140 - FAKE WORLD - You blink your eyes, but which eyes? Suddenly you're in the big you, staring down at little you in a snowglobe. What's going on?
+- 1140 - FAKE WORLD - You blink your eyes, but which eyes?
     - There are other doppelgangers there with you. You meet their eyes.
     - I want a "show me what you've got" joke in here.
     - Dialog:
