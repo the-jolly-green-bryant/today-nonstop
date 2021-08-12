@@ -177,134 +177,132 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 **Images**
 
 - wakeup_dream
-    - https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2FuYj02a6xbrgUursXL2zX7A%252F1280px-%2527The_Vision_of_Tondalys%2527%252C_painting_by_a_follower_of_Hieronymus_Bosch%252C_c._1485%252C_Denver_Art_Museum.jpg&width=1200&quality=80
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/wakeup_dream+(1).jpeg
 - wakeup_ignore_them
-    - http://www.lazerhorse.org/wp-content/uploads/2015/05/Weird-Medieval-Art-SNIPPET-2.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/wakeup_ignore_them+(1).jpeg
 
 - abduction_searching
-    - https://i0.wp.com/writingcities.com/wp-content/uploads/2016/06/Sheep_pen_Luttrell_Psalter.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/abduction_searching+(1).jpeg
 - abduction_bound
-    - https://i.imgur.com/x1cXI5w.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/abduction_bound+(1).jpeg
 
 - intro_not_medieval_rain
-    - https://steemitimages.com/640x0/https://filearmy.s3.amazonaws.com/2017/05/13/IMG_5662.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/intro_not_medieval_rain+(1).png
 
 - reaction_outies
-    - https://i.pinimg.com/736x/39/6a/00/396a00d4ea88f3e9632d608c4a41efe6.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_outies+(1).jpeg
 - reaction_outies_cat
-    - https://i.pinimg.com/736x/ba/eb/74/baeb744286f8f13d9e7c66840e42edb0.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_outies_cat+(1).jpeg
 - reaction_groggy_cat
-    - https://64.media.tumblr.com/4319e5bbb15579d4333b6b7d9a358ef0/c708daee65a0e019-11/s1280x1920/54d821fd787befcb075a408bd327e91e67a970bb.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_groggy_cat+(1).jpeg
 - reaction_contemplating_life
-    - https://i.pinimg.com/originals/12/c9/ac/12c9acf1d8cf7c58501183d023f0a949.png
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_contemplating_life+(1).png
 - reaction_stabbed
-    - https://www.sadanduseless.com/wp-content/uploads/2018/11/having-a-good-time.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_stabbed+(1).jpeg
 - reaction_say_what
-    - https://theawesomedaily.com/wp-content/uploads/2017/03/funny-medieval-art-21-1.png
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_say_what+(1).png
 - reaction_shot
-    - https://i.pinimg.com/originals/46/42/38/464238bce3b6fe42bdfa913729f4e9be.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_shot+(1).jpeg
 - reaction_drinking
-    - https://i.imgur.com/kbuEY3A.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_drinking+(1).png
 - reaction_suspicious
-    - https://pbs.twimg.com/media/DEu8AVhWsAA0Abp.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_suspicious+(1).jpeg
 - reaction_drunk
-    - https://pbs.twimg.com/media/CBI87PmVEAA4HoX.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_drunk+(1).jpeg
 - reaction_done
-    - https://pbs.twimg.com/profile_images/783738515116945412/4nC3TWwD.jpg
-- reaction_singing
-    - https://www.bing.com/th/id/OGC.8b28ef8559b936ca1a1f5aece36638e2?pid=1.7&rurl=https%3A%2F%2Fmedia1.giphy.com%2Fmedia%2F3o6fIR7LCY8HZAGxXy%2Fgiphy.gif&ehk=uFk6ym%2FnWdqM7a9PLVSQpDp3N6JVa6CsF7L2hKrOaMY%3D
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_done+(1).jpeg
+- reaction_nature
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_nature+(1).png
 - reaction_facepalm
-    - https://www.exurbe.com/wp-content/uploads/2020/06/Facepalm-e1591291660916.png
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_facepalm+(1).png
 - reaction_bug_eyes
-    - https://img.buzzfeed.com/buzzfeed-static/static/2017-11/30/15/asset/buzzfeed-prod-fastlane-01/sub-buzz-17580-1512072385-3.png?downsize=900:*&output-format=auto&output-quality=auto
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_bug_eyes+(1).jpeg
 - reaction_concern
-    - https://memestatic.fjcdn.com/pictures/Medieval_90010b_6395601.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_concern+(1).jpeg
 - reaction_sly
-    - https://theawesomedaily.com/wp-content/uploads/2017/03/funny-medieval-art-21-1.png
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_sly+(1).png
 - reaction_whats_that
-    - https://cdn.quizly.co/wp-content/uploads/2020/09/21201906/Only-A-True-History-Expert-Can-Pass-This-Medieval-Times-Quiz.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_whats_that+(1).jpeg
 - reaction_gosh
-    - https://ih1.redbubble.net/image.341973759.1978/flat,750x,075,f-pad,750x1000,f8f8f8.u4.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_gosh+(1).jpeg
 - reaction_doppelganger
-    - https://static.messynessychic.com/wp-content/uploads/2019/03/8c4f7f517a7b328c60afd7b94d4e114d-930x1293.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_doppelganger+(1).jpeg
 - reaction_doppelganger_attack
-    - https://d2ykdu8745rm9t.cloudfront.net/cover/i/000/835/944/Hieronymus-Bosch-A-Violent-Forcing-Of-The-Frog-3429.jpg?rect=227,0,616,616&q=98&fm=jpg&fit=max
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_doppelganger_attack+(1).jpeg
 - reaction_confused_cat
-    - https://static.boredpanda.com/blog/wp-content/uploads/2018/03/ugly-medieval-cats-art-105-5aafb04871c4f__700.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_confused_cat+(1).jpeg
 - reaction_realization
-    - https://cdn.ebaumsworld.com/thumbs/2015/07/14/065817/84655044/times-medieval-reactions-described-your-life.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_realization+(1).jpeg
 - reaction_tossup
-    - https://runt-of-the-web.com/wordpress/wp-content/uploads/2015/04/chatting-girls-up.png
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_tossup+(1).png
 - reaction_blank
-    - https://www.sadanduseless.com/wp-content/uploads/2017/09/medieval1.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_blank+(1).jpeg
 - reaction_angry
-    - https://brill.com/view/journals/ehcs/4/1/2208522X_004_01_s002_i0003.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_angry+(1).jpeg
 - reaction_shrug
-    - https://i.kym-cdn.com/photos/images/facebook/002/122/645/bcf.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_shrug+(1).jpeg
 - reaction_mass_confusion
-    - https://upload.wikimedia.org/wikipedia/commons/7/7f/Jan_van_Eyck_-_The_Ghent_Altarpiece_-_Singing_Angels_%28detail%29_-_WGA07641.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_mass_confusion+(1).jpeg
 - reaction_monster
-    - https://ctl.s6img.com/society6/img/JqFAMmCvyvedDW0NctRks-C7sVA/w_700/prints/~artwork/s6-0002/asset_11/250733_U8cOJDMqub/~~/medieval-monster-vii-prints.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_monster+(1).jpeg
 - reaction_flying
-    - https://outofthisworldx.files.wordpress.com/2019/07/visoki-decani-raspece-detail.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/reaction_flying+(1).jpeg
 
 - chicken_goats
-    - https://i.pinimg.com/originals/97/5b/8b/975b8b7b1c3244364c90ffe7c4422f7e.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_goats+(1).jpeg
 - chicken_riding_goat
-    - https://i.pinimg.com/originals/de/3c/1b/de3c1bb65c6e9c5150a1f13ec3e2ab35.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_riding_goat+(1).jpeg
 - chicken_lay_egg
-    - https://64.media.tumblr.com/f7bdd2c790148e4b32ec2abddeb2c3b7/tumblr_nmabyinyp51rqxd5ko1_1280.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_lay_egg+(1).jpeg
 - chicken_king
-    - https://thumbs-prod.si-cdn.com/OxoF49NQvGXroO5xrEbIlgUUpRY=/420x240/https://public-media.si-cdn.com/filer/Chicken-Conquerer-631.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_king+(1).jpeg
 - chicken_pigs_in_farm
-    - https://media.istockphoto.com/illustrations/victorian-christmas-card-doomed-pigs-illustration-id186590883?k=6&m=186590883&s=612x612&w=0&h=M6d-tMcx4DHtZxKFoSX04dS-WWo946M_tIE74WSrCM0=
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_pigs_in_farm+(1).jpeg
 - chicken_wolves_in_forest
-    - https://images.immediate.co.uk/production/volatile/sites/7/2019/12/GettyImages-463916595-c0b4ab5.jpg?quality=90&resize=620,413?quality=90&resize=556,370
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_wolves_in_forest+(1).jpeg
 - chicken_pigs_in_forest
-    - https://spartacus-educational.com/MEDacorns.JPG
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_pigs_in_forest+(1).jpeg
 - chicken_easy_life
-    - https://cogeeking.files.wordpress.com/2018/11/british-library-add-ms-42130-f166v-feeding-chickens.png
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/chicken_easy_life+(1).png
 
 - fake_outside
-    - https://onartandaesthetics.files.wordpress.com/2017/03/joachim-patinir-1524-e1489088920728.jpg?w=1467&h=1467&crop=1
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/fake_outside+(1).jpeg
 - sky_face
-    - https://pleated-jeans.com/wp-content/uploads/2017/02/mid_cap-3.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/sky_face+(1).jpeg
 
-- doppelganger_posing
-    - https://lh3.googleusercontent.com/proxy/asdC8n4xsxOoXE014IqsETA16cP_Ad2AHEfZQnwqyCjT9eI3B77hFTZKMq0TDF-wncUF-axNsddNlfUJnmfXX-z_ig
 - doppelganger_mummy
-    - https://miro.medium.com/max/700/0*Vn1-PLFFkoWC3wQR.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/doppelganger_mummy+(1).jpeg
 - doppelganger_fire
-    - https://external-preview.redd.it/nuYcORLU-F15IE5xlMlnnxonGk2vk9JpveoVQ8Y5mus.jpg?auto=webp&s=dff9e0cf63a3df9c60fb1e7f6a6fbe4bbcbe75ab
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/doppelganger_fire+(1).jpeg
 
 - baby_creepy
-    - https://i0.wp.com/wherecreativityworks.com/wp-content/uploads/2017/04/unnamed1-e1492372677392.jpg?fit=265%2C265&ssl=1
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/baby_creepy+(1).jpeg
 - baby_twisted
-    - https://www.dailyartmagazine.com/wp-content/uploads/2017/12/img.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/baby_twisted+(1).jpeg
 
 - awake_in_bed
-    - https://the-public-domain-review.imgix.net/collections/toulouse-lautrec-bed-series/Lautrec_in_bed_thumb.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/awake_in_bed+(1).jpeg
 - dream_faces
-    - https://mir-s3-cdn-cf.behance.net/projects/202/2792797.5458e6e423d5a.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/dream_faces+(1).jpg
 
 - death_by_sword
-    - https://i.kym-cdn.com/photos/images/facebook/000/959/851/891.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/death_by_sword+(1).jpeg
 - change_to_big_face
-    - https://brooklynrail-web.imgix.net/article_image/image/29486/block-mackinven-2.jpg?w=440&q=80&fit=max
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/change_to_big_face+(1).jpeg
 
 - tourney_town
-    - https://lh3.googleusercontent.com/proxy/x37Zkusly4uCPWCXt0ARW15ELnyzKuhPks9BsJzBBSZVZCC_LnzBKHHlcCpPn_d9auMyLsc3MmxOtHcdSChxPNpTVcTaosFkI6cg-qJWQ7zJfPiLtrYEN4k
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_town+(1).jpeg
 - tourney_grounds
-    - https://www.mediastorehouse.com/p/497/robin-hood-1914-robin-hood-competing-prince-13135317.jpg.webp
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_grounds+(1).jpeg
 - tourney_shot
-    - https://i.pinimg.com/originals/46/42/38/464238bce3b6fe42bdfa913729f4e9be.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_shot+(1).jpeg
 - tourney_guardian
-    - https://dynaimage.cdn.cnn.com/cnn/q_auto,w_412,c_fill,g_auto,h_412,ar_1:1/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F160608125035-medieval-killer-rabbits-8.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_guardian+(1).jpg
 - tourney_big_face
-    - https://www.factinate.com/wp-content/uploads/2018/05/St-thomas-aquinas.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_big_face+(1).jpeg
 
 - sky_vortex
-    - https://d1o22ltncixott.cloudfront.net/eyJrZXkiOiJwcm9kdWN0cy8zMjY2MF8xMDE0MzAxYjMyOTM4MTc2MTY0ODgwNTk2MDQ4MjFiZGY4ZjA1ZDBhX0x5OXM2VnVRbFQzSDZ3WTdfMS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgwMCwiaGVpZ2h0Ijo4MDAsImZpdCI6Imluc2lkZSJ9fX0=
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/sky_vortex+(1).jpg
 
 **Characters**
 
@@ -605,7 +603,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `I'm glad the weather cleared up.`
         - `And this fresh air.`
         - `Just what I needed!`
-        - `[[FLASH_KEYED_IMAGE]]reaction_singing`
+        - `[[FLASH_KEYED_IMAGE]]reaction_nature`
         - `[[EMOTE]][Your stomach grumbles.]`
         - `[[SET_SPEAKER]]player`
         - `It's a shame I didn't bring any snacks.`
