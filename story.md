@@ -1,6 +1,11 @@
 
 ### TODO
 
+- Add character avatars
+- Add "nexts" to scenes (after all scenes created)
+- Add "skip to ifs" to scenes (after all scenes created)
+
+
 *Nice To Have*
 
 - Options that can be in scene (eg options that don't change scene)
@@ -785,7 +790,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - `[[SET_SPEAKER]]player`
             - `Breakfast!`
 
-- 1050 - CHICKEN - Pa/Ma will be wanting some breakfast. Collect Breakfast. (Start farm chores?)
+- 1050 - CHICKEN - Start farm chores
     - Dialog
         - `[[SET_SPEAKER]]player`
         - `Eh, might as well get started on the chores.`
