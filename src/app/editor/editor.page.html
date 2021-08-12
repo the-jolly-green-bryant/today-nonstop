@@ -178,14 +178,14 @@
                 Keyed Images
             </div>
 
-            <ng-container *ngFor="let image of game_data.keyed_images | keyvalue">
+            <ng-container *ngFor="let image of game_data.keyed_images | keyvalue; trackBy:track_by_fn">
                 <div class="editor-section">
                     <div class="editor-input">
                         <input value="{{ image.key }}" placeholder="Image Key" (change)="change_key(game_data.keyed_images, image.key, $event.target.value);" />
                     </div>
 
                     <div class="editor-input">
-                        <input [(ngModel)]="image.value" placeholder="URL" />
+                        <input [(ngModel)]="game_data.keyed_images[image.key]" placeholder="URL" />
                     </div>
 
                     <div class="editor-button-container">
