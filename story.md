@@ -1789,7 +1789,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[EMOTE]][The world explodes in a burst of color.]`
     - 1010 - ENDING - Time to restart, we broke the fourth wall.
 
-- 1170 - ENDGAME - We use our nudity to sneak to the top of the highest tower. No one wants to look our way. People are actively avoiding our gaze.
+- 1170 - ENDGAME - We use our nudity to sneak to the top of the highest tower.
     - Aim towards the sky.
     - There's a familiar face there.
     - Blink like crazy.
@@ -1874,7 +1874,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `Quick, do something!`
     - 1143 - Display Options
 
-- 1171 - ENDGAME - You let out a chicken sound. Everyone's distracted. Little you looses their arrow. Arrow kills the doppelganger next to you.
+- 1171 - ENDGAME - You let out a chicken sound. Everyone's distracted.
     - Dialog:
         - `[[SET_SPEAKER]]evil_player`
         - `[[FLASH_KEYED_IMAGE]]reaction_done`
