@@ -845,7 +845,36 @@
                 "It's not very effective...",
                 "Let's try doing it again!"
             ],
-            "next": {},
+            "next": {
+                "1150__FAKE_WORLD": {
+                    "title": "I feel like I've been here before...",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "I feel like I've been here before...",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Or perhaps...",
+                        "We will be again!",
+                        "[[EMOTE]][The world fades to black.]"
+                    ]
+                },
+                "1130__BAD_DREAM": {
+                    "title": "I'm gonna thwack it real good!",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "I'm gonna thwack it real good!"
+                    ]
+                },
+                "1120__BAD_DREAM": {
+                    "title": "[Wail like a banshee.]",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "AIIEEEEEEEEE",
+                        "EEEEEEEEEEEE",
+                        "EEEEEEEEEE--",
+                        "[[EMOTE]]You run out of breath and the world goes black."
+                    ]
+                }
+            },
             "show_in_editor": false
         },
         "1120__BAD_DREAM": {
@@ -873,7 +902,12 @@
                 "DON'T FORGET THE EGGS!",
                 "[[EMOTE]][The world fades away.]"
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1110__EASTER_EGG_ENDING": {
@@ -919,7 +953,12 @@
                 "1...",
                 "[[EMOTE]][Everything goes dark.]"
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1100__ABDUCTION": {
@@ -955,7 +994,12 @@
                 "This one slumbers no more.",
                 "[[EMOTE]][You are struck from behind. Everything goes dark.]"
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1090__TOURNEY": {
@@ -987,7 +1031,12 @@
                 "A dream?",
                 "Poorly written?"
             ],
-            "next": {},
+            "next": {
+                "1150__FAKE_WORLD": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1080__INVESTIGATE": {
@@ -1022,7 +1071,12 @@
                 "Aaaaaiieeeeeee!",
                 "[[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]"
             ],
-            "next": {},
+            "next": {
+                "1100__ABDUCTION": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1075__TOURNEY": {
@@ -1031,7 +1085,19 @@
             "dialog": [
                 "[[ADD_ITEM]]is_nude"
             ],
-            "next": {},
+            "next": {
+                "1071__TOURNEY": {
+                    "title": "Indeed I am!",
+                    "dialog": [
+                        "[[ADD_ITEM]]attended_tourney_nude",
+                        "Indeed I am!"
+                    ]
+                },
+                "1170__ENDGAME": {
+                    "title": "[Go off script.]",
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1074__TOURNEY": {
@@ -1088,7 +1154,12 @@
                 "[[FLASH_KEYED_IMAGE]]reaction_shot",
                 "[[EMOTE]][The world fades to black.]"
             ],
-            "next": {},
+            "next": {
+                "1150__FAKE_WORLD": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1073__TOURNEY": {
@@ -1125,7 +1196,12 @@
                 "[[ADD_ITEM]]shady_stabbed_twice",
                 "[[EMOTE]][The world fades to black.]"
             ],
-            "next": {},
+            "next": {
+                "1150__FAKE_WORLD": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1072__TOURNEY": {
@@ -1150,7 +1226,53 @@
                 "[[SET_SPEAKER]]harold",
                 "Which tourney are you wanting to enter?"
             ],
-            "next": {},
+            "next": {
+                "1073__TOURNEY": {
+                    "title": "I want to shoot some butts.",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "I want to shoot some butts.",
+                        "[[SET_SPEAKER]]harold",
+                        "[[FLASH_KEYED_IMAGE]]reaction_blank",
+                        "Ah, yes.",
+                        "Butts.",
+                        "The earthen mounds used in distance shooting.",
+                        "That joke never gets old...",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Heh, good one!",
+                        "[[ADD_ITEM]]good_joke",
+                        "[[EMOTE]][The bureaucrat hands you a contestants chip.]",
+                        "[[SET_SPEAKER]]harold",
+                        "That chip will get you into the contestants wing.",
+                        "...",
+                        "[[DELAY]]2.5",
+                        "Don't eat it.",
+                        "Not that kind of chip."
+                    ]
+                },
+                "1074__TOURNEY": {
+                    "title": "I want to shoot something that moves.",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "I want to shoot something that moves.",
+                        "[[SET_SPEAKER]]harold",
+                        "Daring today, aren't we.",
+                        "Very well.",
+                        "[[EMOTE]][The bureaucrat hands you a contestants chip.]",
+                        "[[SET_SPEAKER]]harold",
+                        "That chip will get you into the contestants wing.",
+                        "[[SET_SPEAKER]]player",
+                        "What happens if I eat my chip?",
+                        "[[SET_SPEAKER]]harold",
+                        "[[FLASH_KEYED_IMAGE]]reaction_blank",
+                        "[[DELAY]]2.5",
+                        "[[EMOTE]][The bureaucrat is clearly done with your nonsense.]",
+                        "[[SET_SPEAKER]]harold",
+                        "Please do not eat your contestants chip.",
+                        "They are not that kind of chip."
+                    ]
+                }
+            },
             "show_in_editor": false
         },
         "1071__TOURNEY": {
@@ -1191,7 +1313,45 @@
                 "You've quite literally brought a knife to a bowfight.",
                 "Get out of here, fool."
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": "[Hide your shame.]",
+                    "dialog": [
+                        "[[SET_SPEAKER]]evil_player",
+                        "Aight, we outies!",
+                        "[[FLASH_KEYED_IMAGE]]reaction_outies",
+                        "[[EMOTE]][You scurry down an alley to escape your shame.]",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Where are you going?",
+                        "[[SET_SPEAKER]]player",
+                        "Anywhere but here!",
+                        "[[EMOTE]][You trip over some loose pavers and fall to the ground.]",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Dust yourself off quick.",
+                        "I think we're being followed.",
+                        "[[EMOTE]][A horrendous figure materializes out of the shadows.]",
+                        "[[SHOW_KEYED_IMAGE]]doppelganger_mummy",
+                        "[[SET_SPEAKER]]player",
+                        "[[FLASH_KEYED_IMAGE]]reaction_bug_eyes",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Do something!",
+                        "[[EMOTE]][The figure edges closer.]",
+                        "[[SET_SPEAKER]]player",
+                        "Like what?!",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Anything!",
+                        "Try making friends with it.",
+                        "[[SET_SPEAKER]]player",
+                        "...",
+                        "How do you do, fellow human?",
+                        "[[SET_SPEAKER]]doppelganger",
+                        "[[FLASH_KEYED_IMAGE]]reaction_doppelganger",
+                        "[[DELAY]]2.5",
+                        "Aaaaaiieeeeeee!",
+                        "[[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]"
+                    ]
+                }
+            },
             "show_in_editor": false
         },
         "1070__TOURNEY": {
@@ -1231,7 +1391,63 @@
                 "...",
                 "I've never met this fellow in my life."
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": "[Hide your shame.]",
+                    "dialog": [
+                        "[[SET_SPEAKER]]evil_player",
+                        "Aight, we outies!",
+                        "[[FLASH_KEYED_IMAGE]]reaction_outies",
+                        "[[EMOTE]][You scurry down an alley to escape your shame.]",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Where are you going?",
+                        "[[SET_SPEAKER]]player",
+                        "Anywhere but here!",
+                        "[[EMOTE]][You trip over some loose pavers and fall to the ground.]",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Dust yourself off quick.",
+                        "I think we're being followed.",
+                        "[[EMOTE]][A horrendous figure materializes out of the shadows.]",
+                        "[[SHOW_KEYED_IMAGE]]doppelganger_mummy",
+                        "[[SET_SPEAKER]]player",
+                        "[[FLASH_KEYED_IMAGE]]reaction_bug_eyes",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Do something!",
+                        "[[EMOTE]][The figure edges closer.]",
+                        "[[SET_SPEAKER]]player",
+                        "Like what?!",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Anything!",
+                        "Try making friends with it.",
+                        "[[SET_SPEAKER]]player",
+                        "...",
+                        "How do you do, fellow human?",
+                        "[[SET_SPEAKER]]doppelganger",
+                        "[[FLASH_KEYED_IMAGE]]reaction_doppelganger",
+                        "[[DELAY]]2.5",
+                        "Aaaaaiieeeeeee!",
+                        "[[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]"
+                    ]
+                },
+                "1075__TOURNEY": {
+                    "title": "Bacaaaawk!",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "Bacaaaawk!",
+                        "[[SET_SPEAKER]]harold",
+                        "[[FLASH_KEYED_IMAGE]]reaction_bug_eyes",
+                        "[[SET_SPEAKER]]evil_player",
+                        "...",
+                        "[[SET_SPEAKER]]player",
+                        "...",
+                        "[[SET_SPEAKER]]harold",
+                        "...",
+                        "[[DELAY]]2.5",
+                        "Okay.",
+                        "So you're here to compete?"
+                    ]
+                }
+            },
             "show_in_editor": false
         },
         "1060__INVESTIGATE": {
@@ -1282,7 +1498,12 @@
                 "[[ADD_ITEM]]baby_thrice",
                 "[[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]"
             ],
-            "next": {},
+            "next": {
+                "1100__ABDUCTION": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1056__CHICKEN": {
@@ -1333,7 +1554,12 @@
                 "Well, as a matt--",
                 "[[EMOTE]][The nearest wolf pounces before you can finish your quip. The world goes black.]"
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1055__CHICKEN": {
@@ -1362,7 +1588,12 @@
                 "[[SET_SPEAKER]]player",
                 "To the pigs it is, then!"
             ],
-            "next": {},
+            "next": {
+                "1056__CHICKEN": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1054__CHICKEN": {
@@ -1381,7 +1612,12 @@
                 "[[DELAY]]2.5",
                 "[[EMOTE]][That night, wolves get into the chicken coop. The world goes black.]"
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1053__CHICKEN": {
@@ -1404,7 +1640,12 @@
                 "On second thought...",
                 "I'll skip breakfast."
             ],
-            "next": {},
+            "next": {
+                "1054__CHICKEN": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1052__CHICKEN": {
@@ -1431,7 +1672,16 @@
                 "And just channel your inner chicken.",
                 "[[EMOTE]][You begin flapping your \"wings\".]"
             ],
-            "next": {},
+            "next": {
+                "1053__CHICKEN": {
+                    "title": "Lay an egg.]",
+                    "dialog": []
+                },
+                "1054__CHICKEN": {
+                    "title": "Bacaaaawk!",
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1051__CHICKEN": {
@@ -1457,7 +1707,27 @@
                 "[[SET_SPEAKER]]evil_player",
                 "Villagers disappearing?"
             ],
-            "next": {},
+            "next": {
+                "1052__CHICKEN": {
+                    "title": "Such a simple life...",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "Such a simple life..."
+                    ]
+                },
+                "1040__INVESTIGATE": {
+                    "title": "You know, the villagers.",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "You know, the villagers.",
+                        "Mysteriously disappearing in the dead of night.",
+                        "No one knows where they're going.",
+                        "...",
+                        "[[DELAY]]2.5",
+                        "Where'd those villagers go anyways?"
+                    ]
+                }
+            },
             "show_in_editor": false
         },
         "1050__CHICKEN": {
@@ -1472,7 +1742,34 @@
                 "[[SET_SPEAKER]]player",
                 "But where to begin?"
             ],
-            "next": {},
+            "next": {
+                "1055__CHICKEN": {
+                    "title": "The goats could use a milking.",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "The goats could use a milking."
+                    ]
+                },
+                "1056__CHICKEN": {
+                    "title": "When did the pigs eat last?",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "When did the pigs eat last?"
+                    ]
+                },
+                "1051__CHICKEN": {
+                    "title": "DON'T FORGET THE EGGS!",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "DON'T FORGET THE EGGS!",
+                        "[[SET_SPEAKER]]evil_player",
+                        "What's that even mean?",
+                        "[[SET_SPEAKER]]player",
+                        "Not sure.",
+                        "Let's not find out."
+                    ]
+                }
+            },
             "show_in_editor": false
         },
         "1040__INVESTIGATE": {
@@ -1504,7 +1801,29 @@
                 "[[SET_SPEAKER]]evil_player",
                 "Can we do something about this?"
             ],
-            "next": {},
+            "next": {
+                "1060__INVESTIGATE": {
+                    "title": "What's a child doing out this way?",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "What's a child doing out this way, anyways?",
+                        "We should probably check it out.",
+                        "Wouldn't want the wolves getting to it first."
+                    ]
+                },
+                "1080__INVESTIGATE": {
+                    "title": "Not my child, not my problem.",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "Not my child, not my problem.",
+                        "Know what is my problem?",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Breakfast?",
+                        "[[SET_SPEAKER]]player",
+                        "Breakfast!"
+                    ]
+                }
+            },
             "show_in_editor": false
         },
         "1036__TOURNEY": {
@@ -1518,7 +1837,12 @@
                 "[[SHOW_KEYED_IMAGE]]death_by_sword",
                 "[[EMOTE]][While stowing your bow, you trip and fall on your sword. The world fades to black.]"
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1035__TOURNEY": {
@@ -1533,7 +1857,12 @@
                 "[[SHOW_KEYED_IMAGE]]death_by_sword",
                 "[[EMOTE]][While fumbling for your sword, you fall over your bow and black out.]"
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1034__TOURNEY": {
@@ -1555,7 +1884,12 @@
                 "[[DELAY]]2.5",
                 "Need anything else?"
             ],
-            "next": {},
+            "next": {
+                "1031__TOURNEY": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1033__TOURNEY": {
@@ -1570,7 +1904,12 @@
                 "[[SET_SPEAKER]]evil_player",
                 "Need anything else?"
             ],
-            "next": {},
+            "next": {
+                "1031__TOURNEY": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1032__TOURNEY": {
@@ -1586,7 +1925,12 @@
                 "[[FLASH_ITEM]]has_sword",
                 "Need anything else?"
             ],
-            "next": {},
+            "next": {
+                "1031__TOURNEY": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1031__TOURNEY": {
@@ -1611,7 +1955,7 @@
                     "dialog": []
                 }
             },
-            "show_in_editor": true
+            "show_in_editor": false
         },
         "1030__TOURNEY": {
             "comment": "Today's the fair. You remember the archery tourney. You remember you're a participant.",
@@ -1862,7 +2206,12 @@
                 "I don't think we're alone here.",
                 "Quick, do something!"
             ],
-            "next": {},
+            "next": {
+                "1143__FAKE_WORLD": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1141__FAKE_WORLD": {
@@ -1883,7 +2232,12 @@
                 "This one is not who they were.",
                 "[[EMOTE]][You are struck from behind. Everything goes dark.]"
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1142__FAKE_WORLD": {
@@ -1906,14 +2260,40 @@
                 "This one is not who they were.",
                 "[[EMOTE]][You are struck from behind. Everything goes dark.]"
             ],
-            "next": {},
+            "next": {
+                "1000__RESTART": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1143__FAKE_WORLD": {
             "comment": "Options for fake world",
             "speaker": "player",
             "dialog": [],
-            "next": {}
+            "next": {
+                "1141__FAKE_WORLD": {
+                    "title": "Show me what you've got!",
+                    "dialog": []
+                },
+                "1142__FAKE_WORLD": {
+                    "title": "Can anyone tell me what's going on?",
+                    "dialog": []
+                },
+                "1171__ENDGAME": {
+                    "title": "Bacaaaawk!",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "Bacaaaawk!"
+                    ]
+                },
+                "1172__ENDGAME": {
+                    "title": "Time for our movie moment!",
+                    "dialog": []
+                }
+            },
+            "show_in_editor": false
         },
         "1150__FAKE_WORLD": {
             "comment": "You wake up from the dream (but are really still in a different dream) and there's a monster.",
@@ -1949,7 +2329,34 @@
                 "[[SET_SPEAKER]]evil_player",
                 "Thwack it?"
             ],
-            "next": {},
+            "next": {
+                "1130__BAD_DREAM": {
+                    "title": "I'm gonna thwack it real good!",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "Better teach this monster a lesson.",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Yeah!",
+                        "You can't just sneak into our bed and pretend to be our lover.",
+                        "A monster must have principles!",
+                        "[[SET_SPEAKER]]player",
+                        "I'm gonna thwack it real good!"
+                    ]
+                },
+                "1040__INVESTIGATE": {
+                    "title": "I've gotta be dreaming...",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "[[FLASH_KEYED_IMAGE]]reaction_mass_confusion",
+                        "I've gotta be dreaming...",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Plot Twist!",
+                        "You are!",
+                        "[[ADD_ITEM]]was_dreaming",
+                        "[[EMOTE]][The world explodes in a burst of color.]"
+                    ]
+                }
+            },
             "show_in_editor": false
         },
         "1160__FOURTH_WALL": {
@@ -2002,8 +2409,13 @@
                 "[[ADD_ITEM]]broke_fourth_wall",
                 "[[EMOTE]][The world explodes in a burst of color.]"
             ],
-            "next": {},
-            "show_in_editor": false
+            "next": {
+                "1012__START": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
+            "show_in_editor": true
         },
         "1170__ENDGAME": {
             "comment": "We use our nudity to sneak to the top of the highest tower.",
@@ -2088,8 +2500,13 @@
                 "I don't think we're alone here.",
                 "Quick, do something!"
             ],
-            "next": {},
-            "show_in_editor": false
+            "next": {
+                "1143__FAKE_WORLD": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
+            "show_in_editor": true
         },
         "1171__ENDGAME": {
             "comment": "You let out a chicken sound. Everyone's distracted.",
@@ -2127,8 +2544,13 @@
                 "Just like in the movies!",
                 "[[EMOTE]][As the creature falls, the world around you begins to crumble.]"
             ],
-            "next": {},
-            "show_in_editor": false
+            "next": {
+                "2000__START": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
+            "show_in_editor": true
         },
         "1172__ENDGAME": {
             "comment": "You say some cool catch phrase. You begin monologuing. You're distracted, though, and get captured.",
@@ -2158,8 +2580,13 @@
                 "This one is not who they were.",
                 "[[EMOTE]][You are struck from behind. Everything goes dark.]"
             ],
-            "next": {},
-            "show_in_editor": false
+            "next": {
+                "1000__RESTART": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
+            "show_in_editor": true
         },
         "2000__START": {
             "comment": "Coming Soon",
@@ -2182,8 +2609,17 @@
                 "So how about it, buddy.",
                 "Want to ride the Carousel of Nonsense one more time?"
             ],
-            "next": {},
-            "show_in_editor": false
+            "next": {
+                "2001__RESTART": {
+                    "title": "I suspect I don't have a choice.",
+                    "dialog": []
+                },
+                "2002__RESTART": {
+                    "title": "Let's do this!",
+                    "dialog": []
+                }
+            },
+            "show_in_editor": true
         },
         "2001__RESTART": {
             "comment": "Forced",

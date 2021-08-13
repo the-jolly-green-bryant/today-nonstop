@@ -4,9 +4,8 @@
 - Add character avatars
 - Add "nexts" to scenes (after all scenes created)
 - Add "skip to ifs" to scenes (after all scenes created)
-- 1031 - Add Show If to 1034
+- Add show-ifs to scenes
 - 
-
 
 *Nice To Have*
 
@@ -1044,7 +1043,6 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `[[ADD_ITEM]]baby_thrice`
         - `[[EMOTE]][The creature lets loose a shriek and pounces. The world goes to black.]`
     - 1100 - ABDUCTION - You catch sight of something strange/alien. You're knocked out. You wake up to the abduction scene.
-    - 1160 - FOURTH WALL - You're incredulous this is real. Break the fourth wall.
 
 - 1070 - TOURNEY - You attend the archery tourney but forgot your clothes
     - Describe people jeering at their nudity in a way that could be misconstrued as kindness.
@@ -1789,7 +1787,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
         - `Be gone.`
         - `[[ADD_ITEM]]broke_fourth_wall`
         - `[[EMOTE]][The world explodes in a burst of color.]`
-    - 1010 - ENDING - Time to restart, we broke the fourth wall.
+    - 1012 - ENDING - Time to restart, we broke the fourth wall.
 
 - 1170 - ENDGAME - We use our nudity to sneak to the top of the highest tower.
     - Aim towards the sky.
