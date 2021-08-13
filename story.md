@@ -4,6 +4,8 @@
 - Add character avatars
 - Add "nexts" to scenes (after all scenes created)
 - Add "skip to ifs" to scenes (after all scenes created)
+- 1031 - Add Show If to 1034
+- 
 
 
 *Nice To Have*

@@ -754,13 +754,27 @@
                 "..."
             ],
             "next": {
-                "zzzzz__czgqti": {
-                    "title": null,
-                    "dialog": []
+                "1012__START": {
+                    "title": "This all feels like a bad dream.",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "This all feels like a bad dream.",
+                        "Probably had too much cider.",
+                        "[[SET_SPEAKER]]evil_player",
+                        "Tell yourself what you must.",
+                        "But this ending is unacceptable.",
+                        "Let's try it again from the top.",
+                        "[[EMOTE]][The world explodes in a burst of color.]"
+                    ]
                 },
-                "zzzzz__varmj9": {
-                    "title": null,
-                    "dialog": []
+                "1160__FOURTH_WALL": {
+                    "title": "[Break the fourth wall.]",
+                    "dialog": [
+                        "[[SET_SPEAKER]]player",
+                        "Okay, enough's enough.",
+                        "This can't possibly be real.",
+                        "What's going on?!"
+                    ]
                 }
             },
             "show_in_editor": false
@@ -807,7 +821,16 @@
                 "[[SET_SPEAKER]]player",
                 "Now that you mention it..."
             ],
-            "next": {},
+            "next": {
+                "1110__EASTER_EGG_ENDING": {
+                    "title": "What's going on with that bird?",
+                    "dialog": []
+                },
+                "1140__FAKE_WORLD": {
+                    "title": "[Blink like mad.]",
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1130__BAD_DREAM": {
@@ -1570,8 +1593,25 @@
             "comment": "Get Ready (Tourney Options)",
             "speaker": "player",
             "dialog": [],
-            "next": {},
-            "show_in_editor": false
+            "next": {
+                "1032__TOURNEY": {
+                    "title": "Where's my sword?",
+                    "dialog": []
+                },
+                "1033__TOURNEY": {
+                    "title": "Where's my bow?",
+                    "dialog": []
+                },
+                "1034__TOURNEY": {
+                    "title": "Better not forget my clothes!",
+                    "dialog": []
+                },
+                "1070__TOURNEY": {
+                    "title": "I think I've got everything.",
+                    "dialog": []
+                }
+            },
+            "show_in_editor": true
         },
         "1030__TOURNEY": {
             "comment": "Today's the fair. You remember the archery tourney. You remember you're a participant.",
@@ -1595,7 +1635,19 @@
                 "This is my year!",
                 "But I'm running late..."
             ],
-            "next": {},
+            "next": {
+                "1031__TOURNEY": {
+                    "title": "Better get ready quick.",
+                    "dialog": [
+                        "I better get ready quick.",
+                        "I'll just grab the essentials."
+                    ]
+                },
+                "1090__TOURNEY": {
+                    "title": "There's always next year.",
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1013__START": {
@@ -1617,7 +1669,12 @@
                 "[[SET_SPEAKER]]player",
                 "Whatever, let's get this over with."
             ],
-            "next": {},
+            "next": {
+                "1011__START": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1012__START": {
@@ -1652,14 +1709,45 @@
                 "[[FLASH_KEYED_IMAGE]]reaction_drunk",
                 "Dis you."
             ],
-            "next": {},
-            "show_in_editor": false
+            "next": {
+                "1011__START": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
+            "show_in_editor": false,
+            "skip_to_if": {
+                "restarted_once": {
+                    "consumes_item": false,
+                    "quantity": 1,
+                    "target": "1013__START",
+                    "minimum_quantity": 1
+                }
+            }
         },
         "1011__START": {
             "comment": "Display Options",
             "speaker": "player",
             "dialog": [],
-            "next": {}
+            "next": {
+                "1020__FAKE_WORLD": {
+                    "title": "Let's clear our head with a walk.",
+                    "dialog": []
+                },
+                "1030__TOURNEY": {
+                    "title": "Let's undress for the fair.",
+                    "dialog": []
+                },
+                "1040__INVESTIGATE": {
+                    "title": "Let's get the fire started again.",
+                    "dialog": []
+                },
+                "1050__CHICKEN": {
+                    "title": "Let's check on the animals.",
+                    "dialog": []
+                }
+            },
+            "show_in_editor": false
         },
         "1010__START": {
             "comment": "You jolt awake. There's a lot going on. A fair is in town.",
@@ -1702,7 +1790,12 @@
                 "And hear me out...",
                 "Let's play hookie!"
             ],
-            "next": {},
+            "next": {
+                "1011__START": {
+                    "title": null,
+                    "dialog": []
+                }
+            },
             "show_in_editor": false
         },
         "1140__FAKE_WORLD": {
