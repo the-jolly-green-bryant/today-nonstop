@@ -49,14 +49,14 @@ export class DialogStream {
      *
      * @type {Number}
      */
-    SECONDS_BETWEEN_DIALOG_LINES = 1.5
+    SECONDS_BETWEEN_DIALOG_LINES = 2.0
 
     /**
      * The number of seconds to wait between running scenes.
      *
      * @type {Number}
      */
-    SECONDS_BETWEEN_SCENES = 3.5
+    SECONDS_BETWEEN_SCENES = 4.5
 
     /**
      * A list of valid commands

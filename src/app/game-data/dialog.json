@@ -1,5 +1,5 @@
 {
-    "default_scene": "010a__wakeup",
+    "default_scene": "1010__START",
     "characters": {
         "player": {
             "avatar": "https://via.placeholder.com/150",
@@ -1095,7 +1095,11 @@
                 },
                 "1170__ENDGAME": {
                     "title": "[Go off script.]",
-                    "dialog": []
+                    "dialog": [],
+                    "show_if": [
+                        "entered_doppelganger",
+                        "has_bow"
+                    ]
                 }
             },
             "show_in_editor": false
@@ -1352,7 +1356,15 @@
                     ]
                 }
             },
-            "show_in_editor": false
+            "show_in_editor": true,
+            "skip_to_if": {
+                "has_bow": {
+                    "consumes_item": false,
+                    "quantity": 1,
+                    "target": "1072__TOURNEY",
+                    "minimum_quantity": 1
+                }
+            }
         },
         "1070__TOURNEY": {
             "comment": "You attend the archery tourney but forgot your clothes",
@@ -1445,10 +1457,21 @@
                         "[[DELAY]]2.5",
                         "Okay.",
                         "So you're here to compete?"
+                    ],
+                    "show_if": [
+                        "was_chicken"
                     ]
                 }
             },
-            "show_in_editor": false
+            "show_in_editor": true,
+            "skip_to_if": {
+                "has_clothes": {
+                    "consumes_item": false,
+                    "quantity": 1,
+                    "target": "1071__TOURNEY",
+                    "minimum_quantity": 1
+                }
+            }
         },
         "1060__INVESTIGATE": {
             "comment": "The thing you're investigating turns out to be a doppelganger.",
@@ -1767,6 +1790,9 @@
                         "[[SET_SPEAKER]]player",
                         "Not sure.",
                         "Let's not find out."
+                    ],
+                    "show_if": [
+                        "wont_forget_eggs"
                     ]
                 }
             },
@@ -1910,7 +1936,15 @@
                     "dialog": []
                 }
             },
-            "show_in_editor": false
+            "show_in_editor": true,
+            "skip_to_if": {
+                "has_sword": {
+                    "consumes_item": false,
+                    "quantity": 1,
+                    "target": "1036__TOURNEY",
+                    "minimum_quantity": 1
+                }
+            }
         },
         "1032__TOURNEY": {
             "comment": "Grab sword",
@@ -1931,7 +1965,15 @@
                     "dialog": []
                 }
             },
-            "show_in_editor": false
+            "show_in_editor": true,
+            "skip_to_if": {
+                "has_bow": {
+                    "consumes_item": false,
+                    "quantity": 1,
+                    "target": "1035__TOURNEY",
+                    "minimum_quantity": 1
+                }
+            }
         },
         "1031__TOURNEY": {
             "comment": "Get Ready (Tourney Options)",
@@ -1948,7 +1990,10 @@
                 },
                 "1034__TOURNEY": {
                     "title": "Better not forget my clothes!",
-                    "dialog": []
+                    "dialog": [],
+                    "show_if": [
+                        "was_nude"
+                    ]
                 },
                 "1070__TOURNEY": {
                     "title": "I think I've got everything.",
@@ -2036,7 +2081,7 @@
                 "Suspicious...",
                 "[[FLASH_KEYED_IMAGE]]reaction_suspicious",
                 "[[DELAY]]2.5",
-                "Emote: [The sound of dampened revellers floats in from the street.]",
+                "[[EMOTE]][The sound of dampened revellers floats in from the street.]",
                 "[[SET_SPEAKER]]player",
                 "Are those fair folk still going at it?",
                 "Wait, wasn't the fair yesterday.",
@@ -2059,7 +2104,7 @@
                     "dialog": []
                 }
             },
-            "show_in_editor": false,
+            "show_in_editor": true,
             "skip_to_if": {
                 "restarted_once": {
                     "consumes_item": false,
@@ -2119,7 +2164,7 @@
                 "[[SET_SPEAKER]]player",
                 "This rain, man.",
                 "[[DELAY]]2.5",
-                "Emote: [The sound of dampened revellers floats in from the street.]",
+                "[[EMOTE]][The sound of dampened revellers floats in from the street.]",
                 "[[SET_SPEAKER]]player",
                 "Crazy folk, heading to the fair in this weather.",
                 "[[SET_SPEAKER]]evil_player",
@@ -2286,11 +2331,18 @@
                     "dialog": [
                         "[[SET_SPEAKER]]player",
                         "Bacaaaawk!"
+                    ],
+                    "show_if": [
+                        "did_setup",
+                        "was_chicken"
                     ]
                 },
                 "1172__ENDGAME": {
                     "title": "Time for our movie moment!",
-                    "dialog": []
+                    "dialog": [],
+                    "show_if": [
+                        "did_setup"
+                    ]
                 }
             },
             "show_in_editor": false

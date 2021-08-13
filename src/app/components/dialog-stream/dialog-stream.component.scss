@@ -104,7 +104,7 @@
         color: $ds-font-secondary;
         display: flex;
         justify-content: center;
-        padding: #{$ds-general-padding / 2} 0;
+        padding: #{$ds-general-padding / 2} #{$ds-vertical-padding-minimum};
     }
 
     &-text {
@@ -145,8 +145,8 @@
         }
 
         &.is-small {
-            height: 100px;
-            width: 125px;
+            height: 170px;
+            width: 225px;
 
             .is-player & {
                 margin-left: auto;
