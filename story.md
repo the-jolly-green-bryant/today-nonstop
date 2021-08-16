@@ -315,7 +315,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - `player`
     - `You`
     - `This is you.`
-    - https://lh3.googleusercontent.com/proxy/RwSRpqCRoKR4szzcPyJ5dm7UG_n5zfOwmKMfqa25AmI16MKDG9lXcdV3IftPYYxB6abJiOfOigYq9cNaI2CIooLrMwfDBGl4LK4aCP2hCNsFp04AXbInKRQ
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/player+(1).jpeg
     - Discoverables
         - `lives_lived`
             - `Has been having a rough day. Then again, a rough day is par for the course for you.`
@@ -332,7 +332,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - `evil_player`
     - `Voice In Your Head`
     - `This dude's a prick.`
-    - https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/a-peasant-man-head-and-shoulders-shouting-agostino-carracci.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/evil_player+(1).jpeg
     - Discoverables
         - `lives_lived`
             - `He's taken residence in your head with zero intention of leaving.`
@@ -345,7 +345,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - `baby`
     - `Baby`
     - `The screaming offspring.`
-    - https://www.dailyartmagazine.com/wp-content/uploads/2017/12/img.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/baby+(1).jpeg
     - Discoverables
         - `lives_lived`
             - `It's apparently of French origin.`
@@ -356,7 +356,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - `doppelganger`
     - `Doppelganger`
     - `A monsterous creature intent on ending you.`
-    - https://static.messynessychic.com/wp-content/uploads/2019/03/8c4f7f517a7b328c60afd7b94d4e114d-930x1293.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/doppelganger+(1).jpeg
     - Discoverables
         - `lives_lived`
             - `Is tied somehow to your time loop nightmare.`
@@ -369,7 +369,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - `harold`
     - `Harold the Haggard`
     - `The no-nonsense bureaucrat.`
-    - https://i.pinimg.com/originals/ce/c1/19/cec119a4a52aaaf0630ea651eb53b890.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/harold+(1).jpeg
     - Discoverables
         - `lives_lived`
             - `Appreciates contestants showing up with proper equipment.`
@@ -378,7 +378,7 @@ This story reflects a human going through all sorts of zany encounters. It is ba
 - `shady`
     - `Not So Slim Shady`
     - `Your portly tourney nemesis.`
-    - https://www.worldhistory.org/img/r/p/500x600/8825.jpg?v=1599096603
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/shady+(1).jpeg
     - Discoverables
         - `lives_lived`
             - `Won't stand up and is just imitating.`
@@ -388,12 +388,12 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - `Known to go full murderhobo.`
 - `announcer`
     - `Amy the Announcer`
-    - https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/design-for-mans-medieval-costume-charles-bianchini-french-lyons-1860-1905-paris-charles-bianchini.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/announcer+(1).jpeg
     - Hidden
 - `gamedev`
     - `ROOT`
     - `The all-knowing superuser.`
-    - https://i.pinimg.com/originals/3b/dc/d5/3bdcd5a3d1f2229729047d547730537f.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/gamedev+(1).jpeg
     - Discoverables
         - `lives_lived`
             - `Dispenses wisdom with a smug competence.`
@@ -403,20 +403,20 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - `Likes reboots, and he cannot lie.`
 - `pa`
     - `Papa`
-    - https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555436026/shape/mentalfloss/546kjh46kjh.png?itok=Pk_rHMRJ
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/pa+(1).png
     - Hidden
 - `cat`
     - `Carter the Cat`
-    - https://images.fineartamerica.com/images-medium-large-5/renaissance-cat-terry-webb-harshman.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/cat+(1).jpeg
     - Hidden
 - `ma`
     - `Mama`
-    - https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555436026/shape/mentalfloss/546kjh46kjh.png?itok=Pk_rHMRJ
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/ma+(1).png
     - Hidden
 - `monster`
     - `Marvin the Monster`
     - `Former lover, current monster.`
-    - https://live.staticflickr.com/6054/6212200749_d115491e27_b.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/monster+(1).jpeg
     - Discoverables
         - `lives_lived`
             - `Lover? I hardly even know her. Boom.`
@@ -424,12 +424,12 @@ This story reflects a human going through all sorts of zany encounters. It is ba
             - `Sustains itself on ill-conceived combat encounters.`
 - `guard`
     - `Gilbert the Guard`
-    - https://ctl.s6img.com/society6/img/dDkMVfsESOyIQnpf46xFksbRctw/w_700/canvas/~artwork/s6-0026/a/12439706_10304159/~~/nicolas-cage-replaceface-canvas.jpg
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/guard+(1).jpeg
     - Hidden
 - `little_you`
     - `Little You`
     - `Left behind when you inhabit the face in the sky.`
-    - https://lh3.googleusercontent.com/proxy/RwSRpqCRoKR4szzcPyJ5dm7UG_n5zfOwmKMfqa25AmI16MKDG9lXcdV3IftPYYxB6abJiOfOigYq9cNaI2CIooLrMwfDBGl4LK4aCP2hCNsFp04AXbInKRQ
+    - https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/player+(1).jpeg
     - Discoverables
         - `lives_lived`
             - `Could help set you up for success.`

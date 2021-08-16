@@ -2,8 +2,8 @@
     "default_scene": "1010__START",
     "characters": {
         "player": {
-            "avatar": "https://via.placeholder.com/150",
-            "cover": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/player+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "name": "You",
             "description": "This is you.",
             "discoverables": {
@@ -34,13 +34,15 @@
             }
         },
         "evil_voice": {
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/evil_player+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "name": "Player's evil voice",
             "hidden": true
         },
         "evil_player": {
             "name": "Voice In Your Head",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/evil_player+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "This dude's a prick.",
             "discoverables": {
                 "lives_lived": {
@@ -63,7 +65,8 @@
         },
         "baby": {
             "name": "Baby",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/baby+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "The screaming offspring.",
             "discoverables": {
                 "lives_lived": {
@@ -82,7 +85,8 @@
         },
         "doppelganger": {
             "name": "Doppelganger",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/doppelganger+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "A monsterous creature intent on ending you.",
             "discoverables": {
                 "lives_lived": {
@@ -105,7 +109,8 @@
         },
         "harold": {
             "name": "Harold the Haggard",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/harold+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "The no-nonsense bureaucrat.",
             "discoverables": {
                 "lives_lived": {
@@ -120,7 +125,8 @@
         },
         "shady": {
             "name": "Not So Slim Shady",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/shady+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "Your portly tourney nemesis.",
             "discoverables": {
                 "lives_lived": {
@@ -139,13 +145,15 @@
         },
         "announcer": {
             "name": "Amy the Announcer",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/announcer+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "",
             "hidden": true
         },
         "gamedev": {
             "name": "ROOT_USER",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/gamedev+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "The all-knowing superuser.",
             "discoverables": {
                 "lives_lived": {
@@ -164,25 +172,29 @@
         },
         "pa": {
             "name": "Papa",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/pa+(1).png",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "",
             "hidden": true
         },
         "cat": {
             "name": "Carter the Cat",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/cat+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "",
             "hidden": true
         },
         "ma": {
             "name": "Mama",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/ma+(1).png",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "",
             "hidden": true
         },
         "monster": {
             "name": "Marvin the Monster",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/monster+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "Former lover, current monster.",
             "discoverables": {
                 "lives_lived": {
@@ -197,13 +209,15 @@
         },
         "guard": {
             "name": "Gilbert the Guard",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/guard+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "",
             "hidden": true
         },
         "little_you": {
             "name": "Little You",
-            "avatar": "https://via.placeholder.com/150",
+            "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/player+(1).jpeg",
+            "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
             "description": "Left behind when you inhabit the face in the sky.",
             "discoverables": {
                 "lives_lived": {

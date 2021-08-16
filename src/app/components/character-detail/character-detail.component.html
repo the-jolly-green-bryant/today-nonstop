@@ -21,7 +21,7 @@
                     <ng-container *ngIf="stream.inventory.length && has_item_in_quantity(item.key, item.value.minimum_quantity)">
                         <div class="character-detail-discoverable">
                             <div class="character-detail-discoverable-avatar">
-                                <img [src]="game_data.items[item.key].avatar" />
+                                <img [src]="game_data.items[item.key].avatar ? game_data.items[item.key].avatar : game_data.characters[identifier].avatar" />
                             </div>
 
                             <div class="character-detail-discoverable-title">
