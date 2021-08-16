@@ -1,0 +1,47 @@
+.splash {
+	&-container {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	
+	&-background {
+		align-content: center;
+		background: url('https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/splash.png');
+		background-position: center;
+		background-size: cover;
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		left: 0;
+		padding-bottom: 100px;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	&-footer {
+		bottom: 0;
+		padding: 8px 0;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+	}
+
+	&-title {
+		display: inline-block;
+		font-size: 36px;
+		margin-bottom: 8px;
+		margin-left: 10vw;
+		padding: 0 8px;
+	}
+
+	&-title,
+	&-footer {
+		background: #ff9900;
+		color: #272727;
+	}
+}
