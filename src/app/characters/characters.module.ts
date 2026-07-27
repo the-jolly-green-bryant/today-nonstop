@@ -10,15 +10,14 @@ import { CharactersPageRoutingModule } from "./characters-routing.module"
 import { CharactersComponent } from "../components/characters/characters.component"
 
 @NgModule({
-  	imports: [
-    	IonicModule,
-    	CommonModule,
-    	FormsModule,
-    	ExploreContainerComponentModule,
-    	RouterModule.forChild([{ path: "", component: CharactersPage }]),
-    	CharactersPageRoutingModule,
-  	],
-  	declarations: [CharactersPage, CharactersComponent],
-  	entryComponents: [CharactersComponent],
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    ExploreContainerComponentModule,
+    RouterModule.forChild([{ path: "", component: CharactersPage }]),
+    CharactersPageRoutingModule,
+  ],
+  declarations: [CharactersPage, CharactersComponent],
 })
 export class CharactersPageModule {}

@@ -1,0 +1,6 @@
+android/
+.angular/
+coverage/
+resources/
+www/
+package-lock.json

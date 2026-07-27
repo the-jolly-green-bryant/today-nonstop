@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Half Baked &amp; Barely Kickin\'</string>
-    <string name="title_activity_main">Half Baked &amp; Barely Kickin\'</string>
-    <string name="package_name">com.bryantjames.halfbaked</string>
-    <string name="custom_url_scheme">com.bryantjames.halfbaked</string>
+    <string name="app_name">Today Nonstop</string>
+    <string name="title_activity_main">Today Nonstop</string>
+    <string name="package_name">com.bryantjames.todaynonstop</string>
+    <string name="custom_url_scheme">com.bryantjames.todaynonstop</string>
 </resources>

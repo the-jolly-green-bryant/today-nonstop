@@ -1,8 +1,7 @@
 {
-  "name": "Half Baked and Barely Kickin'",
+  "name": "Today Nonstop",
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular",
-  "id": "3bf8da22"
+  "type": "angular"
 }
