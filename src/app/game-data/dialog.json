@@ -900,7 +900,7 @@
           "dialog": []
         },
         "1140__FAKE_WORLD": {
-          "title": "Follow your sight into the face above.",
+          "title": "Answer the face with your own name.",
           "dialog": []
         }
       },
@@ -2093,38 +2093,53 @@
       "show_in_editor": false
     },
     "1140__FAKE_WORLD": {
-      "comment": "You blink your eyes, but which eyes?",
+      "comment": "You deliberately form a memory-bridge with the abandoned lives.",
       "speaker": "player",
       "dialog": [
         "[[ADD_ITEM]]entered_doppelganger",
         "[[ADD_ITEM]]doppelganger_once",
-        "[[EMOTE]][The face beneath the bird's feathers opens its eyes. Your vision opens with it.]",
+        "[[EMOTE]][The little face beneath the feathers opens its mouth.]",
+        "[[SET_SPEAKER]]little_you",
+        "Jon.",
         "[[SET_SPEAKER]]player",
-        "I can see the field from above.",
+        "That is my name.",
         "[[SET_SPEAKER]]evil_player",
-        "Your body is still standing below.",
+        "One of them.",
+        "[[SET_SPEAKER]]little_you",
+        "Mildred.",
         "[[SET_SPEAKER]]player",
-        "Then whose eyes are these?",
-        "[[EMOTE]][The sky peels away. You are looking through a vast pale face stretched over the village.]",
+        "Also mine.",
+        "[[EMOTE]][The bird speaks every name you have worn in lives you cannot quite remember.]",
+        "[[SET_SPEAKER]]evil_player",
+        "It is not calling us.",
+        "It is counting us.",
+        "[[SET_SPEAKER]]player",
+        "Then count this one too.",
+        "[[EMOTE]][You press a hand to your chest and answer with the only truth all those names share.]",
+        "[[SET_SPEAKER]]player",
+        "I remember you.",
+        "[[EMOTE]][Something on the far side remembers back.]",
         "[[SHOW_KEYED_IMAGE]]change_to_big_face",
+        "[[EMOTE]][The field remains beneath your feet, but another horizon opens inside your memory: the village seen through a vast pale face in the sky.]",
         "[[SET_SPEAKER]]evil_player",
-        "Ours.",
-        "Not ours.",
-        "A discarded ours.",
-        "[[EMOTE]][Far below, your smaller body looks up and understands you.]",
-        "[[SET_SPEAKER]]little_you",
-        "You found the crossing.",
+        "Two views.",
+        "One thought.",
         "[[SET_SPEAKER]]player",
-        "Who are you?",
+        "This is not possession.",
+        "It is recognition.",
+        "[[EMOTE]][Within the shared memory stands another you—the first life that learned to answer.]",
         "[[SET_SPEAKER]]little_you",
-        "The life that looked up first.",
+        "You found the bridge.",
+        "[[SET_SPEAKER]]player",
+        "How many of us are here?",
+        "[[SET_SPEAKER]]little_you",
+        "Every life the bell began again.",
         "[[SHOW_KEYED_IMAGE]]doppelganger_mummy",
-        "[[EMOTE]][Another presence unfolds inside the shared body, heavy with countless endings.]",
+        "[[EMOTE]][Their memories gather into one exhausted figure—not a stranger, but a crowd forced to wear a single shape.]",
         "[[SET_SPEAKER]]doppelganger",
-        "One body.",
-        "Too many claimants.",
+        "You remembered us.",
         "[[SET_SPEAKER]]evil_player",
-        "We should say something persuasive."
+        "Try not to make them regret it."
       ],
       "next": {
         "1143__FAKE_WORLD": {
@@ -2195,16 +2210,21 @@
       "dialog": [],
       "next": {
         "1141__FAKE_WORLD": {
-          "title": "Offer the echo an alliance.",
+          "title": "Promise that no life will be discarded again.",
           "dialog": []
         },
         "1142__FAKE_WORLD": {
-          "title": "Ask what the abandoned lives want.",
+          "title": "Ask what the bell has taken from them.",
           "dialog": []
         },
         "1171__ENDGAME": {
-          "title": "Bacaaaawk!",
-          "dialog": ["[[SET_SPEAKER]]player", "Bacaaaawk!"],
+          "title": "Use the crowned flock's thirteen-beat answer.",
+          "dialog": [
+            "[[EMOTE]][You tap the thirteen-beat pattern taught by the crowned hen against the shared memory.]",
+            "[[SET_SPEAKER]]evil_player",
+            "Our finest diplomatic achievement remains becoming poultry.",
+            "[[EMOTE]][The doppelganger answers with the same pattern. The bridge steadies.]"
+          ],
           "show_if": ["did_setup", "was_chicken"]
         },
         "1172__ENDGAME": {
@@ -2321,7 +2341,7 @@
       "show_in_editor": true
     },
     "1170__ENDGAME": {
-      "comment": "We use our nudity to sneak to the top of the highest tower.",
+      "comment": "You reproduce the memory-bridge from the western watchtower.",
       "speaker": "player",
       "dialog": [
         "[[ADD_ITEM]]did_setup",
@@ -2348,15 +2368,19 @@
         "An echo.",
         "[[SET_SPEAKER]]evil_player",
         "A very large echo.",
-        "[[EMOTE]][You nock an arrow, then let your gaze cross into the giant face.]",
+        "[[EMOTE]][You nock an arrow and draw until the bowstring hums at the same pitch as the chapel bell.]",
         "[[SET_SPEAKER]]player",
-        "Keep this body steady.",
+        "The bridge answered to memory before.",
+        "This time we give it a note to follow.",
         "[[SET_SPEAKER]]evil_player",
-        "Which body?",
-        "[[EMOTE]][For one impossible instant, you inhabit both archer and sky.]",
+        "That is either inspired or fatal.",
+        "[[SET_SPEAKER]]player",
+        "Those are not mutually exclusive.",
+        "[[EMOTE]][You speak the names the frozen bird remembered. The bowstring carries them into the sky.]",
+        "[[EMOTE]][The echo answers. For one impossible instant, archer and abandoned lives share the same memory.]",
         "[[SHOW_KEYED_IMAGE]]change_to_big_face",
         "[[SET_SPEAKER]]little_you",
-        "I have the shot.",
+        "The bridge holds.",
         "[[SHOW_KEYED_IMAGE]]doppelganger_mummy",
         "[[EMOTE]][Inside the echo, the doppelganger turns toward you.]",
         "[[SET_SPEAKER]]doppelganger",
@@ -2371,33 +2395,40 @@
       "show_in_editor": true
     },
     "1171__ENDGAME": {
-      "comment": "You let out a chicken sound. Everyone's distracted.",
+      "comment": "The shared memory reveals the allies required to confront the bell.",
       "speaker": "player",
       "dialog": [
         "[[SET_SPEAKER]]player",
-        "We do not have to fight.",
+        "No more chosen life.",
+        "No more discarded life.",
         "[[SET_SPEAKER]]doppelganger",
-        "Not yet.",
+        "A promise from the one who wakes.",
         "[[SET_SPEAKER]]evil_player",
-        "That sounded ominously scheduled.",
+        "A fair criticism.",
         "[[SET_SPEAKER]]little_you",
         "The bell keeps every abandoned life inside this shape.",
         "At sunset it chooses one of us to begin again.",
         "[[SET_SPEAKER]]player",
         "How do we stop it?",
         "[[SET_SPEAKER]]doppelganger",
-        "Find the book that names the chosen life.",
-        "Find the crier who remembers the extra stroke.",
-        "Find the rival who dreams of tomorrow.",
-        "[[EMOTE]][An arrow from the tournament field pierces your waiting body below.]",
-        "[[SET_SPEAKER]]evil_player",
-        "We are dying.",
+        "The black book names the chosen life.",
+        "The crier remembers the forbidden stroke.",
+        "The rival dreams of the tomorrow we lost.",
+        "Bring them to the bell.",
         "[[SET_SPEAKER]]player",
-        "But this time we know where to look.",
+        "And then?",
+        "[[SET_SPEAKER]]doppelganger",
+        "Make a rule the bell has never heard.",
+        "[[EMOTE]][The thirteenth stroke begins. The memory-bridge fractures into a thousand dawns.]",
+        "[[SET_SPEAKER]]evil_player",
+        "We are falling.",
+        "[[SET_SPEAKER]]player",
+        "Toward morning.",
+        "This time, with directions.",
         "[[EMOTE]][The shared sky collapses into a single black page.]"
       ],
       "next": {
-        "2000__START": {
+        "1000__RESTART": {
           "title": null,
           "dialog": []
         }

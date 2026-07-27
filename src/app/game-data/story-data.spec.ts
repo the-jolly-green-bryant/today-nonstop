@@ -152,4 +152,17 @@ describe("story data", () => {
       "THE END",
     )
   })
+
+  it("treats the memory bridge as a clue path, not an unearned ending", () => {
+    const bridgeLines = dialogData.dialog["1140__FAKE_WORLD"].dialog.join(" ")
+
+    expect(bridgeLines).toContain("I remember you.")
+    expect(bridgeLines.toLowerCase()).not.toContain("blink")
+    expect(
+      dialogData.dialog["1171__ENDGAME"].next["1000__RESTART"],
+    ).toBeDefined()
+    expect(
+      dialogData.dialog["1171__ENDGAME"].next["2000__START"],
+    ).toBeUndefined()
+  })
 })
