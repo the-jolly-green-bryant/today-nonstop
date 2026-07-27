@@ -13,7 +13,7 @@ import {
   styleUrls: ["tabs.page.scss"],
 })
 export class TabsPage {
-  readonly release = "1.3"
+  readonly release = "1.4"
 
   constructor(
     public dialog_stream_service: DialogStreamService,
