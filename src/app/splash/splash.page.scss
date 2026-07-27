@@ -41,6 +41,15 @@
   text-transform: uppercase;
 }
 
+.splash-mark {
+  border-radius: 15px 15px 15px 4px;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 34%);
+  height: 52px;
+  margin-bottom: 18px;
+  transform: rotate(-3deg);
+  width: 52px;
+}
+
 h1 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(54px, 16vw, 72px);

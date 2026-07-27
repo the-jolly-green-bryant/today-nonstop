@@ -5,19 +5,12 @@ import { Storage } from "@ionic/storage-angular"
   providedIn: "root",
 })
 export class StorageService {
-  public event_stream_db_key = "dialog_event_stream"
-  private database: Storage | null = null
+  public readonly event_stream_db_key = "dialog_event_stream"
+  public readonly preferences_db_key = "game_preferences"
+  private readonly database_ready: Promise<Storage>
 
   constructor(private storage: Storage) {
-    this.init()
-  }
-
-  /**
-   * Initializes our database.
-   */
-  async init() {
-    const storage = await this.storage.create()
-    this.database = storage
+    this.database_ready = this.storage.create()
   }
 
   /**
@@ -26,8 +19,9 @@ export class StorageService {
    * @param {string} key   The database key we want to set
    * @param {any}    value The value we want to set for the key
    */
-  public async set(key: string, value: any) {
-    await this.database.set(key, value)
+  public async set<T>(key: string, value: T): Promise<void> {
+    const database = await this.database_ready
+    await database.set(key, value)
   }
 
   /**
@@ -36,31 +30,24 @@ export class StorageService {
    *
    * @param {string} key The database key we want to query
    */
-  public async get(key: string) {
-    while (!this.database) {
-      await this.delay(10)
-    }
+  public async get<T>(key: string): Promise<T | null> {
+    const database = await this.database_ready
+    return await database.get(key)
+  }
 
-    return await this.database.get(key)
+  /**
+   * Removes a single value without disturbing preferences or unrelated data.
+   */
+  public async remove(key: string): Promise<void> {
+    const database = await this.database_ready
+    await database.remove(key)
   }
 
   /**
    * Clears everything in our database.
    */
   public async clear() {
-    while (!this.database) {
-      await this.delay(10)
-    }
-
-    await this.database.clear()
-  }
-
-  /**
-   * Delays for the given number of milliseconds before resolving.
-   *
-   * @param {number} milliseconds The amount of time to wait.
-   */
-  delay(milliseconds: number) {
-    return new Promise((resolve) => setTimeout(resolve, milliseconds))
+    const database = await this.database_ready
+    await database.clear()
   }
 }

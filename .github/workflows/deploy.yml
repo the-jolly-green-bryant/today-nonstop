@@ -35,8 +35,8 @@ jobs:
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
 
-      - name: Build production site
-        run: npm run build
+      - name: Run release quality gate
+        run: npm run check
 
       - name: Add single-page app fallback
         run: cp www/index.html www/404.html

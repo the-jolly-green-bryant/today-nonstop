@@ -20,6 +20,7 @@ for working with its story data.
 
 - Branching, paced dialog rendered as a message feed
 - Story, fast, and instant pacing modes
+- A formal in-game menu with persistent reading preferences
 - Conditional scenes and choices driven by inventory state
 - Persistent achievements, characters, and collectible items
 - 86 scenes, more than 2,000 paced story lines, and 130 branching choices
@@ -30,6 +31,7 @@ for working with its story data.
 - Accessible live-region narration and keyboard-friendly choices
 - Image, emote, delay, speaker, and restart commands
 - Local save-state replay through Ionic Storage
+- Installable web-app metadata and a reusable brand identity
 - Built-in story-data editor at `/editor`
 - Web and Android targets through Ionic and Capacitor
 
@@ -67,6 +69,7 @@ Open `http://localhost:4200` to play. The story editor is available at
 | `npm start`            | Start the local development server              |
 | `npm run build`        | Create an optimized production build in `www/`  |
 | `npm test`             | Run the unit test suite once in headless Chrome |
+| `npm run typecheck`    | Check application TypeScript without emitting   |
 | `npm run lint`         | Check TypeScript and Angular templates          |
 | `npm run format:check` | Verify repository formatting                    |
 | `npm run check`        | Run the complete local CI suite                 |

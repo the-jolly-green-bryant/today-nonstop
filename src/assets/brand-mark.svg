@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title description">
+  <title id="title">Today Nonstop brand mark</title>
+  <desc id="description">The letters T and N inside a warm red medieval seal.</desc>
+  <defs>
+    <linearGradient id="seal" x1="18" y1="10" x2="108" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ef784f"/>
+      <stop offset="1" stop-color="#bd3f28"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#seal)" d="M22 12h76c10 0 18 8 18 18v70c0 9-7 16-16 16H42c-17 0-30-13-30-30V22c0-6 4-10 10-10Z"/>
+  <path fill="none" stroke="#fff8e9" stroke-opacity=".28" stroke-width="4" d="M26 20h68c8 0 14 6 14 14v62c0 7-5 12-12 12H43c-13 0-23-10-23-23V26c0-3 3-6 6-6Z"/>
+  <path fill="#fff8e9" d="M35 38h59v12H72v44H58V50H35V38Zm48 17h12v39H83V55Z"/>
+</svg>

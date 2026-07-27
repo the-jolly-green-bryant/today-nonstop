@@ -1,7 +1,7 @@
 {
   "name": "today-nonstop",
-  "version": "1.2.0",
-  "description": "A dialog-driven, choose-your-own-adventure engine built with Ionic and Angular.",
+  "version": "1.3.0",
+  "description": "A medieval time-loop comedy told as an interactive mobile conversation.",
   "author": "Bryant James",
   "license": "MIT",
   "homepage": "https://today-nonstop.bryantjames.com/",
@@ -18,10 +18,11 @@
     "start": "ng serve",
     "build": "ng build --configuration production",
     "test": "ng test --watch=false --browsers=ChromeHeadless",
+    "typecheck": "tsc --noEmit --project tsconfig.app.json",
     "lint": "ng lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "npm run format:check && npm run lint && npm test && npm run build",
+    "check": "npm run format:check && npm run typecheck && npm run lint && npm test && npm run build",
     "sync:android": "npm run build && cap sync android"
   },
   "private": true,
