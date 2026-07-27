@@ -22,7 +22,10 @@ for working with its story data.
 - Story, fast, and instant pacing modes
 - Conditional scenes and choices driven by inventory state
 - Persistent achievements, characters, and collectible items
-- A complete loop-breaking ending with a replayable epilogue
+- 86 scenes, more than 2,000 paced story lines, and 130 branching choices
+- Two complete loop-breaking campaigns with replayable epilogues
+- The multi-life Thirteenth Bell mystery, whose clues persist across failed runs
+- Relationship arcs for Amy, Shady, Harold, Gilbert, and the Voice
 - Responsive phone presentation with full-screen mobile play
 - Accessible live-region narration and keyboard-friendly choices
 - Image, emote, delay, speaker, and restart commands
