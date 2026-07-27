@@ -1,17 +1,73 @@
 @use "../../../theme/variables" as *;
 
 .inventory {
-  &-title {
-    color: $ds-font-secondary;
-    font-size: 12px;
-    padding: $ds-vertical-padding-minimum $ds-vertical-padding-minimum
-      calc($ds-vertical-padding-minimum / 2);
+  padding: 24px 0 40px;
+
+  &-intro {
+    padding: 0 $ds-vertical-padding-minimum 24px;
+
+    h2 {
+      color: #29213d;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      margin: 4px 0 8px;
+    }
+
+    p {
+      color: $ds-font-secondary;
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .inventory-eyebrow {
+      color: #8a6470;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
   }
 
-  &-paragraph {
-    color: $ds-font-primary;
-    font-size: $ds-font-size;
-    padding: 0 $ds-vertical-padding-minimum;
+  &-title {
+    color: #8a6470;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    padding: 32px $ds-vertical-padding-minimum 12px;
+    text-transform: uppercase;
+  }
+
+  &-empty {
+    align-items: center;
+    border: 1px dashed rgb(69 54 95 / 18%);
+    border-radius: 18px;
+    color: $ds-font-secondary;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 0 $ds-vertical-padding-minimum;
+    padding: 26px 18px;
+    text-align: center;
+
+    ion-icon {
+      color: #8a6470;
+      font-size: 26px;
+    }
+
+    strong {
+      color: $ds-font-primary;
+      font-size: 14px;
+    }
+
+    span {
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    &.is-compact {
+      padding: 18px;
+    }
   }
 }
 
@@ -20,7 +76,7 @@
   position: relative;
 
   &-background {
-    border-radius: $ds-border-radius;
+    border-radius: 18px;
     bottom: 0;
     box-shadow: $ds-card-box-shadow;
     display: flex;
@@ -40,15 +96,15 @@
 
   &-title {
     align-items: center;
-    background: rgba(0, 0, 0, 0.5);
-    bottom: $ds-general-padding;
+    background: linear-gradient(transparent, rgb(20 17 26 / 88%));
+    bottom: 0;
     color: $ds-font-inverted;
     display: flex;
     font-size: 12px;
     font-weight: bold;
     justify-content: center;
     left: 0;
-    padding: 4px 0;
+    padding: 28px 8px 9px;
     position: absolute;
     right: 0;
     text-align: center;
@@ -74,7 +130,7 @@
   &-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: $ds-general-padding;
+    gap: 14px;
     padding: 0 $ds-vertical-padding-minimum;
 
     &.is-status-container {

@@ -1,13 +1,43 @@
-<ion-content>
-  <div class="splash-container" [routerLink]="['/game/tabs/main']">
-    <div class="splash-background">
-      <div class="splash-content">
-        <div class="splash-title">Half Baked</div>
+<ion-content [fullscreen]="true">
+  <main class="splash-container">
+    <div class="splash-background" aria-hidden="true"></div>
+    <div class="splash-shade" aria-hidden="true"></div>
 
-        <div class="splash-title">& Barely Kickin'</div>
+    <section class="splash-content" aria-labelledby="game-title">
+      <p class="splash-kicker">A story about terrible decisions</p>
+      <h1 id="game-title">Today<br />Nonstop</h1>
+      <p class="splash-subtitle">
+        Wake up. Make a choice. Die strangely. Remember enough to break the
+        loop.
+      </p>
+
+      <div class="splash-actions">
+        <ion-button
+          *ngIf="has_saved_game"
+          expand="block"
+          size="large"
+          (click)="continue_game()"
+        >
+          Continue the loop
+          <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button
+          expand="block"
+          size="large"
+          [fill]="has_saved_game ? 'outline' : 'solid'"
+          (click)="start_game()"
+        >
+          {{ has_saved_game ? "Begin again" : "Begin the story" }}
+        </ion-button>
       </div>
 
-      <div class="splash-footer">© Bryant James 2021</div>
-    </div>
-  </div>
+      <p class="splash-note">Headphones optional · Bad choices encouraged</p>
+    </section>
+
+    <footer class="splash-footer">
+      <span>An experiment by Bryant James</span>
+      <span>v1.1</span>
+    </footer>
+  </main>
 </ion-content>

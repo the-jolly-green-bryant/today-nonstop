@@ -1,0 +1,62 @@
+.game-header {
+  ion-toolbar {
+    --background: #fffdf8;
+    --border-color: rgb(57 44 76 / 10%);
+    --min-height: 64px;
+    --padding-start: 18px;
+    --padding-end: 8px;
+  }
+
+  ion-title {
+    padding-inline: 0;
+  }
+
+  &-kicker,
+  &-title {
+    display: block;
+  }
+
+  &-kicker {
+    color: #8a6470;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  &-title {
+    color: #29213d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-top: 2px;
+  }
+
+  ion-button {
+    --border-radius: 12px;
+    --color: #51465e;
+  }
+}
+
+.game-status {
+  align-items: center;
+  background: #f4f1ea;
+  border-bottom: 1px solid rgb(57 44 76 / 8%);
+  color: #77707e;
+  display: flex;
+  font-size: 10px;
+  font-weight: 700;
+  justify-content: space-between;
+  letter-spacing: 0.06em;
+  min-height: 28px;
+  padding: 0 20px;
+  text-transform: uppercase;
+
+  span {
+    align-items: center;
+    display: inline-flex;
+    gap: 5px;
+  }
+}

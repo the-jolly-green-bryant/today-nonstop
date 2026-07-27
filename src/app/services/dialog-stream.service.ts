@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core"
 import { DialogStream, DialogOption } from "../classes/dialog-stream"
 import { StorageService } from "./storage.service"
+import dialog_data from "../game-data/dialog.json"
 
 @Injectable({
   providedIn: "root",
@@ -8,6 +9,7 @@ import { StorageService } from "./storage.service"
 export class DialogStreamService {
   public dialog_stream: DialogStream = null
   public initialized = false
+  public speed_multiplier = 1
 
   constructor(private storage: StorageService) {
     this.dialog_stream = new DialogStream()
@@ -19,7 +21,7 @@ export class DialogStreamService {
    * @param {string} default_scene The identifier for our default scene
    */
   public async load_events(
-    default_scene: string,
+    default_scene = dialog_data.default_scene,
     force_reinitialization = false,
   ) {
     // If we're already initialized, this is good.
@@ -28,6 +30,7 @@ export class DialogStreamService {
     }
 
     this.dialog_stream = new DialogStream()
+    this.dialog_stream.speed_multiplier = this.speed_multiplier
     // await this.storage.clear()  // Uncomment to clear storage.
     const dialog_events = await this.storage.get(
       this.storage.event_stream_db_key,
@@ -84,5 +87,33 @@ export class DialogStreamService {
       this.storage.event_stream_db_key,
       this.dialog_stream.stream,
     )
+  }
+
+  get speed_label() {
+    if (this.speed_multiplier === 0) {
+      return "Instant"
+    }
+    if (this.speed_multiplier < 1) {
+      return "Fast"
+    }
+    return "Story pace"
+  }
+
+  cycle_speed() {
+    const speeds = [1, 0.35, 0]
+    const current = speeds.indexOf(this.speed_multiplier)
+    this.speed_multiplier = speeds[(current + 1) % speeds.length]
+    this.dialog_stream.speed_multiplier = this.speed_multiplier
+  }
+
+  async start_new_game() {
+    await this.storage.clear()
+    this.initialized = false
+    await this.load_events(dialog_data.default_scene, true)
+  }
+
+  async has_saved_game() {
+    const events = await this.storage.get(this.storage.event_stream_db_key)
+    return Array.isArray(events) && events.length > 0
   }
 }

@@ -19,10 +19,14 @@
       </div>
 
       <div class="character-detail-description">
-        {{ game_data.characters[identifier].description }}
+        {{
+          game_data.characters[identifier].description ||
+            "Some memories have not come back into focus yet."
+        }}
       </div>
 
       <div class="character-detail-discoverable-container">
+        <div class="character-detail-section-title">What you remember</div>
         <ng-container
           *ngFor="
             let item of game_data.characters[identifier].discoverables

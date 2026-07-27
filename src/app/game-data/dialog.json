@@ -87,7 +87,7 @@
       "name": "Doppelganger",
       "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/doppelganger+(1).jpeg",
       "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
-      "description": "A monsterous creature intent on ending you.",
+      "description": "A monstrous creature intent on ending you.",
       "discoverables": {
         "lives_lived": {
           "description": "Is tied somehow to your time loop nightmare.",
@@ -450,6 +450,14 @@
       "is_status": false,
       "hidden": true,
       "persists": true
+    },
+    "escaped_loop": {
+      "name": "Loops Broken",
+      "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/sky_vortex+(1).jpg",
+      "always_show_chip": true,
+      "is_status": true,
+      "hidden": false,
+      "persists": true
     }
   },
   "keyed_images": {
@@ -523,7 +531,7 @@
         "[[SET_SPEAKER]]player",
         "**grumble**",
         "What day is it?",
-        "[[EMOTE]][Your stomach demands attentions.]"
+        "[[EMOTE]][Your stomach demands attention.]"
       ],
       "skip_to_if": {
         "finished_once": {
@@ -976,7 +984,7 @@
         "[[SHOW_KEYED_IMAGE]]abduction_bound",
         "[[SET_SPEAKER]]player",
         "...",
-        "[[EMOTE]][You futily struggle against your bonds.]",
+        "[[EMOTE]][You futilely struggle against your bonds.]",
         "[[SET_SPEAKER]]player",
         "!!!",
         "[[SET_SPEAKER]]evil_player",
@@ -1076,7 +1084,7 @@
     "1075__TOURNEY": {
       "comment": "Leads to 1071 (registration) but with additional flavor.",
       "speaker": "player",
-      "dialog": ["[[ADD_ITEM]]is_nude"],
+      "dialog": ["[[ADD_ITEM]]was_nude"],
       "next": {
         "1071__TOURNEY": {
           "title": "Indeed I am!",
@@ -1094,7 +1102,7 @@
       "comment": "An archery accident gone bad kills you. (roving)",
       "speaker": "player",
       "dialog": [
-        "[[EMOTE]][You make your way down to the tournamnet field.]",
+        "[[EMOTE]][You make your way down to the tournament field.]",
         "[[SHOW_KEYED_IMAGE]]tourney_grounds",
         "[[SET_SPEAKER]]announcer",
         "Welcome to the 69th annual Hung--",
@@ -1160,7 +1168,7 @@
         "[[SHOW_KEYED_IMAGE]]tourney_grounds",
         "[[SET_SPEAKER]]shady",
         "About time you made it.",
-        "Ready to relive last year's embarassment?",
+        "Ready to relive last year's embarrassment?",
         "[[SET_SPEAKER]]evil_player",
         "Just ignore him.",
         "He's not worth it.",
@@ -1201,7 +1209,7 @@
         "[[SET_SPEAKER]]harold",
         "Let's get you signed up.",
         "We offer two types of entry.",
-        "The frst tourney involves distance shooting.",
+        "The first tourney involves distance shooting.",
         "[[SET_SPEAKER]]evil_player",
         "Oh, that sounds promising.",
         "[[SET_SPEAKER]]harold",
@@ -1489,7 +1497,7 @@
         "No.",
         "[[DELAY]]2.5",
         "It's changing!",
-        "[[EMOTE]][The child changes form, its features becoming elongated and monsterous.]",
+        "[[EMOTE]][The child changes form, its features becoming elongated and monstrous.]",
         "[[SHOW_KEYED_IMAGE]]doppelganger_mummy",
         "[[SET_SPEAKER]]doppelganger",
         "[[FLASH_KEYED_IMAGE]]reaction_doppelganger",
@@ -2095,7 +2103,7 @@
           "dialog": []
         },
         "1030__TOURNEY": {
-          "title": "Let's undress for the fair.",
+          "title": "Get ready for the tourney.",
           "dialog": []
         },
         "1040__INVESTIGATE": {
@@ -2444,7 +2452,7 @@
         "What?",
         "Wait!",
         "Where are you going?",
-        "[[EMOTE]][You scurry to across the field, making your way towards a nearby watchtower.]",
+        "[[EMOTE]][You scurry across the field, making your way towards a nearby watchtower.]",
         "[[SHOW_KEYED_IMAGE]]tourney_guardian",
         "[[SET_SPEAKER]]evil_player",
         "You're not going to be able to get by the tower guardian.",
@@ -2604,58 +2612,151 @@
       "show_in_editor": true
     },
     "2000__START": {
-      "comment": "Coming Soon",
+      "comment": "The loop finally breaks.",
       "speaker": "player",
       "dialog": [
+        "[[ADD_ITEM]]escaped_loop",
         "[[SHOW_KEYED_IMAGE]]sky_vortex",
-        "[[EMOTE]]The world around you swirls.",
+        "[[EMOTE]][The world folds inward, carrying every remembered life with it.]",
         "[[SET_SPEAKER]]gamedev",
-        "You have done it.",
-        "You have broken the constraints of your mortal bounds.",
+        "Well.",
+        "You actually did it.",
         "[[SET_SPEAKER]]evil_player",
-        "Is that what we did?",
+        "Please sound more surprised.",
         "[[SET_SPEAKER]]gamedev",
-        "Unfortunately, that which comes next has yet to be written.",
-        "There is no further you can go.",
-        "But do come again.",
+        "You learned the rules.",
+        "Then you made a choice the rules could not predict.",
+        "[[EMOTE]][The thunder stops. For the first time, nothing resets.]",
+        "[[SET_SPEAKER]]player",
+        "So that's it?",
+        "We won?",
+        "[[SET_SPEAKER]]gamedev",
+        "You survived today.",
+        "Tomorrow is a different game.",
         "[[DELAY]]2.5",
         "[[SET_SPEAKER]]evil_player",
-        "Well, that was a thing we did...",
-        "So how about it, buddy.",
-        "Want to ride the Carousel of Nonsense one more time?"
+        "Hold on.",
+        "What happens to me when we leave the loop?"
+      ],
+      "next": {
+        "2003__EPILOGUE": {
+          "title": "You're part of me. Come on.",
+          "dialog": [
+            "[[SET_SPEAKER]]player",
+            "You're part of me.",
+            "An exhausting, deeply unhelpful part.",
+            "But you're coming with me."
+          ]
+        },
+        "2004__EPILOGUE": {
+          "title": "Maybe we both deserve some quiet.",
+          "dialog": [
+            "[[SET_SPEAKER]]player",
+            "Maybe we both deserve some quiet.",
+            "You can rest now."
+          ]
+        }
+      },
+      "show_in_editor": true
+    },
+    "2003__EPILOGUE": {
+      "comment": "The player accepts the voice and walks into tomorrow.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]evil_player",
+        "...",
+        "You mean that?",
+        "[[SET_SPEAKER]]player",
+        "Don't make me regret it.",
+        "[[SET_SPEAKER]]evil_player",
+        "No promises.",
+        "[[EMOTE]][Somewhere beyond the vortex, morning birds begin to sing.]",
+        "[[SET_SPEAKER]]player",
+        "Those had better be normal birds.",
+        "[[SET_SPEAKER]]evil_player",
+        "Only one way to find out."
+      ],
+      "next": {
+        "2005__EPILOGUE": {
+          "title": null,
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "2004__EPILOGUE": {
+      "comment": "The player releases the voice and walks into tomorrow alone.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]evil_player",
+        "Quiet sounds nice.",
+        "[[DELAY]]2.5",
+        "Hey, buddy?",
+        "[[SET_SPEAKER]]player",
+        "Yeah?",
+        "[[SET_SPEAKER]]evil_player",
+        "Try not to die before breakfast.",
+        "[[SET_SPEAKER]]player",
+        "I'll do my best.",
+        "[[EMOTE]][The voice fades. Somewhere beyond the vortex, morning birds begin to sing.]"
+      ],
+      "next": {
+        "2005__EPILOGUE": {
+          "title": null,
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "2005__EPILOGUE": {
+      "comment": "Final ending and replay choice.",
+      "speaker": "player",
+      "dialog": [
+        "[[SHOW_KEYED_IMAGE]]intro_not_medieval_rain",
+        "[[EMOTE]][Dawn arrives without thunder.]",
+        "[[SET_SPEAKER]]gamedev",
+        "THE END",
+        "You broke the loop.",
+        "You kept the memories.",
+        "And, against every reasonable expectation, you made it to tomorrow."
       ],
       "next": {
         "2001__RESTART": {
-          "title": "I suspect I don't have a choice.",
+          "title": "Remember everything and play again.",
           "dialog": []
         },
         "2002__RESTART": {
-          "title": "Let's do this!",
+          "title": "Start a completely fresh story.",
           "dialog": []
         }
       },
       "show_in_editor": true
     },
     "2001__RESTART": {
-      "comment": "Forced",
+      "comment": "Replay with persistent memories.",
       "speaker": "player",
       "dialog": [
         "[[SET_SPEAKER]]player",
-        "I suspect I don't really have a choice in the matter.",
+        "One more loop.",
+        "This time, we know the way out.",
         "[[SET_SPEAKER]]evil_player",
-        "Right again!",
-        "[[EMOTE]][The world fades to black.]",
-        "[[RESTART]]"
+        "And at least twelve ways not to go.",
+        "[[EMOTE]][The world fades to black.]"
       ],
-      "next": {},
+      "next": {
+        "1012__START": {
+          "title": null,
+          "dialog": []
+        }
+      },
       "show_in_editor": false
     },
     "2002__RESTART": {
-      "comment": "Optional",
+      "comment": "Return to the opening.",
       "speaker": "player",
       "dialog": [
         "[[SET_SPEAKER]]player",
-        "Let's do this!",
+        "Let's begin again.",
         "Not like I'd forget the eggs twice in a row.",
         "...",
         "[[DELAY]]2.5",

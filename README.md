@@ -19,8 +19,12 @@ for working with its story data.
 ## Highlights
 
 - Branching, paced dialog rendered as a message feed
+- Story, fast, and instant pacing modes
 - Conditional scenes and choices driven by inventory state
 - Persistent achievements, characters, and collectible items
+- A complete loop-breaking ending with a replayable epilogue
+- Responsive phone presentation with full-screen mobile play
+- Accessible live-region narration and keyboard-friendly choices
 - Image, emote, delay, speaker, and restart commands
 - Local save-state replay through Ionic Storage
 - Built-in story-data editor at `/editor`
