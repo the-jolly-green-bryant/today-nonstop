@@ -118,6 +118,33 @@ describe("story data", () => {
     expect(dialogData.items.unmade_tomorrow.persists).toBeTrue()
   })
 
+  it("gives every opening route a substantial narrative investigation", () => {
+    const openingRoutes = [
+      "1020__FAKE_WORLD",
+      "1030__TOURNEY",
+      "1040__INVESTIGATE",
+      "1050__CHICKEN",
+    ]
+
+    for (const sceneId of openingRoutes) {
+      expect(dialogData.dialog[sceneId].dialog.length)
+        .withContext(`${sceneId} should establish its investigation`)
+        .toBeGreaterThanOrEqual(10)
+    }
+
+    const openingCampaign = Object.entries(dialogData.dialog)
+      .filter(([sceneId]) => /^(10|11)\d\d__/.test(sceneId))
+      .flatMap(([, scene]) => scene.dialog ?? [])
+      .join(" ")
+
+    expect(openingCampaign).toContain("The bell preserves it.")
+    expect(openingCampaign).toContain("Everyone you left at sunset.")
+    expect(openingCampaign).toContain("tomorrow's date")
+    expect(openingCampaign).not.toContain("wrong fandom")
+    expect(openingCampaign).not.toContain("PowerPoint")
+    expect(openingCampaign).not.toContain("Groundhog Day")
+  })
+
   it("contains a complete ending rather than a placeholder", () => {
     expect(dialogData.dialog["2005__EPILOGUE"]).toBeDefined()
     expect(dialogData.items.escaped_loop).toBeDefined()
