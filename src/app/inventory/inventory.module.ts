@@ -9,14 +9,13 @@ import { InventoryPageRoutingModule } from "./inventory-routing.module"
 import { InventoryComponent } from "../components/inventory/inventory.component"
 
 @NgModule({
-    imports: [
-        IonicModule,
-        CommonModule,
-        FormsModule,
-        ExploreContainerComponentModule,
-        InventoryPageRoutingModule,
-    ],
-    declarations: [InventoryPage, InventoryComponent],
-    entryComponents: [InventoryComponent],
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    ExploreContainerComponentModule,
+    InventoryPageRoutingModule,
+  ],
+  declarations: [InventoryPage, InventoryComponent],
 })
 export class InventoryPageModule {}

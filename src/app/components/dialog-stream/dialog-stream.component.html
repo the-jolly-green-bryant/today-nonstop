@@ -1,92 +1,104 @@
 <div class="dialog-stream">
-    <div
-        class="dialog-stream-scroller"
-        id="dialog-stream-scroller"
-    >
-        <ng-container *ngIf="dialog_stream_service.initialized">
-            <ng-container *ngFor="let item of dialog_stream_service.dialog_stream.feed; let i = index">
-                <div
-                    class="dialog-stream-item"
-                    id="dialog-stream-item-{{i}}"
-                    [ngClass]="{
-                        'is-player': (item.speaker && item.speaker.identifier == 'player'),
-                        'is-media': (item.command == 'SHOW_IMAGE' || item.command == 'SET_SPEAKER'),
-                        'is-full': (item.command == 'EMOTE'),
-                        'is-empty': (item.command == 'DELAY' || item.command == 'ADD_ITEM' || item.command == 'CLEAR_INVENTORY')
-                    }"
-                >
-                    <div class="dialog-stream-item-diagnostics">
-                        RAW: {{ item.raw }}
-                        <br/>
-                        CMD: {{ item.command }}
-                        <br/>
-                        ARG: {{ item.argument }}
-                        <br/>
-                        SPEAKER: {{ item.speaker ? item.speaker.identifier : null }}
-                    </div>
-                    <div class="dialog-stream-item-inner">
-                        <ng-container *ngIf="item.command == 'SHOW_TEXT'">
-                            <div class="dialog-stream-item-text">
-                                <div class="dialog-stream-item-text-content">
-                                    {{ item.argument }}
-                                </div>
-                            </div>
-                        </ng-container>
-
-                        <ng-container *ngIf="item.command == 'SHOW_IMAGE'">
-                            <div class="dialog-stream-item-image">
-                                <img src="{{ item.argument }}" />
-                            </div>
-                        </ng-container>
-
-                        <ng-container *ngIf="item.command == 'FLASH_IMAGE'">
-                            <div class="dialog-stream-item-image is-small">
-                                <img src="{{ item.argument }}" />
-                            </div>
-                        </ng-container>
-
-                        <ng-container *ngIf="item.command == 'EMOTE'">
-                            <div class="dialog-stream-item-emote">
-                                {{ item.argument }}
-                            </div>
-                        </ng-container>
-
-                        <ng-container *ngIf="item.command == 'SET_SPEAKER'">
-                            <div class="dialog-stream-item-speaker">
-                                <div class="dialog-stream-item-speaker-avatar">
-                                    <img src="{{ item.speaker.avatar }}" />
-                                </div>
-
-                                <div class="dialog-stream-item-speaker-title-container">
-                                    <div class="dialog-stream-item-speaker-title">
-                                        {{ item.speaker.name }}
-                                    </div>
-                                </div>
-                            </div>
-                        </ng-container>
-                    </div>
+  <div class="dialog-stream-scroller" id="dialog-stream-scroller">
+    <ng-container *ngIf="dialog_stream_service.initialized">
+      <ng-container
+        *ngFor="
+          let item of dialog_stream_service.dialog_stream.feed;
+          let i = index
+        "
+      >
+        <div
+          class="dialog-stream-item"
+          id="dialog-stream-item-{{ i }}"
+          [ngClass]="{
+            'is-player': item.speaker && item.speaker.identifier === 'player',
+            'is-media':
+              item.command === 'SHOW_IMAGE' || item.command === 'SET_SPEAKER',
+            'is-full': item.command === 'EMOTE',
+            'is-empty':
+              item.command === 'DELAY' ||
+              item.command === 'ADD_ITEM' ||
+              item.command === 'CLEAR_INVENTORY',
+          }"
+        >
+          <div class="dialog-stream-item-diagnostics">
+            RAW: {{ item.raw }}
+            <br />
+            CMD: {{ item.command }}
+            <br />
+            ARG: {{ item.argument }}
+            <br />
+            SPEAKER: {{ item.speaker ? item.speaker.identifier : null }}
+          </div>
+          <div class="dialog-stream-item-inner">
+            <ng-container *ngIf="item.command === 'SHOW_TEXT'">
+              <div class="dialog-stream-item-text">
+                <div class="dialog-stream-item-text-content">
+                  {{ item.argument }}
                 </div>
+              </div>
             </ng-container>
 
-            <div
-                class="dialog-stream-option-container"
-                id="dialog-stream-option-container"
-            >
-                <ng-container *ngFor="let option of dialog_stream_service.dialog_stream.options">
-                    <div
-                        class="dialog-stream-option"
-                        (click)="dialog_stream_service.select_option(option)"
-                    >
-                        <div class="dialog-stream-option-title">
-                            {{ option.title }}
-                        </div>
-                    
-                        <div class="dialog-stream-option-icon">
-                            <ion-icon name="arrow-redo-outline"></ion-icon>
-                        </div>
-                    </div>
-                </ng-container>
+            <ng-container *ngIf="item.command === 'SHOW_IMAGE'">
+              <div class="dialog-stream-item-image">
+                <img src="{{ item.argument }}" alt="" />
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="item.command === 'FLASH_IMAGE'">
+              <div class="dialog-stream-item-image is-small">
+                <img src="{{ item.argument }}" alt="" />
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="item.command === 'EMOTE'">
+              <div class="dialog-stream-item-emote">
+                {{ item.argument }}
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="item.command === 'SET_SPEAKER'">
+              <div class="dialog-stream-item-speaker">
+                <div class="dialog-stream-item-speaker-avatar">
+                  <img
+                    src="{{ item.speaker.avatar }}"
+                    alt="{{ item.speaker.name }}"
+                  />
+                </div>
+
+                <div class="dialog-stream-item-speaker-title-container">
+                  <div class="dialog-stream-item-speaker-title">
+                    {{ item.speaker.name }}
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+
+      <div
+        class="dialog-stream-option-container"
+        id="dialog-stream-option-container"
+      >
+        <ng-container
+          *ngFor="let option of dialog_stream_service.dialog_stream.options"
+        >
+          <button
+            type="button"
+            class="dialog-stream-option"
+            (click)="dialog_stream_service.select_option(option)"
+          >
+            <div class="dialog-stream-option-title">
+              {{ option.title }}
             </div>
+
+            <div class="dialog-stream-option-icon">
+              <ion-icon name="arrow-redo-outline"></ion-icon>
+            </div>
+          </button>
         </ng-container>
-    </div>
+      </div>
+    </ng-container>
+  </div>
 </div>

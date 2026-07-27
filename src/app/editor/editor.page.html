@@ -1,461 +1,528 @@
 <ion-content>
-    <div class="editor">
-        <div class="editor-section" *ngIf="tab == 'settings'">
-            <div class="editor-section-title">
-                Default Scene
+  <div class="editor">
+    <div class="editor-section" *ngIf="tab === 'settings'">
+      <div class="editor-section-title">Default Scene</div>
+
+      <div class="editor-section">
+        <div class="editor-input">
+          <!-- START - Scene Selection Dropdown -->
+          <select [(ngModel)]="game_data.default_scene">
+            <option
+              *ngFor="let dialog_option of game_data.dialog | keyvalue"
+              [value]="dialog_option.key"
+              [selected]="dialog_option.key === game_data.default_scene"
+            >
+              {{ dialog_option.key }} - {{ dialog_option.value.comment }}
+            </option>
+          </select>
+          <!-- END - Scene Selection Dropdown -->
+        </div>
+      </div>
+    </div>
+
+    <div class="editor-section" *ngIf="tab === 'characters'">
+      <div class="editor-section-title">Characters</div>
+
+      <ng-container *ngFor="let character of game_data.characters | keyvalue">
+        <div class="editor-section">
+          <div class="editor-input">
+            <input
+              value="{{ character.key }}"
+              placeholder="Character Key"
+              (change)="change_key(game_data.characters, character.key, $event.target.value);"
+            />
+          </div>
+
+          <div class="editor-input">
+            <input [(ngModel)]="character.value.avatar" placeholder="Avatar" />
+          </div>
+
+          <div class="editor-input">
+            <input [(ngModel)]="character.value.name" placeholder="Name" />
+          </div>
+
+          <div class="editor-input">
+            <input
+              [(ngModel)]="character.value.description"
+              placeholder="Description"
+            />
+          </div>
+
+          <div class="editor-input">
+            <label>
+              <input [(ngModel)]="character.value.hidden" type="checkbox" />
+              Hidden
+            </label>
+          </div>
+
+          <div class="editor-section">
+            <div class="editor-section-title">Discoverables</div>
+
+            <ng-container
+              *ngFor="let discoverable of character.value.discoverables | keyvalue"
+            >
+              <div class="editor-section">
+                <div class="editor-input">
+                  <!-- START - Scene Selection Dropdown -->
+                  <select
+                    [value]="discoverable.key"
+                    (change)="change_key(character.value.discoverables, discoverable.key, $event.target.value);"
+                  >
+                    <option
+                      *ngFor="let item of game_data.items | keyvalue"
+                      [value]="item.key"
+                      [selected]="item.key === discoverable.key"
+                    >
+                      {{ item.key }} - {{ item.value.name }}
+                    </option>
+                  </select>
+                  <!-- END - Scene Selection Dropdown -->
+                </div>
+
+                <div class="editor-input">
+                  <input [(ngModel)]="discoverable.value.description" />
+                </div>
+
+                <div class="editor-input">
+                  <input
+                    [(ngModel)]="discoverable.value.minimum_quantity"
+                    type="number"
+                  />
+                </div>
+
+                <div class="editor-button-container">
+                  <div
+                    class="editor-button"
+                    (click)="remove_discoverable_from_character(character.value, discoverable.key)"
+                  >
+                    Remove Discoverable
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <div class="editor-button-container">
+              <div
+                class="editor-button"
+                (click)="add_discoverable_to_character(character.value)"
+              >
+                Add Discoverable
+              </div>
+            </div>
+          </div>
+
+          <div class="editor-button-container">
+            <div
+              class="editor-button"
+              (click)="remove_character(character.key)"
+            >
+              Remove Character
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="editor-button-container">
+        <div class="editor-button" (click)="add_character()">Add Character</div>
+      </div>
+    </div>
+
+    <div class="editor-section" *ngIf="tab === 'items'">
+      <div class="editor-section-title">Items</div>
+
+      <ng-container *ngFor="let item of game_data.items | keyvalue">
+        <div class="editor-section">
+          <div class="editor-input">
+            <input
+              value="{{ item.key }}"
+              placeholder="Item Key"
+              (change)="change_key(game_data.items, item.key, $event.target.value);"
+            />
+          </div>
+
+          <div class="editor-input">
+            <input [(ngModel)]="item.value.avatar" placeholder="Avatar" />
+          </div>
+
+          <div class="editor-input">
+            <input [(ngModel)]="item.value.name" placeholder="Name" />
+          </div>
+
+          <div class="editor-input">
+            <label>
+              <input [(ngModel)]="item.value.hidden" type="checkbox" />
+              Hidden
+            </label>
+          </div>
+
+          <div class="editor-input">
+            <label>
+              <input [(ngModel)]="item.value.persists" type="checkbox" />
+              Persists
+            </label>
+          </div>
+
+          <div class="editor-input">
+            <label>
+              <input
+                [(ngModel)]="item.value.always_show_chip"
+                type="checkbox"
+              />
+              Always Show Chip
+            </label>
+          </div>
+
+          <div class="editor-input">
+            <label>
+              <input [(ngModel)]="item.value.is_status" type="checkbox" />
+              Is Status
+            </label>
+          </div>
+
+          <div class="editor-button-container">
+            <div class="editor-button" (click)="remove_item(item.key)">
+              Remove Item
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="editor-button-container">
+        <div class="editor-button" (click)="add_item()">Add Item</div>
+      </div>
+    </div>
+
+    <div class="editor-section" *ngIf="tab === 'images'">
+      <div class="editor-section-title">Keyed Images</div>
+
+      <ng-container
+        *ngFor="let image of game_data.keyed_images | keyvalue; trackBy:track_by_fn"
+      >
+        <div class="editor-section">
+          <div class="editor-input">
+            <input
+              value="{{ image.key }}"
+              placeholder="Image Key"
+              (change)="change_key(game_data.keyed_images, image.key, $event.target.value);"
+            />
+          </div>
+
+          <div class="editor-input">
+            <input
+              [(ngModel)]="game_data.keyed_images[image.key]"
+              placeholder="URL"
+            />
+          </div>
+
+          <div class="editor-button-container">
+            <div class="editor-button" (click)="remove_image(image.key)">
+              Remove Image
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="editor-button-container">
+        <div class="editor-button" (click)="add_image()">Add Image</div>
+      </div>
+    </div>
+
+    <div class="editor-section" *ngIf="tab === 'dialog'">
+      <div class="editor-section-title">Dialog</div>
+
+      <ng-container *ngFor="let dialog of game_data.dialog | keyvalue">
+        <div class="editor-section">
+          <div class="editor-input">
+            <input
+              value="{{ dialog.key }}"
+              placeholder="Dialog Key"
+              (change)="change_key(game_data.dialog, dialog.key, $event.target.value);"
+            />
+          </div>
+
+          <div class="editor-input">
+            <input [(ngModel)]="dialog.value.comment" placeholder="Comment" />
+          </div>
+
+          <div class="editor-input">
+            <!-- START - Scene Selection Dropdown -->
+            <select [(ngModel)]="dialog.value.speaker">
+              <option
+                *ngFor="let character of game_data.characters | keyvalue"
+                [value]="character.key"
+                [selected]="character.key === dialog.value.speaker"
+              >
+                {{ character.key }}
+              </option>
+            </select>
+            <!-- END - Scene Selection Dropdown -->
+          </div>
+
+          <div
+            class="editor-text-button"
+            (click)="dialog.value.show_in_editor = !dialog.value.show_in_editor"
+          >
+            {{ dialog.value.show_in_editor ? 'Hide' : 'Show' }}
+          </div>
+
+          <ng-container *ngIf="dialog.value.show_in_editor">
+            <div class="editor-section">
+              <div class="editor-section-title">Dialog</div>
+
+              <ng-container
+                *ngFor="let line of dialog.value.dialog; index as i; trackBy:track_by_fn"
+              >
+                <div class="editor-input">
+                  <input
+                    [(ngModel)]="dialog.value.dialog[i]"
+                    placeholder="Dialog Line"
+                  />
+
+                  <div
+                    class="editor-button"
+                    (click)="dialog.value.dialog.splice(i, 1);"
+                  >
+                    x
+                  </div>
+                </div>
+
+                <!-- TODO - Remove Dialog Button -->
+              </ng-container>
+
+              <div class="editor-button-container">
+                <div
+                  class="editor-button"
+                  (click)="dialog.value.dialog.push('');"
+                >
+                  Add Dialog
+                </div>
+              </div>
             </div>
 
             <div class="editor-section">
-                <div class="editor-input">
+              <div class="editor-section-title">Skip To If</div>
+
+              <ng-container
+                *ngFor="let skip_to_if of dialog.value.skip_to_if | keyvalue"
+              >
+                <div class="editor-section">
+                  <div class="editor-input">
                     <!-- START - Scene Selection Dropdown -->
-                    <select [(ngModel)]="game_data.default_scene">
-                        <option
-                            *ngFor="let dialog_option of game_data.dialog | keyvalue"
-                            [value]="dialog_option.key"
-                            [selected]="dialog_option.key == game_data.default_scene"
-                        >
-                            {{ dialog_option.key }} - {{ dialog_option.value.comment }}
-                        </option>
+                    <select
+                      [value]="skip_to_if.key"
+                      (change)="change_key(dialog.value.skip_to_if, skip_to_if.key, $event.target.value);"
+                    >
+                      <option
+                        *ngFor="let item of game_data.items | keyvalue"
+                        [value]="item.key"
+                        [selected]="item.key === skip_to_if.key"
+                      >
+                        {{ item.key }} - {{ item.value.name }}
+                      </option>
                     </select>
                     <!-- END - Scene Selection Dropdown -->
+                  </div>
+
+                  <div class="editor-input">
+                    <!-- START - Scene Selection Dropdown -->
+                    <select [(ngModel)]="skip_to_if.value.target">
+                      <option
+                        *ngFor="let dialog of game_data.dialog | keyvalue"
+                        [value]="dialog.key"
+                        [selected]="dialog.key === skip_to_if.value.target"
+                      >
+                        {{ dialog.key }} - {{ dialog.value.comment }}
+                      </option>
+                    </select>
+                    <!-- END - Scene Selection Dropdown -->
+                  </div>
+
+                  <div class="editor-input">
+                    <select [(ngModel)]="skip_to_if.value.consumes_item">
+                      <option [value]="false">Doesn't Consume Item</option>
+                      <option [value]="true">Consumes Item</option>
+                    </select>
+                  </div>
+
+                  <div class="editor-input">
+                    <input
+                      [(ngModel)]="skip_to_if.value.minimum_quantity"
+                      type="number"
+                    />
+                  </div>
+
+                  <div class="editor-button-container">
+                    <div
+                      class="editor-button"
+                      (click)="remove_skiptoif_from_dialog(dialog.value, skip_to_if.key)"
+                    >
+                      Remove Skip-To-If
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </div>
+              </ng-container>
 
-        <div class="editor-section" *ngIf="tab == 'characters'">
-            <div class="editor-section-title">
-                Characters
+              <div class="editor-button-container">
+                <div
+                  class="editor-button"
+                  (click)="add_skiptoif_to_dialog(dialog.value)"
+                >
+                  Add Skip-To-If
+                </div>
+              </div>
             </div>
 
-            <ng-container *ngFor="let character of game_data.characters | keyvalue">
+            <div class="editor-section">
+              <div class="editor-section-title">Next</div>
+
+              <ng-container *ngFor="let next of dialog.value.next | keyvalue">
                 <div class="editor-section">
-                    <div class="editor-input">
-                        <input value="{{ character.key }}" placeholder="Character Key" (change)="change_key(game_data.characters, character.key, $event.target.value);" />
-                    </div>
+                  <div class="editor-input">
+                    <!-- START - Scene Selection Dropdown -->
+                    <select
+                      [value]="next.key"
+                      (change)="change_key(dialog.value.next, next.key, $event.target.value);"
+                    >
+                      <option
+                        *ngFor="let dialog of game_data.dialog | keyvalue"
+                        [value]="dialog.key"
+                        [selected]="dialog.key === next.key"
+                      >
+                        {{ dialog.key }} - {{ dialog.value.comment }}
+                      </option>
+                    </select>
+                    <!-- END - Scene Selection Dropdown -->
+                  </div>
 
-                    <div class="editor-input">
-                        <input [(ngModel)]="character.value.avatar" placeholder="Avatar" />
-                    </div>
+                  <div class="editor-input">
+                    <input [(ngModel)]="next.value.title" placeholder="Title" />
+                  </div>
 
-                    <div class="editor-input">
-                        <input [(ngModel)]="character.value.name" placeholder="Name" />
-                    </div>
+                  <div class="editor-section">
+                    <div class="editor-section-title">Dialog</div>
 
-                    <div class="editor-input">
-                        <input [(ngModel)]="character.value.description" placeholder="Description" />
-                    </div>
+                    <ng-container
+                      *ngFor="let line of next.value.dialog; index as i; trackBy:track_by_fn"
+                    >
+                      <div class="editor-input">
+                        <input
+                          [(ngModel)]="next.value.dialog[i]"
+                          placeholder="Dialog Line"
+                        />
 
-                    <div class="editor-input">
-                        <label>
-                            <input [(ngModel)]="character.value.hidden" type="checkbox" />
-                            Hidden
-                        </label>
-                    </div>
-
-                    <div class="editor-section">
-                        <div class="editor-section-title">
-                            Discoverables
+                        <div
+                          class="editor-button"
+                          (click)="next.value.dialog.splice(i, 1);"
+                        >
+                          x
                         </div>
-
-                        <ng-container *ngFor="let discoverable of character.value.discoverables | keyvalue">
-                            <div class="editor-section">
-                                <div class="editor-input">
-                                    <!-- START - Scene Selection Dropdown -->
-                                    <select [value]="discoverable.key" (change)="change_key(character.value.discoverables, discoverable.key, $event.target.value);">
-                                        <option
-                                            *ngFor="let item of game_data.items | keyvalue"
-                                            [value]="item.key"
-                                            [selected]="item.key == discoverable.key"
-                                        >
-                                            {{ item.key }} - {{ item.value.name }}
-                                        </option>
-                                    </select>
-                                    <!-- END - Scene Selection Dropdown -->
-                                </div>
-
-                                <div class="editor-input">
-                                    <input [(ngModel)]="discoverable.value.description" />
-                                </div>
-
-                                <div class="editor-input">
-                                    <input [(ngModel)]="discoverable.value.minimum_quantity" type="number" />
-                                </div>
-
-                                <div class="editor-button-container">
-                                    <div class="editor-button" (click)="remove_discoverable_from_character(character.value, discoverable.key)">
-                                        Remove Discoverable
-                                    </div>
-                                </div>
-                            </div>
-                        </ng-container>
-
-                        <div class="editor-button-container">
-                            <div class="editor-button" (click)="add_discoverable_to_character(character.value)">
-                                Add Discoverable
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="editor-button-container">
-                        <div class="editor-button" (click)="remove_character(character.key)">
-                            Remove Character
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
-
-            <div class="editor-button-container">
-                <div class="editor-button" (click)="add_character()">
-                    Add Character
-                </div>
-            </div>
-        </div>
-
-        <div class="editor-section" *ngIf="tab == 'items'">
-            <div class="editor-section-title">
-                Items
-            </div>
-
-            <ng-container *ngFor="let item of game_data.items | keyvalue">
-                <div class="editor-section">
-                    <div class="editor-input">
-                        <input value="{{ item.key }}" placeholder="Item Key" (change)="change_key(game_data.items, item.key, $event.target.value);" />
-                    </div>
-
-                    <div class="editor-input">
-                        <input [(ngModel)]="item.value.avatar" placeholder="Avatar" />
-                    </div>
-
-                    <div class="editor-input">
-                        <input [(ngModel)]="item.value.name" placeholder="Name" />
-                    </div>
-
-                    <div class="editor-input">
-                        <label>
-                            <input [(ngModel)]="item.value.hidden" type="checkbox" />
-                            Hidden
-                        </label>
-                    </div>
-
-                    <div class="editor-input">
-                        <label>
-                            <input [(ngModel)]="item.value.persists" type="checkbox" />
-                            Persists
-                        </label>
-                    </div>
-
-                    <div class="editor-input">
-                        <label>
-                            <input [(ngModel)]="item.value.always_show_chip" type="checkbox" />
-                            Always Show Chip
-                        </label>
-                    </div>
-
-                    <div class="editor-input">
-                        <label>
-                            <input [(ngModel)]="item.value.is_status" type="checkbox" />
-                            Is Status
-                        </label>
-                    </div>
-
-                    <div class="editor-button-container">
-                        <div class="editor-button" (click)="remove_item(item.key)">
-                            Remove Item
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
-
-            <div class="editor-button-container">
-                <div class="editor-button" (click)="add_item()">
-                    Add Item
-                </div>
-            </div>
-        </div>
-
-        <div class="editor-section" *ngIf="tab == 'images'">
-            <div class="editor-section-title">
-                Keyed Images
-            </div>
-
-            <ng-container *ngFor="let image of game_data.keyed_images | keyvalue; trackBy:track_by_fn">
-                <div class="editor-section">
-                    <div class="editor-input">
-                        <input value="{{ image.key }}" placeholder="Image Key" (change)="change_key(game_data.keyed_images, image.key, $event.target.value);" />
-                    </div>
-
-                    <div class="editor-input">
-                        <input [(ngModel)]="game_data.keyed_images[image.key]" placeholder="URL" />
-                    </div>
-
-                    <div class="editor-button-container">
-                        <div class="editor-button" (click)="remove_image(image.key)">
-                            Remove Image
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
-
-            <div class="editor-button-container">
-                <div class="editor-button" (click)="add_image()">
-                    Add Image
-                </div>
-            </div>
-        </div>
-
-        <div class="editor-section" *ngIf="tab == 'dialog'">
-            <div class="editor-section-title">
-                Dialog
-            </div>
-
-            <ng-container *ngFor="let dialog of game_data.dialog | keyvalue">
-                <div class="editor-section">
-                    <div class="editor-input">
-                        <input value="{{ dialog.key }}" placeholder="Dialog Key" (change)="change_key(game_data.dialog, dialog.key, $event.target.value);" />
-                    </div>
-
-                    <div class="editor-input">
-                        <input [(ngModel)]="dialog.value.comment" placeholder="Comment" />
-                    </div>
-
-                    <div class="editor-input">
-                        <!-- START - Scene Selection Dropdown -->
-                        <select [(ngModel)]="dialog.value.speaker">
-                            <option
-                                *ngFor="let character of game_data.characters | keyvalue"
-                                [value]="character.key"
-                                [selected]="character.key == dialog.value.speaker"
-                            >
-                                {{ character.key }}
-                            </option>
-                        </select>
-                        <!-- END - Scene Selection Dropdown -->
-                    </div>
-
-                    <div class="editor-text-button" (click)="dialog.value.show_in_editor = !dialog.value.show_in_editor">
-                        {{ dialog.value.show_in_editor ? 'Hide' : 'Show' }}
-                    </div>
-
-                    <ng-container *ngIf="dialog.value.show_in_editor">
-                        <div class="editor-section">
-                            <div class="editor-section-title">
-                                Dialog
-                            </div>
-
-                            <ng-container *ngFor="let line of dialog.value.dialog; index as i; trackBy:track_by_fn">
-                                <div class="editor-input">
-                                    <input [(ngModel)]="dialog.value.dialog[i]" placeholder="Dialog Line" />
-
-                                    <div class="editor-button" (click)="dialog.value.dialog.splice(i, 1);">
-                                        x
-                                    </div>
-                                </div>
-
-                                <!-- TODO - Remove Dialog Button -->
-                            </ng-container>
-
-                            <div class="editor-button-container">
-                                <div class="editor-button" (click)="dialog.value.dialog.push('');">
-                                    Add Dialog
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="editor-section">
-                            <div class="editor-section-title">
-                                Skip To If
-                            </div>
-
-                            <ng-container *ngFor="let skip_to_if of dialog.value.skip_to_if | keyvalue">
-                                <div class="editor-section">
-                                    <div class="editor-input">
-                                        <!-- START - Scene Selection Dropdown -->
-                                        <select [value]="skip_to_if.key" (change)="change_key(dialog.value.skip_to_if, skip_to_if.key, $event.target.value);">
-                                            <option
-                                                *ngFor="let item of game_data.items | keyvalue"
-                                                [value]="item.key"
-                                                [selected]="item.key == skip_to_if.key"
-                                            >
-                                                {{ item.key }} - {{ item.value.name }}
-                                            </option>
-                                        </select>
-                                        <!-- END - Scene Selection Dropdown -->
-                                    </div>
-
-                                    <div class="editor-input">
-                                        <!-- START - Scene Selection Dropdown -->
-                                        <select [(ngModel)]="skip_to_if.value.target">
-                                            <option
-                                                *ngFor="let dialog of game_data.dialog | keyvalue"
-                                                [value]="dialog.key"
-                                                [selected]="dialog.key == skip_to_if.value.target"
-                                            >
-                                                {{ dialog.key }} - {{ dialog.value.comment }}
-                                            </option>
-                                        </select>
-                                        <!-- END - Scene Selection Dropdown -->
-                                    </div>
-
-                                    <div class="editor-input">
-                                        <select [(ngModel)]="skip_to_if.value.consumes_item">
-                                            <option [value]="false">Doesn't Consume Item</option>
-                                            <option [value]="true">Consumes Item</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="editor-input">
-                                        <input [(ngModel)]="skip_to_if.value.minimum_quantity" type="number" />
-                                    </div>
-
-                                    <div class="editor-button-container">
-                                        <div class="editor-button" (click)="remove_skiptoif_from_dialog(dialog.value, skip_to_if.key)">
-                                            Remove Skip-To-If
-                                        </div>
-                                    </div>
-                                </div>
-                            </ng-container>
-
-                            <div class="editor-button-container">
-                                <div class="editor-button" (click)="add_skiptoif_to_dialog(dialog.value)">
-                                    Add Skip-To-If
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="editor-section">
-                            <div class="editor-section-title">
-                                Next
-                            </div>
-
-                            <ng-container *ngFor="let next of dialog.value.next | keyvalue">
-                                <div class="editor-section">
-                                    <div class="editor-input">
-                                        <!-- START - Scene Selection Dropdown -->
-                                        <select [value]="next.key" (change)="change_key(dialog.value.next, next.key, $event.target.value);">
-                                            <option
-                                                *ngFor="let dialog of game_data.dialog | keyvalue"
-                                                [value]="dialog.key"
-                                                [selected]="dialog.key == next.key"
-                                            >
-                                                {{ dialog.key }} - {{ dialog.value.comment }}
-                                            </option>
-                                        </select>
-                                        <!-- END - Scene Selection Dropdown -->
-                                    </div>
-
-                                    <div class="editor-input">
-                                        <input [(ngModel)]="next.value.title" placeholder="Title" />
-                                    </div>
-
-                                    <div class="editor-section">
-                                        <div class="editor-section-title">
-                                            Dialog
-                                        </div>
-
-                                        <ng-container *ngFor="let line of next.value.dialog; index as i; trackBy:track_by_fn">
-                                            <div class="editor-input">
-                                                <input [(ngModel)]="next.value.dialog[i]" placeholder="Dialog Line" />
-
-                                                <div class="editor-button" (click)="next.value.dialog.splice(i, 1);">
-                                                    x
-                                                </div>
-                                            </div>
-                                        </ng-container>
-
-                                        <div class="editor-button-container">
-                                            <div class="editor-button" (click)="next.value.dialog.push('');">
-                                                Add Dialog
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="editor-section">
-                                        <div class="editor-section-title">
-                                            Show If
-                                        </div>
-
-                                        <ng-container *ngFor="let line of next.value.show_if; index as i; trackBy:track_by_fn">
-                                            <div class="editor-input">
-                                                <select [(ngModel)]="next.value.show_if[i]">
-                                                    <option
-                                                        *ngFor="let item of game_data.items | keyvalue"
-                                                        [value]="item.key"
-                                                        [selected]="item.key == next.value.show_if[i]"
-                                                    >
-                                                        {{ item.key }} - {{ item.value.comment }}
-                                                    </option>
-                                                </select>
-
-                                                <div class="editor-button" (click)="next.value.show_if.splice(i, 1);">
-                                                    x
-                                                </div>
-                                            </div>
-                                        </ng-container>
-
-                                        <div class="editor-button-container">
-                                            <div class="editor-button" (click)="next.value.show_if.push('');">
-                                                Add Show If
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </ng-container>
-
-                            <div class="editor-button-container">
-                                <div class="editor-button" (click)="add_next_to_dialog(dialog.value)">
-                                    Add Next
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="editor-button-container">
-                            <div class="editor-button" (click)="remove_dialog(dialog.key)">
-                                Remove Dialog
-                            </div>
-                        </div>
+                      </div>
                     </ng-container>
+
+                    <div class="editor-button-container">
+                      <div
+                        class="editor-button"
+                        (click)="next.value.dialog.push('');"
+                      >
+                        Add Dialog
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="editor-section">
+                    <div class="editor-section-title">Show If</div>
+
+                    <ng-container
+                      *ngFor="let line of next.value.show_if; index as i; trackBy:track_by_fn"
+                    >
+                      <div class="editor-input">
+                        <select [(ngModel)]="next.value.show_if[i]">
+                          <option
+                            *ngFor="let item of game_data.items | keyvalue"
+                            [value]="item.key"
+                            [selected]="item.key === next.value.show_if[i]"
+                          >
+                            {{ item.key }} - {{ item.value.comment }}
+                          </option>
+                        </select>
+
+                        <div
+                          class="editor-button"
+                          (click)="next.value.show_if.splice(i, 1);"
+                        >
+                          x
+                        </div>
+                      </div>
+                    </ng-container>
+
+                    <div class="editor-button-container">
+                      <div
+                        class="editor-button"
+                        (click)="next.value.show_if.push('');"
+                      >
+                        Add Show If
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </ng-container>
+              </ng-container>
+
+              <div class="editor-button-container">
+                <div
+                  class="editor-button"
+                  (click)="add_next_to_dialog(dialog.value)"
+                >
+                  Add Next
+                </div>
+              </div>
+            </div>
 
             <div class="editor-button-container">
-                <div class="editor-button" (click)="add_dialog()">
-                    Add Dialog
-                </div>
+              <div class="editor-button" (click)="remove_dialog(dialog.key)">
+                Remove Dialog
+              </div>
             </div>
+          </ng-container>
         </div>
+      </ng-container>
+
+      <div class="editor-button-container">
+        <div class="editor-button" (click)="add_dialog()">Add Dialog</div>
+      </div>
     </div>
+  </div>
 </ion-content>
 
 <ion-footer>
-    <ion-tab-bar>
-        <ion-tab-button (click)="tab = 'settings';">
-            <ion-icon name="triangle"></ion-icon>
-            <ion-label>Settings</ion-label>
-        </ion-tab-button>
+  <ion-tab-bar>
+    <ion-tab-button (click)="tab = 'settings';">
+      <ion-icon name="triangle"></ion-icon>
+      <ion-label>Settings</ion-label>
+    </ion-tab-button>
 
-        <ion-tab-button (click)="tab = 'characters';">
-            <ion-icon name="triangle"></ion-icon>
-            <ion-label>Characters</ion-label>
-        </ion-tab-button>
+    <ion-tab-button (click)="tab = 'characters';">
+      <ion-icon name="triangle"></ion-icon>
+      <ion-label>Characters</ion-label>
+    </ion-tab-button>
 
-        <ion-tab-button (click)="tab = 'items';">
-            <ion-icon name="ellipse"></ion-icon>
-            <ion-label>Items</ion-label>
-        </ion-tab-button>
+    <ion-tab-button (click)="tab = 'items';">
+      <ion-icon name="ellipse"></ion-icon>
+      <ion-label>Items</ion-label>
+    </ion-tab-button>
 
-        <ion-tab-button (click)="tab = 'images';">
-            <ion-icon name="square"></ion-icon>
-            <ion-label>Images</ion-label>
-        </ion-tab-button>
+    <ion-tab-button (click)="tab = 'images';">
+      <ion-icon name="square"></ion-icon>
+      <ion-label>Images</ion-label>
+    </ion-tab-button>
 
-        <ion-tab-button (click)="tab = 'dialog';">
-            <ion-icon name="square"></ion-icon>
-            <ion-label>Dialog</ion-label>
-        </ion-tab-button>
+    <ion-tab-button (click)="tab = 'dialog';">
+      <ion-icon name="square"></ion-icon>
+      <ion-label>Dialog</ion-label>
+    </ion-tab-button>
 
-        <ion-tab-button (click)="print_game_data();">
-            <ion-icon name="square"></ion-icon>
-            <ion-label>Print</ion-label>
-        </ion-tab-button>
-    </ion-tab-bar>
+    <ion-tab-button (click)="print_game_data();">
+      <ion-icon name="square"></ion-icon>
+      <ion-label>Print</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
 </ion-footer>

@@ -7,13 +7,7 @@ import { EditorPage } from "./editor.page"
 import { EditorPageRoutingModule } from "./editor-routing.module"
 
 @NgModule({
-    imports: [
-        IonicModule,
-        CommonModule,
-        FormsModule,
-        EditorPageRoutingModule,
-    ],
-    declarations: [EditorPage],
-    entryComponents: [],
+  imports: [IonicModule, CommonModule, FormsModule, EditorPageRoutingModule],
+  declarations: [EditorPage],
 })
 export class EditorPageModule {}

@@ -1,59 +1,59 @@
-@import "../../theme/variables";
+@use "../../theme/variables" as *;
 
 .editor {
-	&-section {
-		background: #ececec;
-		border: solid 2px $ds-font-secondary;
-		margin: $ds-general-padding;
-		padding: $ds-general-padding;
+  &-section {
+    background: #ececec;
+    border: solid 2px $ds-font-secondary;
+    margin: $ds-general-padding;
+    padding: $ds-general-padding;
 
-		&-title {
-			font-weight: bold;
-			margin-bottom: $ds-general-padding;
-		}
+    &-title {
+      font-weight: bold;
+      margin-bottom: $ds-general-padding;
+    }
 
-		.editor-section {
-			background: $ds-font-inverted;
-		}
-	}
+    .editor-section {
+      background: $ds-font-inverted;
+    }
+  }
 
-	&-button {
-		background: $ds-color-dark;
-		box-shadow: $ds-card-box-shadow;
-		color: $ds-font-inverted;
-		cursor: pointer;
-		display: inline-block;
-		padding: #{$ds-general-padding / 2} $ds-general-padding;
-	}
+  &-button {
+    background: $ds-color-dark;
+    box-shadow: $ds-card-box-shadow;
+    color: $ds-font-inverted;
+    cursor: pointer;
+    display: inline-block;
+    padding: calc($ds-general-padding / 2) $ds-general-padding;
+  }
 
-	&-input {
-		margin-bottom: #{$ds-general-padding / 2};
-		position: relative;
+  &-input {
+    margin-bottom: calc($ds-general-padding / 2);
+    position: relative;
 
-		input,
-		select {
-			padding: #{$ds-general-padding / 2} $ds-general-padding;
-			width: 100%;
-		}
+    input,
+    select {
+      padding: calc($ds-general-padding / 2) $ds-general-padding;
+      width: 100%;
+    }
 
-		input[type=checkbox] {
-			display: inline-block;
-			margin-right: #{$ds-general-padding / 2};
-			width: auto;
-		}
+    input[type="checkbox"] {
+      display: inline-block;
+      margin-right: calc($ds-general-padding / 2);
+      width: auto;
+    }
 
-		.editor-button {
-			bottom: 0;
-			position: absolute;
-    		right: 0;
-    		top: 0;
-		}
-	}
+    .editor-button {
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
 
-	&-text-button {
-		cursor: pointer;
-		font-size: 12px;
-		font-variant: small-caps;
-		text-transform: lowercase;
-	}
+  &-text-button {
+    cursor: pointer;
+    font-size: 12px;
+    font-variant: small-caps;
+    text-transform: lowercase;
+  }
 }

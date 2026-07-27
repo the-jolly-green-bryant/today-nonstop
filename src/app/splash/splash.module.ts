@@ -8,14 +8,13 @@ import { ExploreContainerComponentModule } from "../explore-container/explore-co
 import { SplashPageRoutingModule } from "./splash-routing.module"
 
 @NgModule({
-    imports: [
-        IonicModule,
-        CommonModule,
-        FormsModule,
-        ExploreContainerComponentModule,
-        SplashPageRoutingModule,
-    ],
-    declarations: [SplashPage],
-    entryComponents: [],
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    ExploreContainerComponentModule,
+    SplashPageRoutingModule,
+  ],
+  declarations: [SplashPage],
 })
 export class SplashPageModule {}

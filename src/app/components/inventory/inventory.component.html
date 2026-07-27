@@ -1,71 +1,59 @@
 <div class="inventory">
-    <div class="inventory-title">
-        Inventory
-    </div>
+  <div class="inventory-title">Inventory</div>
 
-    <ng-container *ngIf="stream.inventory.length > 0 && has_no_inventory(false)">
-        <div class="inventory-paragraph">
-            You don't have anything.
+  <ng-container *ngIf="stream.inventory.length > 0 && has_no_inventory(false)">
+    <div class="inventory-paragraph">You don't have anything.</div>
+  </ng-container>
+
+  <div class="inventory-item-container">
+    <ng-container *ngFor="let item of stream.inventory; let i = index">
+      <ng-container
+        *ngIf="!item.hidden && item.quantity > 0 && !item.is_status"
+      >
+        <div class="inventory-item" id="inventory-item-{{ i }}">
+          <div class="inventory-item-background">
+            <img [src]="item.avatar" [alt]="item.name" />
+          </div>
+
+          <div class="inventory-item-title">
+            {{ item.name }}
+          </div>
+
+          <ng-container *ngIf="item.quantity > 1 || item.always_show_chip">
+            <div class="inventory-item-quantity">
+              {{ item.quantity }}
+            </div>
+          </ng-container>
         </div>
+      </ng-container>
     </ng-container>
+  </div>
 
-    <div class="inventory-item-container">
-        <ng-container *ngFor="let item of stream.inventory; let i = index">
-            <ng-container *ngIf="!item.hidden && item.quantity > 0 && !item.is_status">
-                <div
-                    class="inventory-item"
-                    id="inventory-item-{{i}}"
-                >
-                    <div class="inventory-item-background">
-                        <img [src]="item.avatar" />
-                    </div>
+  <div class="inventory-title">Stats & Statuses</div>
 
-                    <div class="inventory-item-title">
-                        {{ item.name }}
-                    </div>
+  <ng-container *ngIf="stream.inventory.length > 0 && has_no_inventory(true)">
+    <div class="inventory-paragraph">There's nothing to see here.</div>
+  </ng-container>
 
-                    <ng-container *ngIf="item.quantity > 1 || item.always_show_chip">
-                        <div class="inventory-item-quantity">
-                            {{ item.quantity }}
-                        </div>
-                    </ng-container>
-                </div>
-            </ng-container>
-        </ng-container>
-    </div>
+  <div class="inventory-item-container is-status-container">
+    <ng-container *ngFor="let item of stream.inventory; let i = index">
+      <ng-container *ngIf="!item.hidden && item.quantity > 0 && item.is_status">
+        <div class="inventory-item" id="inventory-item-{{ i }}">
+          <div class="inventory-item-background">
+            <img [src]="item.avatar" [alt]="item.name" />
+          </div>
 
-    <div class="inventory-title">
-        Stats & Statuses
-    </div>
+          <div class="inventory-item-title">
+            {{ item.name }}
+          </div>
 
-    <ng-container *ngIf="stream.inventory.length > 0 && has_no_inventory(true)">
-        <div class="inventory-paragraph">
-            There's nothing to see here.
+          <ng-container *ngIf="item.quantity > 1 || item.always_show_chip">
+            <div class="inventory-item-quantity">
+              {{ item.quantity }}
+            </div>
+          </ng-container>
         </div>
+      </ng-container>
     </ng-container>
-
-    <div class="inventory-item-container is-status-container">
-        <ng-container *ngFor="let item of stream.inventory; let i = index">
-            <ng-container *ngIf="!item.hidden && item.quantity > 0 && item.is_status">
-                <div
-                    class="inventory-item"
-                    id="inventory-item-{{i}}"
-                >
-                    <div class="inventory-item-background">
-                        <img [src]="item.avatar" />
-                    </div>
-
-                    <div class="inventory-item-title">
-                        {{ item.name }}
-                    </div>
-
-                    <ng-container *ngIf="item.quantity > 1 || item.always_show_chip">
-                        <div class="inventory-item-quantity">
-                            {{ item.quantity }}
-                        </div>
-                    </ng-container>
-                </div>
-            </ng-container>
-        </ng-container>
-    </div>
+  </div>
 </div>

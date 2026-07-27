@@ -19,6 +19,7 @@ npm-debug.log*
 
 /.idea
 /.ionic
+/.angular
 /.sass-cache
 /.sourcemaps
 /.versions
@@ -29,3 +30,15 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pem
+
+# Generated Capacitor web assets
+/android/app/src/main/assets/public
