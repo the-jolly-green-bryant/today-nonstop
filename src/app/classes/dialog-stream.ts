@@ -49,14 +49,19 @@ export class DialogStream {
    *
    * @type {Number}
    */
-  SECONDS_BETWEEN_DIALOG_LINES = 2.0
+  SECONDS_BETWEEN_DIALOG_LINES = 0.85
 
   /**
    * The number of seconds to wait between running scenes.
    *
    * @type {Number}
    */
-  SECONDS_BETWEEN_SCENES = 4.5
+  SECONDS_BETWEEN_SCENES = 0.8
+
+  /**
+   * Player-selected multiplier for all narrative delays. Zero renders instantly.
+   */
+  speed_multiplier = 1
 
   /**
    * A list of valid commands
@@ -90,9 +95,12 @@ export class DialogStream {
     if (skip_delays) {
       await this.run_scene(scene, true)
     } else {
-      setTimeout(async () => {
-        await this.run_scene(scene)
-      }, this.SECONDS_BETWEEN_SCENES * 1000)
+      setTimeout(
+        async () => {
+          await this.run_scene(scene)
+        },
+        this.SECONDS_BETWEEN_SCENES * this.speed_multiplier * 1000,
+      )
     }
   }
 
@@ -176,7 +184,9 @@ export class DialogStream {
       this.feed.push(item)
       if (item.command === "DELAY" && !skip_delays) {
         // Wait our given number of seconds.
-        await this.delay(parseFloat(item.argument) * 1000)
+        await this.delay(
+          parseFloat(item.argument) * this.speed_multiplier * 1000,
+        )
       } else if (item.command === "ADD_ITEM") {
         // Add our item to inventory.
         this.add_inventory_item(item.argument, 1)
@@ -189,7 +199,9 @@ export class DialogStream {
         !skip_delays
       ) {
         // If nothing else, wait our normal time between lines.
-        await this.delay(this.SECONDS_BETWEEN_DIALOG_LINES * 1000)
+        await this.delay(
+          this.SECONDS_BETWEEN_DIALOG_LINES * this.speed_multiplier * 1000,
+        )
       }
     }
   }
@@ -259,7 +271,7 @@ export class DialogStream {
    * @param {string} src The URL for the image we want to load
    */
   async load_image_to_base64(src: string) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const img = new Image()
       img.crossOrigin = "Anonymous"
       img.onload = () => {
@@ -270,7 +282,8 @@ export class DialogStream {
         ctx.drawImage(img, 0, 0)
         resolve(canvas.toDataURL())
       }
-      img.onerror = reject
+      // A remote image should never be able to halt the narrative.
+      img.onerror = () => resolve(src)
       img.src = src
     })
   }
@@ -393,6 +406,9 @@ export class DialogStream {
    * @param {number} milliseconds The amount of time to wait.
    */
   delay(milliseconds: number) {
+    if (milliseconds <= 0) {
+      return Promise.resolve()
+    }
     return new Promise((resolve) => setTimeout(resolve, milliseconds))
   }
 }

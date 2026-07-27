@@ -8,6 +8,8 @@ import { DialogStreamService } from "../../services/dialog-stream.service"
   styleUrls: ["./dialog-stream.component.scss"],
 })
 export class DialogStreamComponent {
+  private last_rendered_size = 0
+
   constructor(public dialog_stream_service: DialogStreamService) {}
 
   /**
@@ -21,9 +23,14 @@ export class DialogStreamComponent {
     const option_size = this.dialog_stream_service.dialog_stream
       ? this.dialog_stream_service.dialog_stream.options.length
       : 0
-    if (feed_size || option_size) {
-      const target = document.getElementById("dialog-stream-scroller")
-      target.scrollIntoView({
+    const rendered_size = feed_size + option_size
+    if (rendered_size && rendered_size !== this.last_rendered_size) {
+      this.last_rendered_size = rendered_size
+      const target =
+        document.getElementById("dialog-stream-option-container")
+          ?.lastElementChild ??
+        document.querySelector(".dialog-stream-item:last-of-type")
+      target?.scrollIntoView({
         behavior: "smooth",
         block: "end",
         inline: "nearest",

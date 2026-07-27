@@ -1,37 +1,21 @@
-$ds-border-radius: 4px;
-$ds-font-size: 16px;
+$ds-border-radius: 16px;
+$ds-font-size: 15px;
 $ds-font-size-secondary: 12px;
 $ds-general-padding: 16px;
-$ds-avatar-size: 32px;
-$ds-vertical-padding-minimum: 24px;
+$ds-avatar-size: 38px;
+$ds-vertical-padding-minimum: 20px;
 $ds-vertical-padding-ideal: calc(#{$ds-general-padding});
 
-$ds-background: #f7f7f7;
-$ds-color-light: #fdfdfd;
-$ds-color-dark: linear-gradient(
-  to right bottom,
-  #a57df8,
-  #9c7df9,
-  #937dfa,
-  #897dfa,
-  #7e7dfb
-);
-$ds-color-danger: linear-gradient(
-  to right bottom,
-  #f16b2c,
-  #f16b2c,
-  #f16b2c,
-  #fe5858,
-  #fe5858
-);
-$ds-font-primary: #666666;
+$ds-background: #f4f1ea;
+$ds-color-light: #fffdf8;
+$ds-color-dark: linear-gradient(145deg, #42345f, #29213d);
+$ds-color-danger: linear-gradient(145deg, #e25f38, #c9434f);
+$ds-font-primary: #292631;
 $ds-font-inverted: #fef7ff;
-$ds-font-secondary: #b4b4b6;
+$ds-font-secondary: #746e7e;
 $ds-card-box-shadow:
-  0 0px 2.2px rgba(0, 0, 0, 0.034),
-  0 0.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 5.5px 10px rgba(0, 0, 0, 0.06),
-  0 12.3px 17.9px rgba(0, 0, 0, 0.072);
+  0 1px 2px rgb(42 34 55 / 8%),
+  0 8px 24px rgb(42 34 55 / 10%);
 
 ion-content {
   --ion-background-color: $ds-background;

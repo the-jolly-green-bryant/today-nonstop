@@ -1,8 +1,16 @@
 <div class="inventory">
-  <div class="inventory-title">Inventory</div>
+  <div class="inventory-intro">
+    <p class="inventory-eyebrow">Across every loop</p>
+    <h2>Things you carry</h2>
+    <p>Objects fade. Some memories refuse to.</p>
+  </div>
 
-  <ng-container *ngIf="stream.inventory.length > 0 && has_no_inventory(false)">
-    <div class="inventory-paragraph">You don't have anything.</div>
+  <ng-container *ngIf="has_no_inventory(false)">
+    <div class="inventory-empty">
+      <ion-icon name="cube-outline"></ion-icon>
+      <strong>Your pockets are empty.</strong>
+      <span>Explore the story to find something worth keeping.</span>
+    </div>
   </ng-container>
 
   <div class="inventory-item-container">
@@ -10,7 +18,7 @@
       <ng-container
         *ngIf="!item.hidden && item.quantity > 0 && !item.is_status"
       >
-        <div class="inventory-item" id="inventory-item-{{ i }}">
+        <article class="inventory-item" id="inventory-item-{{ i }}">
           <div class="inventory-item-background">
             <img [src]="item.avatar" [alt]="item.name" />
           </div>
@@ -24,21 +32,24 @@
               {{ item.quantity }}
             </div>
           </ng-container>
-        </div>
+        </article>
       </ng-container>
     </ng-container>
   </div>
 
-  <div class="inventory-title">Stats & Statuses</div>
+  <div class="inventory-title">Memories & milestones</div>
 
-  <ng-container *ngIf="stream.inventory.length > 0 && has_no_inventory(true)">
-    <div class="inventory-paragraph">There's nothing to see here.</div>
+  <ng-container *ngIf="has_no_inventory(true)">
+    <div class="inventory-empty is-compact">
+      <strong>No echoes yet.</strong>
+      <span>The day has only just begun.</span>
+    </div>
   </ng-container>
 
   <div class="inventory-item-container is-status-container">
     <ng-container *ngFor="let item of stream.inventory; let i = index">
       <ng-container *ngIf="!item.hidden && item.quantity > 0 && item.is_status">
-        <div class="inventory-item" id="inventory-item-{{ i }}">
+        <article class="inventory-item" id="inventory-item-{{ i }}">
           <div class="inventory-item-background">
             <img [src]="item.avatar" [alt]="item.name" />
           </div>
@@ -52,7 +63,7 @@
               {{ item.quantity }}
             </div>
           </ng-container>
-        </div>
+        </article>
       </ng-container>
     </ng-container>
   </div>

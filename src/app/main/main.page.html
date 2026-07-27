@@ -1,3 +1,27 @@
+<ion-header class="game-header">
+  <ion-toolbar>
+    <ion-title>
+      <span class="game-header-kicker">The repeating day</span>
+      <span class="game-header-title">Today Nonstop</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button aria-label="Change story pacing" (click)="cycle_speed()">
+        <ion-icon slot="icon-only" [name]="speed_icon"></ion-icon>
+      </ion-button>
+      <ion-button aria-label="Start a new game" (click)="confirm_restart()">
+        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="game-status" aria-label="Current game progress">
+    <span>
+      <ion-icon name="repeat-outline"></ion-icon>
+      Loop {{ lives_lived }}
+    </span>
+    <span>{{ speed_label }}</span>
+  </div>
+</ion-header>
+
 <ion-content>
   <app-dialog-stream></app-dialog-stream>
 </ion-content>

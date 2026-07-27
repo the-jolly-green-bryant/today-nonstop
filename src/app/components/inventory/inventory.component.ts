@@ -20,7 +20,8 @@ export class InventoryComponent implements OnInit {
         const item = this.stream.inventory[index]
         if (
           (item.is_status ? item.is_status : false) === count_statuses &&
-          !item.hidden
+          !item.hidden &&
+          item.quantity > 0
         ) {
           return false
         }

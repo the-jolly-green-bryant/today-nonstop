@@ -1,10 +1,10 @@
 {
   "name": "today-nonstop",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A dialog-driven, choose-your-own-adventure engine built with Ionic and Angular.",
   "author": "Bryant James",
   "license": "MIT",
-  "homepage": "https://github.com/the-jolly-green-bryant/today-nonstop",
+  "homepage": "https://today-nonstop.bryantjames.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/the-jolly-green-bryant/today-nonstop.git"

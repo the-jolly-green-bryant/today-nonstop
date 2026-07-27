@@ -1,6 +1,6 @@
 import { Component } from "@angular/core"
+import { Router } from "@angular/router"
 import { DialogStreamService } from "../services/dialog-stream.service"
-import dialog_data from "../game-data/dialog.json"
 
 @Component({
   standalone: false,
@@ -9,13 +9,24 @@ import dialog_data from "../game-data/dialog.json"
   styleUrls: ["splash.page.scss"],
 })
 export class SplashPage {
-  constructor(public dialog_stream_service: DialogStreamService) {}
+  has_saved_game = false
 
-  ngOnInit() {
-    this.load_dialog_stream()
+  constructor(
+    public dialog_stream_service: DialogStreamService,
+    private router: Router,
+  ) {}
+
+  async ngOnInit() {
+    this.has_saved_game = await this.dialog_stream_service.has_saved_game()
   }
 
-  load_dialog_stream() {
-    this.dialog_stream_service.load_events(dialog_data.default_scene)
+  async continue_game() {
+    await this.dialog_stream_service.load_events()
+    await this.router.navigate(["/game/tabs/main"])
+  }
+
+  async start_game() {
+    await this.dialog_stream_service.start_new_game()
+    await this.router.navigate(["/game/tabs/main"])
   }
 }

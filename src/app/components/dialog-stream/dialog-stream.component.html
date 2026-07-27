@@ -1,5 +1,20 @@
 <div class="dialog-stream">
-  <div class="dialog-stream-scroller" id="dialog-stream-scroller">
+  <div
+    class="dialog-stream-scroller"
+    id="dialog-stream-scroller"
+    role="log"
+    aria-live="polite"
+    aria-relevant="additions"
+  >
+    <div
+      *ngIf="!dialog_stream_service.initialized"
+      class="dialog-stream-loading"
+      role="status"
+    >
+      <span class="dialog-stream-loading-mark" aria-hidden="true">∞</span>
+      <span>Remembering where you left off…</span>
+    </div>
+
     <ng-container *ngIf="dialog_stream_service.initialized">
       <ng-container
         *ngFor="
@@ -34,6 +49,9 @@
             <ng-container *ngIf="item.command === 'SHOW_TEXT'">
               <div class="dialog-stream-item-text">
                 <div class="dialog-stream-item-text-content">
+                  <span class="sr-only">
+                    {{ item.speaker?.name || "Narrator" }}:
+                  </span>
                   {{ item.argument }}
                 </div>
               </div>
@@ -41,13 +59,16 @@
 
             <ng-container *ngIf="item.command === 'SHOW_IMAGE'">
               <div class="dialog-stream-item-image">
-                <img src="{{ item.argument }}" alt="" />
+                <img src="{{ item.argument }}" alt="A new scene in the story" />
               </div>
             </ng-container>
 
             <ng-container *ngIf="item.command === 'FLASH_IMAGE'">
               <div class="dialog-stream-item-image is-small">
-                <img src="{{ item.argument }}" alt="" />
+                <img
+                  src="{{ item.argument }}"
+                  alt="{{ item.speaker?.name || 'Character' }} reacts"
+                />
               </div>
             </ng-container>
 
@@ -80,7 +101,9 @@
       <div
         class="dialog-stream-option-container"
         id="dialog-stream-option-container"
+        *ngIf="dialog_stream_service.dialog_stream.options.length"
       >
+        <p class="dialog-stream-option-prompt">What do you do?</p>
         <ng-container
           *ngFor="let option of dialog_stream_service.dialog_stream.options"
         >
@@ -94,7 +117,7 @@
             </div>
 
             <div class="dialog-stream-option-icon">
-              <ion-icon name="arrow-redo-outline"></ion-icon>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
             </div>
           </button>
         </ng-container>

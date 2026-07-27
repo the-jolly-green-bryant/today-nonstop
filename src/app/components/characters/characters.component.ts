@@ -14,19 +14,7 @@ export class CharactersComponent implements OnInit {
 
   ngOnInit() {}
 
-  has_no_characters(count_statuses = false) {
-    for (const index in this.stream.inventory) {
-      if (Object.prototype.hasOwnProperty.call(this.stream.inventory, index)) {
-        const item = this.stream.inventory[index]
-        if (
-          (item.is_status ? item.is_status : false) === count_statuses &&
-          !item.hidden
-        ) {
-          return false
-        }
-      }
-    }
-
-    return true
+  has_no_characters() {
+    return !this.stream.characters.some((character) => !character.hidden)
   }
 }
