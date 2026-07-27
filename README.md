@@ -1,6 +1,7 @@
 # Today Nonstop
 
 [![CI](https://github.com/the-jolly-green-bryant/today-nonstop/actions/workflows/ci.yml/badge.svg)](https://github.com/the-jolly-green-bryant/today-nonstop/actions/workflows/ci.yml)
+[![Deploy](https://github.com/the-jolly-green-bryant/today-nonstop/actions/workflows/deploy.yml/badge.svg)](https://github.com/the-jolly-green-bryant/today-nonstop/actions/workflows/deploy.yml)
 [![Angular](https://img.shields.io/badge/Angular-20-DD0031?logo=angular)](https://angular.dev/)
 [![Ionic](https://img.shields.io/badge/Ionic-8-3880FF?logo=ionic)](https://ionicframework.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -12,6 +13,8 @@ characters, and alternate outcomes without changing the rendering engine.
 
 The repository includes a playable time-loop story and a browser-based editor
 for working with its story data.
+
+**[Play Today Nonstop](https://today-nonstop.bryantjames.com/)**
 
 ## Highlights
 
@@ -61,6 +64,15 @@ Open `http://localhost:4200` to play. The story editor is available at
 | `npm run format:check` | Verify repository formatting                    |
 | `npm run check`        | Run the complete local CI suite                 |
 | `npm run sync:android` | Build the web app and sync it into Android      |
+
+## Deployment
+
+Every push to `master` builds the production app and deploys the `www/`
+artifact to GitHub Pages. The live site uses the custom domain
+[`today-nonstop.bryantjames.com`](https://today-nonstop.bryantjames.com/).
+
+Pull requests run the separate CI workflow and must pass formatting, linting,
+tests, and a production build before they are merged.
 
 ## Story format
 

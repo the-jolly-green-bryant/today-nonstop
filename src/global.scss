@@ -24,3 +24,219 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+:root {
+  --demo-ink: #f8fafc;
+  --demo-muted: #a8b2c3;
+  --demo-accent: #f9c74f;
+  --phone-width: 390px;
+  --phone-height: 844px;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #090d16;
+}
+
+.demo-stage {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(240px, 420px) minmax(320px, var(--phone-width));
+  place-content: center;
+  align-items: center;
+  gap: clamp(3rem, 8vw, 8rem);
+  padding: 2rem;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 76% 18%,
+      rgb(249 199 79 / 16%),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgb(77 119 255 / 14%),
+      transparent 32rem
+    ),
+    linear-gradient(145deg, #111827 0%, #090d16 60%, #05070c 100%);
+}
+
+.project-intro {
+  color: var(--demo-ink);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.project-kicker {
+  margin: 0 0 1rem;
+  color: var(--demo-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.project-intro h1 {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+}
+
+.project-summary {
+  max-width: 34rem;
+  margin: 1.5rem 0 0;
+  color: var(--demo-muted);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.project-hint {
+  margin: 1.25rem 0 2rem;
+  color: #d8dee9;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  color: var(--demo-ink);
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.project-link:hover {
+  border-color: rgb(249 199 79 / 65%);
+  background: rgb(255 255 255 / 6%);
+  transform: translateY(-2px);
+}
+
+.project-link:focus-visible {
+  outline: 3px solid rgb(249 199 79 / 70%);
+  outline-offset: 4px;
+}
+
+.phone-frame {
+  position: relative;
+  width: min(var(--phone-width), calc(100vw - 4rem));
+  height: min(var(--phone-height), calc(100dvh - 4rem));
+  min-height: 620px;
+  overflow: hidden;
+  border: 8px solid #222833;
+  border-radius: 3rem;
+  background: #fff;
+  box-shadow:
+    0 2.5rem 6rem rgb(0 0 0 / 55%),
+    inset 0 0 0 1px rgb(255 255 255 / 15%);
+}
+
+.phone-frame app-root {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.phone-hardware {
+  position: absolute;
+  z-index: 10000;
+  top: 0.7rem;
+  left: 50%;
+  width: 5rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  background: #11151d;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.phone-speaker {
+  position: absolute;
+  top: 0.62rem;
+  left: 50%;
+  width: 2rem;
+  height: 0.22rem;
+  border-radius: 999px;
+  background: #303744;
+  transform: translateX(-50%);
+}
+
+.phone-camera {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.8rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: #263657;
+  box-shadow: inset 0 0 0 1px #05070c;
+}
+
+.phone-home-indicator {
+  position: absolute;
+  z-index: 10000;
+  bottom: 0.55rem;
+  left: 50%;
+  width: 7rem;
+  height: 0.28rem;
+  border-radius: 999px;
+  background: rgb(17 21 29 / 75%);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+@media (max-width: 767px), (max-height: 700px) {
+  body {
+    background: #fff;
+  }
+
+  .demo-stage {
+    display: block;
+    min-height: 100dvh;
+    padding: 0;
+    background: #fff;
+  }
+
+  .project-intro,
+  .phone-hardware,
+  .phone-home-indicator {
+    display: none;
+  }
+
+  .phone-frame {
+    width: 100vw;
+    height: 100dvh;
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-link {
+    transition: none;
+  }
+}
