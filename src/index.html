@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Ionic App</title>
+    <title>Today Nonstop — A branching story in your browser</title>
 
     <base href="/" />
 
@@ -13,6 +13,18 @@
     />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="description"
+      content="Play Today Nonstop, an experimental time-loop story told through a mobile conversation."
+    />
+    <meta name="theme-color" content="#111827" />
+    <meta property="og:title" content="Today Nonstop" />
+    <meta
+      property="og:description"
+      content="An experimental time-loop story told through a mobile conversation."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://today-nonstop.bryantjames.com/" />
 
     <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
 
@@ -22,6 +34,34 @@
   </head>
 
   <body>
-    <app-root></app-root>
+    <main class="demo-stage">
+      <section class="project-intro" aria-labelledby="project-title">
+        <p class="project-kicker">An interactive fiction experiment</p>
+        <h1 id="project-title">Today Nonstop</h1>
+        <p class="project-summary">
+          A branching time-loop story designed to unfold like a conversation on
+          your phone.
+        </p>
+        <p class="project-hint">Choose carefully. The day remembers.</p>
+        <a
+          class="project-link"
+          href="https://github.com/the-jolly-green-bryant/today-nonstop"
+          rel="noreferrer"
+          target="_blank"
+        >
+          View the project on GitHub
+          <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+
+      <section class="phone-frame" aria-label="Today Nonstop playable demo">
+        <div class="phone-hardware" aria-hidden="true">
+          <span class="phone-camera"></span>
+          <span class="phone-speaker"></span>
+        </div>
+        <app-root></app-root>
+        <span class="phone-home-indicator" aria-hidden="true"></span>
+      </section>
+    </main>
   </body>
 </html>
