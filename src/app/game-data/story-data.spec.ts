@@ -60,6 +60,64 @@ describe("story data", () => {
     }
   })
 
+  it("uses known inventory flags for conditions and character discoveries", () => {
+    const scenes = dialogData.dialog as Record<
+      string,
+      {
+        skip_to_if?: Record<string, unknown>
+        next?: Record<string, { show_if?: string[] }>
+      }
+    >
+    const characters = dialogData.characters as Record<
+      string,
+      { discoverables?: Record<string, unknown> }
+    >
+
+    for (const [sceneId, scene] of Object.entries(scenes)) {
+      for (const flag of Object.keys(scene.skip_to_if ?? {})) {
+        expect(dialogData.items[flag])
+          .withContext(`${sceneId} skips on unknown inventory flag ${flag}`)
+          .toBeDefined()
+      }
+
+      for (const [target, option] of Object.entries(scene.next ?? {})) {
+        for (const flag of option.show_if ?? []) {
+          expect(dialogData.items[flag])
+            .withContext(
+              `${sceneId} option to ${target} uses unknown inventory flag ${flag}`,
+            )
+            .toBeDefined()
+        }
+      }
+    }
+
+    for (const [characterId, character] of Object.entries(characters)) {
+      for (const flag of Object.keys(character.discoverables ?? {})) {
+        expect(dialogData.items[flag])
+          .withContext(
+            `${characterId} discovery uses unknown inventory flag ${flag}`,
+          )
+          .toBeDefined()
+      }
+    }
+  })
+
+  it("contains the complete Thirteenth Bell campaign", () => {
+    const scenes = dialogData.dialog
+    const campaignScenes = Object.keys(scenes).filter((sceneId) =>
+      /^(12|13)\d\d__/.test(sceneId),
+    )
+    const campaignLines = campaignScenes.flatMap(
+      (sceneId) => scenes[sceneId].dialog ?? [],
+    )
+
+    expect(campaignScenes.length).toBeGreaterThanOrEqual(25)
+    expect(campaignLines.length).toBeGreaterThanOrEqual(800)
+    expect(scenes["1300__BELL_HEIST"]).toBeDefined()
+    expect(scenes["1370__BELL_HEIST"]).toBeDefined()
+    expect(dialogData.items.unmade_tomorrow.persists).toBeTrue()
+  })
+
   it("contains a complete ending rather than a placeholder", () => {
     expect(dialogData.dialog["2005__EPILOGUE"]).toBeDefined()
     expect(dialogData.items.escaped_loop).toBeDefined()

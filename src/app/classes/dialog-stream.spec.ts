@@ -48,4 +48,21 @@ describe("DialogStream", () => {
     expect(stream.has_inventory_item("debug_bread")).toBeFalse()
     expect(stream.has_inventory_item("moldy_bread")).toBeTrue()
   })
+
+  it("unlocks the bell heist only after all three allies and clues are secured", async () => {
+    await stream.end_scene("1011__START", true)
+    expect(
+      stream.options.some((option) => option.scene === "1300__BELL_HEIST"),
+    ).toBeFalse()
+
+    stream.options = []
+    stream.add_inventory_item("amy_trust", 1)
+    stream.add_inventory_item("shady_truce", 1)
+    stream.add_inventory_item("read_black_ledger", 1)
+    await stream.end_scene("1011__START", true)
+
+    expect(
+      stream.options.some((option) => option.scene === "1300__BELL_HEIST"),
+    ).toBeTrue()
+  })
 })

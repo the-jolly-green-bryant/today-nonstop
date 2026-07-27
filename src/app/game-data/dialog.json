@@ -120,6 +120,10 @@
         "was_nude": {
           "description": "He's seen some things. Most of them being you in the buff.",
           "minimum_quantity": 1
+        },
+        "read_black_ledger": {
+          "description": "Has maintained the same impossible tournament ledger for longer than any person should remember.",
+          "minimum_quantity": 1
         }
       }
     },
@@ -140,6 +144,10 @@
         "shady_stabbed_twice": {
           "description": "Known to go full murderhobo.",
           "minimum_quantity": 1
+        },
+        "shady_truce": {
+          "description": "Remembers flashes of other lives and wants the chance to meet someone waiting in tomorrow.",
+          "minimum_quantity": 1
         }
       }
     },
@@ -147,8 +155,17 @@
       "name": "Amy the Announcer",
       "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/announcer+(1).jpeg",
       "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
-      "description": "",
-      "hidden": true
+      "description": "Town crier, reluctant conspirator, and owner of the loudest indoor voice in three counties.",
+      "discoverables": {
+        "heard_thirteenth_bell": {
+          "description": "Hears every bell, including the ones the rest of town forgets.",
+          "minimum_quantity": 1
+        },
+        "amy_trust": {
+          "description": "Has announced your death often enough to take it personally.",
+          "minimum_quantity": 1
+        }
+      }
     },
     "gamedev": {
       "name": "ROOT_USER",
@@ -211,8 +228,13 @@
       "name": "Gilbert the Guard",
       "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/guard+(1).jpeg",
       "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
-      "description": "",
-      "hidden": true
+      "description": "A tower guard trying very hard to survive until supper.",
+      "discoverables": {
+        "gilbert_spared": {
+          "description": "Can be defeated by paperwork, pity, or an aggressively unclothed contestant.",
+          "minimum_quantity": 1
+        }
+      }
     },
     "little_you": {
       "name": "Little You",
@@ -453,6 +475,62 @@
     },
     "escaped_loop": {
       "name": "Loops Broken",
+      "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/sky_vortex+(1).jpg",
+      "always_show_chip": true,
+      "is_status": true,
+      "hidden": false,
+      "persists": true
+    },
+    "heard_thirteenth_bell": {
+      "name": "Impossible Bells Heard",
+      "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/tourney_town+(1).jpeg",
+      "always_show_chip": true,
+      "is_status": true,
+      "hidden": false,
+      "persists": true
+    },
+    "amy_trust": {
+      "name": "Town Criers Convinced",
+      "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/announcer+(1).jpeg",
+      "always_show_chip": true,
+      "is_status": true,
+      "hidden": false,
+      "persists": true
+    },
+    "shady_truce": {
+      "name": "Rivals Recruited",
+      "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/shady+(1).jpeg",
+      "always_show_chip": true,
+      "is_status": true,
+      "hidden": false,
+      "persists": true
+    },
+    "read_black_ledger": {
+      "name": "Forbidden Ledgers Read",
+      "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/da2abda1-fae1-4782-b65f-93868ca5bd40.jpeg",
+      "always_show_chip": true,
+      "is_status": true,
+      "hidden": false,
+      "persists": true
+    },
+    "knows_bell_ritual": {
+      "name": "Rituals Uncovered",
+      "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/sky_face+(1).jpeg",
+      "always_show_chip": true,
+      "is_status": true,
+      "hidden": false,
+      "persists": true
+    },
+    "gilbert_spared": {
+      "name": "Guards Reasoned With",
+      "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/guard+(1).jpeg",
+      "always_show_chip": true,
+      "is_status": true,
+      "hidden": false,
+      "persists": true
+    },
+    "unmade_tomorrow": {
+      "name": "Tomorrows Reclaimed",
       "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/sky_vortex+(1).jpg",
       "always_show_chip": true,
       "is_status": true,
@@ -2113,6 +2191,21 @@
         "1050__CHICKEN": {
           "title": "Let's check on the animals.",
           "dialog": []
+        },
+        "1200__MARKET": {
+          "title": "Follow the fair bells into town.",
+          "dialog": []
+        },
+        "1300__BELL_HEIST": {
+          "title": "I know what today is. Gather the others.",
+          "dialog": [
+            "[[SET_SPEAKER]]player",
+            "No chores.",
+            "No tourney.",
+            "No mysterious babies.",
+            "Today we rob a bell."
+          ],
+          "show_if": ["amy_trust", "shady_truce", "read_black_ledger"]
         }
       },
       "show_in_editor": false
@@ -2605,6 +2698,1405 @@
       ],
       "next": {
         "1000__RESTART": {
+          "title": null,
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1200__MARKET": {
+      "comment": "Enter the fair and discover that its bells do not agree with time.",
+      "speaker": "player",
+      "dialog": [
+        "[[SHOW_KEYED_IMAGE]]tourney_town",
+        "[[EMOTE]][You follow the bells toward town.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Ah.",
+        "The fair.",
+        "Where honest folk exchange honest coin for dishonest pies.",
+        "[[SET_SPEAKER]]player",
+        "You say that like you've been.",
+        "[[SET_SPEAKER]]evil_player",
+        "I contain multitudes.",
+        "Some of them have eaten bad pies.",
+        "[[EMOTE]][Canvas stalls crowd the muddy square. Ribbons snap overhead. A fiddler is losing a public argument with a goose.]",
+        "[[SET_SPEAKER]]announcer",
+        "GOOD MORROW, CITIZENS!",
+        "[[SET_SPEAKER]]evil_player",
+        "And good morrow to Amy's indoor voice.",
+        "[[SET_SPEAKER]]announcer",
+        "His Lordship welcomes you to the Feast of Saint Bartholomew!",
+        "Mind your purses!",
+        "Honor the Crown!",
+        "Do not lick the reliquaries!",
+        "[[SET_SPEAKER]]player",
+        "That last rule feels targeted.",
+        "[[SET_SPEAKER]]evil_player",
+        "Because you look targetable.",
+        "[[EMOTE]][The chapel bell begins to toll.]",
+        "One.",
+        "Two.",
+        "Three.",
+        "[[DELAY]]1.5",
+        "Twelve.",
+        "[[DELAY]]1.5",
+        "Thirteen.",
+        "[[SET_SPEAKER]]player",
+        "Did that bell just ring thirteen?",
+        "[[SET_SPEAKER]]evil_player",
+        "No.",
+        "[[SET_SPEAKER]]player",
+        "I counted.",
+        "[[SET_SPEAKER]]evil_player",
+        "Then counting has betrayed you."
+      ],
+      "next": {
+        "1210__MARKET_CRIER": {
+          "title": "Ask Amy about the thirteenth bell.",
+          "dialog": []
+        },
+        "1220__MARKET_SHADY": {
+          "title": "See what Shady is selling.",
+          "dialog": []
+        },
+        "1230__MARKET_TOWER": {
+          "title": "Go straight to the bell tower.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1210__MARKET_CRIER": {
+      "comment": "Amy denies the impossible bell until the player proves the day repeats.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][You shoulder through the crowd toward Amy's little red platform.]",
+        "[[SET_SPEAKER]]announcer",
+        "The next archery registration begins at—",
+        "[[SET_SPEAKER]]player",
+        "Thirteen.",
+        "[[SET_SPEAKER]]announcer",
+        "Pardon?",
+        "[[SET_SPEAKER]]player",
+        "The bell rang thirteen times.",
+        "[[SET_SPEAKER]]announcer",
+        "It rang twelve.",
+        "[[SET_SPEAKER]]player",
+        "You heard it.",
+        "[[SET_SPEAKER]]announcer",
+        "I hear many things.",
+        "Mostly complaints.",
+        "The bell rang twelve.",
+        "[[SET_SPEAKER]]evil_player",
+        "She is lying.",
+        "[[SET_SPEAKER]]player",
+        "I know.",
+        "[[SET_SPEAKER]]announcer",
+        "Who are you speaking to?",
+        "[[SET_SPEAKER]]player",
+        "Myself.",
+        "[[SET_SPEAKER]]announcer",
+        "Naturally.",
+        "[[EMOTE]][Amy lowers her proclamation. Her smile stays public. Her eyes do not.]",
+        "[[SET_SPEAKER]]announcer",
+        "Go home.",
+        "Lock your shutters before sundown.",
+        "If anyone asks, we never spoke.",
+        "[[SET_SPEAKER]]player",
+        "That is a very normal response.",
+        "[[SET_SPEAKER]]announcer",
+        "I practice."
+      ],
+      "next": {
+        "1211__MARKET_CRIER": {
+          "title": "Tell her you're not leaving.",
+          "dialog": [
+            "[[SET_SPEAKER]]player",
+            "I'm not leaving.",
+            "Today has killed me before.",
+            "I would like to know why."
+          ]
+        },
+        "1213__MARKET_CRIER": {
+          "title": "Tell her tomorrow's proclamation.",
+          "dialog": [],
+          "show_if": ["heard_thirteenth_bell"]
+        }
+      },
+      "show_in_editor": true
+    },
+    "1211__MARKET_CRIER": {
+      "comment": "The player first learns that Amy also hears the impossible bell.",
+      "speaker": "announcer",
+      "dialog": [
+        "[[SET_SPEAKER]]announcer",
+        "Quiet.",
+        "[[EMOTE]][Amy drags you behind the platform and pins you between two barrels of commemorative turnips.]",
+        "[[SET_SPEAKER]]evil_player",
+        "We die among the turnips.",
+        "There are worse epitaphs.",
+        "[[SET_SPEAKER]]announcer",
+        "Every fair day, the bell rings once too many.",
+        "Everyone cheers.",
+        "Then everyone forgets.",
+        "[[SET_SPEAKER]]player",
+        "You don't.",
+        "[[SET_SPEAKER]]announcer",
+        "Not quickly enough.",
+        "By supper, it feels like a dream.",
+        "By dawn, it is gone.",
+        "Then you arrive.",
+        "[[SET_SPEAKER]]player",
+        "Me?",
+        "[[SET_SPEAKER]]announcer",
+        "Always late.",
+        "Usually underdressed.",
+        "Frequently on fire.",
+        "[[SET_SPEAKER]]evil_player",
+        "We have a brand.",
+        "[[SET_SPEAKER]]announcer",
+        "At sunset, I am handed a final proclamation.",
+        "It bears your name.",
+        "Or one of your names.",
+        "[[SET_SPEAKER]]player",
+        "One of?",
+        "[[SET_SPEAKER]]announcer",
+        "Jon.",
+        "Jean.",
+        "Johannes.",
+        "Once, inexplicably, Mildred.",
+        "[[SET_SPEAKER]]player",
+        "That was a difficult life.",
+        "[[SET_SPEAKER]]announcer",
+        "The proclamation says you died.",
+        "Then the sky opens.",
+        "Then morning.",
+        "[[ADD_ITEM]]heard_thirteenth_bell",
+        "[[EMOTE]][The bell tolls once more.]",
+        "[[SET_SPEAKER]]announcer",
+        "That makes fourteen.",
+        "[[SET_SPEAKER]]evil_player",
+        "Counting continues to betray us.",
+        "[[EMOTE]][A shadow passes over the barrels. It has your face.]"
+      ],
+      "next": {
+        "1000__RESTART": {
+          "title": "[Try to remember her warning.]",
+          "dialog": [
+            "[[SET_SPEAKER]]announcer",
+            "Next time, tell me what tomorrow's proclamation says.",
+            "[[SET_SPEAKER]]player",
+            "What does it say?",
+            "[[SET_SPEAKER]]announcer",
+            "RUN.",
+            "[[SHOW_KEYED_IMAGE]]doppelganger_mummy",
+            "[[EMOTE]][The turnip barrels explode inward. The world follows.]"
+          ]
+        }
+      },
+      "show_in_editor": true
+    },
+    "1213__MARKET_CRIER": {
+      "comment": "On a later loop, Amy trusts the player and points them to Harold's records.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "Tomorrow's proclamation says RUN.",
+        "[[SET_SPEAKER]]announcer",
+        "[[FLASH_KEYED_IMAGE]]reaction_bug_eyes",
+        "[[SET_SPEAKER]]evil_player",
+        "Subtle.",
+        "[[SET_SPEAKER]]announcer",
+        "Behind the platform.",
+        "Now.",
+        "[[EMOTE]][Amy pulls you behind the turnip barrels.]",
+        "[[SET_SPEAKER]]announcer",
+        "You remembered.",
+        "[[SET_SPEAKER]]player",
+        "I remember dying.",
+        "It focuses the mind.",
+        "[[SET_SPEAKER]]announcer",
+        "Then listen.",
+        "Harold keeps the contestants ledger beneath the registration tent.",
+        "Black leather.",
+        "No royal seal.",
+        "Every name you have ever used is in it.",
+        "[[SET_SPEAKER]]player",
+        "How do you know?",
+        "[[SET_SPEAKER]]announcer",
+        "I stole it once.",
+        "[[SET_SPEAKER]]evil_player",
+        "Amy.",
+        "You dark horse.",
+        "[[SET_SPEAKER]]announcer",
+        "It screamed.",
+        "I put it back.",
+        "[[SET_SPEAKER]]player",
+        "The ledger screamed?",
+        "[[SET_SPEAKER]]announcer",
+        "In several voices.",
+        "One was yours.",
+        "[[ADD_ITEM]]amy_trust",
+        "[[SET_SPEAKER]]announcer",
+        "Get inside.",
+        "Read the final page.",
+        "And if Harold offers you a contestants chip—",
+        "[[SET_SPEAKER]]player",
+        "Don't eat it?",
+        "[[SET_SPEAKER]]announcer",
+        "You truly have done this before."
+      ],
+      "next": {
+        "1240__LEDGER": {
+          "title": "Break into the registration tent.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1220__MARKET_SHADY": {
+      "comment": "Shady sells fake relics and reveals that he remembers fragments of other loops.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][Shady has established a stall beneath a banner reading CERTIFIED HOLINESS.]",
+        "[[SET_SPEAKER]]shady",
+        "Pilgrim!",
+        "Warrior!",
+        "Person of aggressively average means!",
+        "Come closer.",
+        "[[SET_SPEAKER]]evil_player",
+        "Walk away.",
+        "[[SET_SPEAKER]]shady",
+        "I have saints' teeth.",
+        "Saints' thumbs.",
+        "A square of cloth sneezed upon by Saint Cuthbert.",
+        "[[SET_SPEAKER]]player",
+        "Did Saint Cuthbert have a cold?",
+        "[[SET_SPEAKER]]shady",
+        "A holy cold.",
+        "[[SET_SPEAKER]]evil_player",
+        "I hate that this is working on me.",
+        "[[EMOTE]][Shady leans close. His salesman's grin slips.]",
+        "[[SET_SPEAKER]]shady",
+        "You look familiar.",
+        "[[SET_SPEAKER]]player",
+        "The tourney.",
+        "[[SET_SPEAKER]]shady",
+        "No.",
+        "Deader.",
+        "[[SET_SPEAKER]]player",
+        "Excuse me?",
+        "[[SET_SPEAKER]]shady",
+        "I dreamt you drowned in a washbasin.",
+        "Then a goat crowned you king.",
+        "Then I stabbed you.",
+        "Twice.",
+        "[[SET_SPEAKER]]evil_player",
+        "To be fair, we were asking for at least one of those."
+      ],
+      "next": {
+        "1221__MARKET_SHADY": {
+          "title": "Buy the saint's sneeze.",
+          "dialog": []
+        },
+        "1222__MARKET_SHADY": {
+          "title": "Tell him the dreams are memories.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1221__MARKET_SHADY": {
+      "comment": "A comic relic purchase goes predictably badly.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "How much for the sneeze?",
+        "[[SET_SPEAKER]]evil_player",
+        "No.",
+        "[[SET_SPEAKER]]shady",
+        "For you?",
+        "Two silver pennies.",
+        "And a solemn vow not to wash it.",
+        "[[SET_SPEAKER]]player",
+        "Done.",
+        "[[SET_SPEAKER]]evil_player",
+        "Our finances are now managed by a haunted radish.",
+        "[[EMOTE]][You press the cloth reverently to your face.]",
+        "[[DELAY]]1.5",
+        "[[SET_SPEAKER]]player",
+        "That isn't a sneeze.",
+        "[[SET_SPEAKER]]shady",
+        "All sales are final.",
+        "[[EMOTE]][Your tongue goes numb.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Poison.",
+        "[[SET_SPEAKER]]player",
+        "Pthoithon.",
+        "[[SET_SPEAKER]]evil_player",
+        "Strong closing statement.",
+        "[[EMOTE]][You collapse into a basket of devotional onions.]"
+      ],
+      "next": {
+        "1000__RESTART": {
+          "title": "[Die with a full refund pending.]",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1222__MARKET_SHADY": {
+      "comment": "The player forms an uneasy alliance with Shady.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "They aren't dreams.",
+        "They're memories.",
+        "[[SET_SPEAKER]]shady",
+        "Of me stabbing you?",
+        "[[SET_SPEAKER]]player",
+        "Twice.",
+        "[[SET_SPEAKER]]shady",
+        "That does sound like me.",
+        "[[SET_SPEAKER]]evil_player",
+        "Ask for an apology.",
+        "[[SET_SPEAKER]]player",
+        "Are you sorry?",
+        "[[SET_SPEAKER]]shady",
+        "Let's not poison a promising friendship with lies.",
+        "[[EMOTE]][The chapel bell groans above the market.]",
+        "[[SET_SPEAKER]]shady",
+        "There.",
+        "That sound.",
+        "Every time it rings, I taste iron.",
+        "And I remember your face burning in the sky.",
+        "[[SET_SPEAKER]]player",
+        "Useful.",
+        "[[SET_SPEAKER]]shady",
+        "Traumatic.",
+        "[[SET_SPEAKER]]player",
+        "Both can be true.",
+        "[[SET_SPEAKER]]shady",
+        "Harold knows something.",
+        "After sundown he carries a black ledger to the bell tower.",
+        "Gilbert guards the stair.",
+        "I tried following once.",
+        "[[SET_SPEAKER]]player",
+        "What happened?",
+        "[[SET_SPEAKER]]shady",
+        "Gilbert hit me with a halberd.",
+        "[[SET_SPEAKER]]evil_player",
+        "Did you die?",
+        "[[SET_SPEAKER]]shady",
+        "Worse.",
+        "It tore my best doublet.",
+        "[[ADD_ITEM]]shady_truce",
+        "[[SET_SPEAKER]]shady",
+        "If you find a way into that tower, fetch me.",
+        "I have lockpicks.",
+        "And unresolved anger."
+      ],
+      "next": {
+        "1230__MARKET_TOWER": {
+          "title": "Scout the bell tower.",
+          "dialog": []
+        },
+        "1000__RESTART": {
+          "title": "Leave before he sells you something.",
+          "dialog": [
+            "[[SET_SPEAKER]]player",
+            "Next life.",
+            "[[SET_SPEAKER]]shady",
+            "Bring silver.",
+            "[[EMOTE]][Behind Shady, a reliquary sneezes. Everything goes dark.]"
+          ]
+        }
+      },
+      "show_in_editor": true
+    },
+    "1230__MARKET_TOWER": {
+      "comment": "The player scouts the tower and meets Gilbert properly.",
+      "speaker": "player",
+      "dialog": [
+        "[[SHOW_KEYED_IMAGE]]tourney_guardian",
+        "[[EMOTE]][The bell tower rises behind the chapel, old stone stitched with fresh iron.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Subtle.",
+        "Nothing says harmless village bell like six new locks.",
+        "[[SET_SPEAKER]]guard",
+        "Halt.",
+        "[[SET_SPEAKER]]player",
+        "Hello, Gilbert.",
+        "[[SET_SPEAKER]]guard",
+        "Have we met?",
+        "[[SET_SPEAKER]]player",
+        "Not while I was wearing trousers.",
+        "[[SET_SPEAKER]]guard",
+        "[[FLASH_KEYED_IMAGE]]reaction_concern",
+        "I see.",
+        "State your business.",
+        "[[SET_SPEAKER]]player",
+        "Bell appreciation.",
+        "[[SET_SPEAKER]]guard",
+        "Denied.",
+        "[[SET_SPEAKER]]player",
+        "Religious pilgrimage?",
+        "[[SET_SPEAKER]]guard",
+        "Denied with reverence.",
+        "[[SET_SPEAKER]]evil_player",
+        "Ask about the screaming ledger.",
+        "[[SET_SPEAKER]]player",
+        "Do you guard a screaming ledger?",
+        "[[SET_SPEAKER]]guard",
+        "[[FLASH_KEYED_IMAGE]]reaction_bug_eyes",
+        "[[DELAY]]1.5",
+        "No.",
+        "[[SET_SPEAKER]]evil_player",
+        "Excellent guard work.",
+        "[[EMOTE]][From inside the tower comes a muffled chorus of your own voice.]",
+        "[[SET_SPEAKER]]player",
+        "That sounds like me.",
+        "[[SET_SPEAKER]]guard",
+        "Many things sound like many things."
+      ],
+      "next": {
+        "1231__MARKET_TOWER": {
+          "title": "Ask why he looks frightened.",
+          "dialog": []
+        },
+        "1232__MARKET_TOWER": {
+          "title": "Make a heroic dash for the door.",
+          "dialog": []
+        },
+        "1240__LEDGER": {
+          "title": "Amy sent me for Harold's ledger.",
+          "dialog": [],
+          "show_if": ["amy_trust"]
+        }
+      },
+      "show_in_editor": true
+    },
+    "1231__MARKET_TOWER": {
+      "comment": "Kindness earns Gilbert's future cooperation, but not survival.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "Gilbert.",
+        "You look frightened.",
+        "[[SET_SPEAKER]]guard",
+        "I am armed.",
+        "[[SET_SPEAKER]]player",
+        "Those facts can coexist.",
+        "[[SET_SPEAKER]]guard",
+        "[[DELAY]]1.5",
+        "At sunset, Harold climbs the tower.",
+        "He reads from the black book.",
+        "The bell rings.",
+        "Then I wake in my bed with blood on my boots.",
+        "[[SET_SPEAKER]]evil_player",
+        "Whose blood?",
+        "[[SET_SPEAKER]]guard",
+        "I stopped asking.",
+        "[[SET_SPEAKER]]player",
+        "Why keep guarding it?",
+        "[[SET_SPEAKER]]guard",
+        "I have a pension.",
+        "[[SET_SPEAKER]]evil_player",
+        "Fair.",
+        "[[SET_SPEAKER]]guard",
+        "Also, Harold says if the bell is not rung, tomorrow comes.",
+        "[[SET_SPEAKER]]player",
+        "That sounds good.",
+        "[[SET_SPEAKER]]guard",
+        "He does not say it like it is good.",
+        "[[ADD_ITEM]]gilbert_spared",
+        "[[EMOTE]][The tower door shudders. Something heavy tests its hinges from within.]",
+        "[[SET_SPEAKER]]guard",
+        "You should go.",
+        "[[SET_SPEAKER]]player",
+        "Come with me.",
+        "[[SET_SPEAKER]]guard",
+        "Pension.",
+        "[[EMOTE]][The door bursts open. A dozen pale hands pull Gilbert backward.]",
+        "[[SET_SPEAKER]]guard",
+        "Tell my pension I loved her!"
+      ],
+      "next": {
+        "1000__RESTART": {
+          "title": "[Be buried under the administrative consequences.]",
+          "dialog": [
+            "[[SHOW_KEYED_IMAGE]]doppelganger_mummy",
+            "[[EMOTE]][The hands reach you next.]"
+          ]
+        }
+      },
+      "show_in_editor": true
+    },
+    "1232__MARKET_TOWER": {
+      "comment": "An attempted tower rush ends in a historically accurate amount of halberd.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "You cannot stop a determined heart!",
+        "[[EMOTE]][You sprint toward the door.]",
+        "[[SET_SPEAKER]]guard",
+        "I can stop the rest of you.",
+        "[[EMOTE]][Gilbert lowers his halberd.]",
+        "[[SET_SPEAKER]]evil_player",
+        "He makes a persuasive counterargument.",
+        "[[FLASH_KEYED_IMAGE]]reaction_stabbed",
+        "[[SET_SPEAKER]]player",
+        "I withdraw my motion.",
+        "[[SET_SPEAKER]]guard",
+        "Motion withdrawn."
+      ],
+      "next": {
+        "1000__RESTART": {
+          "title": "[Bleed according to town ordinance.]",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1240__LEDGER": {
+      "comment": "Break into Harold's records tent in search of the black ledger.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][You circle behind the registration tent as Amy begins an unusually loud proclamation.]",
+        "[[SET_SPEAKER]]announcer",
+        "ATTENTION!",
+        "A PIG OF UNCOMMON GIRTH HAS ESCAPED!",
+        "[[SET_SPEAKER]]evil_player",
+        "Good distraction.",
+        "[[SET_SPEAKER]]player",
+        "Is there really a pig?",
+        "[[SET_SPEAKER]]evil_player",
+        "There is now.",
+        "[[EMOTE]][A large pig barrels through the square wearing Shady's relic banner.]",
+        "[[SET_SPEAKER]]shady",
+        "THIEF!",
+        "HERETIC!",
+        "VALUED CUSTOMER!",
+        "[[EMOTE]][You slip beneath the tent wall.]",
+        "[[SET_SPEAKER]]player",
+        "Lots of ledgers.",
+        "[[SET_SPEAKER]]evil_player",
+        "Red for debts.",
+        "Blue for entrants.",
+        "Green for bribes.",
+        "[[SET_SPEAKER]]player",
+        "How do you know?",
+        "[[SET_SPEAKER]]evil_player",
+        "Color theory.",
+        "[[EMOTE]][Beneath Harold's desk, a black leather book breathes softly.]",
+        "[[SET_SPEAKER]]player",
+        "Found it.",
+        "[[SET_SPEAKER]]evil_player",
+        "Books should not have lungs."
+      ],
+      "next": {
+        "1241__LEDGER": {
+          "title": "Open the black ledger.",
+          "dialog": []
+        },
+        "1242__LEDGER": {
+          "title": "Hide and wait for Harold.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1241__LEDGER": {
+      "comment": "The ledger reveals the loop is a ritual built around the player.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][The clasp opens beneath your thumb.]",
+        "[[SET_SPEAKER]]evil_player",
+        "That was easy.",
+        "[[SET_SPEAKER]]player",
+        "You had to say it.",
+        "[[EMOTE]][Every page bears a date, a name, and a manner of death.]",
+        "[[SET_SPEAKER]]player",
+        "Jon.",
+        "Jean.",
+        "Johannes.",
+        "Mildred.",
+        "[[SET_SPEAKER]]evil_player",
+        "You wore Mildred well.",
+        "[[EMOTE]][The ink crawls across the parchment as you read.]",
+        "[[SET_SPEAKER]]player",
+        "Contestant wakes.",
+        "Contestant strays.",
+        "Echo assumes form.",
+        "Bell contains tomorrow.",
+        "[[SET_SPEAKER]]evil_player",
+        "Read that last one again.",
+        "[[SET_SPEAKER]]player",
+        "Bell contains tomorrow.",
+        "[[EMOTE]][A final page turns itself.]",
+        "[[SET_SPEAKER]]player",
+        "At the thirteenth stroke, all unresolved lives return to first light.",
+        "The vessel shall remain divided.",
+        "The voice shall remain within.",
+        "[[SET_SPEAKER]]evil_player",
+        "[[FLASH_KEYED_IMAGE]]reaction_blank",
+        "The voice?",
+        "[[SET_SPEAKER]]player",
+        "You.",
+        "[[SET_SPEAKER]]evil_player",
+        "I gathered.",
+        "I was hoping there was another charming parasite.",
+        "[[EMOTE]][A sketch shows a human figure split down the middle. Both halves have your face.]",
+        "[[SET_SPEAKER]]player",
+        "The doppelganger isn't copying me.",
+        "It's made from the lives I leave behind.",
+        "[[ADD_ITEM]]read_black_ledger",
+        "[[ADD_ITEM]]knows_bell_ritual",
+        "[[SET_SPEAKER]]evil_player",
+        "Close the book.",
+        "[[SET_SPEAKER]]player",
+        "Why?",
+        "[[SET_SPEAKER]]evil_player",
+        "Because the page beneath your hand says it knows we're reading.",
+        "[[EMOTE]][The ledger screams in fifty-seven versions of your voice.]"
+      ],
+      "next": {
+        "1000__RESTART": {
+          "title": "[Remember what the bell contains.]",
+          "dialog": [
+            "[[SET_SPEAKER]]harold",
+            "You were not meant to read that.",
+            "[[SET_SPEAKER]]player",
+            "You need a quieter book.",
+            "[[EMOTE]][Harold closes the ledger. You are still inside it.]"
+          ]
+        }
+      },
+      "show_in_editor": true
+    },
+    "1242__LEDGER": {
+      "comment": "Waiting for Harold provides a more personal piece of the conspiracy.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][You wedge yourself into a cabinet labeled DISQUALIFICATIONS: MORAL.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Roomy.",
+        "[[SET_SPEAKER]]player",
+        "Stop breathing so loudly.",
+        "[[SET_SPEAKER]]evil_player",
+        "I do not have lungs.",
+        "[[SET_SPEAKER]]player",
+        "Then stop pretending.",
+        "[[EMOTE]][Harold enters and drops his public smile with the tent flap.]",
+        "[[SET_SPEAKER]]harold",
+        "Fifty-eight thousand, two hundred and nine.",
+        "[[SET_SPEAKER]]player",
+        "[[SHOW_TEXT]]He sounds tired.",
+        "[[SET_SPEAKER]]harold",
+        "Contestant arrived.",
+        "Bell rang thirteen.",
+        "Containment remains stable.",
+        "[[SET_SPEAKER]]evil_player",
+        "He has done this fifty-eight thousand times.",
+        "[[SET_SPEAKER]]player",
+        "And still files it by hand.",
+        "[[SET_SPEAKER]]evil_player",
+        "Monster.",
+        "[[EMOTE]][Harold opens the cabinet.]",
+        "[[SET_SPEAKER]]harold",
+        "You are not morally disqualified.",
+        "[[SET_SPEAKER]]player",
+        "Thank you?",
+        "[[SET_SPEAKER]]harold",
+        "Merely catastrophically nosy.",
+        "[[SET_SPEAKER]]player",
+        "Why keep us here?",
+        "[[SET_SPEAKER]]harold",
+        "Because the first tomorrow was worse.",
+        "[[SET_SPEAKER]]evil_player",
+        "What happened?",
+        "[[SET_SPEAKER]]harold",
+        "You did.",
+        "[[EMOTE]][Harold stamps your forehead with a red DISQUALIFIED seal.]"
+      ],
+      "next": {
+        "1241__LEDGER": {
+          "title": "Grab the ledger anyway.",
+          "dialog": [
+            "[[SET_SPEAKER]]player",
+            "Then I should read my own file.",
+            "[[EMOTE]][You seize the breathing book from Harold's desk.]"
+          ]
+        },
+        "1000__RESTART": {
+          "title": "Ask him to explain the first tomorrow.",
+          "dialog": [
+            "[[SET_SPEAKER]]player",
+            "What did I do?",
+            "[[SET_SPEAKER]]harold",
+            "You opened the door.",
+            "[[SET_SPEAKER]]player",
+            "What door?",
+            "[[SET_SPEAKER]]harold",
+            "Precisely.",
+            "[[EMOTE]][The red seal burns through your thoughts.]"
+          ]
+        }
+      },
+      "show_in_editor": true
+    },
+    "1300__BELL_HEIST": {
+      "comment": "The player begins the true-ending campaign after recruiting allies across loops.",
+      "speaker": "player",
+      "dialog": [
+        "[[SHOW_KEYED_IMAGE]]tourney_town",
+        "[[EMOTE]][You enter the fair with the confidence of someone who has already died in every available direction.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Remind me of the plan.",
+        "[[SET_SPEAKER]]player",
+        "Amy controls the crowd.",
+        "Shady opens the locks.",
+        "We take Harold's ledger.",
+        "Then we ring the bell backward.",
+        "[[SET_SPEAKER]]evil_player",
+        "Can bells ring backward?",
+        "[[SET_SPEAKER]]player",
+        "Can chickens become feudal landlords?",
+        "[[SET_SPEAKER]]evil_player",
+        "Point conceded.",
+        "[[EMOTE]][The bell begins its first toll.]",
+        "[[SET_SPEAKER]]player",
+        "We have until thirteen.",
+        "[[SET_SPEAKER]]evil_player",
+        "And if this fails?",
+        "[[SET_SPEAKER]]player",
+        "We try again.",
+        "[[SET_SPEAKER]]evil_player",
+        "You say that like dying is a minor scheduling conflict.",
+        "[[SET_SPEAKER]]player",
+        "At this point?",
+        "It is."
+      ],
+      "next": {
+        "1310__BELL_HEIST": {
+          "title": "Fetch the town crier.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1310__BELL_HEIST": {
+      "comment": "Amy joins the conspiracy and clears the square.",
+      "speaker": "announcer",
+      "dialog": [
+        "[[EMOTE]][Amy spots you before you reach her platform.]",
+        "[[SET_SPEAKER]]announcer",
+        "Tomorrow's proclamation?",
+        "[[SET_SPEAKER]]player",
+        "Cancelled.",
+        "[[SET_SPEAKER]]announcer",
+        "[[DELAY]]1.5",
+        "Good answer.",
+        "[[SET_SPEAKER]]evil_player",
+        "Tell her the plan.",
+        "[[SET_SPEAKER]]player",
+        "We need the square empty.",
+        "[[SET_SPEAKER]]announcer",
+        "Plague?",
+        "[[SET_SPEAKER]]player",
+        "Too frightening.",
+        "[[SET_SPEAKER]]announcer",
+        "Free ale?",
+        "[[SET_SPEAKER]]player",
+        "Wrong direction.",
+        "[[SET_SPEAKER]]announcer",
+        "French tax collector?",
+        "[[SET_SPEAKER]]evil_player",
+        "Weaponized bureaucracy.",
+        "Elegant.",
+        "[[EMOTE]][Amy climbs her platform and unfurls a blank proclamation.]",
+        "[[SET_SPEAKER]]announcer",
+        "HEAR YE!",
+        "A ROYAL TAX ASSESSOR HAS ENTERED THE EAST GATE!",
+        "HE IS FRENCH!",
+        "HE VALUES EYE CONTACT!",
+        "[[EMOTE]][The market empties with military precision.]",
+        "[[SET_SPEAKER]]player",
+        "You are terrifying.",
+        "[[SET_SPEAKER]]announcer",
+        "I am underpaid."
+      ],
+      "next": {
+        "1320__BELL_HEIST": {
+          "title": "Collect Shady and his lockpicks.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1320__BELL_HEIST": {
+      "comment": "Shady joins the bell heist for reasons both noble and sartorial.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][Shady is packing false relics into a very real reliquary.]",
+        "[[SET_SPEAKER]]shady",
+        "I heard the proclamation.",
+        "I owe taxes in France.",
+        "We must flee.",
+        "[[SET_SPEAKER]]player",
+        "There is no assessor.",
+        "We're breaking into the bell tower.",
+        "[[SET_SPEAKER]]shady",
+        "[[DELAY]]1.5",
+        "This is somehow worse.",
+        "[[SET_SPEAKER]]evil_player",
+        "You promised lockpicks.",
+        "[[SET_SPEAKER]]shady",
+        "I also promise every relic is authentic.",
+        "My promises are priced competitively.",
+        "[[SET_SPEAKER]]player",
+        "The bell is why you remember dying.",
+        "Help us stop it.",
+        "[[EMOTE]][Shady looks toward the tower. For once, he has no joke ready.]",
+        "[[SET_SPEAKER]]shady",
+        "In one dream, I had a daughter.",
+        "She had my eyes.",
+        "Poor child.",
+        "[[SET_SPEAKER]]player",
+        "A memory from tomorrow?",
+        "[[SET_SPEAKER]]shady",
+        "Maybe.",
+        "I should like the chance to meet her.",
+        "[[EMOTE]][He produces a roll of lockpicks, two knives, and a small devotional onion.]",
+        "[[SET_SPEAKER]]shady",
+        "For courage.",
+        "[[SET_SPEAKER]]evil_player",
+        "That onion is not devotional.",
+        "[[SET_SPEAKER]]shady",
+        "Not with that attitude."
+      ],
+      "next": {
+        "1330__BELL_HEIST": {
+          "title": "Confront Harold before he reaches the tower.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1330__BELL_HEIST": {
+      "comment": "Harold explains his role and the original catastrophe.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][You find Harold in the registration tent, black ledger chained to his wrist.]",
+        "[[SET_SPEAKER]]harold",
+        "No.",
+        "[[SET_SPEAKER]]player",
+        "We haven't asked anything.",
+        "[[SET_SPEAKER]]harold",
+        "You have broken into my tent in fifty-three distinct ways.",
+        "The answer is no to all of them.",
+        "[[SET_SPEAKER]]announcer",
+        "We know about the bell.",
+        "[[SET_SPEAKER]]shady",
+        "And the ledger.",
+        "[[SET_SPEAKER]]evil_player",
+        "And your handwriting.",
+        "Unforgivable.",
+        "[[SET_SPEAKER]]harold",
+        "[[FLASH_KEYED_IMAGE]]reaction_done",
+        "Then you know enough to be dangerous.",
+        "[[SET_SPEAKER]]player",
+        "Tell us about the first tomorrow.",
+        "[[SET_SPEAKER]]harold",
+        "You were the royal archer.",
+        "The court alchemists built a door beneath the tower.",
+        "A door into every life you might have lived.",
+        "[[SET_SPEAKER]]player",
+        "Why?",
+        "[[SET_SPEAKER]]harold",
+        "The king wanted an army that could not die.",
+        "[[SET_SPEAKER]]shady",
+        "Kings do love a dreadful idea in expensive trousers.",
+        "[[SET_SPEAKER]]harold",
+        "You were ordered to open it.",
+        "Every possible you stepped through at once.",
+        "The sky took your face.",
+        "The kingdom lasted seven minutes.",
+        "[[SET_SPEAKER]]announcer",
+        "So you trapped the day before.",
+        "[[SET_SPEAKER]]harold",
+        "I helped.",
+        "I was young.",
+        "I believed containment was mercy.",
+        "[[SET_SPEAKER]]player",
+        "Fifty-eight thousand mornings later?",
+        "[[SET_SPEAKER]]harold",
+        "I believe I was a coward."
+      ],
+      "next": {
+        "1331__BELL_HEIST": {
+          "title": "Ask Harold to help end it.",
+          "dialog": []
+        },
+        "1332__BELL_HEIST": {
+          "title": "Take the ledger by force.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1331__BELL_HEIST": {
+      "comment": "The player recruits Harold by offering him accountability instead of absolution.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "Help us end it.",
+        "[[SET_SPEAKER]]harold",
+        "And if tomorrow destroys the kingdom again?",
+        "[[SET_SPEAKER]]player",
+        "Then tomorrow gets a vote.",
+        "None of us did.",
+        "[[SET_SPEAKER]]evil_player",
+        "Also, the kingdom is mostly livestock and people selling fake thumbs.",
+        "[[SET_SPEAKER]]shady",
+        "Certified thumbs.",
+        "[[SET_SPEAKER]]announcer",
+        "Harold.",
+        "You do not need to be forgiven.",
+        "You need to open the tower.",
+        "[[EMOTE]][Harold studies each of you. The bell tolls nine.]",
+        "[[SET_SPEAKER]]harold",
+        "The ledger is the key.",
+        "At the thirteenth stroke, it names the life to be preserved.",
+        "Your life.",
+        "This life.",
+        "If the names are read backward before the final stroke—",
+        "[[SET_SPEAKER]]player",
+        "The bell releases tomorrow.",
+        "[[SET_SPEAKER]]harold",
+        "Or every abandoned life returns at once.",
+        "[[SET_SPEAKER]]evil_player",
+        "Small uncertainty.",
+        "[[EMOTE]][Harold unchains the ledger from his wrist.]",
+        "[[SET_SPEAKER]]harold",
+        "I will get you through the lower door.",
+        "After that, the tower will defend itself."
+      ],
+      "next": {
+        "1340__BELL_HEIST": {
+          "title": "March on the bell tower.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1332__BELL_HEIST": {
+      "comment": "Violence against Harold proves the ledger is a jealous employer.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "Shady.",
+        "[[SET_SPEAKER]]shady",
+        "With pleasure.",
+        "[[EMOTE]][Shady cuts the chain at Harold's wrist.]",
+        "[[SET_SPEAKER]]harold",
+        "You fool.",
+        "[[EMOTE]][The ledger opens like a mouth.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Books should not have teeth.",
+        "[[EMOTE]][A parchment tongue wraps around Shady's arm.]",
+        "[[SET_SPEAKER]]shady",
+        "Save the doublet!",
+        "[[SET_SPEAKER]]announcer",
+        "Remove the doublet!",
+        "[[SET_SPEAKER]]shady",
+        "Let me die!",
+        "[[EMOTE]][The ledger swallows Shady, doublet and all.]",
+        "[[SET_SPEAKER]]evil_player",
+        "He died as he lived.",
+        "Overdressed and difficult."
+      ],
+      "next": {
+        "1000__RESTART": {
+          "title": "[Reconsider collaborative leadership.]",
+          "dialog": ["[[EMOTE]][The ledger begins on Amy next.]"]
+        }
+      },
+      "show_in_editor": true
+    },
+    "1340__BELL_HEIST": {
+      "comment": "The assembled party reaches Gilbert at the tower.",
+      "speaker": "player",
+      "dialog": [
+        "[[SHOW_KEYED_IMAGE]]tourney_guardian",
+        "[[EMOTE]][The four of you cross the empty square. Gilbert lowers his halberd.]",
+        "[[SET_SPEAKER]]guard",
+        "Halt.",
+        "[[SET_SPEAKER]]harold",
+        "Stand aside.",
+        "[[SET_SPEAKER]]guard",
+        "You told me never to stand aside.",
+        "[[SET_SPEAKER]]harold",
+        "I am revising the policy.",
+        "[[SET_SPEAKER]]guard",
+        "Do you have the revision in writing?",
+        "[[SET_SPEAKER]]evil_player",
+        "This is why kingdoms fall.",
+        "[[SET_SPEAKER]]announcer",
+        "Gilbert, if we succeed, you may not have a pension.",
+        "[[SET_SPEAKER]]guard",
+        "Then why would I help?",
+        "[[SET_SPEAKER]]shady",
+        "You may have a tomorrow.",
+        "[[SET_SPEAKER]]guard",
+        "[[DELAY]]1.5",
+        "Does tomorrow include supper?",
+        "[[SET_SPEAKER]]player",
+        "Almost certainly.",
+        "[[SET_SPEAKER]]evil_player",
+        "We cannot guarantee that.",
+        "[[SET_SPEAKER]]player",
+        "Read the room."
+      ],
+      "next": {
+        "1341__BELL_HEIST": {
+          "title": "Remind Gilbert that he trusted you before.",
+          "dialog": [],
+          "show_if": ["gilbert_spared"]
+        },
+        "1342__BELL_HEIST": {
+          "title": "Let Amy issue a lawful order.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1341__BELL_HEIST": {
+      "comment": "Remembered compassion earns a bloodless passage.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "You told me about the blood on your boots.",
+        "You told me you were afraid.",
+        "[[SET_SPEAKER]]guard",
+        "I have never spoken to you.",
+        "[[SET_SPEAKER]]player",
+        "Not this morning.",
+        "[[SET_SPEAKER]]guard",
+        "[[DELAY]]1.5",
+        "Did I say anything embarrassing?",
+        "[[SET_SPEAKER]]evil_player",
+        "You declared love for your pension.",
+        "[[SET_SPEAKER]]guard",
+        "That is private.",
+        "[[SET_SPEAKER]]player",
+        "You also tried to save me.",
+        "[[EMOTE]][Gilbert looks at the tower door. Something behind it scratches his name into the wood.]",
+        "[[SET_SPEAKER]]guard",
+        "If there is supper tomorrow, I favor stew.",
+        "[[SET_SPEAKER]]player",
+        "Noted.",
+        "[[EMOTE]][Gilbert raises his halberd and unlocks the door.]"
+      ],
+      "next": {
+        "1350__BELL_HEIST": {
+          "title": "Enter the tower together.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1342__BELL_HEIST": {
+      "comment": "Amy defeats Gilbert through the awesome force of fabricated procedure.",
+      "speaker": "announcer",
+      "dialog": [
+        "[[SET_SPEAKER]]announcer",
+        "Gilbert.",
+        "By authority of the Office of Bells, Fairs, and Lesser Geese, stand aside.",
+        "[[SET_SPEAKER]]guard",
+        "There is no such office.",
+        "[[SET_SPEAKER]]announcer",
+        "Are you refusing a direct order under Poultry Addendum Seven?",
+        "[[SET_SPEAKER]]guard",
+        "I have not read Addendum Seven.",
+        "[[SET_SPEAKER]]announcer",
+        "Then you admit negligence.",
+        "[[SET_SPEAKER]]guard",
+        "[[FLASH_KEYED_IMAGE]]reaction_concern",
+        "[[SET_SPEAKER]]evil_player",
+        "She's killing him without a blade.",
+        "[[SET_SPEAKER]]announcer",
+        "Your pension is forfeit pending a three-year review.",
+        "[[SET_SPEAKER]]guard",
+        "You cannot do that.",
+        "[[SET_SPEAKER]]announcer",
+        "Would you like to appeal?",
+        "[[SET_SPEAKER]]guard",
+        "How?",
+        "[[SET_SPEAKER]]announcer",
+        "Office is atop the tower.",
+        "[[EMOTE]][Gilbert unlocks the door with furious efficiency.]",
+        "[[SET_SPEAKER]]shady",
+        "Marry me.",
+        "[[SET_SPEAKER]]announcer",
+        "Denied."
+      ],
+      "next": {
+        "1350__BELL_HEIST": {
+          "title": "Enter before he checks the statutes.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1350__BELL_HEIST": {
+      "comment": "The party climbs through discarded lives toward the bell.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][The tower is larger inside. Stairs coil upward through impossible dark.]",
+        "[[SET_SPEAKER]]shady",
+        "I dislike enchanted architecture.",
+        "[[SET_SPEAKER]]evil_player",
+        "You sell enchanted thumbs.",
+        "[[SET_SPEAKER]]shady",
+        "Those are decorative.",
+        "[[EMOTE]][Figures gather on the landings above.]",
+        "A naked archer.",
+        "A crowned chicken.",
+        "A farmer carrying eggs.",
+        "A child with your eyes.",
+        "[[SET_SPEAKER]]player",
+        "My other lives.",
+        "[[SET_SPEAKER]]harold",
+        "Do not let them touch you.",
+        "They want to be the life that continues.",
+        "[[SET_SPEAKER]]little_you",
+        "Why you?",
+        "[[SET_SPEAKER]]player",
+        "[[DELAY]]1.5",
+        "It shouldn't be.",
+        "[[SET_SPEAKER]]little_you",
+        "Good answer.",
+        "[[EMOTE]][Little You turns and fires into the crowd of echoes. A path opens.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Was that us helping us?",
+        "[[SET_SPEAKER]]player",
+        "Family is complicated.",
+        "[[EMOTE]][The bell tolls eleven. The whole tower shudders.]",
+        "[[SET_SPEAKER]]announcer",
+        "Two strokes left.",
+        "[[SET_SPEAKER]]shady",
+        "One and a bit, surely.",
+        "[[SET_SPEAKER]]announcer",
+        "Do not correct the professional counter."
+      ],
+      "next": {
+        "1360__BELL_HEIST": {
+          "title": "Climb to the bell chamber.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1360__BELL_HEIST": {
+      "comment": "At the bell, the player chooses how to confront the divided self.",
+      "speaker": "player",
+      "dialog": [
+        "[[SHOW_KEYED_IMAGE]]tourney_big_face",
+        "[[EMOTE]][You burst into the bell chamber beneath a sky wearing your face.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Still unsettling.",
+        "[[SET_SPEAKER]]harold",
+        "The ledger!",
+        "[[EMOTE]][Harold opens the book. Pages whip backward in the wind.]",
+        "[[SET_SPEAKER]]harold",
+        "Mildred!",
+        "Johannes!",
+        "Jean!",
+        "Jon!",
+        "[[SET_SPEAKER]]shady",
+        "Those are your secret names?",
+        "[[SET_SPEAKER]]player",
+        "We all contain multitudes.",
+        "[[EMOTE]][The bell draws breath for its twelfth stroke.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Buddy.",
+        "There is something in the bell.",
+        "[[SHOW_KEYED_IMAGE]]doppelganger_mummy",
+        "[[EMOTE]][The doppelganger unfolds from the bronze, built from every death you abandoned.]",
+        "[[SET_SPEAKER]]doppelganger",
+        "Only one life leaves.",
+        "[[SET_SPEAKER]]player",
+        "That's the old rule.",
+        "[[SET_SPEAKER]]doppelganger",
+        "Rules are what remain when people do not."
+      ],
+      "next": {
+        "1361__BELL_HEIST": {
+          "title": "Smash the bell.",
+          "dialog": []
+        },
+        "1362__BELL_HEIST": {
+          "title": "Let the Voice read the final name.",
+          "dialog": []
+        },
+        "1363__BELL_HEIST": {
+          "title": "Read every life into tomorrow.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1361__BELL_HEIST": {
+      "comment": "Brute force breaks the bell but not the loop.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "Shady.",
+        "Hammer.",
+        "[[SET_SPEAKER]]shady",
+        "I knew I liked you.",
+        "[[EMOTE]][Together you swing the iron clapper into the bell's rim.]",
+        "[[SHOW_KEYED_IMAGE]]change_to_big_face",
+        "[[EMOTE]][Bronze splits. The sky splits with it.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Did we win?",
+        "[[SET_SPEAKER]]harold",
+        "You destroyed the only container.",
+        "[[SET_SPEAKER]]evil_player",
+        "That sounds unlike winning.",
+        "[[EMOTE]][Every abandoned life pours through the crack at once.]",
+        "[[SET_SPEAKER]]player",
+        "Next time, less hammer.",
+        "[[SET_SPEAKER]]shady",
+        "Coward."
+      ],
+      "next": {
+        "1000__RESTART": {
+          "title": "[Be trampled by your own possibilities.]",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1362__BELL_HEIST": {
+      "comment": "The player gives the Voice agency and learns its origin.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "You read it.",
+        "[[SET_SPEAKER]]evil_player",
+        "Me?",
+        "[[SET_SPEAKER]]player",
+        "The ledger calls you the voice within.",
+        "Maybe you're the part that remembers who we were.",
+        "[[SET_SPEAKER]]evil_player",
+        "Or the part that makes jokes during fatal injuries.",
+        "[[SET_SPEAKER]]player",
+        "Both can be true.",
+        "[[EMOTE]][You place the ledger beneath your hand. The Voice speaks through your mouth.]",
+        "[[SET_SPEAKER]]evil_player",
+        "First life.",
+        "Last life.",
+        "Life that opened the door.",
+        "Life that regretted it.",
+        "Life that stayed to close it.",
+        "[[EMOTE]][The doppelganger recoils.]",
+        "[[SET_SPEAKER]]doppelganger",
+        "That name was divided.",
+        "[[SET_SPEAKER]]evil_player",
+        "Then we have excellent news.",
+        "[[SET_SPEAKER]]player",
+        "We're putting it back together.",
+        "[[EMOTE]][The twelfth stroke rings backward.]"
+      ],
+      "next": {
+        "1370__BELL_HEIST": {
+          "title": "Finish the ritual together.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1363__BELL_HEIST": {
+      "comment": "The player refuses the ritual's false choice and names every abandoned life.",
+      "speaker": "player",
+      "dialog": [
+        "[[SET_SPEAKER]]player",
+        "No single life.",
+        "All of them.",
+        "[[SET_SPEAKER]]harold",
+        "The ledger cannot hold that.",
+        "[[SET_SPEAKER]]player",
+        "It doesn't have to.",
+        "Tomorrow does.",
+        "[[EMOTE]][You tear the final page free.]",
+        "[[SET_SPEAKER]]player",
+        "The archer.",
+        "The farmer.",
+        "The fool with the sword.",
+        "The fool without clothes.",
+        "The chicken.",
+        "Mildred.",
+        "[[SET_SPEAKER]]evil_player",
+        "Especially Mildred.",
+        "[[SET_SPEAKER]]player",
+        "Every life happened.",
+        "None of them gets erased.",
+        "[[EMOTE]][Around you, the abandoned selves stop fighting.]",
+        "[[SET_SPEAKER]]little_you",
+        "Good answer.",
+        "[[EMOTE]][The twelfth stroke rings backward.]"
+      ],
+      "next": {
+        "1370__BELL_HEIST": {
+          "title": "Open the door to tomorrow.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1370__BELL_HEIST": {
+      "comment": "The Thirteenth Bell campaign resolves and rejoins the epilogue.",
+      "speaker": "player",
+      "dialog": [
+        "[[ADD_ITEM]]unmade_tomorrow",
+        "[[SHOW_KEYED_IMAGE]]sky_vortex",
+        "[[EMOTE]][The bell rings backward through eleven, ten, nine—each stroke returning a stolen possibility.]",
+        "[[SET_SPEAKER]]announcer",
+        "The crowd is coming back.",
+        "[[SET_SPEAKER]]shady",
+        "The tax assessor?",
+        "[[SET_SPEAKER]]announcer",
+        "The actual French one.",
+        "[[SET_SPEAKER]]shady",
+        "I knew we tempted providence.",
+        "[[SET_SPEAKER]]harold",
+        "The ledger is blank.",
+        "[[SET_SPEAKER]]player",
+        "Good.",
+        "[[EMOTE]][The doppelganger stands at the edge of the vortex, no longer monstrous. Merely tired.]",
+        "[[SET_SPEAKER]]doppelganger",
+        "What are we now?",
+        "[[SET_SPEAKER]]player",
+        "Alive.",
+        "[[SET_SPEAKER]]evil_player",
+        "Provisionally.",
+        "[[SET_SPEAKER]]player",
+        "He means welcome.",
+        "[[EMOTE]][The doppelganger steps into you like a reflection returning to glass.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Crowded in here.",
+        "[[SET_SPEAKER]]player",
+        "I contain multitudes.",
+        "[[SET_SPEAKER]]evil_player",
+        "You've been waiting all day to say that.",
+        "[[SET_SPEAKER]]player",
+        "Several thousand days.",
+        "[[EMOTE]][The final backward stroke sounds. Somewhere beyond the tower, a rooster crows for a morning that has never happened.]"
+      ],
+      "next": {
+        "2000__START": {
           "title": null,
           "dialog": []
         }
