@@ -1,5 +1,4 @@
 import { Component } from "@angular/core"
-import { AlertController } from "@ionic/angular"
 import { DialogStreamService } from "../services/dialog-stream.service"
 import dialog_data from "../game-data/dialog.json"
 
@@ -10,10 +9,7 @@ import dialog_data from "../game-data/dialog.json"
   styleUrls: ["main.page.scss"],
 })
 export class MainPage {
-  constructor(
-    public dialog_stream_service: DialogStreamService,
-    private alert_controller: AlertController,
-  ) {}
+  constructor(public dialog_stream_service: DialogStreamService) {}
 
   ngOnInit() {
     this.load_dialog_stream()
@@ -42,24 +38,7 @@ export class MainPage {
       : "speedometer-outline"
   }
 
-  cycle_speed() {
-    this.dialog_stream_service.cycle_speed()
-  }
-
-  async confirm_restart() {
-    const alert = await this.alert_controller.create({
-      header: "Start over?",
-      message:
-        "This clears every remembered loop, character, item, and unlocked path.",
-      buttons: [
-        { text: "Keep playing", role: "cancel" },
-        {
-          text: "Start over",
-          role: "destructive",
-          handler: () => this.dialog_stream_service.start_new_game(),
-        },
-      ],
-    })
-    await alert.present()
+  async cycle_speed(): Promise<void> {
+    await this.dialog_stream_service.cycle_speed()
   }
 }

@@ -1,0 +1,23 @@
+{
+  "name": "Today Nonstop",
+  "short_name": "Nonstop",
+  "description": "A medieval time-loop comedy told like a conversation on your phone.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#201a2d",
+  "theme_color": "#45365f",
+  "icons": [
+    {
+      "src": "brand-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}

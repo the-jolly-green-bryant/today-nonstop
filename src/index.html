@@ -17,16 +17,27 @@
       name="description"
       content="Play Today Nonstop, an experimental time-loop story told through a mobile conversation."
     />
-    <meta name="theme-color" content="#111827" />
-    <meta property="og:title" content="Today Nonstop" />
+    <meta name="theme-color" content="#45365f" />
+    <meta name="application-name" content="Today Nonstop" />
+    <meta name="apple-mobile-web-app-title" content="Today Nonstop" />
+    <meta property="og:title" content="Today Nonstop — Break the loop" />
     <meta
       property="og:description"
       content="An experimental time-loop story told through a mobile conversation."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://today-nonstop.bryantjames.com/" />
+    <meta property="og:site_name" content="Today Nonstop" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Today Nonstop — Break the loop" />
+    <meta
+      name="twitter:description"
+      content="A medieval time-loop comedy told like a conversation on your phone."
+    />
 
     <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+    <link rel="manifest" href="assets/manifest.webmanifest" />
+    <link rel="canonical" href="https://today-nonstop.bryantjames.com/" />
 
     <!-- add to homescreen for ios -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -36,7 +47,10 @@
   <body>
     <main class="demo-stage">
       <section class="project-intro" aria-labelledby="project-title">
-        <p class="project-kicker">An interactive fiction experiment</p>
+        <div class="project-brand">
+          <img src="assets/brand-mark.svg" alt="" width="48" height="48" />
+          <p class="project-kicker">An interactive fiction experiment</p>
+        </div>
         <h1 id="project-title">Today Nonstop</h1>
         <p class="project-summary">
           A branching time-loop story designed to unfold like a conversation on

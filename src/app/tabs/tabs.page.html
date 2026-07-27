@@ -1,4 +1,141 @@
-<ion-tabs>
+<ion-menu menuId="game-menu" contentId="game-tabs" side="end" type="overlay">
+  <ion-header class="menu-header">
+    <ion-toolbar>
+      <ion-title>Game menu</ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-toggle>
+          <ion-button aria-label="Close game menu">
+            <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="menu-content">
+    <section class="menu-brand" aria-labelledby="menu-game-title">
+      <div class="brand-sigil" aria-hidden="true">
+        <span>TN</span>
+      </div>
+      <div>
+        <p>Interactive fiction</p>
+        <h2 id="menu-game-title">Today Nonstop</h2>
+        <span>Version {{ release }}</span>
+      </div>
+    </section>
+
+    <nav aria-label="Game sections">
+      <p class="menu-label">Continue</p>
+      <ion-list lines="none">
+        <ion-menu-toggle>
+          <ion-item button detail="false" (click)="navigate('/game/tabs/main')">
+            <ion-icon slot="start" name="book-outline"></ion-icon>
+            <ion-label>
+              <strong>Story</strong>
+              <span>Return to the repeating day</span>
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item
+            button
+            detail="false"
+            (click)="navigate('/game/tabs/inventory')"
+          >
+            <ion-icon slot="start" name="sparkles-outline"></ion-icon>
+            <ion-label>
+              <strong>Keepsakes</strong>
+              <span>Review memories and discoveries</span>
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item
+            button
+            detail="false"
+            (click)="navigate('/game/tabs/characters')"
+          >
+            <ion-icon slot="start" name="people-outline"></ion-icon>
+            <ion-label>
+              <strong>People</strong>
+              <span>Everyone you still remember</span>
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </nav>
+
+    <section class="menu-settings" aria-labelledby="reading-speed-title">
+      <p class="menu-label" id="reading-speed-title">Reading speed</p>
+      <div
+        class="speed-options"
+        role="group"
+        aria-labelledby="reading-speed-title"
+      >
+        <button
+          type="button"
+          [class.is-active]="dialog_stream_service.speed_multiplier === 1"
+          [attr.aria-pressed]="dialog_stream_service.speed_multiplier === 1"
+          (click)="set_speed(1)"
+        >
+          <strong>Story</strong>
+          <span>Cinematic</span>
+        </button>
+        <button
+          type="button"
+          [class.is-active]="dialog_stream_service.speed_multiplier === 0.35"
+          [attr.aria-pressed]="dialog_stream_service.speed_multiplier === 0.35"
+          (click)="set_speed(0.35)"
+        >
+          <strong>Fast</strong>
+          <span>Brisk</span>
+        </button>
+        <button
+          type="button"
+          [class.is-active]="dialog_stream_service.speed_multiplier === 0"
+          [attr.aria-pressed]="dialog_stream_service.speed_multiplier === 0"
+          (click)="set_speed(0)"
+        >
+          <strong>Instant</strong>
+          <span>No delay</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="menu-about" aria-labelledby="about-title">
+      <p class="menu-label" id="about-title">About this release</p>
+      <div class="release-stats">
+        <span><strong>86</strong> scenes</span>
+        <span><strong>130</strong> choices</span>
+        <span><strong>2</strong> endings</span>
+      </div>
+      <p>
+        A medieval time-loop comedy told like the most consequential group text
+        in history.
+      </p>
+      <a
+        href="https://github.com/the-jolly-green-bryant/today-nonstop"
+        target="_blank"
+        rel="noreferrer"
+      >
+        View source and credits
+        <ion-icon name="open-outline"></ion-icon>
+      </a>
+    </section>
+
+    <div class="menu-danger">
+      <ion-button fill="clear" color="danger" (click)="confirm_restart()">
+        <ion-icon slot="start" name="refresh-outline"></ion-icon>
+        Erase story and begin again
+      </ion-button>
+      <ion-button fill="clear" color="medium" (click)="navigate('/')">
+        Return to title
+      </ion-button>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<ion-tabs id="game-tabs">
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="inventory">
       <ion-icon name="sparkles-outline"></ion-icon>

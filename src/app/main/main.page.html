@@ -8,9 +8,9 @@
       <ion-button aria-label="Change story pacing" (click)="cycle_speed()">
         <ion-icon slot="icon-only" [name]="speed_icon"></ion-icon>
       </ion-button>
-      <ion-button aria-label="Start a new game" (click)="confirm_restart()">
-        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
-      </ion-button>
+      <ion-menu-button menu="game-menu" aria-label="Open game menu">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
   <div class="game-status" aria-label="Current game progress">
