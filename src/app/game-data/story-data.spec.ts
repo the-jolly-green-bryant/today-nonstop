@@ -165,4 +165,37 @@ describe("story data", () => {
       dialogData.dialog["1171__ENDGAME"].next["2000__START"],
     ).toBeUndefined()
   })
+
+  it("compresses familiar setup when the player revisits a route", () => {
+    const revisitRoutes = [
+      ["1020__FAKE_WORLD", "1020R__REVISIT", "visited_road"],
+      ["1030__TOURNEY", "1030R__REVISIT", "visited_tourney"],
+      ["1040__INVESTIGATE", "1040R__REVISIT", "visited_child"],
+      ["1050__CHICKEN", "1050R__REVISIT", "visited_farm"],
+      ["1200__MARKET", "1200R__REVISIT", "visited_market"],
+      ["1300__BELL_HEIST", "1300R__REVISIT", "attempted_bell_heist"],
+    ] as const
+
+    for (const [firstVisit, revisit, flag] of revisitRoutes) {
+      expect(dialogData.dialog[firstVisit].dialog).toContain(
+        `[[ADD_ITEM]]${flag}`,
+      )
+      expect(dialogData.dialog[firstVisit].skip_to_if[flag].target).toBe(
+        revisit,
+      )
+      expect(dialogData.dialog[revisit].dialog.length)
+        .withContext(`${revisit} should be shorter than ${firstVisit}`)
+        .toBeLessThan(dialogData.dialog[firstVisit].dialog.length)
+      expect(dialogData.items[flag].persists).toBeTrue()
+      expect(dialogData.items[flag].hidden).toBeTrue()
+    }
+
+    expect(dialogData.dialog["1013__START"].dialog.length).toBeLessThanOrEqual(
+      10,
+    )
+    expect(
+      dialogData.dialog["1300R__REVISIT"].skip_to_if.reached_bell_chamber
+        .target,
+    ).toBe("1364__BELL_CHAMBER_REVISIT")
+  })
 })

@@ -22,9 +22,10 @@ for working with its story data.
 - Story, fast, and instant pacing modes
 - A formal in-game menu with persistent reading preferences
 - Professionally revised opening loops that build evidence toward the Thirteenth Bell mystery
+- Loop-aware revisit scenes that compress familiar setup and surface changed choices
 - Conditional scenes and choices driven by inventory state
 - Persistent achievements, characters, and collectible items
-- 86 scenes, more than 2,000 paced story lines, and 130 branching choices
+- 94 scenes, more than 2,000 paced story lines, and 149 branching choices
 - Two complete loop-breaking campaigns with replayable epilogues
 - The multi-life Thirteenth Bell mystery, whose clues persist across failed runs
 - Relationship arcs for Amy, Shady, Harold, Gilbert, and the Voice
