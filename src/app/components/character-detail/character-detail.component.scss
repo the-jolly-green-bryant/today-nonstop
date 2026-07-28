@@ -1,104 +1,268 @@
-@use "../../../theme/variables" as *;
-
 .character-detail {
-  &-upper {
-    padding-top: 54%;
-    position: relative;
-    width: 100%;
+  background: #0d111b;
+  color: #f3ebdd;
+  min-height: 100%;
 
-    img {
-      bottom: 0;
-      height: 100%;
-      left: 0;
-      object-fit: cover;
-      object-position: center;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 100%;
-    }
+  &-hero {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 285px;
+    overflow: hidden;
+    padding: 76px 20px 28px;
+    position: relative;
+    text-align: center;
   }
 
-  &-lower {
-    padding: 0 $ds-vertical-padding-minimum 32px;
+  &-cover,
+  &-hero-shade {
+    inset: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &-cover {
+    filter: sepia(0.26) saturate(0.68) contrast(1.08);
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-hero-shade {
+    background:
+      linear-gradient(180deg, rgb(9 12 20 / 36%), #0d111b 96%),
+      radial-gradient(circle at 50% 25%, transparent, rgb(9 12 20 / 58%));
+    height: 100%;
+  }
+
+  &-body {
+    padding: 0 16px 40px;
   }
 
   &-avatar {
-    $avatar-size: 100px;
-    height: $avatar-size;
-    margin: calc($avatar-size / -2) auto 0;
+    height: 104px;
     position: relative;
-    width: $avatar-size;
+    width: 104px;
+    z-index: 1;
 
     img {
-      border: solid 4px $ds-background;
-      border-radius: 20px;
-      bottom: 0;
-      box-shadow: $ds-card-box-shadow;
+      border: 2px solid #d6a84a;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 5px rgb(12 16 26 / 82%),
+        0 14px 30px rgb(0 0 0 / 45%);
       height: 100%;
-      left: 0;
       object-fit: cover;
-      object-position: center;
-      position: absolute;
-      right: 0;
-      top: 0;
       width: 100%;
     }
   }
 
-  &-title {
-    color: #29213d;
+  &-eyebrow {
+    color: #d6a84a;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    margin: 18px 0 6px;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  h1 {
+    color: #f3ebdd;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 27px;
+    font-size: 30px;
     font-weight: 700;
-    margin-top: 18px;
-    text-align: center;
+    margin: 0;
+    position: relative;
+    z-index: 1;
   }
 
   &-description {
-    color: $ds-font-secondary;
+    color: #bdb1a1;
     font-size: 13px;
     line-height: 1.55;
-    margin-top: 8px;
+    margin: 0 auto 22px;
+    max-width: 430px;
     text-align: center;
   }
 
-  &-discoverable {
+  &-section-heading {
     align-items: center;
-    color: $ds-font-primary;
+    color: #d6a84a;
     display: flex;
-    font-size: $ds-font-size;
-    gap: $ds-general-padding;
-    background: #fffdf8;
-    border: 1px solid rgb(57 44 76 / 8%);
-    border-radius: 14px;
-    margin: 10px 0;
-    padding: 12px;
+    font-size: 10px;
+    font-weight: 800;
+    justify-content: space-between;
+    letter-spacing: 0.13em;
+    margin: 28px 2px 12px;
+    text-transform: uppercase;
 
-    &-avatar {
-      border-radius: 50%;
-      display: flex;
-      flex-direction: row;
-      height: $ds-avatar-size;
-      min-width: $ds-avatar-size;
-      overflow: hidden;
-      width: $ds-avatar-size;
-
-      img {
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        width: 100%;
-      }
+    ion-icon {
+      font-size: 15px;
     }
   }
 
-  &-section-title {
-    color: #8a6470;
-    font-size: 10px;
+  &-return {
+    align-items: center;
+    border: 1px solid rgb(214 168 74 / 36%);
+    color: #d6a84a;
+    display: flex;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: 0.13em;
-    margin: 30px 0 12px;
+    gap: 8px;
+    justify-content: center;
+    letter-spacing: 0.08em;
+    margin-top: 24px;
+    padding: 14px;
+    text-decoration: none;
     text-transform: uppercase;
+  }
+
+  &-missing {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 70vh;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+
+    ion-icon {
+      color: #d6a84a;
+      font-size: 36px;
+    }
+
+    a {
+      color: #d6a84a;
+    }
+  }
+}
+
+.memory-progress {
+  background: rgb(22 27 40 / 88%);
+  border: 1px solid rgb(214 168 74 / 25%);
+  padding: 14px;
+
+  &-copy {
+    align-items: center;
+    color: #a99e90;
+    display: flex;
+    font-size: 10px;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      gap: 8px;
+    }
+
+    strong {
+      color: #f3ebdd;
+    }
+  }
+
+  &-track {
+    background: #080b12;
+    display: block;
+    height: 4px;
+    margin-top: 11px;
+    overflow: hidden;
+
+    span {
+      background: linear-gradient(90deg, #8f2733, #d6a84a);
+      display: block;
+      height: 100%;
+      transition: width 300ms ease;
+    }
+  }
+}
+
+.character-memory {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgb(214 168 74 / 7%), transparent 55%), #161b28;
+  border: 1px solid rgb(214 168 74 / 24%);
+  display: grid;
+  gap: 13px;
+  grid-template-columns: 54px 1fr;
+  margin-bottom: 9px;
+  min-height: 78px;
+  padding: 11px;
+
+  &-art {
+    align-items: center;
+    background: #0a0d15;
+    border: 1px solid rgb(214 168 74 / 35%);
+    border-radius: 50%;
+    display: flex;
+    height: 52px;
+    justify-content: center;
+    overflow: hidden;
+    width: 52px;
+
+    img {
+      filter: sepia(0.22) saturate(0.72);
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    ion-icon {
+      color: #746b61;
+      font-size: 19px;
+    }
+  }
+
+  &-state {
+    color: #d6a84a;
+    display: block;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: #eee4d5;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  &.is-locked {
+    background: #111622;
+    border-color: rgb(169 158 144 / 15%);
+
+    .character-memory-state,
+    p {
+      color: #746d66;
+    }
+  }
+
+  &-empty {
+    align-items: center;
+    border: 1px dashed rgb(214 168 74 / 26%);
+    color: #8e857b;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 24px;
+    text-align: center;
+
+    ion-icon {
+      color: #d6a84a;
+      font-size: 24px;
+    }
+
+    strong {
+      color: #d7cdbb;
+      font-size: 13px;
+    }
+
+    span {
+      font-size: 10px;
+    }
   }
 }

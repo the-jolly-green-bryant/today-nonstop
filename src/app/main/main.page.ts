@@ -83,6 +83,7 @@ export class MainPage {
     if (/^13/.test(scene)) return "is-heist"
     if (/^12/.test(scene)) return "is-market"
     if (/^11/.test(scene)) return "is-memory"
+    if (/^102/.test(scene)) return "is-road"
     if (/^20/.test(scene)) return "is-tomorrow"
     return "is-storm"
   }

@@ -187,6 +187,13 @@
         }
       }
     },
+    "margin_voice": {
+      "name": "The Red Writing",
+      "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/gamedev+(1).jpeg",
+      "cover": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/flat%2C750x%2C075%2Cf-pad%2C750x1000%2Cf8f8f8+(1).jpeg",
+      "description": "",
+      "hidden": true
+    },
     "pa": {
       "name": "Papa",
       "avatar": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/pa+(1).png",
@@ -595,7 +602,7 @@
     }
   },
   "keyed_images": {
-    "debug_thunderstorm": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/rainy-window-2-15-2014-4-47-19-pm.jpeg",
+    "debug_thunderstorm": "/assets/illustrations/repeating-day.jpg",
     "debug_breakfast": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/360_F_247199107_3W9Clvj0lRf2z1g5wx206ybAccczNd9H.jpeg",
     "wakeup_dream": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/wakeup_dream+(1).jpeg",
     "wakeup_ignore_them": "https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/wakeup_ignore_them+(1).jpeg",
@@ -905,13 +912,14 @@
           ]
         },
         "1160__FOURTH_WALL": {
-          "title": "Demand an audience with whoever maintains the loop.",
+          "title": "Call out to the red writing.",
           "dialog": [
             "[[SET_SPEAKER]]player",
             "No.",
-            "Someone built this room.",
-            "I want to speak with them."
-          ]
+            "The words in the sky answered before.",
+            "I want them to answer again."
+          ],
+          "show_if": ["system_reboots"]
         }
       },
       "show_in_editor": false
@@ -928,6 +936,7 @@
         "[[SET_SPEAKER]]evil_player",
         "The sky is raining.",
         "The road has declined to participate.",
+        "[[PAUSE]]Study the impossible road",
         "[[EMOTE]][A flock hangs above the wheat field, each bird fixed in precisely the same wingbeat.]",
         "[[SET_SPEAKER]]player",
         "They are not moving.",
@@ -1059,21 +1068,22 @@
         "[[SET_SPEAKER]]evil_player",
         "Rude.",
         "[[EMOTE]][A red sentence burns across the sky: UNAUTHORIZED VARIATION.]",
-        "[[SET_SPEAKER]]gamedev",
+        "[[SET_SPEAKER]]margin_voice",
         "CORRECTION IN PROGRESS.",
         "[[ADD_ITEM]]system_reboots",
         "[[SET_SPEAKER]]player",
-        "Redactor!",
-        "What happens at the end of the correction?",
-        "[[SET_SPEAKER]]gamedev",
+        "You.",
+        "In the sky.",
+        "What happens when you finish?",
+        "[[SET_SPEAKER]]margin_voice",
         "There is no end.",
         "Only the approved beginning.",
         "[[SET_SPEAKER]]evil_player",
-        "Ask about the bell.",
+        "Ask who approves it.",
         "[[SET_SPEAKER]]player",
-        "Does the bell approve it?",
-        "[[EMOTE]][For the first time, the Redactor hesitates.]",
-        "[[SET_SPEAKER]]gamedev",
+        "What decides which beginning is approved?",
+        "[[EMOTE]][For the first time, the red writing hesitates.]",
+        "[[SET_SPEAKER]]margin_voice",
         "The bell preserves it.",
         "[[EMOTE]][The field folds backward into your bedroom.]"
       ],
@@ -1516,14 +1526,14 @@
         "[[SET_SPEAKER]]evil_player",
         "Wolves with civic purpose.",
         "[[SHOW_KEYED_IMAGE]]chicken_wolves_in_forest",
-        "[[EMOTE]][Each wolf wears a narrow strip of black ledger paper around its neck.]",
+        "[[EMOTE]][Each wolf wears a narrow strip of black paper around its neck.]",
         "[[SET_SPEAKER]]player",
         "Those are names.",
         "[[SET_SPEAKER]]evil_player",
         "Ours.",
         "[[EMOTE]][The pack closes the circle. Far away, Harold begins reading.]",
         "[[SET_SPEAKER]]player",
-        "The animals are part of the reset.",
+        "The animals know how this day ends.",
         "[[SET_SPEAKER]]evil_player",
         "Excellent discovery.",
         "Terrible timing.",
@@ -1551,9 +1561,9 @@
         "The bottom goat disagrees.",
         "[[EMOTE]][From the top, you can see wolves gathering at the forest edge in a perfect circle.]",
         "[[SET_SPEAKER]]player",
-        "Those wolves are waiting for the bell.",
+        "Those wolves are waiting for something.",
         "[[SET_SPEAKER]]evil_player",
-        "Then let us be elsewhere when it rings."
+        "Then let us be elsewhere when they find it."
       ],
       "next": {
         "1056__CHICKEN": {
@@ -1750,6 +1760,7 @@
         "[[SET_SPEAKER]]evil_player",
         "This one has standards.",
         "[[EMOTE]][The cry repeats exactly—same breath, same hitch, same distant echo.]",
+        "[[PAUSE]]Keep listening",
         "[[SET_SPEAKER]]player",
         "There.",
         "It repeated.",
@@ -2061,48 +2072,48 @@
       }
     },
     "1011__START": {
-      "comment": "Display Options",
+      "comment": "Display choices that are grounded in Jon's ordinary morning.",
       "speaker": "player",
       "dialog": [],
       "next": {
         "1020__FAKE_WORLD": {
-          "title": "Follow the road where the rain behaves incorrectly.",
+          "title": "Take the long road into town.",
           "dialog": [
             "[[SET_SPEAKER]]player",
-            "The rain is wrong.",
-            "I want to see how far the mistake goes."
+            "The chores can wait.",
+            "I want some air before the fair."
           ]
         },
         "1030__TOURNEY": {
-          "title": "Investigate the tournament and its records.",
+          "title": "Get ready for the tournament.",
           "dialog": [
             "[[SET_SPEAKER]]player",
-            "The tournament keeps appearing in my memories.",
-            "We start there."
+            "The tourney will not lose itself.",
+            "We start with the essentials."
           ]
         },
         "1040__INVESTIGATE": {
-          "title": "Light the hearth and listen for the cry.",
+          "title": "Light the hearth and make breakfast.",
           "dialog": [
             "[[SET_SPEAKER]]player",
             "Light the hearth.",
-            "Then we follow whatever cries first."
+            "Then bacon."
           ]
         },
         "1050__CHICKEN": {
-          "title": "Find the egg Ma warned you about.",
+          "title": "Start the farm chores.",
           "dialog": [
             "[[SET_SPEAKER]]player",
-            "Ma said not to forget the eggs.",
+            "Ma asked for chores before glory.",
             "For once, we listen to Ma."
           ]
         },
         "1200__MARKET": {
-          "title": "Follow the impossible bell into town.",
+          "title": "Head into town for the fair.",
           "dialog": [
             "[[SET_SPEAKER]]player",
-            "Every road bends toward the fair.",
-            "Let us meet the people waiting there."
+            "The fair started without us.",
+            "Let us go improve it."
           ]
         },
         "1300__BELL_HEIST": {
@@ -2112,7 +2123,8 @@
             "No chores.",
             "No tourney.",
             "No mysterious babies.",
-            "Today we rob a bell."
+            "Today we rob a bell.",
+            "[[PAUSE]]Gather the company"
           ],
           "show_if": ["amy_trust", "shady_truce", "read_black_ledger"]
         }
@@ -2140,6 +2152,7 @@
         "There was a turnip.",
         "[[SET_SPEAKER]]evil_player",
         "Then no.",
+        "[[PAUSE]]Listen to the rain",
         "[[EMOTE]][Rain scratches the shutters. Beneath it, the chapel bell rings once.]",
         "[[SET_SPEAKER]]player",
         "The fair.",
@@ -2556,6 +2569,7 @@
         "I contain multitudes.",
         "Some of them have eaten bad pies.",
         "[[EMOTE]][Canvas stalls crowd the muddy square. Ribbons snap overhead. A fiddler is losing a public argument with a goose.]",
+        "[[PAUSE]]Enter the market",
         "[[SET_SPEAKER]]announcer",
         "GOOD MORROW, CITIZENS!",
         "[[SET_SPEAKER]]evil_player",
@@ -2627,6 +2641,7 @@
         "It rang twelve.",
         "[[SET_SPEAKER]]player",
         "You heard it.",
+        "[[PAUSE]]Wait for her answer",
         "[[SET_SPEAKER]]announcer",
         "I hear many things.",
         "Mostly complaints.",
@@ -2996,13 +3011,13 @@
         "[[SET_SPEAKER]]guard",
         "Denied with reverence.",
         "[[SET_SPEAKER]]evil_player",
-        "Ask about the screaming ledger.",
+        "Ask what requires six locks.",
         "[[SET_SPEAKER]]player",
-        "Do you guard a screaming ledger?",
+        "What are you keeping in there?",
         "[[SET_SPEAKER]]guard",
         "[[FLASH_KEYED_IMAGE]]reaction_bug_eyes",
         "[[DELAY]]1.5",
-        "No.",
+        "Nothing.",
         "[[SET_SPEAKER]]evil_player",
         "Excellent guard work.",
         "[[EMOTE]][From inside the tower comes a muffled chorus of your own voice.]",
@@ -3185,6 +3200,7 @@
         "Read that last one again.",
         "[[SET_SPEAKER]]player",
         "Bell contains tomorrow.",
+        "[[PAUSE]]Turn the final page",
         "[[EMOTE]][A final page turns itself.]",
         "[[SET_SPEAKER]]player",
         "At the thirteenth stroke, all unresolved lives return to first light.",
@@ -3784,6 +3800,7 @@
         "[[SET_SPEAKER]]evil_player",
         "Buddy.",
         "There is something in the bell.",
+        "[[PAUSE]]Face what the bell kept",
         "[[SHOW_KEYED_IMAGE]]doppelganger_mummy",
         "[[EMOTE]][The doppelganger unfolds from the bronze, built from every death you abandoned.]",
         "[[SET_SPEAKER]]doppelganger",
@@ -4129,6 +4146,39 @@
         "[[SET_SPEAKER]]evil_player",
         "Frozen birds.",
         "Your face in the sky.",
+        "And something in the day that notices when we linger.",
+        "[[SET_SPEAKER]]player",
+        "Good.",
+        "We can skip the surprised part."
+      ],
+      "next": {
+        "1110__EASTER_EGG_ENDING": {
+          "title": "Stand beneath the flock and wait to be noticed.",
+          "dialog": []
+        },
+        "1140__FAKE_WORLD": {
+          "title": "Rebuild the memory-bridge.",
+          "dialog": []
+        }
+      },
+      "skip_to_if": {
+        "system_reboots": {
+          "consumes_item": false,
+          "quantity": 1,
+          "target": "1020C__REVISIT",
+          "minimum_quantity": 1
+        }
+      },
+      "show_in_editor": true
+    },
+    "1020C__REVISIT": {
+      "comment": "Return to the road after witnessing a correction.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][You return to the dry road beneath impossible rain.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Frozen birds.",
+        "Your face in the sky.",
         "A correction if we linger.",
         "[[SET_SPEAKER]]player",
         "Good.",
@@ -4154,7 +4204,7 @@
         "[[SET_SPEAKER]]harold",
         "Name?",
         "[[SET_SPEAKER]]player",
-        "Whichever one your ledger wrote first.",
+        "Whichever one looks least doomed.",
         "[[SET_SPEAKER]]evil_player",
         "Efficient.",
         "Threatening."
@@ -4165,7 +4215,7 @@
           "dialog": []
         },
         "1090__TOURNEY": {
-          "title": "Examine the records instead of competing.",
+          "title": "Examine the old tournament pennant again.",
           "dialog": []
         }
       },
@@ -4196,27 +4246,26 @@
       "show_in_editor": true
     },
     "1050R__REVISIT": {
-      "comment": "Return to the farm after its impossible discoveries.",
+      "comment": "Return to the farm after witnessing its impossible behavior.",
       "speaker": "player",
       "dialog": [
-        "[[EMOTE]][The crowned hen is already waiting beside tomorrow's nesting box.]",
+        "[[EMOTE]][The farmyard repeats its morning arrangement: goats climbing, pigs watching the wood, one hen tapping at her box.]",
         "[[SET_SPEAKER]]evil_player",
-        "Your Majesty.",
+        "The livestock appear to have rehearsed.",
         "[[SET_SPEAKER]]player",
-        "No ceremony today.",
-        "We know where the strange parts are."
+        "Then we watch for the part they know better than we do."
       ],
       "next": {
         "1055__CHICKEN": {
-          "title": "Check the goat tower and the waiting wolves.",
+          "title": "Check the goat tower and the forest edge.",
           "dialog": []
         },
         "1056__CHICKEN": {
-          "title": "Follow the ledger-marked pack into the wood.",
+          "title": "Drive the pigs toward the acorn wood again.",
           "dialog": []
         },
         "1051__CHICKEN": {
-          "title": "Return to the chicken court.",
+          "title": "Investigate the hen tapping at her nesting box.",
           "dialog": []
         }
       },
@@ -4229,11 +4278,11 @@
         "[[SHOW_KEYED_IMAGE]]tourney_town",
         "[[EMOTE]][The fair repeats its muddy pageant. You no longer wait for the thirteenth stroke to know it is coming.]",
         "[[SET_SPEAKER]]evil_player",
-        "Amy remembers.",
-        "Shady dreams.",
-        "Harold keeps the book.",
+        "Amy watches the bell.",
+        "Shady watches us.",
+        "The locked tower watches everyone.",
         "[[SET_SPEAKER]]player",
-        "Then we speak only to whoever still has something to teach us."
+        "Then we choose which stare to return."
       ],
       "next": {
         "1210__MARKET_CRIER": {

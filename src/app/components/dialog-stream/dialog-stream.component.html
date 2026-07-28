@@ -28,12 +28,15 @@
           [ngClass]="{
             'is-player': item.speaker && item.speaker.identifier === 'player',
             'is-redactor':
-              item.speaker && item.speaker.identifier === 'redactor',
+              item.speaker &&
+              (item.speaker.identifier === 'gamedev' ||
+                item.speaker.identifier === 'margin_voice'),
             'is-narration': is_narration(item),
             'is-continuation': is_continuation(i),
             'is-media':
               item.command === 'SHOW_IMAGE' || item.command === 'SET_SPEAKER',
             'is-full': item.command === 'EMOTE',
+            'is-break': item.command === 'PAUSE',
             'is-empty':
               item.command === 'DELAY' ||
               item.command === 'ADD_ITEM' ||
@@ -80,6 +83,22 @@
               <div class="dialog-stream-item-emote">
                 {{ item.argument }}
               </div>
+            </ng-container>
+
+            <ng-container *ngIf="item.command === 'PAUSE'">
+              <button
+                type="button"
+                class="dialog-stream-item-pause"
+                (click)="dialog_stream_service.continue_story()"
+              >
+                <span class="pause-copy">
+                  <small>Continue</small>
+                  <strong>{{ item.argument || "Keep reading" }}</strong>
+                </span>
+                <span class="pause-icon" aria-hidden="true">
+                  <ion-icon name="arrow-forward-outline"></ion-icon>
+                </span>
+              </button>
             </ng-container>
 
             <ng-container *ngIf="item.command === 'SET_SPEAKER'">

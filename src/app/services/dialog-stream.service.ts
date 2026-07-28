@@ -128,6 +128,10 @@ export class DialogStreamService {
     await this.persist_story()
   }
 
+  continue_story(): void {
+    this.dialog_stream.continue_story()
+  }
+
   get speed_label() {
     if (this.speed_multiplier === 0) {
       return "Instant"

@@ -1,66 +1,96 @@
 <div class="character-detail">
-  <ng-container *ngIf="game_data.characters[identifier]">
-    <div class="character-detail-upper">
+  <ng-container *ngIf="character; else missingCharacter">
+    <section class="character-detail-hero">
       <img
-        [src]="game_data.characters[identifier].cover"
-        [alt]="game_data.characters[identifier].name + ' cover'"
+        class="character-detail-cover"
+        [src]="character.cover || character.avatar"
+        [alt]="character.name + ' portrait'"
       />
-    </div>
-    <div class="character-detail-lower">
+      <div class="character-detail-hero-shade" aria-hidden="true"></div>
       <div class="character-detail-avatar">
-        <img
-          [src]="game_data.characters[identifier].avatar"
-          [alt]="game_data.characters[identifier].name"
-        />
+        <img [src]="character.avatar" [alt]="character.name" />
       </div>
+      <p class="character-detail-eyebrow">A life caught in the loop</p>
+      <h1>{{ character.name }}</h1>
+    </section>
 
-      <div class="character-detail-title">
-        {{ game_data.characters[identifier].name }}
-      </div>
-
-      <div class="character-detail-description">
+    <section class="character-detail-body">
+      <p class="character-detail-description">
         {{
-          game_data.characters[identifier].description ||
+          character.description ||
             "Some memories have not come back into focus yet."
         }}
-      </div>
+      </p>
 
-      <div class="character-detail-discoverable-container">
-        <div class="character-detail-section-title">What you remember</div>
-        <ng-container
-          *ngFor="
-            let item of game_data.characters[identifier].discoverables
-              | keyvalue
-          "
+      <div class="memory-progress" *ngIf="memories.length">
+        <div class="memory-progress-copy">
+          <div>
+            <span>Recovered memories</span>
+            <strong>{{ recovered_memories }} / {{ memories.length }}</strong>
+          </div>
+          <span>{{ memory_progress }}%</span>
+        </div>
+        <div
+          class="memory-progress-track"
+          role="progressbar"
+          aria-label="Recovered character memories"
+          aria-valuemin="0"
+          [attr.aria-valuemax]="memories.length"
+          [attr.aria-valuenow]="recovered_memories"
         >
-          <ng-container
-            *ngIf="
-              stream.inventory.length &&
-              has_item_in_quantity(item.key, item.value.minimum_quantity)
-            "
-          >
-            <div class="character-detail-discoverable">
-              <div class="character-detail-discoverable-avatar">
-                <img
-                  [src]="
-                    game_data.items[item.key].avatar
-                      ? game_data.items[item.key].avatar
-                      : game_data.characters[identifier].avatar
-                  "
-                  [alt]="item.value.description"
-                />
-              </div>
-
-              <div class="character-detail-discoverable-title">
-                {{
-                  game_data.characters[identifier].discoverables[item.key]
-                    .description
-                }}
-              </div>
-            </div>
-          </ng-container>
-        </ng-container>
+          <span [style.width.%]="memory_progress"></span>
+        </div>
       </div>
-    </div>
+
+      <div class="character-detail-memory-container">
+        <div class="character-detail-section-heading">
+          <span>What the day remembers</span>
+          <ion-icon name="sparkles-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <div
+          class="character-memory"
+          *ngFor="let memory of memories; trackBy: track_memory"
+          [class.is-locked]="!memory.unlocked"
+        >
+          <div class="character-memory-art" aria-hidden="true">
+            <img *ngIf="memory.unlocked" [src]="memory_image(memory)" alt="" />
+            <ion-icon
+              *ngIf="!memory.unlocked"
+              name="lock-closed-outline"
+            ></ion-icon>
+          </div>
+
+          <div class="character-memory-copy">
+            <span class="character-memory-state">
+              {{ memory.unlocked ? "Remembered" : "Obscured" }}
+            </span>
+            <p *ngIf="memory.unlocked">{{ memory.description }}</p>
+            <p *ngIf="!memory.unlocked">
+              This memory has not survived the morning yet.
+            </p>
+          </div>
+        </div>
+
+        <div class="character-memory-empty" *ngIf="!memories.length">
+          <ion-icon name="hourglass-outline" aria-hidden="true"></ion-icon>
+          <strong>No memories are bound to this life yet.</strong>
+          <span>The story may still leave its mark.</span>
+        </div>
+      </div>
+
+      <a class="character-detail-return" routerLink="/game/tabs/characters">
+        <ion-icon name="arrow-back-outline" aria-hidden="true"></ion-icon>
+        Return to Company
+      </a>
+    </section>
   </ng-container>
+
+  <ng-template #missingCharacter>
+    <div class="character-detail-missing">
+      <ion-icon name="help-circle-outline" aria-hidden="true"></ion-icon>
+      <strong>This memory has slipped out of reach.</strong>
+      <a routerLink="/game/tabs/characters">Return to Company</a>
+    </div>
+  </ng-template>
 </div>

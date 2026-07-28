@@ -37,6 +37,7 @@ npm-debug.log*
 !.env.example
 *.jks
 *.keystore
+__pycache__/
 *.p12
 *.pem
 

@@ -1,0 +1,144 @@
+name: Android closed testing
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: today-nonstop-android-production
+  cancel-in-progress: false
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GOOGLE_PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
+      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+      ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+      ANDROID_KEYSTORE_PATH: ${{ github.workspace }}/android/app/today-nonstop-upload.jks
+      PLAY_PACKAGE_NAME: com.bryantjames.todaynonstop
+      PLAY_TRACK: alpha
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Validate publishing configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$GOOGLE_PLAY_SERVICE_ACCOUNT_JSON" || {
+            echo "Add the GOOGLE_PLAY_SERVICE_ACCOUNT_JSON repository secret." >&2
+            exit 1
+          }
+          test -n "$ANDROID_KEYSTORE_PASSWORD" || {
+            echo "Add the Android signing repository secrets." >&2
+            exit 1
+          }
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Restore Android upload key
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s' '${{ secrets.ANDROID_KEYSTORE_BASE64 }}' \
+            | base64 --decode > "$ANDROID_KEYSTORE_PATH"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run release quality gate
+        run: npm run check
+
+      - name: Sync Android project
+        run: npx cap sync android
+
+      - name: Build signed Android App Bundle
+        run: ./gradlew bundleRelease
+        working-directory: android
+
+      - name: Verify bundle signature
+        run: jarsigner -verify android/app/build/outputs/bundle/release/app-release.aab
+
+      - name: Generate release notes
+        id: release_notes
+        shell: bash
+        run: |
+          set -euo pipefail
+          notes="$(git log --format='• %s' -20)"
+          {
+            echo 'notes<<EOF'
+            echo "${notes:-• Today Nonstop closed testing update}"
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Publish to closed testers
+        env:
+          PLAY_RELEASE_NAME: Today Nonstop 1.6.0
+          PLAY_RELEASE_NOTES: ${{ steps.release_notes.outputs.notes }}
+          PLAY_LISTING_LANGUAGE: en-US
+          PLAY_LISTING_TITLE: Today Nonstop
+          PLAY_LISTING_SHORT_DESCRIPTION: Break the bell. Remember the day. Escape a medieval time loop.
+          PLAY_LISTING_FULL_DESCRIPTION: |-
+            Today Nonstop is a story-driven medieval time-loop comedy told through the rhythm of a modern conversation.
+
+            You wake beneath a leaking roof. The same bell rings. The same people repeat the same mistakes. Each loop leaves behind fragments: suspicious memories, strange relationships, and clues that suggest someone—or something—is keeping the day in place.
+
+            Read at your own pace, choose how to respond, and piece together what the village has forgotten. Some choices change what happens. Others change what you understand. Every loop brings you closer to the truth behind the bell.
+
+            FEATURES
+
+            • A substantially branching interactive story with an evolving mystery
+            • Medieval and Renaissance characters who speak with the immediacy of texting
+            • Persistent memories that reveal new context across repeated days
+            • Reader-controlled pacing designed for comfortable mobile play
+            • Hand-painted illuminated-manuscript artwork
+            • A complete single-player experience
+
+            No ads. No account required. No in-app purchases.
+          PLAY_LISTING_ICON_PATH: store/google-play/icon-512.png
+          PLAY_APP_BUNDLE_PATH: android/app/build/outputs/bundle/release/app-release.aab
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check \
+            google-auth==2.40.3 requests==2.32.4
+          python scripts/publish-google-play-closed-test.py \
+            | tee google-play-release.json
+
+          jq -e '
+            .track == "alpha"
+            and .status == "completed"
+            and .listingTitle == "Today Nonstop"
+            and .listingIconUpdated == true
+            and (.versionCodes | length > 0)
+          ' google-play-release.json > /dev/null
+
+      - name: Publish release summary
+        if: success()
+        run: |
+          {
+            echo "### Today Nonstop Android release"
+            echo "- Version: 1.6.0 (16)"
+            echo "- Google Play track: Closed testing"
+            echo "- Package: \`$PLAY_PACKAGE_NAME\`"
+          } >> "$GITHUB_STEP_SUMMARY"

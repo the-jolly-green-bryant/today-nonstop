@@ -127,15 +127,26 @@
 
   &::part(background) {
     background:
-      linear-gradient(180deg, rgb(8 12 20 / 30%), rgb(8 12 20 / 78%)),
-      radial-gradient(circle at 80% 9%, rgb(214 168 74 / 13%), transparent 36%),
-      linear-gradient(135deg, #242b39, #101523 58%, #090c14);
+      linear-gradient(180deg, rgb(8 12 20 / 34%), rgb(8 12 20 / 76%)),
+      url("/assets/illustrations/repeating-day.jpg") center top / cover
+        no-repeat fixed,
+      #101523;
+  }
+
+  &.is-road::part(background) {
+    background:
+      linear-gradient(180deg, rgb(8 12 20 / 28%), rgb(8 12 20 / 80%)),
+      url("/assets/illustrations/impossible-road.jpg") center top / cover
+        no-repeat fixed,
+      #101523;
   }
 
   &.is-memory::part(background) {
     background:
-      radial-gradient(circle at 25% 10%, rgb(168 50 62 / 20%), transparent 35%),
-      linear-gradient(145deg, #211828, #0d111c 65%);
+      linear-gradient(180deg, rgb(10 11 22 / 30%), rgb(10 11 22 / 82%)),
+      url("/assets/illustrations/memory-bridge.jpg") center top / cover
+        no-repeat fixed,
+      #0d111c;
   }
 
   &.is-market::part(background) {
@@ -150,18 +161,22 @@
 
   &.is-heist::part(background) {
     background:
-      repeating-linear-gradient(
-        115deg,
-        transparent 0 28px,
-        rgb(214 168 74 / 3%) 29px 30px
-      ),
-      linear-gradient(145deg, #151827, #070a10 68%);
+      linear-gradient(180deg, rgb(7 8 14 / 24%), rgb(7 8 14 / 84%)),
+      url("/assets/illustrations/bell-heist.jpg") center top / cover no-repeat
+        fixed,
+      #070a10;
   }
 
   &.is-tomorrow::part(background) {
     background:
       radial-gradient(circle at 50% 0, rgb(243 201 119 / 38%), transparent 48%),
       linear-gradient(180deg, #9c8060, #30263c 72%);
+  }
+}
+
+@media (prefers-reduced-data: reduce) {
+  .story-content::part(background) {
+    background-image: linear-gradient(145deg, #242b39, #101523 58%, #090c14);
   }
 }
 

@@ -1,11 +1,13 @@
 ion-toolbar {
-  --background: #fffdf8;
-  --border-color: rgb(57 44 76 / 10%);
-  --color: #29213d;
+  --background: #111624;
+  --border-color: rgb(214 168 74 / 28%);
+  --color: #f3ebdd;
 }
 
 ion-title {
+  color: #d6a84a;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 700;
+  letter-spacing: 0.04em;
 }

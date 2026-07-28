@@ -65,4 +65,90 @@ describe("DialogStream", () => {
       stream.options.some((option) => option.scene === "1300__BELL_HEIST"),
     ).toBeTrue()
   })
+
+  it("waits at a breathing choice without creating a story branch", async () => {
+    stream.speed_multiplier = 0
+    const rendering = stream.render_lines([
+      "Before the pause.",
+      "[[PAUSE]]Look outside",
+      "After the pause.",
+    ])
+    await Promise.resolve()
+
+    expect(stream.waiting_for_continue).toBeTrue()
+    expect(stream.feed.map((item) => item.argument)).toEqual([
+      "Before the pause.",
+      "Look outside",
+    ])
+    expect(stream.stream).toEqual([])
+
+    stream.continue_story()
+    await rendering
+
+    expect(stream.waiting_for_continue).toBeFalse()
+    expect(stream.feed.map((item) => item.argument)).toEqual([
+      "Before the pause.",
+      "Look outside",
+      "After the pause.",
+    ])
+    expect(stream.stream).toEqual([])
+  })
+
+  it("does not block saved-story replay at a breathing choice", async () => {
+    await stream.render_lines(
+      ["Before.", "[[PAUSE]]Keep listening", "After."],
+      true,
+    )
+
+    expect(stream.waiting_for_continue).toBeFalse()
+    expect(stream.feed.map((item) => item.command)).toEqual([
+      "SHOW_TEXT",
+      "DELAY",
+      "SHOW_TEXT",
+    ])
+  })
+
+  it("automatically breaks up long sequential dialogue", async () => {
+    stream.speed_multiplier = 0
+    const lines = Array.from(
+      { length: stream.MAX_SEQUENTIAL_BEATS + 1 },
+      (_, index) => `Beat ${index + 1}`,
+    )
+    const rendering = stream.render_lines(lines)
+    for (
+      let attempts = 0;
+      attempts < stream.MAX_SEQUENTIAL_BEATS + 2 &&
+      !stream.waiting_for_continue;
+      attempts++
+    ) {
+      await Promise.resolve()
+    }
+
+    expect(stream.waiting_for_continue).toBeTrue()
+    expect(stream.feed.length).toBe(stream.MAX_SEQUENTIAL_BEATS + 1)
+    expect(stream.feed[stream.feed.length - 1].command).toBe("PAUSE")
+    expect(stream.feed[stream.feed.length - 1].argument).toBe(
+      "Continue the story",
+    )
+
+    stream.continue_story()
+    await rendering
+
+    expect(stream.feed[stream.feed.length - 1].argument).toBe(
+      `Beat ${stream.MAX_SEQUENTIAL_BEATS + 1}`,
+    )
+    expect(stream.stream).toEqual([])
+  })
+
+  it("does not inject automatic pauses while replaying a save", async () => {
+    const lines = Array.from(
+      { length: stream.MAX_SEQUENTIAL_BEATS + 2 },
+      (_, index) => `Remembered beat ${index + 1}`,
+    )
+
+    await stream.render_lines(lines, true)
+
+    expect(stream.waiting_for_continue).toBeFalse()
+    expect(stream.feed.every((item) => item.command === "SHOW_TEXT")).toBeTrue()
+  })
 })

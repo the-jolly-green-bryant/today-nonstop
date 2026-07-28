@@ -294,6 +294,73 @@
     }
   }
 
+  &.is-break {
+    grid-column: 1 / 4;
+    margin: 8px 0 18px;
+  }
+
+  &-pause {
+    align-items: center;
+    background:
+      linear-gradient(135deg, rgb(214 168 74 / 14%), transparent 58%), #1a1f2d;
+    border: 1px solid rgb(214 168 74 / 68%);
+    border-radius: 5px;
+    box-shadow: 0 10px 24px rgb(0 0 0 / 28%);
+    color: #f3ebdd;
+    cursor: pointer;
+    display: flex;
+    gap: 14px;
+    justify-content: space-between;
+    min-height: 64px;
+    padding: 10px 12px 10px 16px;
+    text-align: left;
+    width: 100%;
+
+    .pause-copy {
+      display: grid;
+      gap: 3px;
+    }
+
+    small {
+      color: #d6a84a;
+      font-family: Arial, sans-serif;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .pause-icon {
+      align-items: center;
+      background: #d6a84a;
+      border-radius: 50%;
+      color: #151924;
+      display: flex;
+      flex: 0 0 36px;
+      height: 36px;
+      justify-content: center;
+
+      ion-icon {
+        font-size: 18px;
+      }
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid #d6a84a;
+      outline-offset: 3px;
+    }
+  }
+
   &-image {
     border: 1px solid rgb(214 168 74 / 48%);
     border-radius: 18px;

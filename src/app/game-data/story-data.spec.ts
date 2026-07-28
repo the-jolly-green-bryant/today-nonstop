@@ -215,4 +215,230 @@ describe("story data", () => {
     expect(grantedItems).not.toContain("knows_bell_ritual")
     expect(grantedItems).not.toContain("escaped_loop")
   })
+
+  it("grounds every first-morning choice in information Jon actually has", () => {
+    const openingChoices = dialogData.dialog["1011__START"].next
+    const renderedOpening = [
+      ...dialogData.dialog["1010__START"].dialog,
+      ...Object.values(openingChoices).flatMap((choice) => [
+        choice.title ?? "",
+        ...(choice.dialog ?? []),
+      ]),
+    ].join(" ")
+
+    expect(Object.values(openingChoices).map((choice) => choice.title)).toEqual(
+      [
+        "Take the long road into town.",
+        "Get ready for the tournament.",
+        "Light the hearth and make breakfast.",
+        "Start the farm chores.",
+        "Head into town for the fair.",
+        "I know what today is. Gather the others.",
+      ],
+    )
+
+    const unearnedClaims = [
+      "rain is wrong",
+      "rain behaves incorrectly",
+      "tournament keeps appearing in my memories",
+      "tournament and its records",
+      "listen for the cry",
+      "Ma said not to forget the eggs",
+      "egg Ma warned you about",
+      "impossible bell",
+    ]
+
+    for (const claim of unearnedClaims) {
+      expect(renderedOpening.toLowerCase())
+        .withContext(`clean opening should not claim: ${claim}`)
+        .not.toContain(claim.toLowerCase())
+    }
+
+    expect(openingChoices["1300__BELL_HEIST"].show_if).toEqual([
+      "amy_trust",
+      "shady_truce",
+      "read_black_ledger",
+    ])
+  })
+
+  it("does not mention the black ledger before a route reveals it", () => {
+    const unbriefedTowerVisit =
+      dialogData.dialog["1230__MARKET_TOWER"].dialog.join(" ")
+
+    expect(unbriefedTowerVisit.toLowerCase()).not.toContain("ledger")
+    expect(unbriefedTowerVisit).toContain("What are you keeping in there?")
+  })
+
+  it("uses non-branching breathing choices at major reveals", () => {
+    const pauseCommands = Object.values(dialogData.dialog).flatMap((scene) => [
+      ...(scene.dialog ?? []),
+      ...Object.values(
+        (scene.next ?? {}) as Record<string, { dialog?: string[] }>,
+      ).flatMap((option) => option.dialog ?? []),
+    ])
+
+    expect(
+      pauseCommands.filter((line) => line.startsWith("[[PAUSE]]")).length,
+    ).toBeGreaterThanOrEqual(7)
+    expect(dialogData.dialog["1010__START"].dialog).toContain(
+      "[[PAUSE]]Listen to the rain",
+    )
+    expect(dialogData.dialog["1241__LEDGER"].dialog).toContain(
+      "[[PAUSE]]Turn the final page",
+    )
+    expect(dialogData.dialog["1360__BELL_HEIST"].dialog).toContain(
+      "[[PAUSE]]Face what the bell kept",
+    )
+  })
+
+  it("reveals corrections before revealing the Redactor's identity", () => {
+    const firstCorrection =
+      dialogData.dialog["1110__EASTER_EGG_ENDING"].dialog.join(" ")
+    const identityReveal =
+      dialogData.dialog["1160__FOURTH_WALL"].dialog.join(" ")
+    const uninitiatedRevisit =
+      dialogData.dialog["1020R__REVISIT"].dialog.join(" ")
+
+    expect(firstCorrection).toContain("CORRECTION IN PROGRESS.")
+    expect(firstCorrection).not.toContain("Redactor")
+    expect(firstCorrection).toContain("[[SET_SPEAKER]]margin_voice")
+    expect(firstCorrection).not.toContain("Ask about the bell.")
+    expect(firstCorrection).not.toContain("Does the bell approve it?")
+    expect(firstCorrection).toContain(
+      "What decides which beginning is approved?",
+    )
+    expect(identityReveal).toContain("I am the Redactor.")
+    expect(uninitiatedRevisit.toLowerCase()).not.toContain("correction")
+    expect(
+      dialogData.dialog["1020R__REVISIT"].next[
+        "1110__EASTER_EGG_ENDING"
+      ].title.toLowerCase(),
+    ).not.toContain("correction")
+    expect(
+      dialogData.dialog["1020R__REVISIT"].skip_to_if.system_reboots.target,
+    ).toBe("1020C__REVISIT")
+    expect(
+      dialogData.dialog["1000__RESTART"].next["1160__FOURTH_WALL"].show_if,
+    ).toEqual(["system_reboots"])
+    expect(
+      dialogData.dialog["1000__RESTART"].next["1160__FOURTH_WALL"].title,
+    ).toBe("Call out to the red writing.")
+    expect(
+      dialogData.dialog["1000__RESTART"].next["1160__FOURTH_WALL"].dialog.join(
+        " ",
+      ),
+    ).not.toContain("built")
+  })
+
+  it("keeps revisit summaries neutral when routes contain optional discoveries", () => {
+    const neutralRevisits = {
+      "1030R__REVISIT": ["ledger", "records"],
+      "1050R__REVISIT": ["crowned", "ledger-marked", "your majesty"],
+      "1200R__REVISIT": [
+        "amy remembers",
+        "shady dreams",
+        "harold keeps the book",
+      ],
+    }
+
+    for (const [sceneId, forbiddenClaims] of Object.entries(neutralRevisits)) {
+      const scene = dialogData.dialog[sceneId]
+      const rendered = [
+        ...(scene.dialog ?? []),
+        ...Object.values(
+          (scene.next ?? {}) as Record<string, { title?: string }>,
+        ).map((option) => option.title ?? ""),
+      ]
+        .join(" ")
+        .toLowerCase()
+
+      for (const claim of forbiddenClaims) {
+        expect(rendered)
+          .withContext(`${sceneId} should not assume: ${claim}`)
+          .not.toContain(claim)
+      }
+    }
+  })
+
+  it("does not name a reset before Jon experiences his first return", () => {
+    const firstLifeRoutes = [
+      "1010__START",
+      "1020__FAKE_WORLD",
+      "1030__TOURNEY",
+      "1040__INVESTIGATE",
+      "1050__CHICKEN",
+      "1051__CHICKEN",
+      "1052__CHICKEN",
+      "1053__CHICKEN",
+      "1054__CHICKEN",
+      "1055__CHICKEN",
+      "1056__CHICKEN",
+      "1200__MARKET",
+    ]
+    const firstLifeDialogue = firstLifeRoutes
+      .flatMap((sceneId) => dialogData.dialog[sceneId].dialog ?? [])
+      .join(" ")
+      .toLowerCase()
+
+    expect(firstLifeDialogue).not.toContain("part of the reset")
+    expect(firstLifeDialogue).not.toContain("the loop")
+  })
+
+  it("limits named mystery mechanics to scenes that reveal or remember them", () => {
+    const scenesUsing = (term: string) =>
+      Object.entries(dialogData.dialog)
+        .filter(([, scene]) => {
+          const text = [
+            ...(scene.dialog ?? []),
+            ...Object.values(
+              (scene.next ?? {}) as Record<
+                string,
+                { title?: string; dialog?: string[] }
+              >,
+            ).flatMap((option) => [
+              option.title ?? "",
+              ...(option.dialog ?? []),
+            ]),
+          ].join(" ")
+          return text.toLowerCase().includes(term.toLowerCase())
+        })
+        .map(([sceneId]) => sceneId)
+
+    expect(scenesUsing("Redactor")).toEqual(["1160__FOURTH_WALL"])
+    expect(scenesUsing("correction")).toEqual([
+      "1110__EASTER_EGG_ENDING",
+      "1020C__REVISIT",
+    ])
+  })
+
+  it("keeps every modern story branch reachable from a clean opening", () => {
+    const scenes = dialogData.dialog
+    const reachable = new Set<string>()
+    const pending = [dialogData.default_scene]
+
+    while (pending.length) {
+      const sceneId = pending.shift()
+      if (!sceneId || reachable.has(sceneId)) continue
+
+      reachable.add(sceneId)
+      const scene = scenes[sceneId]
+      pending.push(...Object.keys(scene.next ?? {}))
+      pending.push(
+        ...Object.values(
+          (scene.skip_to_if ?? {}) as Record<string, { target: string }>,
+        ).map((condition) => condition.target),
+      )
+    }
+
+    const modernScenes = Object.keys(scenes).filter(
+      (sceneId) =>
+        !/^(010[ab]|020a|030a|040a|041a|050[ab]|060__)/.test(sceneId),
+    )
+
+    for (const sceneId of modernScenes) {
+      expect(reachable.has(sceneId))
+        .withContext(`${sceneId} cannot be reached from a clean opening`)
+        .toBeTrue()
+    }
+  })
 })

@@ -11,8 +11,7 @@
 }
 
 .splash-background {
-  background: url("https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/splash.png")
-    center / cover;
+  background: url("/assets/illustrations/repeating-day.jpg") center / cover;
   filter: saturate(0.5) contrast(1.13) brightness(0.72);
   transform: scale(1.03);
 }

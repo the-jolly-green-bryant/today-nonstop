@@ -56,19 +56,27 @@ export class DialogStream {
    *
    * @type {Number}
    */
-  SECONDS_BETWEEN_DIALOG_LINES = 0.85
+  SECONDS_BETWEEN_DIALOG_LINES = 1.15
 
   /**
    * The number of seconds to wait between running scenes.
    *
    * @type {Number}
    */
-  SECONDS_BETWEEN_SCENES = 0.8
+  SECONDS_BETWEEN_SCENES = 1
+
+  /**
+   * Maximum readable beats shown without returning control to the reader.
+   */
+  MAX_SEQUENTIAL_BEATS = 5
 
   /**
    * Player-selected multiplier for all narrative delays. Zero renders instantly.
    */
   speed_multiplier = 1
+  waiting_for_continue = false
+  private continue_resolver: (() => void) | null = null
+  private active_pause: DialogCommand | null = null
 
   /**
    * A list of valid commands
@@ -83,6 +91,7 @@ export class DialogStream {
     "FLASH_IMAGE",
     "FLASH_ITEM",
     "FLASH_KEYED_IMAGE",
+    "PAUSE",
     "RESTART",
     "SET_SPEAKER",
     "SHOW_IMAGE",
@@ -151,9 +160,36 @@ export class DialogStream {
    * @param {string[]} lines An array of lines to render
    */
   async render_lines(lines: string[], skip_delays?: boolean) {
+    let sequential_beats = 0
+
     for (const line of lines) {
       console.log(`Pushing Line: ${line}`)
       const item = this.parse_feed_item(line)
+      const is_readable_beat = [
+        "SHOW_TEXT",
+        "SHOW_IMAGE",
+        "FLASH_IMAGE",
+        "FLASH_ITEM",
+        "SHOW_KEYED_IMAGE",
+        "FLASH_KEYED_IMAGE",
+        "EMOTE",
+      ].includes(item.command)
+
+      if (
+        is_readable_beat &&
+        sequential_beats >= this.MAX_SEQUENTIAL_BEATS &&
+        !skip_delays
+      ) {
+        const automatic_pause = new DialogCommand(
+          "PAUSE",
+          "Continue the story",
+          "[[PAUSE]]Continue the story",
+          this.last_speaker,
+        )
+        this.feed.push(automatic_pause)
+        await this.wait_for_reader(automatic_pause)
+        sequential_beats = 0
+      }
 
       // If we're restarting, restart.
       if (item.command === "RESTART") {
@@ -190,7 +226,12 @@ export class DialogStream {
       }
 
       this.feed.push(item)
-      if (item.command === "DELAY" && !skip_delays) {
+      if (item.command === "PAUSE" && !skip_delays) {
+        await this.wait_for_reader(item)
+        sequential_beats = 0
+      } else if (item.command === "PAUSE") {
+        item.command = "DELAY"
+      } else if (item.command === "DELAY" && !skip_delays) {
         // Wait our given number of seconds.
         await this.delay(
           parseFloat(item.argument) * this.speed_multiplier * 1000,
@@ -211,7 +252,30 @@ export class DialogStream {
           this.SECONDS_BETWEEN_DIALOG_LINES * this.speed_multiplier * 1000,
         )
       }
+
+      if (is_readable_beat) {
+        sequential_beats += 1
+      }
     }
+  }
+
+  private wait_for_reader(item: DialogCommand): Promise<void> {
+    this.waiting_for_continue = true
+    this.active_pause = item
+    return new Promise((resolve) => {
+      this.continue_resolver = resolve
+    })
+  }
+
+  continue_story(): void {
+    if (!this.continue_resolver) return
+
+    this.active_pause.command = "DELAY"
+    this.active_pause = null
+    this.waiting_for_continue = false
+    const resolve = this.continue_resolver
+    this.continue_resolver = null
+    resolve()
   }
 
   /**
