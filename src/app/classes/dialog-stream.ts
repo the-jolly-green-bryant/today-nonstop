@@ -1,6 +1,13 @@
 import dialog_data from "../game-data/dialog.json"
 
+export interface DialogStreamObserver {
+  onOptionSelected?: (option: DialogOption, loopNumber: number) => void
+  onSceneEntered?: (scene: string, loopNumber: number) => void
+}
+
 export class DialogStream {
+  constructor(private observer: DialogStreamObserver = {}) {}
+
   /**
    * A collection of events that have occurred in this stream which permits us to
    * "replay" the stream (handy for saved games).
@@ -133,6 +140,7 @@ export class DialogStream {
     }
 
     console.log(`Running Scene: ${scene}`)
+    this.observer.onSceneEntered?.(scene, this.loop_number)
     await this.render_lines(scene_object.dialog, skip_delays)
     await this.end_scene(scene, skip_delays)
   }
@@ -344,6 +352,7 @@ export class DialogStream {
   async select_option(option: DialogOption, skip_delays?: boolean) {
     this.options = []
     this.push_event("option", option.scene)
+    this.observer.onOptionSelected?.(option, this.loop_number)
     await this.render_lines(option.dialog, skip_delays)
     await this.run_scene(option.scene, skip_delays)
     return
@@ -357,6 +366,13 @@ export class DialogStream {
    */
   async push_event(kind: string, identifier: string) {
     this.stream.push(new DialogStreamEvent(kind, identifier))
+  }
+
+  get loop_number(): number {
+    const lives = this.inventory.find(
+      (item) => item.identifier === "lives_lived",
+    )
+    return Math.max(1, lives?.quantity ?? 1)
   }
 
   /**
