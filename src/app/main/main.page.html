@@ -1,9 +1,13 @@
 <ion-header class="game-header">
   <ion-toolbar>
     <ion-title>
-      <span class="game-header-kicker">The repeating day</span>
+      <span class="game-header-kicker">{{ location_label }}</span>
       <span class="game-header-title">Today Nonstop</span>
     </ion-title>
+    <div class="loop-sigil" slot="start" aria-hidden="true">
+      <span></span>
+      <ion-icon name="notifications-outline"></ion-icon>
+    </div>
     <ion-buttons slot="end">
       <ion-button aria-label="Change story pacing" (click)="cycle_speed()">
         <ion-icon slot="icon-only" [name]="speed_icon"></ion-icon>
@@ -15,13 +19,24 @@
   </ion-toolbar>
   <div class="game-status" aria-label="Current game progress">
     <span>
-      <ion-icon name="repeat-outline"></ion-icon>
-      Loop {{ lives_lived }}
+      <i class="status-rule" aria-hidden="true"></i>
+      Loop {{ lives_lived | number: "2.0" }}
+    </span>
+    <span class="game-status-memory">
+      <ion-icon name="sparkles-outline"></ion-icon>
+      {{ memories_recovered }} memories
     </span>
     <span>{{ speed_label }}</span>
   </div>
 </ion-header>
 
-<ion-content>
+<ion-content class="story-content" [ngClass]="story_chapter">
+  <div class="story-atmosphere" aria-hidden="true">
+    <span class="temporal-ring one"></span>
+    <span class="temporal-ring two"></span>
+    <span class="rain-line one"></span>
+    <span class="rain-line two"></span>
+    <span class="rain-line three"></span>
+  </div>
   <app-dialog-stream></app-dialog-stream>
 </ion-content>

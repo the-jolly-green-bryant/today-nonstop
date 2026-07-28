@@ -23,6 +23,8 @@ for working with its story data.
 - A formal in-game menu with persistent reading preferences
 - Professionally revised opening loops that build evidence toward the Thirteenth Bell mystery
 - Loop-aware revisit scenes that compress familiar setup and surface changed choices
+- “Illuminated Loop” game UI with a narrative HUD, manuscript dialogue, atmospheric chapters, and decision cards
+- Chronicle progression split into gated clues, relics, and remembered lives
 - Privacy-conscious GA4 progression events for starts, loops, discoveries, the bell heist, and completion
 - Conditional scenes and choices driven by inventory state
 - Persistent achievements, characters, and collectible items
@@ -34,6 +36,7 @@ for working with its story data.
 - Accessible live-region narration and keyboard-friendly choices
 - Image, emote, delay, speaker, and restart commands
 - Local save-state replay through Ionic Storage
+- Atomic full-story reset with immediate clean-save persistence
 - Installable web-app metadata and a reusable brand identity
 - Built-in story-data editor at `/editor`
 - Web and Android targets through Ionic and Capacitor

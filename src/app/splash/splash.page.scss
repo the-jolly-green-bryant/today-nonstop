@@ -13,98 +13,216 @@
 .splash-background {
   background: url("https://bluezephyrapps-app-resources.s3.amazonaws.com/app_resources/today_nonstop/splash.png")
     center / cover;
-  filter: saturate(0.65) contrast(1.08);
-  transform: scale(1.02);
+  filter: saturate(0.5) contrast(1.13) brightness(0.72);
+  transform: scale(1.03);
 }
 
 .splash-shade {
   background:
-    linear-gradient(180deg, rgb(13 10 20 / 18%), rgb(13 10 20 / 92%) 72%),
-    radial-gradient(circle at 65% 15%, transparent, rgb(13 10 20 / 35%));
+    linear-gradient(180deg, rgb(5 9 16 / 28%), rgb(5 8 14 / 94%) 73%),
+    radial-gradient(circle at 52% 18%, rgb(214 168 74 / 18%), transparent 28%),
+    repeating-linear-gradient(
+      113deg,
+      transparent 0 38px,
+      rgb(255 255 255 / 2%) 39px 40px
+    );
 }
 
 .splash-content {
-  color: #fffdf8;
+  align-items: center;
+  color: #f3ebdd;
   display: flex;
   flex-direction: column;
-  inset: auto 0 64px;
-  padding: 28px;
+  inset: 32px 0 55px;
+  justify-content: flex-end;
+  padding: 24px;
   position: absolute;
+  text-align: center;
+}
+
+.splash-loop-sigil {
+  align-items: center;
+  border: 1px solid rgb(214 168 74 / 85%);
+  border-radius: 50%;
+  display: flex;
+  height: 92px;
+  justify-content: center;
+  margin-bottom: 19px;
+  position: relative;
+  width: 92px;
+
+  &::before,
+  &::after,
+  .sigil-ring {
+    border: 1px solid rgb(214 168 74 / 35%);
+    border-radius: 50%;
+    content: "";
+    inset: 8px;
+    position: absolute;
+  }
+
+  &::after {
+    border-color: #d6a84a transparent #d6a84a #d6a84a;
+    inset: -7px;
+    transform: rotate(-29deg);
+  }
+
+  .sigil-ring {
+    inset: 17px;
+  }
+
+  ion-icon {
+    color: #e9bd62;
+    filter: drop-shadow(0 0 9px rgb(214 168 74 / 45%));
+    font-size: 42px;
+  }
 }
 
 .splash-kicker {
-  color: #f2c56d;
-  font-size: 10px;
+  color: #d6a84a;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.15em;
-  margin: 0 0 10px;
+  letter-spacing: 0.18em;
+  margin: 0 0 9px;
   text-transform: uppercase;
 }
 
-.splash-mark {
-  border-radius: 15px 15px 15px 4px;
-  box-shadow: 0 10px 28px rgb(0 0 0 / 34%);
-  height: 52px;
-  margin-bottom: 18px;
-  transform: rotate(-3deg);
-  width: 52px;
+h1 {
+  color: #edc974;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 13vw, 58px);
+  letter-spacing: 0.02em;
+  line-height: 0.92;
+  margin: 0;
+  text-shadow:
+    0 2px 0 #5c421d,
+    0 5px 22px rgb(0 0 0 / 75%);
+  text-transform: uppercase;
 }
 
-h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(54px, 16vw, 72px);
-  letter-spacing: -0.07em;
-  line-height: 0.78;
-  margin: 0;
-  text-shadow: 0 4px 28px rgb(0 0 0 / 45%);
+.splash-memory {
+  color: #d6a84a;
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin: 12px 0 0;
+  text-transform: uppercase;
 }
 
 .splash-subtitle {
-  color: rgb(255 253 248 / 78%);
-  font-size: 14px;
+  color: rgb(243 235 221 / 72%);
+  font-size: 12px;
   line-height: 1.55;
-  margin: 22px 0 24px;
+  margin: 17px 0 17px;
   max-width: 310px;
 }
 
 .splash-actions {
   display: grid;
-  gap: 10px;
+  gap: 9px;
+  max-width: 340px;
+  width: 100%;
 
   ion-button {
-    --background: #e25f38;
-    --background-hover: #ef704a;
-    --border-color: rgb(255 253 248 / 60%);
-    --border-radius: 16px;
-    --color: #fff;
+    --background: #d6a84a;
+    --background-hover: #e5bd68;
+    --border-color: rgb(214 168 74 / 72%);
+    --border-radius: 4px;
+    --color: #17121d;
     --padding-bottom: 15px;
     --padding-top: 15px;
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 14px;
-    font-weight: 750;
+    font-weight: 800;
+    letter-spacing: 0.04em;
     margin: 0;
     min-height: 54px;
+    text-transform: uppercase;
+  }
+}
+
+.save-summary {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgb(214 168 74 / 10%), transparent),
+    rgb(10 13 21 / 88%);
+  border: 1px solid rgb(214 168 74 / 40%);
+  display: grid;
+  gap: 11px;
+  grid-template-columns: auto 1fr auto;
+  padding: 11px 13px;
+  text-align: left;
+
+  &-mark {
+    align-items: center;
+    border: 1px solid #d6a84a;
+    border-radius: 50%;
+    color: #d6a84a;
+    display: flex;
+    font-family: Georgia, serif;
+    font-size: 11px;
+    height: 36px;
+    justify-content: center;
+    width: 36px;
+  }
+
+  div:not(.save-summary-mark) {
+    display: grid;
+    gap: 2px;
+  }
+
+  strong {
+    color: #f3ebdd;
+    font-family: Georgia, serif;
+    font-size: 13px;
+  }
+
+  span {
+    color: #a99e90;
+    font-size: 9px;
+  }
+
+  ion-icon {
+    color: #a8323e;
+    font-size: 21px;
   }
 }
 
 .splash-note {
-  color: rgb(255 253 248 / 55%);
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  margin: 14px 0 0;
-  text-align: center;
+  color: rgb(243 235 221 / 43%);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  margin: 11px 0 0;
 }
 
 .splash-footer {
   align-items: center;
   bottom: 0;
-  color: rgb(255 253 248 / 48%);
+  color: rgb(243 235 221 / 42%);
   display: flex;
-  font-size: 9px;
+  font-size: 8px;
   justify-content: space-between;
   left: 0;
-  letter-spacing: 0.06em;
-  padding: 18px 28px;
+  letter-spacing: 0.08em;
+  padding: 16px 24px;
   position: absolute;
   right: 0;
   text-transform: uppercase;
+}
+
+@media (max-height: 720px) {
+  .splash-loop-sigil {
+    height: 65px;
+    margin-bottom: 12px;
+    width: 65px;
+
+    ion-icon {
+      font-size: 29px;
+    }
+  }
+
+  .splash-subtitle {
+    margin-block: 12px;
+  }
 }

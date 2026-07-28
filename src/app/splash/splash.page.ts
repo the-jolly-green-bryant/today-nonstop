@@ -1,6 +1,9 @@
 import { Component } from "@angular/core"
 import { Router } from "@angular/router"
-import { DialogStreamService } from "../services/dialog-stream.service"
+import {
+  DialogStreamService,
+  StorySummary,
+} from "../services/dialog-stream.service"
 
 @Component({
   standalone: false,
@@ -10,6 +13,7 @@ import { DialogStreamService } from "../services/dialog-stream.service"
 })
 export class SplashPage {
   has_saved_game = false
+  story_summary: StorySummary | null = null
 
   constructor(
     public dialog_stream_service: DialogStreamService,
@@ -18,6 +22,7 @@ export class SplashPage {
 
   async ngOnInit() {
     this.has_saved_game = await this.dialog_stream_service.has_saved_game()
+    this.story_summary = await this.dialog_stream_service.get_story_summary()
   }
 
   async continue_game() {

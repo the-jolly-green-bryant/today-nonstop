@@ -1,70 +1,84 @@
 <div class="inventory">
   <div class="inventory-intro">
-    <p class="inventory-eyebrow">Across every loop</p>
-    <h2>Things you carry</h2>
-    <p>Objects fade. Some memories refuse to.</p>
-  </div>
-
-  <ng-container *ngIf="has_no_inventory(false)">
-    <div class="inventory-empty">
-      <ion-icon name="cube-outline"></ion-icon>
-      <strong>Your pockets are empty.</strong>
-      <span>Explore the story to find something worth keeping.</span>
+    <div class="chronicle-sigil" aria-hidden="true">
+      <span></span>
+      <ion-icon name="notifications-outline"></ion-icon>
     </div>
-  </ng-container>
-
-  <div class="inventory-item-container">
-    <ng-container *ngFor="let item of stream.inventory; let i = index">
-      <ng-container
-        *ngIf="!item.hidden && item.quantity > 0 && !item.is_status"
-      >
-        <article class="inventory-item" id="inventory-item-{{ i }}">
-          <div class="inventory-item-background">
-            <img [src]="item.avatar" [alt]="item.name" />
-          </div>
-
-          <div class="inventory-item-title">
-            {{ item.name }}
-          </div>
-
-          <ng-container *ngIf="item.quantity > 1 || item.always_show_chip">
-            <div class="inventory-item-quantity">
-              {{ item.quantity }}
-            </div>
-          </ng-container>
-        </article>
-      </ng-container>
-    </ng-container>
+    <p class="inventory-eyebrow">Across every loop</p>
+    <h2>The Chronicle</h2>
+    <p>What the day erases, you write again.</p>
   </div>
 
-  <div class="inventory-title">Memories & milestones</div>
+  <div class="chronicle-tabs" role="tablist" aria-label="Chronicle sections">
+    <button
+      type="button"
+      role="tab"
+      [class.is-active]="active_section === 'clues'"
+      [attr.aria-selected]="active_section === 'clues'"
+      (click)="set_section('clues')"
+    >
+      Clues
+    </button>
+    <button
+      type="button"
+      role="tab"
+      [class.is-active]="active_section === 'relics'"
+      [attr.aria-selected]="active_section === 'relics'"
+      (click)="set_section('relics')"
+    >
+      Relics
+    </button>
+    <button
+      type="button"
+      role="tab"
+      [class.is-active]="active_section === 'lives'"
+      [attr.aria-selected]="active_section === 'lives'"
+      (click)="set_section('lives')"
+    >
+      Lives
+    </button>
+  </div>
 
-  <ng-container *ngIf="has_no_inventory(true)">
-    <div class="inventory-empty is-compact">
-      <strong>No echoes yet.</strong>
-      <span>The day has only just begun.</span>
+  <div class="truth-path" aria-hidden="true">
+    <span
+      *ngFor="let marker of [0, 1, 2, 3, 4, 5, 6]; let i = index"
+      [class.is-found]="i < section_items.length"
+    ></span>
+  </div>
+
+  <ng-container *ngIf="section_items.length === 0">
+    <div class="inventory-empty">
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      <strong>This page is still obscured.</strong>
+      <span>Follow the story to recover what the day has hidden.</span>
     </div>
   </ng-container>
 
   <div class="inventory-item-container is-status-container">
-    <ng-container *ngFor="let item of stream.inventory; let i = index">
-      <ng-container *ngIf="!item.hidden && item.quantity > 0 && item.is_status">
-        <article class="inventory-item" id="inventory-item-{{ i }}">
-          <div class="inventory-item-background">
-            <img [src]="item.avatar" [alt]="item.name" />
-          </div>
-
-          <div class="inventory-item-title">
-            {{ item.name }}
-          </div>
-
-          <ng-container *ngIf="item.quantity > 1 || item.always_show_chip">
-            <div class="inventory-item-quantity">
-              {{ item.quantity }}
-            </div>
-          </ng-container>
-        </article>
-      </ng-container>
+    <ng-container *ngFor="let item of section_items; let i = index">
+      <article class="inventory-item" id="inventory-item-{{ i }}">
+        <div class="inventory-item-background">
+          <img [src]="item.avatar" [alt]="item.name" />
+        </div>
+        <div class="inventory-item-copy">
+          <span class="inventory-item-index">{{ i + 1 | number: "2.0" }}</span>
+          <div class="inventory-item-title">{{ item.name }}</div>
+          <p>
+            {{
+              item.persists
+                ? "Remembered across every loop."
+                : "Carried in this life."
+            }}
+          </p>
+        </div>
+        <ng-container *ngIf="item.quantity > 1 || item.always_show_chip">
+          <div class="inventory-item-quantity">{{ item.quantity }}</div>
+        </ng-container>
+      </article>
     </ng-container>
   </div>
+
+  <p class="truth-count">
+    {{ section_items.length }} truths recovered in this chapter
+  </p>
 </div>

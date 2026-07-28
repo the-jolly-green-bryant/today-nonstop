@@ -14,6 +14,12 @@ interface GamePreferences {
   speed_multiplier: StorySpeed
 }
 
+export interface StorySummary {
+  choices_made: number
+  last_scene: string
+  loop_number: number
+}
+
 @Injectable({
   providedIn: "root",
 })
@@ -119,10 +125,7 @@ export class DialogStreamService {
    */
   async select_option(option: DialogOption): Promise<void> {
     await this.dialog_stream.select_option(option)
-    await this.storage.set(
-      this.storage.event_stream_db_key,
-      this.dialog_stream.stream,
-    )
+    await this.persist_story()
   }
 
   get speed_label() {
@@ -165,8 +168,12 @@ export class DialogStreamService {
 
   async start_new_game(): Promise<void> {
     await this.storage.remove(this.storage.event_stream_db_key)
+    await this.storage.remove(this.storage.story_summary_db_key)
+    this.analytics_enabled = false
+    this.dialog_stream = this.create_dialog_stream()
     this.initialized = false
     await this.load_events(dialog_data.default_scene, true)
+    await this.persist_story()
   }
 
   async has_saved_game(): Promise<boolean> {
@@ -174,5 +181,24 @@ export class DialogStreamService {
       this.storage.event_stream_db_key,
     )
     return Array.isArray(events) && events.length > 0
+  }
+
+  async get_story_summary(): Promise<StorySummary | null> {
+    return await this.storage.get<StorySummary>(
+      this.storage.story_summary_db_key,
+    )
+  }
+
+  private async persist_story(): Promise<void> {
+    const stream = this.dialog_stream.stream
+    await this.storage.set(this.storage.event_stream_db_key, stream)
+    const latestScene = [...stream]
+      .reverse()
+      .find((event) => event.kind === "scene")
+    await this.storage.set<StorySummary>(this.storage.story_summary_db_key, {
+      choices_made: stream.filter((event) => event.kind === "option").length,
+      last_scene: latestScene?.identifier ?? dialog_data.default_scene,
+      loop_number: this.dialog_stream.loop_number,
+    })
   }
 }

@@ -31,6 +31,12 @@
   --demo-accent: #f9c74f;
   --phone-width: 390px;
   --phone-height: 844px;
+  --game-storm: #101523;
+  --game-plum: #33254f;
+  --game-parchment: #f3ebdd;
+  --game-ink: #24202b;
+  --game-gold: #d6a84a;
+  --game-redactor: #a8323e;
 }
 
 html,
@@ -55,7 +61,7 @@ body {
   background:
     radial-gradient(
       circle at 76% 18%,
-      rgb(249 199 79 / 16%),
+      rgb(214 168 74 / 16%),
       transparent 28rem
     ),
     radial-gradient(
@@ -63,7 +69,12 @@ body {
       rgb(77 119 255 / 14%),
       transparent 32rem
     ),
-    linear-gradient(145deg, #111827 0%, #090d16 60%, #05070c 100%);
+    repeating-linear-gradient(
+      115deg,
+      transparent 0 44px,
+      rgb(214 168 74 / 2%) 45px 46px
+    ),
+    linear-gradient(145deg, #171c2a 0%, #090d16 60%, #05070c 100%);
 }
 
 .project-intro {
@@ -80,7 +91,7 @@ body {
 
 .project-kicker {
   margin: 0;
-  color: var(--demo-accent);
+  color: var(--game-gold);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -103,6 +114,8 @@ body {
 }
 
 .project-intro h1 {
+  color: var(--game-parchment);
+  font-family: Georgia, "Times New Roman", serif;
   margin: 0;
   font-size: clamp(3rem, 7vw, 5.5rem);
   font-weight: 800;
@@ -160,11 +173,12 @@ body {
   height: min(var(--phone-height), calc(100dvh - 4rem));
   min-height: 620px;
   overflow: hidden;
-  border: 8px solid #222833;
+  border: 7px solid #282839;
   border-radius: 3rem;
   background: #fff;
   box-shadow:
     0 2.5rem 6rem rgb(0 0 0 / 55%),
+    0 0 0 1px rgb(214 168 74 / 26%),
     inset 0 0 0 1px rgb(255 255 255 / 15%);
 }
 

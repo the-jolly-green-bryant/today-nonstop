@@ -198,4 +198,21 @@ describe("story data", () => {
         .target,
     ).toBe("1364__BELL_CHAMBER_REVISIT")
   })
+
+  it("does not grant late-game memories during a clean opening", () => {
+    const openingScenes = ["1010__START", "1011__START"]
+    const openingCommands = openingScenes.flatMap(
+      (sceneId) => dialogData.dialog[sceneId].dialog ?? [],
+    )
+    const grantedItems = openingCommands
+      .filter((line) => line.startsWith("[[ADD_ITEM]]"))
+      .map((line) => line.replace("[[ADD_ITEM]]", ""))
+
+    expect(grantedItems).toEqual(["lives_lived"])
+    expect(grantedItems).not.toContain("amy_trust")
+    expect(grantedItems).not.toContain("shady_truce")
+    expect(grantedItems).not.toContain("read_black_ledger")
+    expect(grantedItems).not.toContain("knows_bell_ritual")
+    expect(grantedItems).not.toContain("escaped_loop")
+  })
 })

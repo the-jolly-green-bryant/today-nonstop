@@ -4,21 +4,33 @@
     <div class="splash-shade" aria-hidden="true"></div>
 
     <section class="splash-content" aria-labelledby="game-title">
-      <img
-        class="splash-mark"
-        src="assets/brand-mark.svg"
-        alt=""
-        width="52"
-        height="52"
-      />
+      <div class="splash-loop-sigil" aria-hidden="true">
+        <span class="sigil-ring"></span>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </div>
       <p class="splash-kicker">A story about terrible decisions</p>
-      <h1 id="game-title">Today<br />Nonstop</h1>
+      <h1 id="game-title">Today Nonstop</h1>
+      <p class="splash-memory">The day remembers.</p>
       <p class="splash-subtitle">
         Wake up. Make a choice. Die strangely. Remember enough to break the
         loop.
       </p>
 
       <div class="splash-actions">
+        <div
+          *ngIf="has_saved_game"
+          class="save-summary"
+          aria-label="Current story save"
+        >
+          <div class="save-summary-mark" aria-hidden="true">∞</div>
+          <div>
+            <strong>Loop {{ story_summary?.loop_number || 1 }}</strong>
+            <span
+              >{{ story_summary?.choices_made || 0 }} choices remembered</span
+            >
+          </div>
+          <ion-icon name="ribbon-outline"></ion-icon>
+        </div>
         <ion-button
           *ngIf="has_saved_game"
           expand="block"
@@ -44,7 +56,7 @@
 
     <footer class="splash-footer">
       <span>An experiment by Bryant James</span>
-      <span>v1.5</span>
+      <span>v1.6</span>
     </footer>
   </main>
 </ion-content>
