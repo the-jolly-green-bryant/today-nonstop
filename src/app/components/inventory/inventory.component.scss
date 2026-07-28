@@ -1,144 +1,276 @@
-@use "../../../theme/variables" as *;
-
 .inventory {
-  padding: 24px 0 40px;
+  color: #f3ebdd;
+  min-height: 100%;
+  padding: 25px 16px 42px;
 
   &-intro {
-    padding: 0 $ds-vertical-padding-minimum 24px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 10px 20px;
+    text-align: center;
 
     h2 {
-      color: #29213d;
+      color: #e5bd68;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 27px;
-      margin: 4px 0 8px;
+      font-size: 30px;
+      letter-spacing: 0.04em;
+      margin: 6px 0;
+      text-transform: uppercase;
     }
 
     p {
-      color: $ds-font-secondary;
-      font-size: 13px;
+      color: #bdb1a1;
+      font-size: 12px;
       line-height: 1.5;
       margin: 0;
     }
 
     .inventory-eyebrow {
-      color: #8a6470;
-      font-size: 10px;
+      color: #d6a84a;
+      font-size: 9px;
       font-weight: 800;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.17em;
       text-transform: uppercase;
     }
   }
 
-  &-title {
-    color: #8a6470;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.13em;
-    padding: 32px $ds-vertical-padding-minimum 12px;
-    text-transform: uppercase;
-  }
-
   &-empty {
     align-items: center;
-    border: 1px dashed rgb(69 54 95 / 18%);
-    border-radius: 18px;
-    color: $ds-font-secondary;
+    background: rgb(6 9 15 / 45%);
+    border: 1px dashed rgb(214 168 74 / 34%);
+    border-radius: 16px;
+    color: #bdb1a1;
     display: flex;
     flex-direction: column;
     gap: 7px;
-    margin: 0 $ds-vertical-padding-minimum;
-    padding: 26px 18px;
+    padding: 28px 18px;
     text-align: center;
 
     ion-icon {
-      color: #8a6470;
-      font-size: 26px;
+      color: #d6a84a;
+      font-size: 25px;
     }
 
     strong {
-      color: $ds-font-primary;
+      color: #f3ebdd;
       font-size: 14px;
     }
 
     span {
-      font-size: 12px;
-      line-height: 1.45;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.chronicle-sigil {
+  align-items: center;
+  border: 1px solid rgb(214 168 74 / 70%);
+  border-radius: 50%;
+  display: flex;
+  height: 64px;
+  justify-content: center;
+  margin-bottom: 12px;
+  position: relative;
+  width: 64px;
+
+  &::before,
+  span {
+    border: 1px solid rgb(214 168 74 / 28%);
+    border-radius: 50%;
+    content: "";
+    inset: 7px;
+    position: absolute;
+  }
+
+  &::after {
+    border: 2px solid;
+    border-color: #d6a84a transparent transparent #d6a84a;
+    border-radius: 50%;
+    content: "";
+    inset: -5px;
+    position: absolute;
+    transform: rotate(-18deg);
+  }
+
+  ion-icon {
+    color: #d6a84a;
+    font-size: 28px;
+  }
+}
+
+.chronicle-tabs {
+  border: 1px solid rgb(214 168 74 / 38%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 18px;
+
+  button {
+    background: #151a27;
+    border: 0;
+    color: #a99e90;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    min-height: 42px;
+    text-transform: uppercase;
+
+    & + button {
+      border-left: 1px solid rgb(214 168 74 / 28%);
     }
 
-    &.is-compact {
-      padding: 18px;
+    &.is-active {
+      background: #f3ebdd;
+      color: #24202b;
+      position: relative;
+
+      &::after {
+        background: #f3ebdd;
+        bottom: -5px;
+        content: "";
+        height: 10px;
+        left: calc(50% - 5px);
+        position: absolute;
+        transform: rotate(45deg);
+        width: 10px;
+      }
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgb(214 168 74 / 60%);
+      outline-offset: -3px;
+    }
+  }
+}
+
+.truth-path {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 24px;
+
+  span {
+    background: #151a27;
+    border: 1px solid rgb(214 168 74 / 32%);
+    border-radius: 50%;
+    height: 11px;
+    position: relative;
+    width: 11px;
+
+    & + span {
+      margin-left: 28px;
+
+      &::before {
+        background: rgb(214 168 74 / 22%);
+        content: "";
+        height: 1px;
+        position: absolute;
+        right: 10px;
+        top: 4px;
+        width: 29px;
+      }
+    }
+
+    &.is-found {
+      background: #d6a84a;
+      box-shadow: 0 0 13px rgb(214 168 74 / 55%);
     }
   }
 }
 
 .inventory-item {
-  padding-top: 120%;
+  background:
+    linear-gradient(135deg, rgb(214 168 74 / 8%), transparent), #f3ebdd;
+  border: 1px solid #d6a84a;
+  border-radius: 4px;
+  box-shadow: 0 13px 28px rgb(0 0 0 / 28%);
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  min-height: 98px;
+  overflow: hidden;
   position: relative;
 
-  &-background {
-    border-radius: 18px;
-    bottom: 0;
-    box-shadow: $ds-card-box-shadow;
-    display: flex;
-    left: 0;
-    overflow: hidden;
+  &::after {
+    border: 1px solid rgb(91 66 29 / 22%);
+    content: "";
+    inset: 4px;
+    pointer-events: none;
     position: absolute;
-    right: 0;
-    top: 0;
+  }
 
-    > img {
+  &-background {
+    border-right: 1px solid rgb(91 66 29 / 30%);
+    display: flex;
+    margin: 7px;
+    overflow: hidden;
+
+    img {
+      filter: sepia(0.25) saturate(0.75);
       height: 100%;
       object-fit: cover;
-      object-position: center;
       width: 100%;
     }
   }
 
+  &-copy {
+    align-content: center;
+    color: #383039;
+    display: grid;
+    padding: 14px 15px 14px 8px;
+
+    p {
+      color: #746870;
+      font-size: 10px;
+      margin: 5px 0 0;
+    }
+  }
+
+  &-index {
+    color: #a8323e;
+    font-family: Georgia, serif;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
   &-title {
-    align-items: center;
-    background: linear-gradient(transparent, rgb(20 17 26 / 88%));
-    bottom: 0;
-    color: $ds-font-inverted;
-    display: flex;
-    font-size: 12px;
-    font-weight: bold;
-    justify-content: center;
-    left: 0;
-    padding: 28px 8px 9px;
-    position: absolute;
-    right: 0;
-    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: 700;
   }
 
   &-quantity {
     align-items: center;
-    background: $ds-color-dark;
+    background: #a8323e;
+    border: 2px solid #f3ebdd;
     border-radius: 50%;
-    box-shadow: $ds-card-box-shadow;
-    color: $ds-font-inverted;
+    color: #fff;
     display: flex;
-    font-size: 12px;
-    font-weight: bold;
-    height: 24px;
+    font-size: 10px;
+    font-weight: 800;
+    height: 25px;
     justify-content: center;
     position: absolute;
-    right: -8px;
-    top: -8px;
-    width: 24px;
+    right: 8px;
+    top: 8px;
+    width: 25px;
+    z-index: 2;
   }
 
   &-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 14px;
-    padding: 0 $ds-vertical-padding-minimum;
-
-    &.is-status-container {
-      grid-template-columns: 1fr 1fr;
-    }
+    gap: 11px;
   }
+}
 
-  &-container.is-status-container & {
-    padding-top: 70%;
-  }
+.truth-count {
+  color: #d6a84a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  margin: 22px 0 0;
+  text-align: center;
+  text-transform: uppercase;
 }

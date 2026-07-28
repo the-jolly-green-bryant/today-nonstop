@@ -1,13 +1,13 @@
 ion-tab-bar {
-  --background: rgb(255 253 248 / 96%);
-  --border: 1px solid rgb(57 44 76 / 10%);
-  height: 66px;
+  --background: rgb(12 16 25 / 98%);
+  --border: 1px solid rgb(214 168 74 / 32%);
+  height: 70px;
   padding: 4px 8px max(4px, env(safe-area-inset-bottom));
 }
 
 ion-tab-button {
-  --color: #8a8490;
-  --color-selected: #45365f;
+  --color: #8f877c;
+  --color-selected: #d6a84a;
   --padding-end: 4px;
   --padding-start: 4px;
   font-size: 10px;
@@ -15,7 +15,18 @@ ion-tab-button {
   letter-spacing: 0.02em;
 
   ion-icon {
-    font-size: 21px;
+    font-size: 22px;
+  }
+}
+
+ion-tab-button[tab="main"] {
+  border-inline: 1px solid rgb(214 168 74 / 16%);
+
+  ion-icon {
+    border: 1px solid rgb(214 168 74 / 45%);
+    border-radius: 50%;
+    margin-top: -12px;
+    padding: 9px;
   }
 }
 
@@ -34,7 +45,7 @@ ion-tab-button {
 }
 
 .menu-content {
-  --background: #f7f3ea;
+  --background: #101523;
   --padding-bottom: max(18px, env(safe-area-inset-bottom));
   --padding-end: 18px;
   --padding-start: 18px;
@@ -44,7 +55,8 @@ ion-tab-button {
 .menu-brand {
   align-items: center;
   background:
-    linear-gradient(135deg, rgb(69 54 95 / 96%), rgb(36 29 50 / 98%)), #30263f;
+    linear-gradient(135deg, rgb(51 37 79 / 96%), rgb(16 21 35 / 98%)), #101523;
+  border: 1px solid rgb(214 168 74 / 35%);
   border-radius: 22px;
   box-shadow: 0 14px 30px rgb(38 28 52 / 18%);
   color: #fffdf8;
@@ -54,7 +66,7 @@ ion-tab-button {
 
   .brand-sigil {
     align-items: center;
-    background: #e25f38;
+    background: #a8323e;
     border: 1px solid rgb(255 255 255 / 24%);
     border-radius: 15px 15px 15px 4px;
     box-shadow: inset 0 0 0 3px rgb(255 255 255 / 9%);
@@ -79,7 +91,7 @@ ion-tab-button {
   }
 
   p {
-    color: #f2c56d;
+    color: #d6a84a;
     font-size: 9px;
     font-weight: 800;
     letter-spacing: 0.13em;
@@ -100,7 +112,7 @@ ion-tab-button {
 }
 
 .menu-label {
-  color: #8b7581;
+  color: #d6a84a;
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -115,18 +127,18 @@ ion-list {
   padding: 0;
 
   ion-item {
-    --background: #fffdf8;
+    --background: #181d2b;
     --border-radius: 14px;
-    --color: #322a40;
+    --color: #f3ebdd;
     --min-height: 58px;
     --padding-end: 12px;
     --padding-start: 13px;
     --ripple-color: #735e8d;
-    border: 1px solid rgb(69 54 95 / 8%);
+    border: 1px solid rgb(214 168 74 / 18%);
     border-radius: 14px;
 
     ion-icon {
-      color: #725e86;
+      color: #d6a84a;
       font-size: 20px;
       margin-inline-end: 13px;
     }
@@ -141,7 +153,7 @@ ion-list {
       }
 
       span {
-        color: #817985;
+        color: #9f968b;
         font-size: 10px;
       }
     }
@@ -154,10 +166,10 @@ ion-list {
   grid-template-columns: repeat(3, 1fr);
 
   button {
-    background: #fffdf8;
-    border: 1px solid rgb(69 54 95 / 12%);
+    background: #181d2b;
+    border: 1px solid rgb(214 168 74 / 18%);
     border-radius: 14px;
-    color: #554b5d;
+    color: #f3ebdd;
     display: grid;
     font: inherit;
     gap: 3px;
@@ -170,13 +182,13 @@ ion-list {
     }
 
     span {
-      color: #918992;
+      color: #9f968b;
       font-size: 9px;
     }
 
     &.is-active {
-      background: #45365f;
-      border-color: #45365f;
+      background: #33254f;
+      border-color: #d6a84a;
       box-shadow: 0 8px 18px rgb(69 54 95 / 20%);
       color: #fff;
 
@@ -193,9 +205,10 @@ ion-list {
 }
 
 .menu-about {
-  background: #ede6da;
+  background: #181d2b;
+  border: 1px solid rgb(214 168 74 / 18%);
   border-radius: 18px;
-  color: #675e69;
+  color: #aaa095;
   margin-top: 24px;
   padding: 15px;
 
@@ -211,7 +224,7 @@ ion-list {
 
   a {
     align-items: center;
-    color: #45365f;
+    color: #d6a84a;
     display: inline-flex;
     font-size: 11px;
     font-weight: 750;
@@ -226,7 +239,7 @@ ion-list {
   grid-template-columns: repeat(3, 1fr);
 
   span {
-    background: rgb(255 253 248 / 72%);
+    background: rgb(243 235 221 / 6%);
     border-radius: 10px;
     display: grid;
     font-size: 8px;
@@ -237,7 +250,7 @@ ion-list {
   }
 
   strong {
-    color: #342941;
+    color: #f3ebdd;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 17px;
   }

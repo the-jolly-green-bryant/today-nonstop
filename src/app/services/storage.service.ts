@@ -7,6 +7,7 @@ import { Storage } from "@ionic/storage-angular"
 export class StorageService {
   public readonly event_stream_db_key = "dialog_event_stream"
   public readonly preferences_db_key = "game_preferences"
+  public readonly story_summary_db_key = "story_summary"
   private readonly database_ready: Promise<Storage>
 
   constructor(private storage: Storage) {
