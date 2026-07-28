@@ -543,6 +543,55 @@
       "is_status": true,
       "hidden": false,
       "persists": true
+    },
+    "visited_road": {
+      "name": "",
+      "avatar": "",
+      "description": "",
+      "persists": true,
+      "hidden": true
+    },
+    "visited_tourney": {
+      "name": "",
+      "avatar": "",
+      "description": "",
+      "persists": true,
+      "hidden": true
+    },
+    "visited_child": {
+      "name": "",
+      "avatar": "",
+      "description": "",
+      "persists": true,
+      "hidden": true
+    },
+    "visited_farm": {
+      "name": "",
+      "avatar": "",
+      "description": "",
+      "persists": true,
+      "hidden": true
+    },
+    "visited_market": {
+      "name": "",
+      "avatar": "",
+      "description": "",
+      "persists": true,
+      "hidden": true
+    },
+    "attempted_bell_heist": {
+      "name": "",
+      "avatar": "",
+      "description": "",
+      "persists": true,
+      "hidden": true
+    },
+    "reached_bell_chamber": {
+      "name": "",
+      "avatar": "",
+      "description": "",
+      "persists": true,
+      "hidden": true
     }
   },
   "keyed_images": {
@@ -871,6 +920,7 @@
       "comment": "During your walk, you see a hazy form floating in the sky.",
       "speaker": "player",
       "dialog": [
+        "[[ADD_ITEM]]visited_road",
         "[[EMOTE]][You leave the farm before the rain can decide whether to fall.]",
         "[[SHOW_KEYED_IMAGE]]fake_outside",
         "[[SET_SPEAKER]]player",
@@ -904,7 +954,15 @@
           "dialog": []
         }
       },
-      "show_in_editor": false
+      "show_in_editor": false,
+      "skip_to_if": {
+        "visited_road": {
+          "consumes_item": false,
+          "quantity": 1,
+          "target": "1020R__REVISIT",
+          "minimum_quantity": 1
+        }
+      }
     },
     "1130__BAD_DREAM": {
       "comment": "You attack the beast",
@@ -1628,6 +1686,7 @@
       "comment": "Start farm chores",
       "speaker": "player",
       "dialog": [
+        "[[ADD_ITEM]]visited_farm",
         "[[EMOTE]][The farmyard waits beneath the rain: goats complaining, pigs plotting, chickens pretending innocence.]",
         "[[SET_SPEAKER]]player",
         "Chores.",
@@ -1664,12 +1723,21 @@
           "show_if": ["wont_forget_eggs"]
         }
       },
-      "show_in_editor": false
+      "show_in_editor": false,
+      "skip_to_if": {
+        "visited_farm": {
+          "consumes_item": false,
+          "quantity": 1,
+          "target": "1050R__REVISIT",
+          "minimum_quantity": 1
+        }
+      }
     },
     "1040__INVESTIGATE": {
       "comment": "It's a normal morning. You hear a child crying. You don't have children.",
       "speaker": "player",
       "dialog": [
+        "[[ADD_ITEM]]visited_child",
         "[[EMOTE]][As you coax the hearth awake, a child begins crying beyond the eastern field.]",
         "[[SET_SPEAKER]]baby",
         "Oueeeeeeeeeh!",
@@ -1715,7 +1783,15 @@
           ]
         }
       },
-      "show_in_editor": false
+      "show_in_editor": false,
+      "skip_to_if": {
+        "visited_child": {
+          "consumes_item": false,
+          "quantity": 1,
+          "target": "1040R__REVISIT",
+          "minimum_quantity": 1
+        }
+      }
     },
     "1036__TOURNEY": {
       "comment": "Too much equipment (grab bow)",
@@ -1869,6 +1945,7 @@
       "comment": "Today's the fair. You remember the archery tourney. You remember you're a participant.",
       "speaker": "player",
       "dialog": [
+        "[[ADD_ITEM]]visited_tourney",
         "[[EMOTE]][A tournament pennant snaps against your window.]",
         "[[SET_SPEAKER]]player",
         "The tourney.",
@@ -1901,7 +1978,15 @@
           "dialog": []
         }
       },
-      "show_in_editor": false
+      "show_in_editor": false,
+      "skip_to_if": {
+        "visited_tourney": {
+          "consumes_item": false,
+          "quantity": 1,
+          "target": "1030R__REVISIT",
+          "minimum_quantity": 1
+        }
+      }
     },
     "1013__START": {
       "comment": "Wake up after two days",
@@ -1910,23 +1995,11 @@
         "[[ADD_ITEM]]lives_lived",
         "[[CLEAR_INVENTORY]]",
         "[[SHOW_KEYED_IMAGE]]intro_not_medieval_rain",
-        "[[EMOTE]][Thunder. Rain. The stain above your bed shaped like a disappointed bishop.]",
+        "[[EMOTE]][Thunder. Rain. The bell waiting at the edge of the same morning.]",
         "[[SET_SPEAKER]]player",
         "Again.",
         "[[SET_SPEAKER]]evil_player",
-        "Again.",
-        "[[SET_SPEAKER]]player",
-        "How many mornings?",
-        "[[SET_SPEAKER]]evil_player",
-        "Enough that you have begun asking better questions.",
-        "[[SET_SPEAKER]]player",
-        "Today we stop guessing.",
-        "Every path leaves something behind.",
-        "[[SET_SPEAKER]]evil_player",
-        "Usually our corpse.",
-        "[[SET_SPEAKER]]player",
-        "Evidence is evidence.",
-        "[[EMOTE]][The first bell waits in the distance.]"
+        "But not from nothing."
       ],
       "next": {
         "1011__START": {
@@ -2470,6 +2543,7 @@
       "comment": "Enter the fair and discover that its bells do not agree with time.",
       "speaker": "player",
       "dialog": [
+        "[[ADD_ITEM]]visited_market",
         "[[SHOW_KEYED_IMAGE]]tourney_town",
         "[[EMOTE]][You follow the bells toward town.]",
         "[[SET_SPEAKER]]evil_player",
@@ -2526,7 +2600,15 @@
           "dialog": []
         }
       },
-      "show_in_editor": true
+      "show_in_editor": true,
+      "skip_to_if": {
+        "visited_market": {
+          "consumes_item": false,
+          "quantity": 1,
+          "target": "1200R__REVISIT",
+          "minimum_quantity": 1
+        }
+      }
     },
     "1210__MARKET_CRIER": {
       "comment": "Amy denies the impossible bell until the player proves the day repeats.",
@@ -2585,7 +2667,15 @@
           "show_if": ["heard_thirteenth_bell"]
         }
       },
-      "show_in_editor": true
+      "show_in_editor": true,
+      "skip_to_if": {
+        "heard_thirteenth_bell": {
+          "consumes_item": false,
+          "quantity": 1,
+          "target": "1213__MARKET_CRIER",
+          "minimum_quantity": 1
+        }
+      }
     },
     "1211__MARKET_CRIER": {
       "comment": "The player first learns that Amy also hears the impossible bell.",
@@ -3211,6 +3301,7 @@
       "comment": "The player begins the true-ending campaign after recruiting allies across loops.",
       "speaker": "player",
       "dialog": [
+        "[[ADD_ITEM]]attempted_bell_heist",
         "[[SHOW_KEYED_IMAGE]]tourney_town",
         "[[EMOTE]][You enter the fair with the confidence of someone who has already died in every available direction.]",
         "[[SET_SPEAKER]]evil_player",
@@ -3245,7 +3336,15 @@
           "dialog": []
         }
       },
-      "show_in_editor": true
+      "show_in_editor": true,
+      "skip_to_if": {
+        "attempted_bell_heist": {
+          "consumes_item": false,
+          "quantity": 1,
+          "target": "1300R__REVISIT",
+          "minimum_quantity": 1
+        }
+      }
     },
     "1310__BELL_HEIST": {
       "comment": "Amy joins the conspiracy and clears the square.",
@@ -3664,6 +3763,7 @@
       "comment": "At the bell, the player chooses how to confront the divided self.",
       "speaker": "player",
       "dialog": [
+        "[[ADD_ITEM]]reached_bell_chamber",
         "[[SHOW_KEYED_IMAGE]]tourney_big_face",
         "[[EMOTE]][You burst into the bell chamber beneath a sky wearing your face.]",
         "[[SET_SPEAKER]]evil_player",
@@ -4020,6 +4120,223 @@
       ],
       "next": {},
       "show_in_editor": false
+    },
+    "1020R__REVISIT": {
+      "comment": "Return to the road after learning how the false sky behaves.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][You return to the dry road beneath impossible rain.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Frozen birds.",
+        "Your face in the sky.",
+        "A correction if we linger.",
+        "[[SET_SPEAKER]]player",
+        "Good.",
+        "We can skip the surprised part."
+      ],
+      "next": {
+        "1110__EASTER_EGG_ENDING": {
+          "title": "Force the day to reveal its correction.",
+          "dialog": []
+        },
+        "1140__FAKE_WORLD": {
+          "title": "Rebuild the memory-bridge.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1030R__REVISIT": {
+      "comment": "Return to the tournament with prior knowledge.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][You arrive before Harold can pretend not to recognize you.]",
+        "[[SET_SPEAKER]]harold",
+        "Name?",
+        "[[SET_SPEAKER]]player",
+        "Whichever one your ledger wrote first.",
+        "[[SET_SPEAKER]]evil_player",
+        "Efficient.",
+        "Threatening."
+      ],
+      "next": {
+        "1031__TOURNEY": {
+          "title": "Prepare for the tournament without repeating old mistakes.",
+          "dialog": []
+        },
+        "1090__TOURNEY": {
+          "title": "Examine the records instead of competing.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1040R__REVISIT": {
+      "comment": "Return to the repeating cry with prior knowledge.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][The child cries beyond the eastern field on precisely the expected breath.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Still French.",
+        "[[SET_SPEAKER]]player",
+        "Still not a child.",
+        "[[SET_SPEAKER]]evil_player",
+        "Breakfast remains an option."
+      ],
+      "next": {
+        "1060__INVESTIGATE": {
+          "title": "Meet the echo in the field again.",
+          "dialog": []
+        },
+        "1080__INVESTIGATE": {
+          "title": "Wait for the echo to come inside.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1050R__REVISIT": {
+      "comment": "Return to the farm after its impossible discoveries.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][The crowned hen is already waiting beside tomorrow's nesting box.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Your Majesty.",
+        "[[SET_SPEAKER]]player",
+        "No ceremony today.",
+        "We know where the strange parts are."
+      ],
+      "next": {
+        "1055__CHICKEN": {
+          "title": "Check the goat tower and the waiting wolves.",
+          "dialog": []
+        },
+        "1056__CHICKEN": {
+          "title": "Follow the ledger-marked pack into the wood.",
+          "dialog": []
+        },
+        "1051__CHICKEN": {
+          "title": "Return to the chicken court.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1200R__REVISIT": {
+      "comment": "Return to the fair after hearing the impossible bell.",
+      "speaker": "player",
+      "dialog": [
+        "[[SHOW_KEYED_IMAGE]]tourney_town",
+        "[[EMOTE]][The fair repeats its muddy pageant. You no longer wait for the thirteenth stroke to know it is coming.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Amy remembers.",
+        "Shady dreams.",
+        "Harold keeps the book.",
+        "[[SET_SPEAKER]]player",
+        "Then we speak only to whoever still has something to teach us."
+      ],
+      "next": {
+        "1210__MARKET_CRIER": {
+          "title": "Find Amy behind the proclamation platform.",
+          "dialog": []
+        },
+        "1220__MARKET_SHADY": {
+          "title": "Find Shady beneath the false-relic banner.",
+          "dialog": []
+        },
+        "1230__MARKET_TOWER": {
+          "title": "Return to Gilbert and the locked tower.",
+          "dialog": []
+        },
+        "1240__LEDGER": {
+          "title": "Go directly to Harold's black ledger.",
+          "dialog": [],
+          "show_if": ["amy_trust"]
+        }
+      },
+      "show_in_editor": true
+    },
+    "1300R__REVISIT": {
+      "comment": "Resume a failed bell heist without replaying its setup.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][You enter the fair already counting backward from thirteen.]",
+        "[[SET_SPEAKER]]evil_player",
+        "Amy clears the square.",
+        "Shady opens the locks.",
+        "Harold decides whether to help.",
+        "[[SET_SPEAKER]]player",
+        "We remember the plan.",
+        "Let us improve the ending."
+      ],
+      "skip_to_if": {
+        "reached_bell_chamber": {
+          "consumes_item": false,
+          "quantity": 1,
+          "target": "1364__BELL_CHAMBER_REVISIT",
+          "minimum_quantity": 1
+        }
+      },
+      "next": {
+        "1333__HAROLD_REVISIT": {
+          "title": "Resume at Harold's choice.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1333__HAROLD_REVISIT": {
+      "comment": "Return to Harold's decision during a repeated heist.",
+      "speaker": "player",
+      "dialog": [
+        "[[EMOTE]][Harold waits in the registration tent with the ledger chained to his wrist.]",
+        "[[SET_SPEAKER]]harold",
+        "You know what happens if I open the tower.",
+        "[[SET_SPEAKER]]player",
+        "I also know what happens if you do not.",
+        "[[SET_SPEAKER]]evil_player",
+        "Decision efficiently restated."
+      ],
+      "next": {
+        "1331__BELL_HEIST": {
+          "title": "Ask Harold to choose tomorrow again.",
+          "dialog": []
+        },
+        "1332__BELL_HEIST": {
+          "title": "Take the ledger by force.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
+    },
+    "1364__BELL_CHAMBER_REVISIT": {
+      "comment": "Return directly to the bell chamber after a failed final choice.",
+      "speaker": "player",
+      "dialog": [
+        "[[SHOW_KEYED_IMAGE]]tourney_big_face",
+        "[[EMOTE]][Memory carries you past the locks, the stairs, and the gathered echoes to the choice that killed you last.]",
+        "[[SET_SPEAKER]]doppelganger",
+        "Only one life leaves.",
+        "[[SET_SPEAKER]]player",
+        "We have heard the old rule.",
+        "[[SET_SPEAKER]]evil_player",
+        "Let us try a better answer."
+      ],
+      "next": {
+        "1361__BELL_HEIST": {
+          "title": "Break the bell.",
+          "dialog": []
+        },
+        "1362__BELL_HEIST": {
+          "title": "Let the Voice read the divided name.",
+          "dialog": []
+        },
+        "1363__BELL_HEIST": {
+          "title": "Name every abandoned life.",
+          "dialog": []
+        }
+      },
+      "show_in_editor": true
     }
   }
 }
