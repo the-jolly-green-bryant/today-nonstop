@@ -23,6 +23,7 @@ for working with its story data.
 - A formal in-game menu with persistent reading preferences
 - Professionally revised opening loops that build evidence toward the Thirteenth Bell mystery
 - Loop-aware revisit scenes that compress familiar setup and surface changed choices
+- Privacy-conscious GA4 progression events for starts, loops, discoveries, the bell heist, and completion
 - Conditional scenes and choices driven by inventory state
 - Persistent achievements, characters, and collectible items
 - 94 scenes, more than 2,000 paced story lines, and 149 branching choices
@@ -85,6 +86,26 @@ artifact to GitHub Pages. The live site uses the custom domain
 
 Pull requests run the separate CI workflow and must pass formatting, linting,
 tests, and a production build before they are merged.
+
+### Progression analytics
+
+Google Analytics is disabled unless a valid GA4 measurement ID is supplied.
+For production, create a repository Actions variable named
+`GA_MEASUREMENT_ID` with a value such as `G-XXXXXXXXXX`. The deployment
+workflow injects it into the runtime configuration without committing
+account-specific configuration.
+
+The game emits three deliberately small event families:
+
+- `story_session`: a new or resumed story
+- `story_choice`: the selected choice, destination scene, and loop number
+- `story_progress`: named milestones from the opening through the epilogue,
+  including a normalized `progress_percent`
+
+Saved-game hydration is excluded, so resuming a story does not replay historical
+events into Analytics. No dialogue text, inventory contents, names, email
+addresses, or other player-entered information is collected. Advertising and
+analytics storage consent default to denied.
 
 ## Story format
 

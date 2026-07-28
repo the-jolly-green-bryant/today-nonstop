@@ -6,6 +6,7 @@ import {
 } from "../classes/dialog-stream"
 import { StorageService } from "./storage.service"
 import dialog_data from "../game-data/dialog.json"
+import { AnalyticsService } from "./analytics.service"
 
 export type StorySpeed = 1 | 0.35 | 0
 
@@ -17,13 +18,35 @@ interface GamePreferences {
   providedIn: "root",
 })
 export class DialogStreamService {
-  public dialog_stream = new DialogStream()
+  public dialog_stream: DialogStream
   public initialized = false
   public speed_multiplier: StorySpeed = 1
   private load_task: Promise<void> | null = null
   private preferences_loaded = false
+  private analytics_enabled = false
 
-  constructor(private storage: StorageService) {}
+  constructor(
+    private storage: StorageService,
+    private analytics: AnalyticsService,
+  ) {
+    this.dialog_stream = this.create_dialog_stream()
+    this.analytics.initialize()
+  }
+
+  private create_dialog_stream(): DialogStream {
+    return new DialogStream({
+      onSceneEntered: (scene, loopNumber) => {
+        if (this.analytics_enabled) {
+          this.analytics.trackScene(scene, loopNumber)
+        }
+      },
+      onOptionSelected: (option, loopNumber) => {
+        if (this.analytics_enabled) {
+          this.analytics.trackChoice(option.scene, option.title, loopNumber)
+        }
+      },
+    })
+  }
 
   /**
    * Either loads events from storage or runs our default scene if no events found.
@@ -52,7 +75,8 @@ export class DialogStreamService {
 
   private async hydrate_events(default_scene: string): Promise<void> {
     await this.load_preferences()
-    this.dialog_stream = new DialogStream()
+    this.analytics_enabled = false
+    this.dialog_stream = this.create_dialog_stream()
     this.dialog_stream.speed_multiplier = this.speed_multiplier
     const dialog_events = await this.storage.get<DialogStreamEvent[]>(
       this.storage.event_stream_db_key,
@@ -77,6 +101,14 @@ export class DialogStreamService {
       }
     }
 
+    this.analytics_enabled = true
+    this.analytics.trackSession(
+      dialog_events?.length ? "resume_story" : "new_story",
+      dialog_events?.length ?? 0,
+    )
+    if (!dialog_events?.length) {
+      this.analytics.trackScene(default_scene, this.dialog_stream.loop_number)
+    }
     this.initialized = true
   }
 

@@ -35,6 +35,11 @@ jobs:
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
 
+      - name: Configure progression analytics
+        run: npm run configure:analytics
+        env:
+          GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
+
       - name: Run release quality gate
         run: npm run check
 
