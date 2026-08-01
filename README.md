@@ -4,7 +4,7 @@
 [![Deploy](https://github.com/the-jolly-green-bryant/today-nonstop/actions/workflows/deploy.yml/badge.svg)](https://github.com/the-jolly-green-bryant/today-nonstop/actions/workflows/deploy.yml)
 [![Angular](https://img.shields.io/badge/Angular-20-DD0031?logo=angular)](https://angular.dev/)
 [![Ionic](https://img.shields.io/badge/Ionic-8-3880FF?logo=ionic)](https://ionicframework.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All_Rights_Reserved-yellow.svg)](LICENSE)
 
 Today Nonstop is a data-driven, choose-your-own-adventure engine that presents
 branching stories as a mobile conversation. A story is defined in JSON and
@@ -138,4 +138,5 @@ Bug reports and focused improvements are welcome. See
 
 ## License
 
-Released under the [MIT License](LICENSE).
+Published for transparency and portfolio purposes only. All rights are reserved;
+see [LICENSE](LICENSE).
